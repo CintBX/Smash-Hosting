@@ -5,7 +5,7 @@ const router = express.Router();
 const Tournament = require('../../models/Tournament');
 
 
-// @route		GET api/tournaments
+// @route		GET tournaments
 // @descrip	Get All, INDEX
 // @access	Public
 router.get('/', (req, res) => {
@@ -16,18 +16,25 @@ router.get('/', (req, res) => {
 });
 
 
-// @route 	POST api/tournaments
+// @route 	POST tournaments
 // @descrip NEW/CREATE
 // @access 	Public (for now.  Authentication later)
 router.post('/new', (req, res) => {
-	// const { title, description } = req.body
+	const { title, description } = req.body
+
 	const newTournament = new Tournament({
-		title: req.body.title,
-		description: req.body.description
+		title: title,
+		description: description
 	});
 
 	newTournament.save()
 		.then(tournament => res.json(tournament))
+		.catch(err => console.log(err));
 });
+
+
+// @route		DELETE tournaments
+// @descrip DELETE
+// @access Public (for now.  Authentication later)
 
 module.exports = router;
