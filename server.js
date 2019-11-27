@@ -2,8 +2,10 @@ const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
 
+
 // Middleware
 app.use(express.json());
+
 
 // DataBase config
 const db = require('./config/keys').mongoURI;
@@ -13,6 +15,14 @@ mongoose
 	.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
 	.then(() => console.log("Connected to MongoDB.."))
 	.catch(err => console.log(err));
+
+
+// Available Routes
+const tournaments = require('./routes/api/tournaments');
+
+// Use Routes
+app.use('/tournaments', tournaments)
+
 
 // Run Server
 const port = process.env.PORT || 5000;
