@@ -5,7 +5,7 @@ const router = express.Router();
 const Tournament = require('../../models/Tournament');
 
 
-// @route		GET tournaments
+// @route		GET /tournaments
 // @descrip	Get All, INDEX
 // @access	Public
 router.get('/', (req, res) => {
@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
 });
 
 
-// @route 	POST tournaments
+// @route 	POST /tournaments/new
 // @descrip NEW/CREATE
 // @access 	Public (for now.  Authentication later)
 router.post('/new', (req, res) => {
@@ -33,8 +33,13 @@ router.post('/new', (req, res) => {
 });
 
 
-// @route		DELETE tournaments
+// @route		DELETE /tournaments/:id
 // @descrip DELETE
 // @access Public (for now.  Authentication later)
+router.delete('/:id', (req, res) => {
+	Tournament.findById(req.params.id)
+		.then(tournament => tournament.remove().then(() => res.json({ success: true })))
+		.catch(err => res.status(404).json({ success: false }));
+});
 
 module.exports = router;
