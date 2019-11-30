@@ -1,14 +1,14 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
-import AppNav from './components/layout/AppNav';
-import AppProfile from './components/layout/AppProfile';
+import NavigationBar from './components/layout/NavigationBar';
+import ProfileSidebar from './components/layout/ProfileSidebar';
 
 function App() {
   return (
     <div className="App">
-      <AppNav/>
-      <AppProfile/>
+      <NavigationBar />
+      <ProfileSidebar />
     </div>
   );
 }
