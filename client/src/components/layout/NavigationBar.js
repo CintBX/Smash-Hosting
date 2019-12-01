@@ -33,14 +33,14 @@ export default class NavigationBar extends Component {
 					<Container>
 						<NavbarBrand href="/profile" style={{fontSize:'28px'}}>
 							<img src={logo} width="80" height="80" alt="Smash Brothers Logo" />
-							<span className="ml-3">Cin</span>
+							<span className="ml-3">UserName</span>
 						</NavbarBrand>
 						<NavbarToggler onClick={this.toggle} />
 						<Collapse isOpen={this.state.isOpen} navbar>
 							<Nav className="mr-auto" navbar>
 								<NavItem>
 									<NavLink href="/" className="ml-1">
-										Tournament Index
+										All Tournaments
 									</NavLink>
 								</NavItem>
 
