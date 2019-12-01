@@ -4,7 +4,12 @@ export default class ProfileSidebar extends Component {
 	render() {
 		return (
 			<div>
-				<h1><b>Profile Section</b></h1>
+				<img src="https://via.placeholder.com/300x250" className="mb-3" />
+				<p>username</p>
+				<p>main</p>
+				<p>secondary</p>
+				<p>friendCode</p>
+				<p>Edit Profile</p>
 			</div>
 		)
 	}

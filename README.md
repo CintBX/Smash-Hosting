@@ -6,7 +6,7 @@ X Figure out what kind of links you want in Navbar.  Or at least, which main lin
 X Continue following guide using reactstrap
 X Do navbar
 X Profile Section
-	- CSS layout
-	- IMG section (use that filler website first.. placeholder.com i think)
+	X CSS layout (container-row-col)
+	- IMG (placeholder.com)
 	- DATA:
 		- user.username / user.main / user.secondary / user.friendCode / Edit Profile(like github)
