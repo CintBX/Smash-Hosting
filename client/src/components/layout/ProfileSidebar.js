@@ -4,7 +4,7 @@ export default class ProfileSidebar extends Component {
 	render() {
 		return (
 			<div>
-				<h1>Profile Section</h1>
+				<h1><b>Profile Section</b></h1>
 			</div>
 		)
 	}

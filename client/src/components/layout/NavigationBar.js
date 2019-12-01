@@ -9,6 +9,7 @@ import {
 	NavLink,
 	Container
 } from 'reactstrap';
+import logo from '../../logo.svg.png';
 
 export default class NavigationBar extends Component {
 	constructor(props) {
@@ -16,7 +17,6 @@ export default class NavigationBar extends Component {
 		this.state = {
 			isOpen: false,
 		}
-
 		this.toggle = this.toggle.bind(this);
 	}
 
@@ -25,18 +25,34 @@ export default class NavigationBar extends Component {
 			isOpen: !this.state.isOpen
 		});
 	}
+
 	render() {
 		return (
 			<div>
 				<Navbar color="primary" dark expand="sm" className="mb-5">
 					<Container>
-						<NavbarBrand href="/">SmashHosting</NavbarBrand>
+						<NavbarBrand href="/profile" style={{fontSize:'28px'}}>
+							<img src={logo} width="80" height="80" alt="Smash Brothers Logo" />
+							<span className="ml-3">Cin</span>
+						</NavbarBrand>
 						<NavbarToggler onClick={this.toggle} />
 						<Collapse isOpen={this.state.isOpen} navbar>
-							<Nav className="ml-auto" navbar>
+							<Nav className="mr-auto" navbar>
 								<NavItem>
-									<NavLink href="https://www.smashbros.com/en_US/" target="_blank">
-										Smash Ultimate
+									<NavLink href="/" className="ml-1">
+										Tournament Index
+									</NavLink>
+								</NavItem>
+
+								<NavItem>
+									<NavLink href="/my-tournaments" className="ml-1">
+										My Tourneys
+									</NavLink>
+								</NavItem>
+
+								<NavItem>
+									<NavLink href="/smash-news" className="ml-1">
+										Smash News
 									</NavLink>
 								</NavItem>
 							</Nav>
