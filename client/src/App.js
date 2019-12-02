@@ -10,6 +10,7 @@ import TournamentIndex from './components/tournaments/Index';
 import UserProfile from './components/users/UserProfile';
 import UserTournaments from './components/users/UserTournaments';
 import SmashNews from './components/news/SmashNews';
+import FighterDirectory from './components/users/FighterDirectory';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             	<Route path="/profile" component={UserProfile} />
             	<Route path="/my-tournaments" component={UserTournaments} />
             	<Route path="/smash-news" component={SmashNews} />
+              <Route path="/roster" component={FighterDirectory} />
             </Switch>
           </Col>
         </Row>

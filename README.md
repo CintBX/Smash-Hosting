@@ -14,3 +14,5 @@ X Profile Section
 	X IMG (placeholder.com)
 	X placeholders for user data
 
+X Tournaments Main layout roughly done
+- User directory route
