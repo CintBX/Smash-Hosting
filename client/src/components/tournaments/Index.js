@@ -5,6 +5,8 @@ import {
 	Spinner
 } from 'reactstrap';
 import ResultsPopover from './components/ResultsPopover';
+import { Link } from 'react-router-dom';
+import TournamentShow from './Show';
 import uuid from 'uuid';
 
 export default class TournamentIndex extends Component {
@@ -48,7 +50,7 @@ export default class TournamentIndex extends Component {
 		}
 	}
 	render() {
-		const { tournaments } = this.state;
+		const { tournamentOne, tournamentTwo, tournamentThree, tournamentFour } = this.state.tournaments;
 		return (
 			<div>
 				<h1 className="mb-5 display-4">Welcome to SmashHosting!</h1>
@@ -57,18 +59,20 @@ export default class TournamentIndex extends Component {
 				<Jumbotron>
 					<h1 className="mb-5 text-center">Open Tournaments</h1>
 
-					<h3>{ tournaments.tournamentOne.title }</h3>
-					<p style={{fontSize: '0.9em'}} className="text-muted">hosted by: { tournaments.tournamentOne.hostedBy }</p>
+					<h3>{ tournamentOne.title }</h3>
+					<p style={{fontSize: '0.9em'}} className="text-muted">hosted by: { tournamentOne.hostedBy }</p>
 					<hr className="my-2"/>
-					<p>{ tournaments.tournamentOne.description }</p>
+					<p>{ tournamentOne.description }</p>
 					<p className="lead">
-						<Button color="primary">Sign up</Button>
+						<Link to={`/tournament/${tournamentOne.id}`}>
+							<Button color="primary">Sign up</Button>
+						</Link>
 					</p><br/>
 
-					<h3>{ tournaments.tournamentTwo.title }</h3>
-					<p style={{fontSize: '0.9em'}} className="text-muted">hosted by: { tournaments.tournamentTwo.hostedBy }</p>
+					<h3>{ tournamentTwo.title }</h3>
+					<p style={{fontSize: '0.9em'}} className="text-muted">hosted by: { tournamentTwo.hostedBy }</p>
 					<hr className="my-2"/>
-					<p>{ tournaments.tournamentTwo.description }</p>
+					<p>{ tournamentTwo.description }</p>
 					<p className="lead">
 						<Button color="primary">Sign up</Button>
 					</p>
@@ -78,10 +82,10 @@ export default class TournamentIndex extends Component {
 				<Jumbotron>
 					<h1 className="mb-5 text-center">Closed Tournaments</h1>
 
-					<h3>{ tournaments.tournamentThree.title }</h3>
-					<p style={{fontSize: '0.9em'}} className="text-muted">hosted by: { tournaments.tournamentThree.hostedBy }</p>
+					<h3>{ tournamentThree.title }</h3>
+					<p style={{fontSize: '0.9em'}} className="text-muted">hosted by: { tournamentThree.hostedBy }</p>
 					<hr className="my-2"/>
-					<p>{ tournaments.tournamentThree.description }</p>
+					<p>{ tournamentThree.description }</p>
 					<p className="lead">
 						<Spinner color="danger"/> In progress...
 					</p>
@@ -92,10 +96,10 @@ export default class TournamentIndex extends Component {
 				<Jumbotron>
 					<h1 className="mb-5 text-center">Completed Tournaments</h1>
 
-					<h3>{ tournaments.tournamentFour.title }</h3>
-					<p style={{fontSize: '0.9em'}} className="text-muted">hosted by: { tournaments.tournamentFour.hostedBy }</p>
+					<h3>{ tournamentFour.title }</h3>
+					<p style={{fontSize: '0.9em'}} className="text-muted">hosted by: { tournamentFour.hostedBy }</p>
 					<hr className="my-2"/>
-					<p>{ tournaments.tournamentFour.description }</p>
+					<p>{ tournamentFour.description }</p>
 					<p className="lead">
 						<ResultsPopover/>	
 					</p>

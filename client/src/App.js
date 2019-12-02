@@ -7,6 +7,7 @@ import { Container, Row, Col } from 'reactstrap';
 import NavigationBar from './components/layout/NavigationBar';
 import ProfileSidebar from './components/layout/ProfileSidebar';
 import TournamentIndex from './components/tournaments/Index';
+import TournamentShow from './components/tournaments/Show';
 import UserProfile from './components/users/UserProfile';
 import UserTournaments from './components/users/UserTournaments';
 import SmashNews from './components/news/SmashNews';
@@ -29,6 +30,7 @@ function App() {
             	<Route path="/my-tournaments" component={UserTournaments} />
             	<Route path="/smash-news" component={SmashNews} />
               <Route path="/roster" component={FighterDirectory} />
+              <Route path="/tournament/:id" component={TournamentShow} />
             </Switch>
           </Col>
         </Row>
