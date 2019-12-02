@@ -17,28 +17,32 @@ export default class TournamentIndex extends Component {
 					status: "Open",
 					title: "Single Elimination", 
 					description: "Single Elim tournament rules go in this space.", 
-					entrants: ["Cin", "Vagalume", "Sille", "GucciRob", "Apollo", "Ian"]
+					entrants: ["Cin", "Vagalume", "Sille", "GucciRob", "Apollo", "Ian"],
+					hostedBy: "Apollo",
 				},
 				tournamentTwo: { 
 					id: uuid(),
 					status: "Open",
 					title: "Double Elimination", 
 					description: "Double Elim tournament rules go in this space.", 
-					entrants: ["Cin", "Vagalume", "Sille", "GucciRob", "Apollo", "Ian"]
+					entrants: ["Cin", "Vagalume", "Sille", "GucciRob", "Apollo", "Ian"],
+					hostedBy: "Sille",
 				},
 				tournamentThree: { 
 					id: uuid(),
 					status: "Closed",
 					title: "Round Robin", 
 					description: "Round Robin tournament rules go in this space.", 
-					entrants: ["Cin", "Vagalume", "Sille", "GucciRob", "Apollo", "Ian"]
+					entrants: ["Cin", "Vagalume", "Sille", "GucciRob", "Apollo", "Ian"],
+					hostedBy: "Ian",
 				},
 				tournamentFour: { 
 					id: uuid(),
 					status: "Complete",
 					title: "Standard", 
 					description: "Standard tournament rules go in this space.", 
-					entrants: ["Cin", "Vagalume", "Sille", "GucciRob", "Apollo", "Ian"]
+					entrants: ["Cin", "Vagalume", "Sille", "GucciRob", "Apollo", "Ian"],
+					hostedBy: "GucciRob",
 				}
 			}
 		}
@@ -54,6 +58,7 @@ export default class TournamentIndex extends Component {
 					<h1 className="mb-5 text-center">Open Tournaments</h1>
 
 					<h3>{ tournaments.tournamentOne.title }</h3>
+					<p style={{fontSize: '0.9em'}} className="text-muted">hosted by: { tournaments.tournamentOne.hostedBy }</p>
 					<hr className="my-2"/>
 					<p>{ tournaments.tournamentOne.description }</p>
 					<p className="lead">
@@ -61,6 +66,7 @@ export default class TournamentIndex extends Component {
 					</p><br/>
 
 					<h3>{ tournaments.tournamentTwo.title }</h3>
+					<p style={{fontSize: '0.9em'}} className="text-muted">hosted by: { tournaments.tournamentTwo.hostedBy }</p>
 					<hr className="my-2"/>
 					<p>{ tournaments.tournamentTwo.description }</p>
 					<p className="lead">
@@ -73,6 +79,7 @@ export default class TournamentIndex extends Component {
 					<h1 className="mb-5 text-center">Closed Tournaments</h1>
 
 					<h3>{ tournaments.tournamentThree.title }</h3>
+					<p style={{fontSize: '0.9em'}} className="text-muted">hosted by: { tournaments.tournamentThree.hostedBy }</p>
 					<hr className="my-2"/>
 					<p>{ tournaments.tournamentThree.description }</p>
 					<p className="lead">
@@ -86,6 +93,7 @@ export default class TournamentIndex extends Component {
 					<h1 className="mb-5 text-center">Completed Tournaments</h1>
 
 					<h3>{ tournaments.tournamentFour.title }</h3>
+					<p style={{fontSize: '0.9em'}} className="text-muted">hosted by: { tournaments.tournamentFour.hostedBy }</p>
 					<hr className="my-2"/>
 					<p>{ tournaments.tournamentFour.description }</p>
 					<p className="lead">
