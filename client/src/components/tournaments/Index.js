@@ -53,7 +53,7 @@ export default class TournamentIndex extends Component {
 		const { tournamentOne, tournamentTwo, tournamentThree, tournamentFour } = this.state.tournaments;
 		return (
 			<div>
-				<h1 className="mb-5 display-4">Welcome to SmashHosting!</h1>
+				<h1 className="mb-5 display-4 text-center">Welcome to SmashHosting!</h1>
 
 				{/*Open Tournaments*/}
 				<Jumbotron>
