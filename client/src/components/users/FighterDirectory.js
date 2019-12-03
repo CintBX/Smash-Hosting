@@ -1,122 +1,98 @@
 import React, { Component } from 'react';
 import { Media } from 'reactstrap';
+import uuid from 'uuid';
+
+const Fighter = props => (
+	<div>
+		<Media className="media-element">
+			<Media left href="#">
+				<Media object src="https://via.placeholder.com/50x50" />
+			</Media>
+			<Media body>
+				<Media heading className="ml-2">
+					<b>{ props.user.username }</b>
+				</Media>
+				<i style={{fontSize:"0.9rem"}}>
+					<Media className="ml-2">{ props.user.main } / { props.user.secondary } </Media>
+					<Media className="ml-2">{ props.user.friendCode }</Media>
+				</i>
+			</Media>
+		</Media><br/>
+	</div>
+)
 
 export default class FighterDirectory extends Component {
 	constructor(props) {
 		super(props);
+		this.userMedia = this.userMedia.bind(this);
 		this.state = {
-			users: []
+			users: [
+				{
+					id: uuid(),
+					username: "Cin",
+					main: "Samus",
+					secondary: "Belmont",
+					friendCode: "111-222-333"
+				},
+				{
+					id: uuid(),
+					username: "Virtuoso",
+					main: "Pit",
+					secondary: "Ridley",
+					friendCode: "111-222-333"
+				},
+				{
+					id: uuid(),
+					username: "Sille",
+					main: "Link",
+					secondary: "Bowser",
+					friendCode: "111-222-333"
+				},
+				{
+					id: uuid(),
+					username: "GucciRob",
+					main: "Lil Mac",
+					secondary: "Ganon",
+					friendCode: "111-222-333"
+				},
+				{
+					id: uuid(),
+					username: "Apollo",
+					main: "Zero Suit Samus",
+					secondary: "Mega Man",
+					friendCode: "111-222-333"
+				},
+				{
+					id: uuid(),
+					username: "Ian",
+					main: "Young Link",
+					secondary: "Greninja",
+					friendCode: "111-222-333"
+				},
+				{
+					id: uuid(),
+					username: "JT",
+					main: "Terry Bogard",
+					secondary: "Hero",
+					friendCode: "111-222-333"
+				}
+			]
 		}
+	}
+
+	userMedia() {
+		return this.state.users.map(userObject => {
+			return (
+				<Fighter key={userObject.id} user={userObject} />
+			)
+		})
 	}
 
 	render() {
 		return (
 			<div>
-				<h2>Registered Fighters</h2>
-				<Media className="media-element">
-					<Media left href="#">
-						<Media object src="https://via.placeholder.com/50x50" />
-					</Media>
-					<Media body>
-						<Media heading className="ml-2">
-							<b>Cin</b>
-						</Media>
-						<i style={{fontSize:"0.9rem"}}>
-							<Media className="ml-2">Samus / Belmont</Media>
-							<Media className="ml-2">111-222-333</Media>
-						</i>
-					</Media>
-				</Media><br/>
-
-				<Media className="media-element">
-					<Media left href="#">
-						<Media object src="https://via.placeholder.com/50x50" />
-					</Media>
-					<Media body>
-						<Media heading className="ml-2">
-							<b>Vagalume</b>
-						</Media>
-						<i style={{fontSize:"0.9rem"}}>
-							<Media className="ml-2">Pit / Ridley</Media>
-							<Media className="ml-2">111-222-333</Media>
-						</i>
-					</Media>
-				</Media><br/>
-
-				<Media className="media-element">
-					<Media left href="#">
-						<Media object src="https://via.placeholder.com/50x50" />
-					</Media>
-					<Media body>
-						<Media heading className="ml-2">
-							<b>Sille</b>
-						</Media>
-						<i style={{fontSize:"0.9rem"}}>
-							<Media className="ml-2">Link / Bowser</Media>
-							<Media className="ml-2">111-222-333</Media>
-						</i>
-					</Media>
-				</Media><br/>
-
-				<Media className="media-element">
-					<Media left href="#">
-						<Media object src="https://via.placeholder.com/50x50" />
-					</Media>
-					<Media body>
-						<Media heading className="ml-2">
-							<b>GucciRob</b>
-						</Media>
-						<i style={{fontSize:"0.9rem"}}>
-							<Media className="ml-2">Lil Mac / Ganon</Media>
-							<Media className="ml-2">111-222-333</Media>
-						</i>
-					</Media>
-				</Media><br/>
-
-				<Media className="media-element">
-					<Media left href="#">
-						<Media object src="https://via.placeholder.com/50x50" />
-					</Media>
-					<Media body>
-						<Media heading className="ml-2">
-							<b>Apollo</b>
-						</Media>
-						<i style={{fontSize:"0.9rem"}}>
-							<Media className="ml-2">Zero Suit Samus / Mega Man</Media>
-							<Media className="ml-2">111-222-333</Media>
-						</i>
-					</Media>
-				</Media><br/>
-
-				<Media className="media-element">
-					<Media left href="#">
-						<Media object src="https://via.placeholder.com/50x50" />
-					</Media>
-					<Media body>
-						<Media heading className="ml-2">
-							<b>Ian</b>
-						</Media>
-						<i style={{fontSize:"0.9rem"}}>
-							<Media className="ml-2">Young Link / Greninja</Media>
-							<Media className="ml-2">111-222-333</Media>
-						</i>
-					</Media>
-				</Media><br/>
-
-				<Media className="media-element">
-					<Media left href="#">
-						<Media object src="https://via.placeholder.com/50x50" />
-					</Media>
-					<Media body>
-						<Media heading className="ml-2">
-							<b>JT</b>
-						</Media>
-						<i style={{fontSize:"0.9rem"}}>
-							<Media className="ml-2">Terry Bogard / Hero</Media>
-							<Media className="ml-2">111-222-333</Media>
-						</i>
-					</Media>
-				</Media><br/>
+				<h1 className="mb-5 text-center">Registered Fighters</h1>
+				{ this.userMedia() }
 			</div>
 		)
 	}
