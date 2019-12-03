@@ -1,0 +1,7 @@
+.media-element {
+	border: 0.8px solid black;
+	border-radius: 5px;
+	background-color: #696969;
+	color: #7FFF00;
+	padding: 8px;
+}

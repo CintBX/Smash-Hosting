@@ -4,7 +4,7 @@ export default class ProfileSidebar extends Component {
 	render() {
 		return (
 			<div>
-				<img src="https://via.placeholder.com/300x250" className="mb-3" />
+				<img src="https://via.placeholder.com/300x250" className="mb-3" alt="Character" />
 				<p>username</p>
 				<p>main / secondary</p>
 				<p>friendCode</p>
