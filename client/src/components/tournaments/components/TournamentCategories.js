@@ -34,7 +34,7 @@ export const ClosedTournament = props => (
 			<h3>Registration closed</h3>
 			<hr className="my-2"/>
 			<p>{ props.tournament.description }</p>
-			<Spinner color="danger"/> In progress...
+			<Spinner color="danger" /> In progress...
 		</Jumbotron>
 	</div>
 );
@@ -51,7 +51,7 @@ export const CompleteTournament = props => (
 			<h3>Tournament completed. View results below.</h3>
 			<hr className="my-2"/>
 			<p>{ props.tournament.description }</p>
-			<ResultsPopover/>	
+			<ResultsPopover />
 		</Jumbotron>
 	</div>
 );
