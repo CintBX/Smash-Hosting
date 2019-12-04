@@ -19,12 +19,15 @@ X User directory route and layout (colors to be changed later)
 X Tournament render with proper data
 
 X Remove "My Tourneys" tab/route.  Integrate that with User Profile
-- Profile Sidebar with Cards/Groups reactstrap
+X Profile Sidebar with Cards/Groups reactstrap
 X Re-organize display of info inside tournament jumbotrons
-- User Profile: Toggle buttons for displaying tourneys participating in (card/background varients)
 X Figure out interesting way to have your tournaments in 3 categories
-- Smash News (Carousel)
 
-- Decrease padding a bit in the Jumbotrons
+- Smash News 
+	-Gather links
+	-Carousel
+	-Display links (and perhaps images) in Carousel
+
+- User Profile: Toggle buttons for displaying tourneys participating in (card/background varients)
 
 - Return to ShoppingList guide, from when he implements Redux, for he does that after his style is done, and yours is.
