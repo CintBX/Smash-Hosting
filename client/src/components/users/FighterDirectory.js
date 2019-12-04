@@ -75,6 +75,13 @@ export default class FighterDirectory extends Component {
 					main: "Terry Bogard",
 					secondary: "Hero",
 					friendCode: "111-222-333"
+				},
+				{
+					id: uuid(),
+					username: "Kronos",
+					main: "Young Link",
+					secondary: "Rob",
+					friendCode: "111-222-333"
 				}
 			]
 		}
@@ -91,7 +98,9 @@ export default class FighterDirectory extends Component {
 	render() {
 		return (
 			<div>
-				<h1 className="mb-5 text-center">Registered Fighters</h1>
+				<h1 className="mb-5 text-center">
+					Registered Fighters ({ this.state.users.length })
+				</h1>
 				{ this.userMedia() }
 			</div>
 		)
