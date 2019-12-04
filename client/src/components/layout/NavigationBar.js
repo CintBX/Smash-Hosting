@@ -40,25 +40,19 @@ export default class NavigationBar extends Component {
 							<Nav className="mr-auto" navbar>
 								<NavItem>
 									<NavLink href="/" className="ml-1">
-										Tournaments Main
+										Tournaments
 									</NavLink>
 								</NavItem>
 
 								<NavItem>
-									<NavLink href="/my-tournaments" className="ml-1">
-										My Tourneys
+									<NavLink href="/roster" className="ml-1">
+										Fighters
 									</NavLink>
 								</NavItem>
 
 								<NavItem>
 									<NavLink href="/smash-news" className="ml-1">
 										Smash News
-									</NavLink>
-								</NavItem>
-
-								<NavItem>
-									<NavLink href="/roster" className="ml-1">
-										Fighter Directory
 									</NavLink>
 								</NavItem>
 							</Nav>

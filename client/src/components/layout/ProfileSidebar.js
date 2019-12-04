@@ -8,7 +8,6 @@ export default class ProfileSidebar extends Component {
 				<p>username</p>
 				<p>main / secondary</p>
 				<p>friendCode</p>
-				<p>Edit Profile</p>
 				<p>Host a Tourney!</p>
 			</div>
 		)

@@ -2,7 +2,7 @@
 
 ### Future Tasks:
 - JWT User Auth
-- Tournaments Component (this before User auth, to practice State use/distribution)
+X Tournaments Component (this before User auth, to practice State use/distribution)
 
 ### Current Task:
 X Draw out how you want the front end to look.  Style, color-scheme, positioning and so forth
@@ -18,9 +18,11 @@ X Tournaments Main layout roughly done
 X User directory route and layout (colors to be changed later)
 X Tournament render with proper data
 
-- Remove "My Tourneys" tab/route.  Integrate that with User Profile
+X Remove "My Tourneys" tab/route.  Integrate that with User Profile
 - Profile Sidebar with Cards/Groups reactstrap
+X Re-organize display of info inside tournament jumbotrons
+- Toggle buttons for closed/complete tournaments
 - Figure out interesting way to have your tournaments in 3 categories
+- Smash News (Carousel)
 
-Scratch that! Since you're doing modals and that's not a huge style thing.. begin JWT/redux/auth (i don't even know if Redux was involved in that shit)
-	- Return to ShoppingList guide, from when he implements Redux, for he does that after his style is done, and yours is.
+- Return to ShoppingList guide, from when he implements Redux, for he does that after his style is done, and yours is.

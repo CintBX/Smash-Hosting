@@ -9,7 +9,6 @@ import ProfileSidebar from './components/layout/ProfileSidebar';
 import TournamentIndex from './components/tournaments/Index';
 import TournamentShow from './components/tournaments/Show';
 import UserProfile from './components/users/UserProfile';
-import UserTournaments from './components/users/UserTournaments';
 import SmashNews from './components/news/SmashNews';
 import FighterDirectory from './components/users/FighterDirectory';
 
@@ -27,7 +26,6 @@ function App() {
             <Switch>
             	<Route exact path="/" component={TournamentIndex} />
             	<Route path="/profile" component={UserProfile} />
-            	<Route path="/my-tournaments" component={UserTournaments} />
             	<Route path="/smash-news" component={SmashNews} />
               <Route path="/roster" component={FighterDirectory} />
               <Route path="/tournament/:id" component={TournamentShow} />

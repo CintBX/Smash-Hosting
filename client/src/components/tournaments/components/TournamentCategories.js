@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Jumbotron, Button, Spinner } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import ResultsPopover from './ResultsPopover';
