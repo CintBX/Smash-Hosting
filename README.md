@@ -47,3 +47,5 @@ X Figure out interesting way to have your tournaments in 3 categories
 	-Background images
 
 - User Profile: Toggle buttons for displaying tourneys participating in (card/background varients)
+
+- How to stop people from typing random URL paths

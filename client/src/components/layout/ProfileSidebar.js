@@ -7,6 +7,7 @@ import {
 	CardTitle,
 	Button
 } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 
 export default class ProfileSidebar extends Component {
@@ -26,35 +27,14 @@ export default class ProfileSidebar extends Component {
 						<CardTitle style={{fontSize: '1.5rem'}}>Username</CardTitle>
 						<CardText>Main / Secondary</CardText>
 						<CardText>Friend Code</CardText>
-						<Button outline color="danger">Host a Tourney!</Button>
+						<Link to="/tournament-new">
+							<Button outline color="danger">
+								Host a Tourney
+							</Button>
+						</Link>
 					</CardBody>
 				</Card>
 			</div>
 		)
 	}
 };
-
-{/*
-<div>
-	<img src="https://via.placeholder.com/300x250" className="mb-3" alt="Character" />
-	<p>username</p>
-	<p>main / secondary</p>
-	<p>friendCode</p>
-	<p>Host a Tourney!</p>
-</div>
-*/}
-
-
-{/*
-<div>
-	<Card>
-		<CardImg top width="100%" src="https://via.placeholder.com/300x250" alt="Character" />
-		<CardBody>
-			<CardTitle>Username</CardTitle>
-			<CardSubtitle>Main / Secondary</CardSubtitle>
-			<CardText>Friend Code</CardText>
-			<Button>Host a Tourney!</Button>
-		</CardBody>
-	</Card>
-</div>
-*/}
