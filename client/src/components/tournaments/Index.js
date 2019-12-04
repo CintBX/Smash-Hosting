@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
-import { 
-	Jumbotron, 
-	Button, 
-	Spinner
-} from 'reactstrap';
-import ResultsPopover from './components/ResultsPopover';
-import { Link } from 'react-router-dom';
 import uuid from 'uuid';
-import OpenTournament from './components/OpenTournament';
-import ClosedTournament from './components/ClosedTournament';
-import CompleteTournament from './components/CompleteTournament';
+import {
+	OpenTournament,
+	ClosedTournament,
+	CompleteTournament
+} from './components/TournamentCategories';
 
 export default class TournamentIndex extends Component {
 	constructor(props) {
@@ -57,7 +52,7 @@ export default class TournamentIndex extends Component {
 
 	openTournaments() {
 		return this.state.tournaments.map(tournament => {
-			if(tournament.status == "Open") {
+			if(tournament.status === "Open") {
 				return <OpenTournament key={tournament.id} tournament={tournament} />
 			};
 		});
@@ -65,7 +60,7 @@ export default class TournamentIndex extends Component {
 
 	closedTournaments() {
 		return this.state.tournaments.map(tournament => {
-			if(tournament.status == "Closed") {
+			if(tournament.status === "Closed") {
 				return <ClosedTournament key={tournament.id} tournament={tournament} />
 			};
 		});
@@ -73,7 +68,7 @@ export default class TournamentIndex extends Component {
 
 	completeTournaments() {
 		return this.state.tournaments.map(tournament => {
-			if(tournament.status == "Complete") {
+			if(tournament.status === "Complete") {
 				return <CompleteTournament key={tournament.id} tournament={tournament} />
 			}
 		})
