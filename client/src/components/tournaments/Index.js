@@ -41,7 +41,7 @@ export default class TournamentIndex extends Component {
 				{ 
 					id: uuid(),
 					status: "Complete",
-					title: "Standard", 
+					title: "Standard Rules", 
 					description: "Standard tournament rules go in this space.", 
 					entrants: ["Cin", "Vagalume", "Sille", "GucciRob", "Apollo", "Ian"],
 					hostedBy: "GucciRob",

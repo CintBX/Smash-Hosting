@@ -16,6 +16,11 @@ X Profile Section
 
 X Tournaments Main layout roughly done
 X User directory route and layout (colors to be changed later)
+X Tournament render with proper data
+
+- Remove "My Tourneys" tab/route.  Integrate that with User Profile
+- Profile Sidebar with Cards/Groups reactstrap
+- Figure out interesting way to have your tournaments in 3 categories
 
 Scratch that! Since you're doing modals and that's not a huge style thing.. begin JWT/redux/auth (i don't even know if Redux was involved in that shit)
 	- Return to ShoppingList guide, from when he implements Redux, for he does that after his style is done, and yours is.
