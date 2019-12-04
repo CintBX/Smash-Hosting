@@ -6,15 +6,20 @@ import {
 } from 'reactstrap';
 import ResultsPopover from './components/ResultsPopover';
 import { Link } from 'react-router-dom';
-import TournamentShow from './Show';
 import uuid from 'uuid';
+import OpenTournament from './components/OpenTournament';
+import ClosedTournament from './components/ClosedTournament';
+import CompleteTournament from './components/CompleteTournament';
 
 export default class TournamentIndex extends Component {
 	constructor(props) {
 		super(props);
+		this.openTournaments = this.openTournaments.bind(this);
+		this.closedTournaments = this.closedTournaments.bind(this);
+		this.completeTournaments = this.completeTournaments.bind(this);
 		this.state = {
-			tournaments: {
-				tournamentOne: { 
+			tournaments: [
+				{ 
 					id: uuid(),
 					status: "Open",
 					title: "Single Elimination", 
@@ -22,7 +27,7 @@ export default class TournamentIndex extends Component {
 					entrants: ["Cin", "Vagalume", "Sille", "GucciRob", "Apollo", "Ian"],
 					hostedBy: "Apollo",
 				},
-				tournamentTwo: { 
+				{ 
 					id: uuid(),
 					status: "Open",
 					title: "Double Elimination", 
@@ -30,7 +35,7 @@ export default class TournamentIndex extends Component {
 					entrants: ["Cin", "Vagalume", "Sille", "GucciRob", "Apollo", "Ian"],
 					hostedBy: "Sille",
 				},
-				tournamentThree: { 
+				{ 
 					id: uuid(),
 					status: "Closed",
 					title: "Round Robin", 
@@ -38,7 +43,7 @@ export default class TournamentIndex extends Component {
 					entrants: ["Cin", "Vagalume", "Sille", "GucciRob", "Apollo", "Ian"],
 					hostedBy: "Ian",
 				},
-				tournamentFour: { 
+				{ 
 					id: uuid(),
 					status: "Complete",
 					title: "Standard", 
@@ -46,64 +51,42 @@ export default class TournamentIndex extends Component {
 					entrants: ["Cin", "Vagalume", "Sille", "GucciRob", "Apollo", "Ian"],
 					hostedBy: "GucciRob",
 				}
-			}
+			]
 		}
 	}
+
+	openTournaments() {
+		return this.state.tournaments.map(tournament => {
+			if(tournament.status == "Open") {
+				return <OpenTournament key={tournament.id} tournament={tournament} />
+			};
+		});
+	};
+
+	closedTournaments() {
+		return this.state.tournaments.map(tournament => {
+			if(tournament.status == "Closed") {
+				return <ClosedTournament key={tournament.id} tournament={tournament} />
+			};
+		});
+	};
+
+	completeTournaments() {
+		return this.state.tournaments.map(tournament => {
+			if(tournament.status == "Complete") {
+				return <CompleteTournament key={tournament.id} tournament={tournament} />
+			}
+		})
+	}
+
+
 	render() {
-		const { tournamentOne, tournamentTwo, tournamentThree, tournamentFour } = this.state.tournaments;
 		return (
 			<div>
 				<h1 className="mb-5 display-4 text-center">Welcome to SmashHosting!</h1>
-
-				{/*Open Tournaments*/}
-				<Jumbotron>
-					<h1 className="mb-5 text-center">Open Tournaments</h1>
-
-					<h3>{ tournamentOne.title }</h3>
-					<p style={{fontSize: '0.9em'}} className="text-muted">hosted by: { tournamentOne.hostedBy }</p>
-					<hr className="my-2"/>
-					<p>{ tournamentOne.description }</p>
-					<p className="lead">
-						<Link to={`/tournament/${tournamentOne.id}`}>
-							<Button color="primary">Sign up</Button>
-						</Link>
-					</p><br/>
-
-					<h3>{ tournamentTwo.title }</h3>
-					<p style={{fontSize: '0.9em'}} className="text-muted">hosted by: { tournamentTwo.hostedBy }</p>
-					<hr className="my-2"/>
-					<p>{ tournamentTwo.description }</p>
-					<p className="lead">
-						<Button color="primary">Sign up</Button>
-					</p>
-				</Jumbotron>
-
-				{/*Closed Tournaments*/}
-				<Jumbotron>
-					<h1 className="mb-5 text-center">Closed Tournaments</h1>
-
-					<h3>{ tournamentThree.title }</h3>
-					<p style={{fontSize: '0.9em'}} className="text-muted">hosted by: { tournamentThree.hostedBy }</p>
-					<hr className="my-2"/>
-					<p>{ tournamentThree.description }</p>
-					<p className="lead">
-						<Spinner color="danger"/> In progress...
-					</p>
-				</Jumbotron>
-
-
-				{/*Completed Tournaments*/}
-				<Jumbotron>
-					<h1 className="mb-5 text-center">Completed Tournaments</h1>
-
-					<h3>{ tournamentFour.title }</h3>
-					<p style={{fontSize: '0.9em'}} className="text-muted">hosted by: { tournamentFour.hostedBy }</p>
-					<hr className="my-2"/>
-					<p>{ tournamentFour.description }</p>
-					<p className="lead">
-						<ResultsPopover/>	
-					</p>
-				</Jumbotron>
+				{ this.openTournaments() }
+				{ this.closedTournaments() }
+				{ this.completeTournaments() }
 			</div>
 		)
 	}
