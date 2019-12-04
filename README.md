@@ -4,6 +4,8 @@
 - JWT User Auth
 X Tournaments Component (this before User auth, to practice State use/distribution)
 
+
+
 ### Current Task:
 X Draw out how you want the front end to look.  Style, color-scheme, positioning and so forth
 X Figure out what kind of links you want in Navbar.  Or at least, which main links you want (more can always be added once the nav itself is setup.  Like do you want it to have an icon? A SmashBros picture?  Etc.  Figure that out first, then move on)
@@ -23,11 +25,25 @@ X Profile Sidebar with Cards/Groups reactstrap
 X Re-organize display of info inside tournament jumbotrons
 X Figure out interesting way to have your tournaments in 3 categories
 
+- Tournament Forms...
+
+- Return to ShoppingList guide, from when he implements Redux, for he does that after his style is done, and yours is.
+
+
+
+### Finishing Touches
 - Smash News 
 	-Gather links
 	-Carousel
-	-Display links (and perhaps images) in Carousel
+	-Display links (and perhaps images) in Carousel OR a series of images
+		-Options:
+			-Carousel
+			-List-group/Custom content
+			-Card/Image Overlays or Background Varients
+
+- Background
+	-Invert it.  Dark background/Light foreground
+	-Find and choose a consistent colorscheme
+	-Background images
 
 - User Profile: Toggle buttons for displaying tourneys participating in (card/background varients)
-
-- Return to ShoppingList guide, from when he implements Redux, for he does that after his style is done, and yours is.
