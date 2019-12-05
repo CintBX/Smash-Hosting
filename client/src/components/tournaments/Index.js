@@ -5,48 +5,18 @@ import {
 	ClosedTournament,
 	CompleteTournament
 } from './components/TournamentCategories';
+import { connect } from 'react-redux';
+import { getTournaments } from '../../actions/tournamentActions';
 
-export default class TournamentIndex extends Component {
+
+class TournamentIndex extends Component {
 	constructor(props) {
 		super(props);
 		this.openTournaments = this.openTournaments.bind(this);
 		this.closedTournaments = this.closedTournaments.bind(this);
 		this.completeTournaments = this.completeTournaments.bind(this);
 		this.state = {
-			tournaments: [
-				{ 
-					id: uuid(),
-					status: "Open",
-					title: "Single Elimination", 
-					description: "Single Elim tournament rules go in this space.", 
-					entrants: ["Cin", "Vagalume", "Sille", "GucciRob", "Apollo", "Ian"],
-					hostedBy: "Apollo",
-				},
-				{ 
-					id: uuid(),
-					status: "Open",
-					title: "Double Elimination", 
-					description: "Double Elim tournament rules go in this space.", 
-					entrants: ["Cin", "Vagalume", "Sille", "GucciRob", "Apollo", "Ian"],
-					hostedBy: "Sille",
-				},
-				{ 
-					id: uuid(),
-					status: "Closed",
-					title: "Round Robin", 
-					description: "Round Robin tournament rules go in this space.", 
-					entrants: ["Cin", "Vagalume", "Sille", "GucciRob", "Apollo", "Ian"],
-					hostedBy: "Ian",
-				},
-				{ 
-					id: uuid(),
-					status: "Complete",
-					title: "Standard Rules", 
-					description: "Standard tournament rules go in this space.", 
-					entrants: ["Cin", "Vagalume", "Sille", "GucciRob", "Apollo", "Ian"],
-					hostedBy: "GucciRob",
-				}
-			]
+			
 		}
 	}
 
@@ -86,3 +56,9 @@ export default class TournamentIndex extends Component {
 		)
 	}
 };
+
+const mapStateToProps = state => ({
+	tournament: state.tournament
+})
+
+export default connect(mapStateToProps, { getTournaments })(TournamentIndex);

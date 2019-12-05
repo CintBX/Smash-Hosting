@@ -3,6 +3,8 @@
 ### Future Tasks:
 - JWT User Auth
 X Tournaments Component (this before User auth, to practice State use/distribution)
+- Character most used (?)
+- Win/Loss calculation (refer to screenshots of convo wth Chris)
 
 
 
