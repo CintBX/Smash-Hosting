@@ -34,6 +34,14 @@ const initialState = {
 			description: "Standard tournament rules go in this space.", 
 			entrants: ["Cin", "Vagalume", "Sille", "GucciRob", "Apollo", "Ian"],
 			hostedBy: "GucciRob",
+		},
+		{ 
+			id: uuid(),
+			status: "Closed",
+			title: "Single Elimination", 
+			description: "Single Elimination rules go in this space. Single Elimination rules go in this space. Single Elimination rules go in this space.", 
+			entrants: ["Cin", "Vagalume", "Sille", "GucciRob", "Apollo", "Ian"],
+			hostedBy: "Cin",
 		}
 	]
 }

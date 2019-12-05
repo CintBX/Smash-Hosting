@@ -7,7 +7,7 @@ import {
 } from './components/TournamentCategories';
 import { connect } from 'react-redux';
 import { getTournaments } from '../../actions/tournamentActions';
-
+import PropTypes from 'prop-types';
 
 class TournamentIndex extends Component {
 	constructor(props) {
@@ -15,47 +15,59 @@ class TournamentIndex extends Component {
 		this.openTournaments = this.openTournaments.bind(this);
 		this.closedTournaments = this.closedTournaments.bind(this);
 		this.completeTournaments = this.completeTournaments.bind(this);
-		this.state = {
-			
-		}
 	}
 
+	componentDidMount() {
+		this.props.getTournaments();
+	};
+
 	openTournaments() {
-		return this.state.tournaments.map(tournament => {
+		const { tournaments } = this.props.tournament;
+
+		return tournaments.map(tournament => {
 			if(tournament.status === "Open") {
 				return <OpenTournament key={tournament.id} tournament={tournament} />
 			};
 		});
 	};
-
 	closedTournaments() {
-		return this.state.tournaments.map(tournament => {
+		const { tournaments } = this.props.tournament;
+
+		return tournaments.map(tournament => {
 			if(tournament.status === "Closed") {
 				return <ClosedTournament key={tournament.id} tournament={tournament} />
 			};
 		});
 	};
-
 	completeTournaments() {
-		return this.state.tournaments.map(tournament => {
+		const { tournaments } = this.props.tournament;
+
+		return tournaments.map(tournament => {
 			if(tournament.status === "Complete") {
 				return <CompleteTournament key={tournament.id} tournament={tournament} />
 			}
 		})
 	}
 
-
 	render() {
 		return (
 			<div>
 				<h1 className="mb-5 display-4 text-center">Welcome to SmashHosting!</h1>
+				<h2 className="mb-3">Open Tournaments</h2>
 				{ this.openTournaments() }
+				<h2 className="mb-3">Closed Tournaments</h2>
 				{ this.closedTournaments() }
+				<h2 className="mb-3">Finished Tournaments</h2>
 				{ this.completeTournaments() }
 			</div>
 		)
 	}
 };
+
+TournamentIndex.propTypes = {
+	getTournaments: PropTypes.func.isRequired,
+	tournament: PropTypes.object.isRequired
+}
 
 const mapStateToProps = state => ({
 	tournament: state.tournament
