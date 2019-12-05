@@ -1,26 +1,70 @@
 import React, { Component } from 'react';
+import { Jumbotron, Button, Spinner } from 'reactstrap';
+import { Link } from 'react-router-dom';
+import ResultsPopover from './components/ResultsPopover';
 import uuid from 'uuid';
-import {
-	OpenTournament,
-	ClosedTournament,
-	CompleteTournament
-} from './components/TournamentCategories';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getTournaments, deleteTournament } from '../../actions/tournamentActions';
-import PropTypes from 'prop-types';
 
+
+// Tournament Jumbotrons
+const OpenTournament = props => (
+	<div>
+		<Jumbotron>
+			<h1 className="mb-5 text-center">
+				{ props.tournament.title }
+				<p style={{fontSize: '0.6em'}} className="text-muted">Hosted by: { props.tournament.hostedBy }</p>
+			</h1>
+			<h3>Open for Registration</h3>
+			<hr className="my-2"/>
+			<p>{ props.tournament.description }</p>
+			<p className="mt-5">
+				<Link to="#">
+					<Button color="primary" block>Sign up</Button>
+				</Link>
+			</p><br/>
+		</Jumbotron>
+	</div>
+);
+
+const ClosedTournament = props => (
+	<div>
+		<Jumbotron>
+			<h1 className="mb-5 text-center">
+				{ props.tournament.title }
+				<p style={{fontSize: '0.6em'}} className="text-muted">hosted by: { props.tournament.hostedBy }</p>
+			</h1>
+
+			<h3>Registration closed</h3>
+			<hr className="my-2"/>
+			<p>{ props.tournament.description }</p>
+			<Spinner color="danger" /> In progress...
+		</Jumbotron>
+	</div>
+);
+
+const CompleteTournament = props => (
+	<div>
+		<Jumbotron>
+			<h1 className="mb-5 text-center">
+				{ props.tournament.title }
+				<p style={{fontSize: '0.6em'}} className="text-muted">hosted by: { props.tournament.hostedBy }</p>
+			</h1>
+
+			<h3>Tournament completed. View results below.</h3>
+			<hr className="my-2"/>
+			<p>{ props.tournament.description }</p>
+			<ResultsPopover />
+		</Jumbotron>
+	</div>
+);
+
+
+
+// Tournaments Class
 class TournamentIndex extends Component {
-	constructor(props) {
-		super(props);
-		this.openTournaments = this.openTournaments.bind(this);
-		this.closedTournaments = this.closedTournaments.bind(this);
-		this.completeTournaments = this.completeTournaments.bind(this);
-	}
-
-	componentDidMount() {
-		this.props.getTournaments();
-	};
-
+	// Methods utilizing Jumbotron constants
 	openTournaments() {
 		const { tournaments } = this.props.tournament;
 
@@ -49,6 +93,10 @@ class TournamentIndex extends Component {
 		})
 	}
 
+	// Class Methods
+	componentDidMount() {
+		this.props.getTournaments();
+	};
 	render() {
 		return (
 			<div>
