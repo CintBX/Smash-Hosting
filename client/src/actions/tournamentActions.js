@@ -5,3 +5,10 @@ export const getTournaments = () => {
 		type: GET_TOURNAMENTS
 	};
 };
+
+export const deleteTournament = id => {
+	return {
+		type: DELETE_TOURNAMENT,
+		payload: id
+	}
+};

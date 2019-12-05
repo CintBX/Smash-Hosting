@@ -6,7 +6,7 @@ import {
 	CompleteTournament
 } from './components/TournamentCategories';
 import { connect } from 'react-redux';
-import { getTournaments } from '../../actions/tournamentActions';
+import { getTournaments, deleteTournament } from '../../actions/tournamentActions';
 import PropTypes from 'prop-types';
 
 class TournamentIndex extends Component {
@@ -73,4 +73,4 @@ const mapStateToProps = state => ({
 	tournament: state.tournament
 })
 
-export default connect(mapStateToProps, { getTournaments })(TournamentIndex);
+export default connect(mapStateToProps, { getTournaments, deleteTournament })(TournamentIndex);

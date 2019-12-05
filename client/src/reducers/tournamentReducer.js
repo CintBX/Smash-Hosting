@@ -52,6 +52,11 @@ export default function(state = initialState, action) {
 			return {
 				...state
 			};
+		case DELETE_TOURNAMENT:
+			return {
+				...state,
+				tournaments: state.tournaments.filter(tournament => tournament.id !== action.payload)
+			}
 		default:
 			return state;
 	};
