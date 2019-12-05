@@ -25,9 +25,18 @@ X Profile Sidebar with Cards/Groups reactstrap
 X Re-organize display of info inside tournament jumbotrons
 X Figure out interesting way to have your tournaments in 3 categories
 
-- Tournament Forms...
+X Tournament New
 
-- Return to ShoppingList guide, from when he implements Redux, for he does that after his style is done, and yours is.
+
+
+### Redux
+- Tournament Edit/Delete
+- User Modals (register, login, logout, edit)
+- Components
+	- Profile sidebar
+	- Tournaments Main
+	- Fighter Directory
+	- User Profile
 
 
 
