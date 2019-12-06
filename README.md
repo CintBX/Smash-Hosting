@@ -29,6 +29,10 @@ X Figure out interesting way to have your tournaments in 3 categories
 
 X Tournament New
 
+X Refactor Tournaments Index page to turn multi-component file into single component file
+
+X Solve problem of rendering the right buttons with the right tournament statuses
+
 
 
 ### Redux
