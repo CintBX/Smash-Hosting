@@ -9,7 +9,9 @@ import {
 	FormGroup,
 	Collapse,
 	CardDeck,
-	CardHeader
+	CardHeader,
+	Row,
+	Col
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
@@ -39,45 +41,59 @@ export default class ProfileSidebar extends Component {
 						<CardTitle style={{fontSize: '1.5rem'}}>Username</CardTitle>
 						<CardText>Main / Secondary</CardText>
 						<CardText>Friend Code</CardText>
+
 						<Link to="/tournament-new">
-							<Button outline color="danger">
+							<Button outline color="danger" className="mb-3">
 								Host a Tourney
 							</Button>
 						</Link>
 
-						<FormGroup>
-							<Button 
-								outline
-								color="info"
-								onClick={this.toggle} 
-								style={{ marginBottom:'1rem', marginTop:'1rem' }}
-							>
-								View Rulesets
-							</Button>
-							<Collapse isOpen={this.state.isOpen}>
-								<CardDeck>
-									<Card>
-										<CardHeader>Single Elimination</CardHeader>
-										<CardBody>Single Elim rules here please</CardBody>
-									</Card>
+						<Row>
+							<Col>
+								<FormGroup>
+									<Button 
+										outline
+										color="info"
+										onClick={this.toggle} 
+										style={{ marginBottom:'1rem' }}
+									>
+										View Rulesets
+									</Button>
 
-									<Card>
-										<CardHeader>Double Elimination</CardHeader>
-										<CardBody>Dub Elim rules here please</CardBody>
-									</Card>
+									<Collapse isOpen={this.state.isOpen}>
+										<CardDeck>
+											<Col lg="12">
+												<Card className="my-2">
+													<CardHeader>Single Elimination</CardHeader>
+													<CardBody>Single Elim rules here please</CardBody>
+												</Card>
+											</Col>
 
-									<Card>
-										<CardHeader>Round Robin</CardHeader>
-										<CardBody>Round Robin rules here please</CardBody>
-									</Card>
+											<Col lg="12">
+												<Card className="my-2">
+													<CardHeader>Double Elimination</CardHeader>
+													<CardBody>Dub Elim rules here please</CardBody>
+												</Card>
+											</Col>
 
-									<Card>
-										<CardHeader>Standard Rules</CardHeader>
-										<CardBody>Single Elim rules here please</CardBody>
-									</Card>
-								</CardDeck>
-							</Collapse>
-						</FormGroup>
+											<Col lg="12">
+												<Card className="my-2">
+													<CardHeader>Round Robin</CardHeader>
+													<CardBody>Round Robin rules here please</CardBody>
+												</Card>
+											</Col>
+
+											<Col lg="12">
+												<Card className="my-2">
+													<CardHeader>Standard Rules</CardHeader>
+													<CardBody>Single Elim rules here please</CardBody>
+												</Card>
+											</Col>
+										</CardDeck>
+									</Collapse>
+								</FormGroup>
+							</Col>
+						</Row>
 					</CardBody>
 				</Card>
 			</div>
