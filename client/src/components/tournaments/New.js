@@ -5,36 +5,73 @@ import {
 	Button,
 	Label,
 	Input,
+	InputGroup,
+	InputGroupAddon,
 	Collapse,
 	Card,
 	CardHeader,
 	CardBody,
 	CardDeck
 } from 'reactstrap';
+import { connect } from 'react-redux';
+import { newTournament } from '../../actions/tournamentActions';
+import uuid from 'uuid';
 
-export default class NewTournament extends Component {
+class NewTournament extends Component {
 	constructor(props) {
 		super(props);
 		this.toggle = this.toggle.bind(this);
+		this.onChange = this.onChange.bind(this);
+		this.onSubmit = this.onSubmit.bind(this);
 		this.state = {
-			isOpen: false
-		}
-	}
+			isOpen: false,
+			title: '',
+			description: '',
+			hostedBy: '',
+			status: ''
+		};
+	};
 
 	toggle() {
 		this.setState({
 			isOpen: !this.state.isOpen
+		});
+	};
+
+	onChange(e) {
+		this.setState({
+			title: e.target.value
 		})
+	}
+
+	onSubmit(e) {
+		e.preventDefault();
+
+		const newTournament = {
+			id: uuid(),
+			title: this.state.title,
+			description: "Testing123 Testing123",
+			hostedBy: "TESTUSER",
+			status: "Open"
+		};
+
+		this.props.newTournament(newTournament);
+
 	}
 
 	render() {
 		return (
 			<div>
 				<h1 className="mb-5">Create a New Tournament</h1>
-				<Form>
+				<Form onSubmit={this.onSubmit}>
 					<FormGroup>
 						<Label for="title">Tournament</Label>
-						<Input type="select" name="select" id="title">
+						<Input 
+							type="select" 
+							name="select" 
+							id="title" 
+							onChange={this.onChange}
+						>
 							<option>Choose From Below</option>
 							<option>Single Elim</option>
 							<option>Double Elim</option>
@@ -43,11 +80,13 @@ export default class NewTournament extends Component {
 						</Input>
 					</FormGroup>
 
-					<FormGroup>
-						<Label for="fee">Entrance Fee</Label>
-						<Input type="text" name="text" id="fee" placeholder="This feature will be added later" />
-					</FormGroup>
+					<InputGroup>
+						<InputGroupAddon addonType="prepend">$</InputGroupAddon>
+						<Input type="text" name="text" id="fee" placeholder="Entrance fee" />
+					</InputGroup>
 
+					<br/>
+					
 					<FormGroup>
 						<Button 
 							outline
@@ -88,3 +127,9 @@ export default class NewTournament extends Component {
 		)
 	}
 };
+
+const mapStateToProps = state => ({
+	tournament: state.tournament
+});
+
+export default connect(mapStateToProps, { newTournament })(NewTournament)

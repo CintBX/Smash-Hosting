@@ -16,7 +16,6 @@ import SmashNews from './components/news/SmashNews';
 import FighterDirectory from './components/users/FighterDirectory';
 
 import NewTournament from './components/tournaments/New';
-import EditTournament from './components/tournaments/Edit';
 
 function App() {
   return (
@@ -37,7 +36,6 @@ function App() {
                 <Route path="/roster" component={FighterDirectory} />
                 <Route path="/tournament/:id" component={TournamentShow} />
                 <Route path="/tournament-new" component={NewTournament} />
-                <Route path="/tournament-edit" component={EditTournament} />
               </Switch>
             </Col>
           </Row>

@@ -64,3 +64,5 @@ X Solve problem of rendering the right buttons with the right tournament statuse
 - User Profile: Toggle buttons for displaying tourneys participating in (card/background varients)
 
 - How to stop people from typing random URL paths
+
+- Darken <CardHeader> of "View Rulesets"

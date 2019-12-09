@@ -14,11 +14,11 @@ class TournamentIndex extends Component {
 	};
 
 	onDelete(id) {
-		this.props.deleteItem(id);
+		this.props.deleteTournament(id);
 	};
 
 	render() {
-		const { tournaments } = this.props.tournament
+		const { tournaments } = this.props.tournament;
 
 		return tournaments.map(tournament => {
 			return (
@@ -42,23 +42,24 @@ class TournamentIndex extends Component {
 						<Button 
 							color="danger" 
 							className="mx-1 mt-3"
+							onClick={this.onDelete.bind(this, tournament.id)}
 						>
 							Delete
 						</Button>
 					</span>
 				</Jumbotron>	
-			)
-		})
-	}
+			);
+		});
+	};
 };
 
 TournamentIndex.propTypes = {
 	getTournaments: PropTypes.func.isRequired,
 	tournament: PropTypes.object.isRequired
-}
+};
 
 const mapStateToProps = state => ({
 	tournament: state.tournament
-})
+});
 
 export default connect(mapStateToProps, { getTournaments, deleteTournament })(TournamentIndex);
