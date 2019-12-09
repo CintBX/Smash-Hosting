@@ -6,12 +6,7 @@ import {
 	Label,
 	Input,
 	InputGroup,
-	InputGroupAddon,
-	Collapse,
-	Card,
-	CardHeader,
-	CardBody,
-	CardDeck
+	InputGroupAddon
 } from 'reactstrap';
 import { connect } from 'react-redux';
 import { newTournament } from '../../actions/tournamentActions';
@@ -87,39 +82,7 @@ class NewTournament extends Component {
 
 					<br/>
 					
-					<FormGroup>
-						<Button 
-							outline
-							color="info"
-							onClick={this.toggle} 
-							style={{ marginBottom:'1rem' }}
-						>
-							View Rulesets
-						</Button>
-						<Collapse isOpen={this.state.isOpen}>
-							<CardDeck>
-								<Card>
-									<CardHeader>Single Elimination</CardHeader>
-									<CardBody>Single Elim rules here please</CardBody>
-								</Card>
-
-								<Card>
-									<CardHeader>Double Elimination</CardHeader>
-									<CardBody>Dub Elim rules here please</CardBody>
-								</Card>
-
-								<Card>
-									<CardHeader>Round Robin</CardHeader>
-									<CardBody>Round Robin rules here please</CardBody>
-								</Card>
-
-								<Card>
-									<CardHeader>Standard Rules</CardHeader>
-									<CardBody>Single Elim rules here please</CardBody>
-								</Card>
-							</CardDeck>
-						</Collapse>
-					</FormGroup>
+					{/*View Results btn here*/}
 
 					<Button block color="dark">Create Tournament</Button>
 				</Form>

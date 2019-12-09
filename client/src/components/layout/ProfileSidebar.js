@@ -5,7 +5,11 @@ import {
 	CardText,
 	CardBody,
 	CardTitle,
-	Button
+	Button,
+	FormGroup,
+	Collapse,
+	CardDeck,
+	CardHeader
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
@@ -13,10 +17,18 @@ import { Link } from 'react-router-dom';
 export default class ProfileSidebar extends Component {
 	constructor(props) {
 		super(props);
+		this.toggle = this.toggle.bind(this);
 		this.state = {
-			user: []
-		}
-	}
+			user: [],
+			isOpen: false
+		};
+	};
+
+	toggle() {
+		this.setState({
+			isOpen: !this.state.isOpen
+		});
+	};
 
 	render() {
 		return (
@@ -32,9 +44,43 @@ export default class ProfileSidebar extends Component {
 								Host a Tourney
 							</Button>
 						</Link>
+
+						<FormGroup>
+							<Button 
+								outline
+								color="info"
+								onClick={this.toggle} 
+								style={{ marginBottom:'1rem', marginTop:'1rem' }}
+							>
+								View Rulesets
+							</Button>
+							<Collapse isOpen={this.state.isOpen}>
+								<CardDeck>
+									<Card>
+										<CardHeader>Single Elimination</CardHeader>
+										<CardBody>Single Elim rules here please</CardBody>
+									</Card>
+
+									<Card>
+										<CardHeader>Double Elimination</CardHeader>
+										<CardBody>Dub Elim rules here please</CardBody>
+									</Card>
+
+									<Card>
+										<CardHeader>Round Robin</CardHeader>
+										<CardBody>Round Robin rules here please</CardBody>
+									</Card>
+
+									<Card>
+										<CardHeader>Standard Rules</CardHeader>
+										<CardBody>Single Elim rules here please</CardBody>
+									</Card>
+								</CardDeck>
+							</Collapse>
+						</FormGroup>
 					</CardBody>
 				</Card>
 			</div>
-		)
-	}
+		);
+	};
 };

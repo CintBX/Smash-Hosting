@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { Jumbotron, Button } from 'reactstrap';
 import SignUp from './buttons/SignUp';
 import InProgress from './buttons/InProgress';
@@ -31,9 +31,9 @@ class TournamentIndex extends Component {
 					<h4>{ tournament.description }</h4>
 					<hr className="my-2"/>
 
-					{ tournament.status == "Open" ? <SignUp /> : null }
-					{ tournament.status == "Closed" ? <InProgress /> : null }
-					{ tournament.status == "Complete" ? <Results /> : null }
+					{ tournament.status === "Open" ? <SignUp /> : null }
+					{ tournament.status === "Closed" ? <InProgress /> : null }
+					{ tournament.status === "Complete" ? <Results /> : null }
 					
 					<span className="float-right">
 						<Button color="warning" className="mx-1 mt-3">

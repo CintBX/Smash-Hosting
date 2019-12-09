@@ -18,7 +18,7 @@ export default class TournamentShow extends Component {
 	}
 
 	render() {
-		const { id, status, title, description, entrants, hostedBy } = this.state.tournament;
+		const { status, title, description, entrants, hostedBy } = this.state.tournament;
 		return(
 			<div>
 				<h1>{ title }</h1>
