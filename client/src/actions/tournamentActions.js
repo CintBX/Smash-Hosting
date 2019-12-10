@@ -1,9 +1,16 @@
 import { GET_TOURNAMENTS, ADD_TOURNAMENT, DELETE_TOURNAMENT, TOURNAMENTS_LOADING } from './types';
+import axios from 'axios';
 
-export const getTournaments = () => {
-	return {
-		type: GET_TOURNAMENTS
-	};
+export const getTournaments = () => dispatch => {
+	dispatch(setTourneysLoading());
+	axios
+		.get('/tournaments')
+		.then(res => 
+			dispatch({
+				type: GET_TOURNAMENTS,
+				payload: res.data
+			})
+		);
 };
 
 export const deleteTournament = id => {

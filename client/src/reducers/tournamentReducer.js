@@ -1,5 +1,4 @@
 import { GET_TOURNAMENTS, ADD_TOURNAMENT, DELETE_TOURNAMENT, TOURNAMENTS_LOADING } from '../actions/types';
-import uuid from 'uuid';
 
 const initialState = {
 	tournaments: [],
@@ -10,7 +9,9 @@ export default function(state = initialState, action) {
 	switch(action.type) {
 		case GET_TOURNAMENTS:
 			return {
-				...state
+				...state,
+				tournaments: action.payload,
+				loading: false
 			};
 		case ADD_TOURNAMENT:
 			return {
