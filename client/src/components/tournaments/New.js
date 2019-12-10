@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import {
+	Modal,
+	ModalHeader,
+	ModalBody,
 	Form,
 	FormGroup,
 	Button,
@@ -19,7 +22,7 @@ class NewTournament extends Component {
 		this.onChange = this.onChange.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
 		this.state = {
-			isOpen: false,
+			modal: false,
 			title: '',
 			description: '',
 			hostedBy: '',
@@ -29,7 +32,7 @@ class NewTournament extends Component {
 
 	toggle() {
 		this.setState({
-			isOpen: !this.state.isOpen
+			modal: !this.state.modal
 		});
 	};
 
@@ -52,43 +55,57 @@ class NewTournament extends Component {
 
 		this.props.newTournament(newTournament);
 
+		this.toggle();
 	}
 
 	render() {
 		return (
 			<div>
-				<h1 className="mb-5">Create a New Tournament</h1>
-				<Form onSubmit={this.onSubmit}>
-					<FormGroup>
-						<Label for="title">Tournament</Label>
-						<Input 
-							type="select" 
-							name="select" 
-							id="title" 
-							onChange={this.onChange}
-						>
-							<option>Choose From Below</option>
-							<option>Single Elim</option>
-							<option>Double Elim</option>
-							<option>Round Robin</option>
-							<option>Standard Rules</option>
-						</Input>
-					</FormGroup>
+				<Button 
+					outline
+					color="danger"
+					className="mb-3"
+					onClick={this.toggle}
+				>
+					Host a Tourney
+				</Button>
 
-					<InputGroup>
-						<InputGroupAddon addonType="prepend">$</InputGroupAddon>
-						<Input type="text" name="text" id="fee" placeholder="Entrance fee" />
-					</InputGroup>
+				<Modal isOpen={this.state.modal} toggle={this.toggle}>
+					<ModalHeader toggle={this.toggle}>Create a New Tournament</ModalHeader>
+					<ModalBody>
+						<Form onSubmit={this.onSubmit}>
+							<FormGroup>
+								<Label for="title">Tournament</Label>
+								<Input
+									type="select"
+									name="select"
+									id="title"
+									onChange={this.onChange}
+								>
+									<option>Choose From Below</option>
+									<option>Single Elim</option>
+									<option>Double Elim</option>
+									<option>Round Robin</option>
+									<option>Standard Rules</option>
+								</Input>
+							</FormGroup>
 
-					<br/>
-					
-					{/*View Results btn here*/}
+							<InputGroup>
+								<InputGroupAddon addonType="prepend">$</InputGroupAddon>
+								<Input type="text" name="text" id="fee" placeholder="Entrance fee" />
+							</InputGroup>
 
-					<Button block color="dark">Create Tournament</Button>
-				</Form>
+							<br/>
+							
+							{/*View Results btn here*/}
+
+							<Button block color="dark">Create Tournament</Button>
+						</Form>
+					</ModalBody>
+				</Modal>
 			</div>
-		)
-	}
+		);
+	};
 };
 
 const mapStateToProps = state => ({

@@ -14,6 +14,7 @@ import {
 	Col
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import NewTournament from '../tournaments/New';
 
 
 export default class ProfileSidebar extends Component {
@@ -41,13 +42,9 @@ export default class ProfileSidebar extends Component {
 						<CardTitle style={{fontSize: '1.5rem'}}>Username</CardTitle>
 						<CardText>Main / Secondary</CardText>
 						<CardText>Friend Code</CardText>
+						<NewTournament/>
 
-						<Link to="/tournament-new">
-							<Button outline color="danger" className="mb-3">
-								Host a Tourney
-							</Button>
-						</Link>
-
+						{/* Ruleset Cards */}
 						<Row>
 							<Col>
 								<FormGroup>
