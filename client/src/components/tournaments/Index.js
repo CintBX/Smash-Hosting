@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Jumbotron, Button } from 'reactstrap';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import SignUp from './buttons/SignUp';
 import InProgress from './buttons/InProgress';
 import Results from './buttons/Results';
@@ -47,7 +48,7 @@ class TournamentIndex extends Component {
 							Delete
 						</Button>
 					</span>
-				</Jumbotron>	
+				</Jumbotron>
 			);
 		});
 	};

@@ -1,49 +1,9 @@
-import { GET_TOURNAMENTS, ADD_TOURNAMENT, DELETE_TOURNAMENT } from '../actions/types';
+import { GET_TOURNAMENTS, ADD_TOURNAMENT, DELETE_TOURNAMENT, TOURNAMENTS_LOADING } from '../actions/types';
 import uuid from 'uuid';
 
 const initialState = {
-	tournaments: [
-		{ 
-			id: uuid(),
-			status: "Open",
-			title: "Single Elimination", 
-			description: "Single Elim tournament rules go in this space.", 
-			entrants: ["Cin", "Vagalume", "Sille", "GucciRob", "Apollo", "Ian"],
-			hostedBy: "Apollo",
-		},
-		{ 
-			id: uuid(),
-			status: "Open",
-			title: "Double Elimination", 
-			description: "Double Elim tournament rules go in this space.", 
-			entrants: ["Cin", "Vagalume", "Sille", "GucciRob", "Apollo", "Ian"],
-			hostedBy: "Sille",
-		},
-		{ 
-			id: uuid(),
-			status: "Closed",
-			title: "Round Robin", 
-			description: "Round Robin tournament rules go in this space.", 
-			entrants: ["Cin", "Vagalume", "Sille", "GucciRob", "Apollo", "Ian"],
-			hostedBy: "Ian",
-		},
-		{ 
-			id: uuid(),
-			status: "Complete",
-			title: "Standard Rules", 
-			description: "Standard tournament rules go in this space.", 
-			entrants: ["Cin", "Vagalume", "Sille", "GucciRob", "Apollo", "Ian"],
-			hostedBy: "GucciRob",
-		},
-		{ 
-			id: uuid(),
-			status: "Closed",
-			title: "Single Elimination", 
-			description: "Single Elimination rules go in this space. Single Elimination rules go in this space. Single Elimination rules go in this space.", 
-			entrants: ["Cin", "Vagalume", "Sille", "GucciRob", "Apollo", "Ian"],
-			hostedBy: "Cin",
-		}
-	]
+	tournaments: [],
+	loading: false
 }
 
 export default function(state = initialState, action) {
@@ -61,6 +21,11 @@ export default function(state = initialState, action) {
 			return {
 				...state,
 				tournaments: state.tournaments.filter(tournament => tournament.id !== action.payload)
+			};
+		case TOURNAMENTS_LOADING:
+			return {
+				...state,
+				loading: true
 			};
 		default:
 			return state;
