@@ -1,4 +1,4 @@
-import { GET_TOURNAMENTS, NEW_TOURNAMENT, DELETE_TOURNAMENT } from './types';
+import { GET_TOURNAMENTS, ADD_TOURNAMENT, DELETE_TOURNAMENT } from './types';
 
 export const getTournaments = () => {
 	return {
@@ -13,9 +13,9 @@ export const deleteTournament = id => {
 	}
 };
 
-export const newTournament = tournament => {
+export const addTournament = tournament => {
 	return {
-		type: NEW_TOURNAMENT,
+		type: ADD_TOURNAMENT,
 		payload: tournament
 	}
 };

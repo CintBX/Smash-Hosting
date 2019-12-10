@@ -12,7 +12,7 @@ import {
 	InputGroupAddon
 } from 'reactstrap';
 import { connect } from 'react-redux';
-import { newTournament } from '../../actions/tournamentActions';
+import { addTournament } from '../../actions/tournamentActions';
 import uuid from 'uuid';
 
 class NewTournament extends Component {
@@ -24,9 +24,9 @@ class NewTournament extends Component {
 		this.state = {
 			modal: false,
 			title: '',
-			description: '',
-			hostedBy: '',
-			status: ''
+			// description: '',
+			// hostedBy: '',
+			// status: ''
 		};
 	};
 
@@ -53,7 +53,7 @@ class NewTournament extends Component {
 			status: "Open"
 		};
 
-		this.props.newTournament(newTournament);
+		this.props.addTournament(newTournament);
 
 		this.toggle();
 	}
@@ -76,10 +76,16 @@ class NewTournament extends Component {
 						<Form onSubmit={this.onSubmit}>
 							<FormGroup>
 								<Label for="title">Tournament</Label>
+{/*								<Input 
+									type="text"
+									name="title" 
+									id="tournament"
+									onChange={this.onChange}
+								/>*/}
 								<Input
 									type="select"
 									name="select"
-									id="title"
+									id="tournament"
 									onChange={this.onChange}
 								>
 									<option>Choose From Below</option>
@@ -87,6 +93,7 @@ class NewTournament extends Component {
 									<option>Double Elim</option>
 									<option>Round Robin</option>
 									<option>Standard Rules</option>
+									<option></option>
 								</Input>
 							</FormGroup>
 
@@ -97,8 +104,6 @@ class NewTournament extends Component {
 
 							<br/>
 							
-							{/*View Results btn here*/}
-
 							<Button block color="dark">Create Tournament</Button>
 						</Form>
 					</ModalBody>
@@ -112,4 +117,4 @@ const mapStateToProps = state => ({
 	tournament: state.tournament
 });
 
-export default connect(mapStateToProps, { newTournament })(NewTournament)
+export default connect(mapStateToProps, { addTournament })(NewTournament)
