@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const authorize = require('../../middleware/authorize');
 
 // Tournament model
 const Tournament = require('../../models/Tournament');
@@ -18,8 +19,8 @@ router.get('/', (req, res) => {
 
 // @route 	POST /tournaments/new
 // @descrip NEW/CREATE
-// @access 	Public (for now.  Authentication later)
-router.post('/new', (req, res) => {
+// @access 	Private
+router.post('/new', authorize, (req, res) => {
 	const { title, description } = req.body
 
 	const newTournament = new Tournament({
@@ -35,8 +36,8 @@ router.post('/new', (req, res) => {
 
 // @route		DELETE /tournaments/:id
 // @descrip DELETE
-// @access Public (for now.  Authentication later)
-router.delete('/:id', (req, res) => {
+// @access  Private
+router.delete('/:id', authorize, (req, res) => {
 	Tournament.findById(req.params.id)
 		.then(tournament => tournament.remove().then(() => res.json({ success: true })))
 		.catch(err => res.status(404).json({ success: false }));
