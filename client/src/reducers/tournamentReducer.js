@@ -21,7 +21,7 @@ export default function(state = initialState, action) {
 		case DELETE_TOURNAMENT:
 			return {
 				...state,
-				tournaments: state.tournaments.filter(tournament => tournament.id !== action.payload)
+				tournaments: state.tournaments.filter(tournament => tournament._id !== action.payload)
 			};
 		case TOURNAMENTS_LOADING:
 			return {

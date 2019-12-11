@@ -33,7 +33,6 @@ X Refactor Tournaments Index page to turn multi-component file into single compo
 
 X Solve problem of rendering the right buttons with the right tournament statuses
 
-- Fix bug that removes "Status" attr from your data models
 
 
 
@@ -45,6 +44,8 @@ X Solve problem of rendering the right buttons with the right tournament statuse
 	- Tournaments Main
 	- Fighter Directory
 	- User Profile
+
+X Fix bug that removes "Status" attr from your data models
 
 
 

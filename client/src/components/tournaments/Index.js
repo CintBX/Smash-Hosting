@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Jumbotron, Button } from 'reactstrap';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import SignUp from './buttons/SignUp';
 import InProgress from './buttons/InProgress';
 import Results from './buttons/Results';
@@ -21,20 +20,20 @@ class TournamentIndex extends Component {
 	render() {
 		const { tournaments } = this.props.tournament;
 
-		return tournaments.map(tournament => {
+		return tournaments.map(({ _id, title, hostedBy, description, status }) => {
 			return (
 				<Jumbotron>
 					<h1 className="mb-5 text-center">
-						{ tournament.title }
-						<p style={{fontSize: '0.6em'}} className="text-muted">Hosted by: { tournament.hostedBy }</p>
+						{ title }
+						<p style={{fontSize: '0.6em'}} className="text-muted">Hosted by: { hostedBy }</p>
 					</h1>
 
-					<h4>{ tournament.description }</h4>
+					<h4>{ description }</h4>
 					<hr className="my-2"/>
 
-					{ tournament.status === "Open" ? <SignUp /> : null }
-					{ tournament.status === "Closed" ? <InProgress /> : null }
-					{ tournament.status === "Complete" ? <Results /> : null }
+					{ status === "Open" ? <SignUp /> : null }
+					{ status === "Closed" ? <InProgress /> : null }
+					{ status === "Complete" ? <Results /> : null }
 					
 					<span className="float-right">
 						<Button color="warning" className="mx-1 mt-3">
@@ -43,7 +42,7 @@ class TournamentIndex extends Component {
 						<Button 
 							color="danger" 
 							className="mx-1 mt-3"
-							onClick={this.onDelete.bind(this, tournament.id)}
+							onClick={this.onDelete.bind(this, _id)}
 						>
 							Delete
 						</Button>

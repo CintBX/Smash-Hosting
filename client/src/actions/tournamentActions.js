@@ -20,11 +20,13 @@ export const addTournament = tournament => dispatch => {
 		}));
 };
 
-export const deleteTournament = id => {
-	return {
-		type: DELETE_TOURNAMENT,
-		payload: id
-	};
+export const deleteTournament = id => dispatch => {
+	axios
+		.delete(`/tournaments/${id}`)
+		.then(res => dispatch({
+			type: DELETE_TOURNAMENT,
+			payload: id
+		}));
 };
 
 export const setTourneysLoading = () => {
