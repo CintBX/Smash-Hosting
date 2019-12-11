@@ -11,10 +11,13 @@ const UserSchema = new Schema({
 		type: String,
 		required: true
 	},
-	email: {
+	main: {
 		type: String,
-		required: false,
-		unique: true
+		required: false
+	},
+	secondary: {
+		type: String,
+		required: false
 	},
 	friendcode: {
 		type: String,
