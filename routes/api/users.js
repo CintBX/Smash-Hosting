@@ -9,10 +9,12 @@ const jwt = require('jsonwebtoken');
 const User = require('../../models/User');
 
 
+// ~~~~~~~~~~ REGISTER ~~~~~~~~~~
+
 // @route   POST /users
 // @descrip Register New User
 // @access  Public
-router.post('/new', (req, res) => {
+router.post('/register', (req, res) => {
 	const { username, password } = req.body;
 
 	// Validation (DO THIS FOR TOURNAMENTS LATER)
@@ -53,5 +55,46 @@ router.post('/new', (req, res) => {
 	});
 });
 
+
+// ~~~~~~~~~~ LOG IN ~~~~~~~~~~
+
+// @route   POST /users
+// @descrip Login Existing User
+// @access  Public
+router.post('/login', (req, res) => {
+	const { username, password } = req.body;
+
+	// Validation
+	if(!username || !password) {
+		return res.status(400).json({ msg: "Username and Password are required" })
+	};
+
+	// Check for existing user
+	User.findOne({ username }).then(user => {
+		if(!user) return res.status(400).json({ msg: "User does not exist" });
+
+		// Validate password, comparing the input password to the hashed password inside the DB
+		bcrypt.compare(password, user.password)
+			.then(isMatch => {
+				if(!isMatch) return res.status(400).json({ msg: "Incorrect password" });
+
+				jwt.sign(
+					{ id: user.id },
+					config.get('jwtSecret'),
+					{ expiresIn: 3600 },
+					(err, token) => {
+						if(err) throw err;
+						res.json({
+							token,
+							user: {
+								id: user.id,
+								username: user.username
+							}
+						})
+					}
+				)
+			});
+	});
+});
 
 module.exports = router;
