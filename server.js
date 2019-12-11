@@ -1,14 +1,16 @@
 const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
+const config = require('config');
 
 
 // Middleware
 app.use(express.json());
 
 
-// DataBase config
-const db = require('./config/keys').mongoURI;
+// DB Config
+// You can get all your config/ values with config.get('')
+const db = config.get('mongoURI');
 
 
 // Connect to MongoDB
