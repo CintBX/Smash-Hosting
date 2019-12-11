@@ -3,13 +3,14 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const config = require('config');
 const jwt = require('jsonwebtoken');
+const authorize = require('../../middleware/authorize');
 
 
 // User Model
 const User = require('../../models/User');
 
 
-// ~~~~~~~~~~ REGISTER ~~~~~~~~~~
+// ~~~~~~~~~~ REGISTER ~~~~~~~~~~ ~~~~~~~~~~ REGISTER ~~~~~~~~~~ ~~~~~~~~~~ REGISTER ~~~~~~~~~~
 
 // @route   POST /users
 // @descrip Register New User
@@ -56,7 +57,7 @@ router.post('/register', (req, res) => {
 });
 
 
-// ~~~~~~~~~~ LOG IN ~~~~~~~~~~
+// ~~~~~~~~~~ LOG IN ~~~~~~~~~~ ~~~~~~~~~~ LOG IN ~~~~~~~~~~ ~~~~~~~~~~ LOG IN ~~~~~~~~~~
 
 // @route   POST /users
 // @descrip Login Existing User
@@ -96,5 +97,15 @@ router.post('/login', (req, res) => {
 			});
 	});
 });
+
+// @route   /users/user
+// @descrip GET user data && VALIDATE user using Tokens
+// @access  Private
+router.get('/user', authorize, (req, res) => {
+	User.findById(req.user.id)
+		.select('-password')
+		.then(user => res.json(user));
+});
+
 
 module.exports = router;

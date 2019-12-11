@@ -51,3 +51,18 @@ User Auth
 
 ### Tournament Show Page
 - the big cahuna
+
+## Routes
+/users/register
+/users/login
+/users/user (DOUBLE CHECK THIS: It may just be for Token validation/session tracking, but it may also be used for show)
+Still needs:
+	- /users (for INDEX of users)
+	- /users/:id (for EDIT and DELETE and SHOW[?])
+
+
+/tournaments
+/tournaments/new
+/tournaments/:id (for DELETE)
+Still needs:
+	-/tournaments/:id (for EDIT and SHOW)
