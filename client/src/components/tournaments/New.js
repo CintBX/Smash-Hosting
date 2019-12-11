@@ -23,10 +23,7 @@ class NewTournament extends Component {
 		this.onSubmit = this.onSubmit.bind(this);
 		this.state = {
 			modal: false,
-			title: '',
-			description: '',
-			hostedBy: '',
-			status: ''
+			title: ''
 		};
 	};
 
@@ -46,10 +43,7 @@ class NewTournament extends Component {
 		e.preventDefault();
 
 		const newTournament = {
-			title: this.state.title,
-			description: "Testing123 Testing123",
-			hostedBy: "TESTUSER",
-			status: "Open"
+			title: this.state.title
 		};
 
 		this.props.addTournament(newTournament);
