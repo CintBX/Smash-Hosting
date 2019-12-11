@@ -33,6 +33,8 @@ X Refactor Tournaments Index page to turn multi-component file into single compo
 
 X Solve problem of rendering the right buttons with the right tournament statuses
 
+- Fix bug that removes "Status" attr from your data models
+
 
 
 ### Redux

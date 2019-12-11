@@ -13,7 +13,7 @@ import {
 } from 'reactstrap';
 import { connect } from 'react-redux';
 import { addTournament } from '../../actions/tournamentActions';
-import uuid from 'uuid';
+
 
 class NewTournament extends Component {
 	constructor(props) {
@@ -24,9 +24,9 @@ class NewTournament extends Component {
 		this.state = {
 			modal: false,
 			title: '',
-			// description: '',
-			// hostedBy: '',
-			// status: ''
+			description: '',
+			hostedBy: '',
+			status: ''
 		};
 	};
 
@@ -46,7 +46,6 @@ class NewTournament extends Component {
 		e.preventDefault();
 
 		const newTournament = {
-			id: uuid(),
 			title: this.state.title,
 			description: "Testing123 Testing123",
 			hostedBy: "TESTUSER",
@@ -76,24 +75,17 @@ class NewTournament extends Component {
 						<Form onSubmit={this.onSubmit}>
 							<FormGroup>
 								<Label for="title">Tournament</Label>
-{/*								<Input 
-									type="text"
-									name="title" 
-									id="tournament"
-									onChange={this.onChange}
-								/>*/}
 								<Input
 									type="select"
 									name="select"
 									id="tournament"
 									onChange={this.onChange}
 								>
-									<option>Choose From Below</option>
+									<option>Choose from below</option>
 									<option>Single Elim</option>
 									<option>Double Elim</option>
 									<option>Round Robin</option>
 									<option>Standard Rules</option>
-									<option></option>
 								</Input>
 							</FormGroup>
 

@@ -9,15 +9,15 @@ const TournamentSchema = new Schema({
 	},
 	hostedBy: {
 		type: String,
-		required: true
+		required: false
 	},
 	description: {
 		type: String,
-		required: true
+		required: false
 	},
 	status: {
 		type: String,
-		required: true
+		required: false
 	},
 	date: {
 		type: Date,

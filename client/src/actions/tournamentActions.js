@@ -5,25 +5,25 @@ export const getTournaments = () => dispatch => {
 	dispatch(setTourneysLoading());
 	axios
 		.get('/tournaments')
-		.then(res => 
-			dispatch({
-				type: GET_TOURNAMENTS,
-				payload: res.data
-			})
-		);
+		.then(res => dispatch({
+			type: GET_TOURNAMENTS,
+			payload: res.data
+		}));
+};
+
+export const addTournament = tournament => dispatch => {
+	axios
+		.post('/tournaments/new', tournament)
+		.then(res => dispatch({
+			type: ADD_TOURNAMENT,
+			payload: tournament
+		}));
 };
 
 export const deleteTournament = id => {
 	return {
 		type: DELETE_TOURNAMENT,
 		payload: id
-	};
-};
-
-export const addTournament = tournament => {
-	return {
-		type: ADD_TOURNAMENT,
-		payload: tournament
 	};
 };
 
