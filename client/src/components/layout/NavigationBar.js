@@ -10,6 +10,7 @@ import {
 	Container
 } from 'reactstrap';
 import logo from '../../logo.svg.png';
+import RegisterModal from '../auth/RegisterModal';
 
 export default class NavigationBar extends Component {
 	constructor(props) {
@@ -54,6 +55,10 @@ export default class NavigationBar extends Component {
 									<NavLink href="/smash-news" className="ml-1">
 										Smash News
 									</NavLink>
+								</NavItem>
+
+								<NavItem>
+									<RegisterModal />
 								</NavItem>
 							</Nav>
 						</Collapse>
