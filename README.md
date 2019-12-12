@@ -56,10 +56,10 @@ User Auth
 /users/register
 /users/login
 /users/user (DOUBLE CHECK THIS: It may just be for Token validation/session tracking, but it may also be used for show)
+NOTE: If /users/user GETS the user's data... then there's no reason that shouldn't be usable for SHOW
 Still needs:
 	- /users (for INDEX of users)
 	- /users/:id (for EDIT and DELETE and SHOW[?])
-
 
 /tournaments
 /tournaments/new
