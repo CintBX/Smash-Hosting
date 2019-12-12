@@ -13,21 +13,25 @@ export default function(state = initialState, action) {
 				tournaments: action.payload,
 				loading: false
 			};
+			
 		case ADD_TOURNAMENT:
 			return {
 				...state,
 				tournaments: [action.payload, ...state.tournaments]
 			};
+			
 		case DELETE_TOURNAMENT:
 			return {
 				...state,
 				tournaments: state.tournaments.filter(tournament => tournament._id !== action.payload)
 			};
+			
 		case TOURNAMENTS_LOADING:
 			return {
 				...state,
 				loading: true
 			};
+			
 		default:
 			return state;
 	};
