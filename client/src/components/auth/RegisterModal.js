@@ -103,7 +103,7 @@ class RegisterModal extends Component {
 									type="text"
 									name="username"
 									id="username"
-									placeholder="Username as you appear on Smash Ultimate online"
+									placeholder="Your Smash Ultimate online username"
 									className="mb-3"
 									onChange={this.onChange}
 								/>

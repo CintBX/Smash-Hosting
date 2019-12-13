@@ -11,6 +11,7 @@ import {
 } from 'reactstrap';
 import logo from '../../logo.svg.png';
 import RegisterModal from '../auth/RegisterModal';
+import LoginModal from '../auth/LoginModal';
 import Logout from '../auth/Logout';
 
 export default class NavigationBar extends Component {
@@ -61,6 +62,11 @@ export default class NavigationBar extends Component {
 								<NavItem>
 									<RegisterModal />
 								</NavItem>
+
+								<NavItem>
+									<LoginModal />
+								</NavItem>
+
 								<NavItem>
 									<Logout />
 								</NavItem>
