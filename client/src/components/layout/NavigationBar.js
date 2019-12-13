@@ -63,7 +63,7 @@ class NavigationBar extends Component {
 					<Container>
 						<NavbarBrand href="/profile" style={{fontSize:'28px'}}>
 							<img src={logo} width="80" height="80" alt="Smash Brothers Logo" />
-							<span className="ml-3">UserName</span>
+							<span className="ml-3"><strong>{ user ? user.username : 'Welcome!' }</strong></span>
 						</NavbarBrand>
 						<NavbarToggler onClick={this.toggle} />
 						<Collapse isOpen={this.state.isOpen} navbar>
