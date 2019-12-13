@@ -11,6 +11,7 @@ import {
 } from 'reactstrap';
 import logo from '../../logo.svg.png';
 import RegisterModal from '../auth/RegisterModal';
+import Logout from '../auth/Logout';
 
 export default class NavigationBar extends Component {
 	constructor(props) {
@@ -59,6 +60,9 @@ export default class NavigationBar extends Component {
 
 								<NavItem>
 									<RegisterModal />
+								</NavItem>
+								<NavItem>
+									<Logout />
 								</NavItem>
 							</Nav>
 						</Collapse>
