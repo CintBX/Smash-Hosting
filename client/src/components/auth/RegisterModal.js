@@ -14,6 +14,7 @@ import {
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { register } from '../../actions/authActions';
+import { clearErrors } from '../../actions/errorActions';
 
 class RegisterModal extends Component {
 	constructor(props) {
@@ -32,7 +33,8 @@ class RegisterModal extends Component {
 	static propTypes = {
 		isAuthenticated: PropTypes.bool,
 		error: PropTypes.object.isRequired,
-		register: PropTypes.func.isRequired
+		register: PropTypes.func.isRequired,
+		clearErrors: PropTypes.func.isRequired
 	};
 
 	componentDidUpdate(prevProps) {
@@ -49,6 +51,10 @@ class RegisterModal extends Component {
 	}
 
 	toggle() {
+		// Clear errors before open/close modal
+		this.props.clearErrors();
+
+		// Open/close modal
 		this.setState({
 			modal: !this.state.modal
 		});
@@ -122,4 +128,4 @@ const mapStateToProps = state => ({
 	error: state.error
 });
 
-export default connect(mapStateToProps, { register })(RegisterModal);
+export default connect(mapStateToProps, { register, clearErrors })(RegisterModal);
