@@ -8,7 +8,8 @@ import {
 	FormGroup,
 	Label,
 	Input,
-	NavLink
+	NavLink,
+	Alert
 } from 'reactstrap';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -34,6 +35,19 @@ class RegisterModal extends Component {
 		register: PropTypes.func.isRequired
 	};
 
+	componentDidUpdate(prevProps) {
+		const { error } = this.props;
+
+		if(error !== prevProps.error) {
+			// Check for Register Error
+			if(error.id === 'REGISTER_FAIL') {
+				this.setState({ msg: error.msg.msg });
+			} else {
+				this.setState({ msg: null });
+			}
+		}
+	}
+
 	toggle() {
 		this.setState({
 			modal: !this.state.modal
@@ -46,9 +60,16 @@ class RegisterModal extends Component {
 
 	onSubmit(e) {
 		e.preventDefault();
+		const { username, password } = this.state;
 
-		// Close modal
-		this.toggle();
+		// Create a User object
+		const newUser = {
+			username,
+			password
+		};
+
+		// Attempt to register
+		this.props.register(newUser);
 	}
 
 	render() {
@@ -61,6 +82,7 @@ class RegisterModal extends Component {
 				<Modal isOpen={this.state.modal} toggle={this.toggle}>
 					<ModalHeader toggle={this.toggle}>Register</ModalHeader>
 					<ModalBody>
+						{ this.state.msg ? <Alert color="danger">{ this.state.msg }</Alert> : null }
 						<Form onSubmit={this.onSubmit}>
 							<FormGroup>
 								<Label for="username">Username</Label>
