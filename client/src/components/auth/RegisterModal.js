@@ -38,7 +38,7 @@ class RegisterModal extends Component {
 	};
 
 	componentDidUpdate(prevProps) {
-		const { error } = this.props;
+		const { error, isAuthenticated } = this.props;
 
 		if(error !== prevProps.error) {
 			// Check for Register Error
@@ -46,9 +46,16 @@ class RegisterModal extends Component {
 				this.setState({ msg: error.msg.msg });
 			} else {
 				this.setState({ msg: null });
-			}
-		}
-	}
+			};
+		};
+
+		// If Authenticated, close modal
+		if(this.state.modal) {
+			if(isAuthenticated) {
+				this.toggle();
+			};
+		};
+	};
 
 	toggle() {
 		// Clear errors before open/close modal
