@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import {
 	Collapse,
 	Navbar,
@@ -13,23 +13,50 @@ import logo from '../../logo.svg.png';
 import RegisterModal from '../auth/RegisterModal';
 import LoginModal from '../auth/LoginModal';
 import Logout from '../auth/Logout';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-export default class NavigationBar extends Component {
+class NavigationBar extends Component {
 	constructor(props) {
 		super(props);
+		this.toggle = this.toggle.bind(this);
 		this.state = {
 			isOpen: false,
-		}
-		this.toggle = this.toggle.bind(this);
+		};
+	};
+
+	static propTypes = {
+		auth: PropTypes.object.isRequired
 	}
 
 	toggle() {
 		this.setState({
 			isOpen: !this.state.isOpen
 		});
-	}
+	};
 
 	render() {
+		const { isAuthenticated, user } = this.props.auth;
+
+		const authLinks = (
+			<Fragment>
+				<NavItem>
+					<Logout />
+				</NavItem>
+			</Fragment>
+		);
+
+		const guestLinks = (
+			<Fragment>
+				<NavItem>
+					<RegisterModal />
+				</NavItem>
+				<NavItem>
+					<LoginModal />
+				</NavItem>
+			</Fragment>
+		);
+
 		return (
 			<div>
 				<Navbar color="primary" dark expand="sm" className="mb-5">
@@ -59,22 +86,18 @@ export default class NavigationBar extends Component {
 									</NavLink>
 								</NavItem>
 
-								<NavItem>
-									<RegisterModal />
-								</NavItem>
-
-								<NavItem>
-									<LoginModal />
-								</NavItem>
-
-								<NavItem>
-									<Logout />
-								</NavItem>
+								{ isAuthenticated ? authLinks : guestLinks }
 							</Nav>
 						</Collapse>
 					</Container>
 				</Navbar>
 			</div>
-		)
-	}
-}
+		);
+	};
+};
+
+const mapStateToProps = state => ({
+	auth: state.auth
+});
+
+export default connect(mapStateToProps, null)(NavigationBar);
