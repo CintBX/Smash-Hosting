@@ -98,6 +98,21 @@ router.post('/login', (req, res) => {
 	});
 });
 
+
+// ~~~~~~~~~~ CRUD ~~~~~~~~~~ ~~~~~~~~~~ CRUD ~~~~~~~~~~ ~~~~~~~~~~ CRUD ~~~~~~~~~~
+
+// @route   GET /users
+// @descrip INDEX all users
+// @access Public
+router.get('/', (req, res) => {
+	User.find()
+		.then(users => res.json(users))
+		.catch(err => console.log(err));
+});
+
+
+
+
 // @route   /users/user
 // @descrip GET user data && VALIDATE user using Tokens
 // @access  Private

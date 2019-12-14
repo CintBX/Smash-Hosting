@@ -3,11 +3,16 @@
 ### Future Tasks:
 - Character most used (?)
 - Win/Loss calculation (refer to screenshots of convo wth Chris)
+- "View Rulsets" possibly a Nested Modal within the Host Tourney modal
 
 
 
 ### Tasks:
-- User Sidebar
+X User Sidebar name/characters/code/edit
+
+- Edit User modal (May be complex.. it will have to edit the State of the actual User object that isAuthenticated)
+
+- Generic Image, that also checks the user.main data (user, isAuthenticated)
 
 - User Profile page
 
