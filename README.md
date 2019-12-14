@@ -13,6 +13,9 @@ User Auth
 - User Model
 	-Username(required) / Password(required) / Main / Secondary / FriendCode
 
+- Only a User can Host tourneys, but only the owner of a tourney should have the option to delete it.  Make permission based on
+the ID/Token of the logged on user, to delete or edit a tourney.
+
 
 
 

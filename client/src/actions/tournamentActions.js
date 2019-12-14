@@ -14,9 +14,9 @@ export const getTournaments = () => dispatch => {
 		.catch(err => dispatch(returnErrors(err.response.data, err.response.status)));
 };
 
-export const addTournament = tournament => dispatch => {
+export const addTournament = tournament => (dispatch, getState) => {
 	axios
-		.post('/tournaments/new', tournament)
+		.post('/tournaments/new', tournament, tokenConfig(getState))
 		.then(res => dispatch({
 			type: ADD_TOURNAMENT,
 			payload: tournament
@@ -24,9 +24,9 @@ export const addTournament = tournament => dispatch => {
 		.catch(err => dispatch(returnErrors(err.response.data, err.response.status)));
 };
 
-export const deleteTournament = id => dispatch => {
+export const deleteTournament = id => (dispatch, getState) => {
 	axios
-		.delete(`/tournaments/${id}`)
+		.delete(`/tournaments/${id}`, tokenConfig(getState))
 		.then(res => dispatch({
 			type: DELETE_TOURNAMENT,
 			payload: id
