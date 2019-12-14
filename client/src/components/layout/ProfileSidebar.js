@@ -14,6 +14,7 @@ import {
 	Col
 } from 'reactstrap';
 import NewTournament from '../tournaments/New';
+import PropTypes from 'prop-types';
 
 
 export default class ProfileSidebar extends Component {

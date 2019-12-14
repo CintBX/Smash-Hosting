@@ -9,10 +9,12 @@ import {
 	Label,
 	Input,
 	InputGroup,
-	InputGroupAddon
+	InputGroupAddon,
+	Alert
 } from 'reactstrap';
 import { connect } from 'react-redux';
 import { addTournament } from '../../actions/tournamentActions';
+import PropTypes from 'prop-types';
 
 
 class NewTournament extends Component {
@@ -25,6 +27,10 @@ class NewTournament extends Component {
 			modal: false,
 			title: ''
 		};
+	};
+
+	static propTypes = {
+		isAuthenticated: PropTypes.bool
 	};
 
 	toggle() {
@@ -54,14 +60,18 @@ class NewTournament extends Component {
 	render() {
 		return (
 			<div>
-				<Button 
-					outline
-					color="danger"
-					className="mb-3"
-					onClick={this.toggle}
-				>
-					Host a Tourney
-				</Button>
+				{
+					this.props.isAuthenticated ?
+					<Button 
+						outline
+						color="danger"
+						className="mb-3"
+						onClick={this.toggle}
+					>
+						Host a Tourney
+					</Button> :
+					<Alert color="dark" className="text-center">Log in to host a Tournament</Alert>
+				}
 
 				<Modal isOpen={this.state.modal} toggle={this.toggle}>
 					<ModalHeader toggle={this.toggle}>Create a New Tournament</ModalHeader>
@@ -100,7 +110,8 @@ class NewTournament extends Component {
 };
 
 const mapStateToProps = state => ({
-	tournament: state.tournament
+	tournament: state.tournament,
+	isAuthenticated: state.auth.isAuthenticated
 });
 
 export default connect(mapStateToProps, { addTournament })(NewTournament)
