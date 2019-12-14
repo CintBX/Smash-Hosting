@@ -15,7 +15,8 @@ class TournamentIndex extends Component {
 
 	static propTypes = {
 		getTournaments: PropTypes.func.isRequired,
-		tournament: PropTypes.object.isRequired
+		tournament: PropTypes.object.isRequired,
+		auth: PropTypes.object.isRequired
 	};
 
 	onDelete(id) {
@@ -24,6 +25,7 @@ class TournamentIndex extends Component {
 
 	render() {
 		const { tournaments } = this.props.tournament;
+		const { isAuthenticated, user } = this.props.auth;
 
 		return tournaments.map(({ _id, title, hostedBy, description, status }) => {
 			return (
@@ -40,18 +42,22 @@ class TournamentIndex extends Component {
 					{ status === "Closed" ? <InProgress /> : null }
 					{ status === "Complete" ? <Results /> : null }
 					
-					<span className="float-right">
-						<Button color="warning" className="mx-1 mt-3">
-							Edit
-						</Button>
-						<Button 
-							color="danger" 
-							className="mx-1 mt-3"
-							onClick={this.onDelete.bind(this, _id)}
-						>
-							Delete
-						</Button>
-					</span>
+					{
+						isAuthenticated && user.username === hostedBy ?
+						<span className="float-right">
+							<Button color="warning" className="mx-1 mt-3">
+								Edit
+							</Button>
+							<Button 
+								color="danger" 
+								className="mx-1 mt-3"
+								onClick={this.onDelete.bind(this, _id)}
+							>
+								Delete
+							</Button>
+						</span> :
+						null
+					}
 				</Jumbotron>
 			);
 		});
@@ -59,7 +65,8 @@ class TournamentIndex extends Component {
 };
 
 const mapStateToProps = state => ({
-	tournament: state.tournament
+	tournament: state.tournament,
+	auth: state.auth
 });
 
 export default connect(mapStateToProps, { getTournaments, deleteTournament })(TournamentIndex);
