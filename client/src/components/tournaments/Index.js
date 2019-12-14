@@ -13,6 +13,11 @@ class TournamentIndex extends Component {
 		this.props.getTournaments();
 	};
 
+	static propTypes = {
+		getTournaments: PropTypes.func.isRequired,
+		tournament: PropTypes.object.isRequired
+	};
+
 	onDelete(id) {
 		this.props.deleteTournament(id);
 	};
@@ -51,11 +56,6 @@ class TournamentIndex extends Component {
 			);
 		});
 	};
-};
-
-TournamentIndex.propTypes = {
-	getTournaments: PropTypes.func.isRequired,
-	tournament: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
