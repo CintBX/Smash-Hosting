@@ -7,11 +7,6 @@
 
 
 ### Tasks:
-- Only a User can Host tourneys, but only the owner of a tourney should have the option to delete it.  Make permission based on
-the ID/Token of the logged on user, to DELETE and EDIT a tourney.
-Or simply hide the buttons if the proper user isn't logged in
-(user.username === tournament.hostedBy ? Edit and Delete : null)
-
 - User Sidebar
 
 - User Profile page

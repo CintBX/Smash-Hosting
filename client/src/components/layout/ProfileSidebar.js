@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import {
 	Card, 
 	CardImg,
@@ -29,7 +29,8 @@ class ProfileSidebar extends Component {
 	};
 
 	static propTypes = {
-		isAuthenticated: PropTypes.bool
+		isAuthenticated: PropTypes.bool,
+		user: PropTypes.object
 	};
 
 	toggle() {
@@ -39,18 +40,31 @@ class ProfileSidebar extends Component {
 	};
 
 	render() {
+		const { user, isAuthenticated } = this.props;
 		return (
 			<div>
 				<Card className="mb-4" style={{border:'none'}}>
 					<CardImg top width="100%" src="https://via.placeholder.com/300x250" alt="Character" />
 					<CardBody>
-						<CardTitle style={{fontSize: '1.5rem'}}>Username</CardTitle>
-						<CardText>Main / Secondary</CardText>
-						<CardText>Friend Code</CardText>
+						{
+							user ?
+							<Fragment>
+								<CardTitle style={{fontSize: '1.5rem'}}>
+									{ user.username }
+								</CardTitle> 
+								<CardText>{ user.main ? `${user.main} / ` : "" } { user.secondary ? user.secondary : "Characters:" }</CardText>
+								<CardText>{ user.friendCode ? user.friendCode : "Friend Code:" }</CardText>
+								<Button outline color="warning" style={{marginBottom:'1rem'}}>
+									<b>Edit User</b>
+								</Button>
+							</Fragment> :
+							null							
+						}
+						
 						<NewTournament/>
 
 						{
-							this.props.isAuthenticated ?
+							isAuthenticated ?
 							<Row>
 								<Col>
 									<FormGroup>
@@ -60,7 +74,7 @@ class ProfileSidebar extends Component {
 											onClick={this.toggle} 
 											style={{ marginBottom:'1rem' }}
 										>
-											View Rulesets
+											<b>View Rulesets</b>
 										</Button>
 
 										<Collapse isOpen={this.state.isOpen}>
@@ -103,7 +117,6 @@ class ProfileSidebar extends Component {
 							</Row> :
 							null
 						}
-
 					</CardBody>
 				</Card>
 			</div>
@@ -112,7 +125,8 @@ class ProfileSidebar extends Component {
 };
 
 const mapStateToProps = state => ({
-	isAuthenticated: state.auth.isAuthenticated
+	isAuthenticated: state.auth.isAuthenticated,
+	user: state.auth.user
 });
 
 export default connect(mapStateToProps, null)(ProfileSidebar);

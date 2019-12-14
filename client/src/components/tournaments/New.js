@@ -68,7 +68,7 @@ class NewTournament extends Component {
 						className="mb-3"
 						onClick={this.toggle}
 					>
-						Host a Tourney
+						<b>Host a Tourney</b>
 					</Button> :
 					<Alert color="dark" className="text-center">Log in to host a Tournament</Alert>
 				}
