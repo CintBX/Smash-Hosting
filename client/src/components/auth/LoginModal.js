@@ -106,6 +106,7 @@ class LoginModal extends Component {
 									id="username"
 									className="mb-3"
 									placeholder="Your Smash Ultimate online username"
+									autofocus="autofocus"
 									onChange={this.onChange}
 								/>
 

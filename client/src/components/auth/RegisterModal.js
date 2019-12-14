@@ -103,8 +103,9 @@ class RegisterModal extends Component {
 									type="text"
 									name="username"
 									id="username"
-									placeholder="Your Smash Ultimate online username"
 									className="mb-3"
+									placeholder="Your Smash Ultimate online username"
+									autofocus="autofocus"
 									onChange={this.onChange}
 								/>
 
