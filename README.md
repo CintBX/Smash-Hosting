@@ -6,11 +6,19 @@
 
 
 
-### Current Task:
+### Tasks:
 - Only a User can Host tourneys, but only the owner of a tourney should have the option to delete it.  Make permission based on
-the ID/Token of the logged on user, to delete or edit a tourney.
+the ID/Token of the logged on user, to DELETE and EDIT a tourney.
 
 - When you open a modal, make it so that the cursor is already on the Username field
+
+- Hide SIdebar when not logged in
+
+- Welcome! NavbarBrand should href="#"
+
+- Hide View Rulesets also
+
+- Flesh out Rulesets
 
 
 
