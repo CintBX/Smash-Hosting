@@ -15,9 +15,10 @@ import {
 } from 'reactstrap';
 import NewTournament from '../tournaments/New';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 
-export default class ProfileSidebar extends Component {
+class ProfileSidebar extends Component {
 	constructor(props) {
 		super(props);
 		this.toggle = this.toggle.bind(this);
@@ -25,6 +26,10 @@ export default class ProfileSidebar extends Component {
 			user: [],
 			isOpen: false
 		};
+	};
+
+	static propTypes = {
+		isAuthenticated: PropTypes.bool
 	};
 
 	toggle() {
@@ -44,56 +49,66 @@ export default class ProfileSidebar extends Component {
 						<CardText>Friend Code</CardText>
 						<NewTournament/>
 
-						{/* Ruleset Cards */}
-						<Row>
-							<Col>
-								<FormGroup>
-									<Button 
-										outline
-										color="info"
-										onClick={this.toggle} 
-										style={{ marginBottom:'1rem' }}
-									>
-										View Rulesets
-									</Button>
+						{
+							this.props.isAuthenticated ?
+							<Row>
+								<Col>
+									<FormGroup>
+										<Button 
+											outline
+											color="info"
+											onClick={this.toggle} 
+											style={{ marginBottom:'1rem' }}
+										>
+											View Rulesets
+										</Button>
 
-									<Collapse isOpen={this.state.isOpen}>
-										<CardDeck>
-											<Col lg="12">
-												<Card className="my-2">
-													<CardHeader>Single Elimination</CardHeader>
-													<CardBody>Single Elim rules here please</CardBody>
-												</Card>
-											</Col>
+										<Collapse isOpen={this.state.isOpen}>
+											<CardDeck>
+												<Col lg="12">
+													<Card className="my-2">
+														<CardHeader>Single Elimination</CardHeader>
+														<CardBody>Single Elim rules here please</CardBody>
+													</Card>
+												</Col>
 
-											<Col lg="12">
-												<Card className="my-2">
-													<CardHeader>Double Elimination</CardHeader>
-													<CardBody>Dub Elim rules here please</CardBody>
-												</Card>
-											</Col>
+												<Col lg="12">
+													<Card className="my-2">
+														<CardHeader>Double Elimination</CardHeader>
+														<CardBody>Dub Elim rules here please</CardBody>
+													</Card>
+												</Col>
 
-											<Col lg="12">
-												<Card className="my-2">
-													<CardHeader>Round Robin</CardHeader>
-													<CardBody>Round Robin rules here please</CardBody>
-												</Card>
-											</Col>
+												<Col lg="12">
+													<Card className="my-2">
+														<CardHeader>Round Robin</CardHeader>
+														<CardBody>Round Robin rules here please</CardBody>
+													</Card>
+												</Col>
 
-											<Col lg="12">
-												<Card className="my-2">
-													<CardHeader>Standard Rules</CardHeader>
-													<CardBody>Single Elim rules here please</CardBody>
-												</Card>
-											</Col>
-										</CardDeck>
-									</Collapse>
-								</FormGroup>
-							</Col>
-						</Row>
+												<Col lg="12">
+													<Card className="my-2">
+														<CardHeader>Standard Rules</CardHeader>
+														<CardBody>Single Elim rules here please</CardBody>
+													</Card>
+												</Col>
+											</CardDeck>
+										</Collapse>
+									</FormGroup>
+								</Col>
+							</Row> :
+							null
+						}
+
 					</CardBody>
 				</Card>
 			</div>
 		);
 	};
 };
+
+const mapStateToProps = state => ({
+	isAuthenticated: state.auth.isAuthenticated
+});
+
+export default connect(mapStateToProps, null)(ProfileSidebar);

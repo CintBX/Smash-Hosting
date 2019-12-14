@@ -16,7 +16,7 @@ the ID/Token of the logged on user, to DELETE and EDIT a tourney.
 
 - Welcome! NavbarBrand should href="#"
 
-- Hide View Rulesets also
+X Hide View Rulesets also
 
 - Flesh out Rulesets
 
