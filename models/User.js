@@ -19,7 +19,7 @@ const UserSchema = new Schema({
 		type: String,
 		required: false
 	},
-	friendcode: {
+	friendCode: {
 		type: String,
 		required: false
 	},
