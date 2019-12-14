@@ -61,10 +61,17 @@ class NavigationBar extends Component {
 			<div>
 				<Navbar color="primary" dark expand="sm" className="mb-5">
 					<Container>
-						<NavbarBrand href="/profile" style={{fontSize:'28px'}}>
-							<img src={logo} width="80" height="80" alt="Smash Brothers Logo" />
-							<span className="ml-3"><strong>{ user ? user.username : 'Welcome!' }</strong></span>
-						</NavbarBrand>
+						{
+							isAuthenticated ?
+							<NavbarBrand href="/profile" style={{fontSize:'28px'}}>
+								<img src={logo} width="80" height="80" alt="Smash Brothers Logo" />
+								<span className="ml-3"><strong>{ user.username }</strong></span>
+							</NavbarBrand> :
+							<NavbarBrand href="#" style={{fontSize:'28px'}}>
+								<img src={logo} width="80" height="80" alt="Smash Brothers Logo" />
+								<span className="ml-3"><strong>SmashHosting</strong></span>
+							</NavbarBrand>
+						}
 						<NavbarToggler onClick={this.toggle} />
 						<Collapse isOpen={this.state.isOpen} navbar>
 							<Nav className="mr-auto" navbar>
