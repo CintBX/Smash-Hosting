@@ -1,5 +1,7 @@
 import { GET_TOURNAMENTS, ADD_TOURNAMENT, DELETE_TOURNAMENT, TOURNAMENTS_LOADING } from './types';
 import axios from 'axios';
+import { tokenConfig } from './authActions';
+import { returnErrors } from './errorActions';
 
 export const getTournaments = () => dispatch => {
 	dispatch(setTourneysLoading());
@@ -8,7 +10,8 @@ export const getTournaments = () => dispatch => {
 		.then(res => dispatch({
 			type: GET_TOURNAMENTS,
 			payload: res.data
-		}));
+		}))
+		.catch(err => dispatch(returnErrors(err.response.data, err.response.status)));
 };
 
 export const addTournament = tournament => dispatch => {
@@ -17,7 +20,8 @@ export const addTournament = tournament => dispatch => {
 		.then(res => dispatch({
 			type: ADD_TOURNAMENT,
 			payload: tournament
-		}));
+		}))
+		.catch(err => dispatch(returnErrors(err.response.data, err.response.status)));
 };
 
 export const deleteTournament = id => dispatch => {
@@ -26,7 +30,8 @@ export const deleteTournament = id => dispatch => {
 		.then(res => dispatch({
 			type: DELETE_TOURNAMENT,
 			payload: id
-		}));
+		}))
+		.catch(err => dispatch(returnErrors(err.response.data, err.response.status)));
 };
 
 export const setTourneysLoading = () => {
