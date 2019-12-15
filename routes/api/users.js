@@ -102,7 +102,7 @@ router.post('/login', (req, res) => {
 // ~~~~~~~~~~ CRUD ~~~~~~~~~~ ~~~~~~~~~~ CRUD ~~~~~~~~~~ ~~~~~~~~~~ CRUD ~~~~~~~~~~
 
 // @route   GET /users
-// @descrip INDEX all users
+// @descrip INDEX all users (Fighter Directory)
 // @access Public
 router.get('/', (req, res) => {
 	User.find()
@@ -110,8 +110,14 @@ router.get('/', (req, res) => {
 		.catch(err => console.log(err));
 });
 
-
-
+// @route   /users
+// @descrip SHOW a user (To view other's profile pages (??))
+// @access  Public
+router.get('/user/:id', (req, res) => {
+	User.findById(req.params.id)
+		.then(user => res.json(user))
+		.catch(err => res.json(err));
+})
 
 // @route   /users/user
 // @descrip GET user data && VALIDATE user using Tokens
