@@ -55,7 +55,7 @@ class EditUserModal extends Component {
 			friendCode
 		};
 
-		this.props.editUser(user);
+		// this.props.editUser(user);
 	};
 
 	render() {
@@ -123,4 +123,4 @@ const mapStateToProps = state => ({
 	user: state.auth.user
 })
 
-export default connect(mapStateToProps, { editUser })(EditUserModal);
+export default connect(mapStateToProps, null)(EditUserModal);
