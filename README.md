@@ -11,6 +11,14 @@
 X User Sidebar name/characters/code/edit
 
 - Edit User modal (May be complex.. it will have to edit the State of the actual User object that isAuthenticated)
+	X Modal created
+	X Modal rendered in Profile Sidebar
+	X Modal form is for main/secondary/friendcode
+	- CRUD User routes:
+		X INDEX
+		X SHOW
+		X *EDIT/UPDATE*
+			- ISSUE: It's not updating with the component mount.  You need to use ComponentDidMount somehow.  Otherwise tho it works.
 
 - Generic Image, that also checks the user.main data (user, isAuthenticated)
 
