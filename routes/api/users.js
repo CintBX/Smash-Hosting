@@ -127,7 +127,7 @@ router.get('/user/:id', (req, res) => {
 router.post('/user/edit/:id', (req, res) => {
 	User.findById(req.params.id, (err, user) => {
 		if(!user) {
-			res.status(404).res.json("User not found")
+			res.status(404).json("User not found")
 		} else {
 			user.main = req.body.main;
 			user.secondary = req.body.secondary;
