@@ -6,7 +6,8 @@ import {
 	LOGIN_FAIL,
 	LOGOUT_SUCCESS,
 	REGISTER_SUCCESS,
-	REGISTER_FAIL
+	REGISTER_FAIL,
+	// EDIT_USER
 } from '../actions/types';
 
 const initialState = {
@@ -18,6 +19,13 @@ const initialState = {
 
 export default function(state = initialState, action) {
 	switch(action.type) {
+		// case EDIT_USER:
+		// 	return {
+		// 		...state,
+		// 		...action.payload,
+		// 		user:  action.payload
+		// 	}
+
 		case USER_LOADING:
 			return {
 				...state,

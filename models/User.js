@@ -13,15 +13,18 @@ const UserSchema = new Schema({
 	},
 	main: {
 		type: String,
-		required: false
+		required: false,
+		default: ''
 	},
 	secondary: {
 		type: String,
-		required: false
+		required: false,
+		default: ''
 	},
 	friendCode: {
 		type: String,
-		required: false
+		required: false,
+		default: ''
 	},
 	date: {
 		type: Date,

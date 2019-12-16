@@ -14,7 +14,7 @@ import {
 	Col
 } from 'reactstrap';
 import NewTournament from '../tournaments/New';
-import EditUserModal from '../auth/EditUserModal';
+// import EditUserModal from '../auth/EditUserModal';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -56,7 +56,6 @@ class ProfileSidebar extends Component {
 								<CardText>{ user.main ? `${user.main} / ` : "" } { user.secondary ? user.secondary : "Characters:" }</CardText>
 								<CardText>{ user.friendCode ? user.friendCode : "Friend Code:" }</CardText>
 
-								<EditUserModal />
 							</Fragment> :
 							null							
 						}
