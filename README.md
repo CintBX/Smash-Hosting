@@ -14,13 +14,16 @@ X User Sidebar name/characters/code/edit
 	X Modal created
 	X Modal rendered in Profile Sidebar
 	X Modal form is for main/secondary/friendcode
-	- CRUD User routes:
+	X CRUD User routes:
 		X INDEX
 		X SHOW
 		X *EDIT/UPDATE*
 			- ISSUE: It's not updating with the component mount.  You need to use ComponentDidMount somehow.  Otherwise tho it works.
+	- Types/Reducer/Action to use with new Routes (beginning with Edit, for EditUserModal)
 
+- IMAGES/IMG directory containing a shitload of images
 - Generic Image, that also checks the user.main data (user, isAuthenticated)
+- List of images, each of which will render according to the user.main (image files will be named accordingly)
 
 - User Profile page
 
