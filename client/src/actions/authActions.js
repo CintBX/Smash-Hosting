@@ -6,10 +6,36 @@ import {
 	LOGIN_FAIL,
 	LOGOUT_SUCCESS,
 	REGISTER_SUCCESS,
-	REGISTER_FAIL
+	REGISTER_FAIL,
+	// EDIT_USER
 } from './types';
 import axios from 'axios';
 import { returnErrors } from './errorActions';
+
+
+
+// Configuring EDIT_USER action.  Will put this below once it works.
+// export const editUser = ({ id, main, secondary, friendCode }) => dispatch => {
+// 	const config = {
+// 		headers: {
+// 			"Content-Type": "application/json"
+// 		}
+// 	};
+
+// 	const body = JSON.stringify({ main, secondary, friendCode });
+
+// 	axios.post(`/users/user/edit/${id}`, body, config)
+// 		.then(res => dispatch({
+// 			type: EDIT_USER,
+// 			payload: res.data
+// 		}))
+// 		.catch(err => {
+// 			dispatch(returnErrors(err.response.data, err.response.status));
+// 		});
+// };
+
+
+
 
 // Check token and load user
 export const loadUser = () => (dispatch, getState) => {

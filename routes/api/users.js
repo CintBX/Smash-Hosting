@@ -124,20 +124,20 @@ router.get('/user/:id', (req, res) => {
 // @route   POST /users
 // @descrip EDIT/UPDATE a user (EditUserModal)
 // @access  Private
-router.post('/user/edit/:id', (req, res) => {
-	User.findById(req.params.id, (err, user) => {
-		if(!user) {
-			res.status(404).json("User not found")
-		} else {
-			user.main = req.body.main;
-			user.secondary = req.body.secondary;
-			user.friendCode = req.body.friendCode;
-		}
-		user.save()
-			.then(() => res.json("Updated successfully"))
-			.catch(() => res.json(err));
-	});
-});
+// router.post('/user/edit/:id', (req, res) => {
+// 	User.findById(req.params.id, (err, user) => {
+// 		if(!user) {
+// 			res.status(404).json("User not found")
+// 		} else {
+// 			user.main = req.body.main;
+// 			user.secondary = req.body.secondary;
+// 			user.friendCode = req.body.friendCode;
+// 		}
+// 		user.save()
+// 			.then(() => res.json("Updated successfully"))
+// 			.catch(() => res.json(err));
+// 	});
+// });
 
 
 // @route   /users/user

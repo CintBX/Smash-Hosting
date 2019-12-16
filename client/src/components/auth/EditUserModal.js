@@ -11,7 +11,7 @@ import {
 } from 'reactstrap';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { editUser } from '../../actions/authActions';
+// import { editUser } from '../../actions/authActions';
 
 class EditUserModal extends Component {
 	constructor(props) {
@@ -21,15 +21,16 @@ class EditUserModal extends Component {
 		this.onSubmit = this.onSubmit.bind(this);
 		this.state = {
 			modal: false,
-			main: '',
-			secondary: '',
-			friendCode: ''
+			id: this.props.user.id,
+			main: this.props.user.main,
+			secondary: this.props.user.secondary,
+			friendCode: this.props.user.friendCode
 		};
 	};
 
 	static propTypes = {
-		isAuthenticated: PropTypes.bool,
-		user: PropTypes.object
+		user: PropTypes.object.isRequired,
+		editUser: PropTypes.func.isRequired
 	};
 
 	toggle() {
@@ -47,19 +48,19 @@ class EditUserModal extends Component {
 	onSubmit(e) {
 		e.preventDefault();
 
-		const { main, secondary, friendCode } = this.state;
+		const { id, main, secondary, friendCode } = this.state;
 
 		const user = {
+			id,
 			main,
 			secondary,
 			friendCode
 		};
 
-		// this.props.editUser(user);
+		this.props.editUser(user);
 	};
 
 	render() {
-		const { isAuthenticated } = this.props;
 		return (
 			<div>
 				<Button 
@@ -119,8 +120,7 @@ class EditUserModal extends Component {
 };
 
 const mapStateToProps = state => ({
-	isAuthenticated: state.auth.isAuthenticated,
 	user: state.auth.user
-})
+});
 
 export default connect(mapStateToProps, null)(EditUserModal);
