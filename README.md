@@ -10,6 +10,7 @@
 ### Tasks:
 X User Sidebar name/characters/code/edit
 
+<!-- 
 - Edit User modal (May be complex.. it will have to edit the State of the actual User object that isAuthenticated)
 	X Modal created
 	X Modal rendered in Profile Sidebar
@@ -19,7 +20,17 @@ X User Sidebar name/characters/code/edit
 		X SHOW
 		X *EDIT/UPDATE*
 			- ISSUE: It's not updating with the component mount.  You need to use ComponentDidMount somehow.  Otherwise tho it works.
-	- Types/Reducer/Action to use with new Routes (beginning with Edit, for EditUserModal)
+	- Types/Reducer/Action to use with new Routes (beginning with Edit, for EditUserModal) 
+-->
+
+
+*******************************************************************************
+* Make Main/Secondary/friendCode part of REGISTRATION, mandatory              *
+* Involves: model, user route, auth reducer, auth action, registerModal.js    *
+*******************************************************************************
+
+
+
 
 - IMAGES/IMG directory containing a shitload of images
 - Generic Image, that also checks the user.main data (user, isAuthenticated)
