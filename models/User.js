@@ -14,17 +14,15 @@ const UserSchema = new Schema({
 	main: {
 		type: String,
 		required: false,
-		default: ''
 	},
 	secondary: {
 		type: String,
 		required: false,
-		default: ''
 	},
+	// FOR LATER: Make your form automatically format friendcodes so all of them adhere to a standard (ie: 1234-4321-1234)
 	friendCode: {
 		type: String,
-		required: false,
-		default: ''
+		required: true,
 	},
 	date: {
 		type: Date,
