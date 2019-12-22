@@ -102,3 +102,21 @@ Still needs:
 /tournaments/:id (for DELETE)
 Still needs:
 	-/tournaments/:id (for EDIT and SHOW)
+
+
+
+
+	### Late Stage
+	Messaging/inbox
+	User agreement
+	Rules & regulations (code of conduct, no racial slurs, etc)
+	with Ticket system
+
+
+
+	#### TASK RIGHT NOW!!!!
+	- Making FriendCode a required field (register)
+	- Making Main/Secondary a part of the registration field (register)
+	- Add the input on the RegisterModal
+	- Adjust the routes.  Gotta include "friendCode" with username and password
+	- Shit, might have to include main/secondary also.. somehow.. though it isn't required..
