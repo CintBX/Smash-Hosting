@@ -26,6 +26,7 @@ class RegisterModal extends Component {
 			modal: false,
 			username: '',
 			password: '',
+			friendCode: '',
 			msg: null
 		};
 	};
@@ -73,12 +74,13 @@ class RegisterModal extends Component {
 
 	onSubmit(e) {
 		e.preventDefault();
-		const { username, password } = this.state;
+		const { username, password, friendCode } = this.state;
 
 		// Create a User object
 		const newUser = {
 			username,
-			password
+			password,
+			friendCode
 		};
 
 		// Attempt to register
@@ -93,12 +95,12 @@ class RegisterModal extends Component {
 				</NavLink>
 
 				<Modal isOpen={this.state.modal} toggle={this.toggle}>
-					<ModalHeader toggle={this.toggle}>Register</ModalHeader>
+					<ModalHeader toggle={this.toggle}>Create Your Account</ModalHeader>
 					<ModalBody>
 						{ this.state.msg ? <Alert color="danger">{ this.state.msg }</Alert> : null }
 						<Form onSubmit={this.onSubmit}>
 							<FormGroup>
-								<Label for="username">Username</Label>
+								<Label for="username">*Username</Label>
 								<Input
 									type="text"
 									name="username"
@@ -109,7 +111,7 @@ class RegisterModal extends Component {
 									onChange={this.onChange}
 								/>
 
-								<Label for="username">Password</Label>
+								<Label for="username">*Password</Label>
 								<Input
 									type="password"
 									name="password"
@@ -119,6 +121,15 @@ class RegisterModal extends Component {
 									onChange={this.onChange}
 								/>
 
+								<Label for="friendCode">*Friend Code</Label>
+								<Input
+									type="text"
+									name="friendCode"
+									id="friendCode"
+									placeholder="0000-0000-0000"
+									className="mb-3"
+									onChange={this.onChange}
+								/>
 								<Button color="primary" style={{marginTop: '2rem'}} block>
 									Register
 								</Button>
