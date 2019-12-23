@@ -46,10 +46,10 @@ X User Sidebar name/characters/code/edit
 
 
 ### CREATING A TOURNEY
-	-hostedBy user.id
-	-description: (Long conditional logic somewhere, perhaps in it's own component, that you import and use in creation so that it knows to apply a certain status given the type of tournament selected.  Lots of hard-coding required, but so be it)
-	-status: set default to "Open" in the model.  "Closed" and "Complete" will be buttons the Host will press as tourney progresses
-	-entrants: [] an array that you will add to.  Once a user clicks "Sign Up" make a function that will add that user's Username to the state collection array.  Hmm.. perhaps a Quit button would be good also, but leave that out for now
+-hostedBy user.id
+-description: (Long conditional logic somewhere, perhaps in it's own component, that you import and use in creation so that it knows to apply a certain status given the type of tournament selected.  Lots of hard-coding required, but so be it)
+-status: set default to "Open" in the model.  "Closed" and "Complete" will be buttons the Host will press as tourney progresses
+-entrants: [] an array that you will add to.  Once a user clicks "Sign Up" make a function that will add that user's Username to the state collection array.  Hmm.. perhaps a Quit button would be good also, but leave that out for now
 
 
 
@@ -106,17 +106,30 @@ Still needs:
 
 
 
-	### Late Stage
-	Messaging/inbox
-	User agreement
-	Rules & regulations (code of conduct, no racial slurs, etc)
-	with Ticket system
+### Late Stage
+Messaging/inbox
+User agreement
+Rules & regulations (code of conduct, no racial slurs, etc)
+with Ticket system
 
 
 
-	#### TASK RIGHT NOW!!!!
-	X Making FriendCode a required field (register)
-	- Making Main/Secondary a part of the registration field (register)
-	- Add the input on the RegisterModal
-	- Adjust the routes.  Gotta include "friendCode" with username and password
-	- Shit, might have to include main/secondary also.. somehow.. though it isn't required..
+#### TASK RIGHT NOW!!!!
+X Making FriendCode a required field (register)
+X Making Main/Secondary a part of the registration field (register)
+X Add the input on the RegisterModal
+X Adjust the routes.  Gotta include "friendCode" with username and password (main and secondary also)
+X Shit, might have to include main/secondary also.. somehow.. though it isn't required..
+	I set it up inside the Route and redux Action.  Since the Model has it not required, it will look for it, but if it doesn't find it, it processes the request anyway.  Only username/pass/code are required.
+
+##### What if someone doesn't include main/secondary on signup, but wants to add them later?
+__Actually, even if someone does include that on signup, they may want to change them later.__
+_Username/password/friendcode shouldn't change.... fuck, that should be optional too though.  Leave it for now._
+##### What you need:
+- Holy shit, a dropdown menu with all the characters listed, where you can type it in and it'll autocomplete for you. (for later)
+- "Change" button/link right next to Main/Secondary on the profile sidebar
+- A Modal JUST for this, with main/secondary. Still not required, you could just cancel and close the Modal, or keep it clear to remove your main/secondary (Submitting with empty fields will clear your main/secondary)
+- BackEnd: It must do what Register does.  It sends the Main/Secondary attrs via Action to the Route.  
+	- ~authActions.js -> same code in `export const register`, `const config`, `const body`, `axios.post()`,
+	but you need a new type here.  Look at what REGISTER_SUCCESS does and do a tailored version where it just concerns main/secondary.
+	The rest of the `export const register` action should be the same, including the err dispatch EXCEPT 'REGISTER_FAIL' because there's no failure.  You can click "Change", modal pops up, you fill in fields, submit, or cancel, or submit blank
