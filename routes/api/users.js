@@ -16,7 +16,7 @@ const User = require('../../models/User');
 // @descrip Register New User
 // @access  Public
 router.post('/register', (req, res) => {
-	const { username, password, friendCode } = req.body;
+	const { username, password, friendCode, main, secondary } = req.body;
 
 	// Validation (DO THIS FOR TOURNAMENTS LATER)
 	if (!username || !password || !friendCode) {
@@ -27,7 +27,7 @@ router.post('/register', (req, res) => {
 	User.findOne({ username }).then(userFound => {
 		if(userFound) return res.status(400).json({ msg: "This username has already been taken" });
 
-		const newUser = new User({ username, password, friendCode });
+		const newUser = new User({ username, password, friendCode, main, secondary });
 
 		bcrypt.genSalt(10, (err, salt) => {
 			bcrypt.hash(newUser.password, salt, (err, hash) => {
@@ -46,7 +46,9 @@ router.post('/register', (req, res) => {
 									user: {
 										id: user.id,
 										username: user.username,
-										friendCode: user.friendCode
+										friendCode: user.friendCode,
+										main: user.main,
+										secondary: user.secondary
 									}
 								})
 							}

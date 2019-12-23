@@ -115,7 +115,7 @@ Still needs:
 
 
 	#### TASK RIGHT NOW!!!!
-	- Making FriendCode a required field (register)
+	X Making FriendCode a required field (register)
 	- Making Main/Secondary a part of the registration field (register)
 	- Add the input on the RegisterModal
 	- Adjust the routes.  Gotta include "friendCode" with username and password
