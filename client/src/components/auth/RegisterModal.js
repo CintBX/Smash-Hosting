@@ -6,6 +6,7 @@ import {
 	ModalBody,
 	Form,
 	FormGroup,
+	FormText,
 	Label,
 	Input,
 	NavLink,
@@ -27,6 +28,8 @@ class RegisterModal extends Component {
 			username: '',
 			password: '',
 			friendCode: '',
+			main: '',
+			secondary: '',
 			msg: null
 		};
 	};
@@ -74,13 +77,15 @@ class RegisterModal extends Component {
 
 	onSubmit(e) {
 		e.preventDefault();
-		const { username, password, friendCode } = this.state;
+		const { username, password, friendCode, main, secondary } = this.state;
 
 		// Create a User object
 		const newUser = {
 			username,
 			password,
-			friendCode
+			friendCode,
+			main,
+			secondary
 		};
 
 		// Attempt to register
@@ -130,6 +135,29 @@ class RegisterModal extends Component {
 									className="mb-3"
 									onChange={this.onChange}
 								/>
+
+								<Label for="main">Main</Label>
+								<Input
+									type="text"
+									name="main"
+									id="main"
+									placeholder="Who's your best character?"
+									className="mb-3"
+									onChange={this.onChange}
+								/>
+
+								<Label for="secondary">Secondary</Label>
+								<Input
+									type="text"
+									name="secondary"
+									id="secondary"
+									placeholder="Second-best character for counter-picks"
+									className="mb-3"
+									onChange={this.onChange}
+								/>
+								<FormText color="muted">
+									Fields marked with * are required
+								</FormText>
 								<Button color="primary" style={{marginTop: '2rem'}} block>
 									Register
 								</Button>
