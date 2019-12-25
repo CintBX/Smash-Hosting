@@ -42,26 +42,24 @@ import { returnErrors } from './errorActions';
 
 // UPDATE_SUCCESS: TESTING
 // SECOND TRY (login)
-// export const addCharacter = ({ main, secondary }) => dispatch => {
-// 	// Headers
-// 	const config = {
-// 		headers: {
-// 			"Content-Type": "application/json"
-// 		}
-// 	};
+export const addCharacter = ({ main, secondary }) => dispatch => {
+	const config = {
+		headers: {
+			"Content-Type": "application/json"
+		}
+	};
 
-// 	// Body
-// 	const body = JSON.stringify({ main, secondary });
+	const body = JSON.stringify({ main, secondary });
 
-// 	axios.post('/users/user/:id', body, config)
-// 		.then(res => dispatch({
-// 			type: UPDATE_SUCCESS,
-// 			payload: res.data
-// 		}))
-// 		.catch(err => {
-// 			dispatch(returnErrors(err.response.data, err.response.status));
-// 		});
-// };
+	axios.post('/users/user/:id', body, config)
+		.then(res => dispatch({
+			type: UPDATE_SUCCESS,
+			payload: res.data
+		}))
+		.catch(err => {
+			dispatch(returnErrors(err.response.data, err.response.status));
+		});
+};
 // update takes two params (non-required, so if they are missing it should be fine): main/secondary
 // set headers config, makes sense, it needs to know it's application/json since this is data
 // set body config to stringify the main/secondary.  Makes sense
