@@ -1,6 +1,3 @@
-// Refactor this into a simple modal for adding/changing characters
-
-
 import React, { Component } from 'react';
 import {
 	Button,
@@ -14,9 +11,9 @@ import {
 } from 'reactstrap';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-// import { editUser } from '../../actions/authActions';
+import { addCharacter } from '../../actions/authActions';
 
-class EditUserModal extends Component {
+class CharacterModal extends Component {
 	constructor(props) {
 		super(props);
 		this.toggle = this.toggle.bind(this);
@@ -24,16 +21,14 @@ class EditUserModal extends Component {
 		this.onSubmit = this.onSubmit.bind(this);
 		this.state = {
 			modal: false,
-			id: this.props.user.id,
-			main: this.props.user.main,
-			secondary: this.props.user.secondary,
-			friendCode: this.props.user.friendCode
+			main: '',
+			secondary: '',
 		};
 	};
 
 	static propTypes = {
 		user: PropTypes.object.isRequired,
-		editUser: PropTypes.func.isRequired
+		addCharacter: PropTypes.func.isRequired
 	};
 
 	toggle() {
@@ -51,28 +46,25 @@ class EditUserModal extends Component {
 	onSubmit(e) {
 		e.preventDefault();
 
-		const { id, main, secondary, friendCode } = this.state;
+		const { main, secondary } = this.state;
 
 		const user = {
-			id,
 			main,
-			secondary,
-			friendCode
+			secondary
 		};
 
-		this.props.editUser(user);
+		this.props.addCharacter(user);
 	};
 
 	render() {
 		return (
 			<div>
 				<Button 
-					outline
-					color="warning"
+					color="link"
 					className="mb-3"
 					onClick={this.toggle}
 				>
-					<b>Add or Change Details</b>
+					<b>Change</b>
 				</Button>
 
 				<Modal isOpen={this.state.modal} toggle={this.toggle}>
@@ -95,24 +87,14 @@ class EditUserModal extends Component {
 									type="text"
 									name="secondary"
 									id="secondary"
-									placeholder="Your tournament counter-pick (usually your 2nd-favorite)"
-									className="mb-3"
-									onChange={this.onChange}
-								/>
-
-								<Label for="friendCode">Friend Code</Label>
-								<Input
-									type="text"
-									name="friendCode"
-									id="friendCode"
-									placeholder="12-digit Switch code: ####-####-####"
+									placeholder="Your counter-pick or 2nd-favorite"
 									className="mb-3"
 									onChange={this.onChange}
 								/>
 							</FormGroup>
 
 							<Button color="primary" style={{marginTop:'2rem'}} block>
-								Update Profile
+								Update Characters
 							</Button>
 						</Form>
 					</ModalBody>
@@ -126,4 +108,4 @@ const mapStateToProps = state => ({
 	user: state.auth.user
 });
 
-export default connect(mapStateToProps, null)(EditUserModal);
+export default connect(mapStateToProps, { addCharacter })(CharacterModal);
