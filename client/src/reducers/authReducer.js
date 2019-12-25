@@ -7,7 +7,7 @@ import {
 	LOGOUT_SUCCESS,
 	REGISTER_SUCCESS,
 	REGISTER_FAIL,
-	// EDIT_USER
+	UPDATE_SUCCESS
 } from '../actions/types';
 
 const initialState = {
@@ -19,19 +19,13 @@ const initialState = {
 
 export default function(state = initialState, action) {
 	switch(action.type) {
-		// case EDIT_USER:
-		// 	return {
-		// 		...state,
-		// 		...action.payload,
-		// 		user:  action.payload
-		// 	}
-
 		case USER_LOADING:
 			return {
 				...state,
 				isLoading: true
 			};
 
+		// case UPDATE_SUCCESS:
 		case USER_LOADED:
 			return {
 				...state,

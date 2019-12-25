@@ -1,3 +1,6 @@
+// Refactor this into a simple modal for adding/changing characters
+
+
 import React, { Component } from 'react';
 import {
 	Button,

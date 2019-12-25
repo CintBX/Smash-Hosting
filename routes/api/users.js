@@ -122,25 +122,36 @@ router.get('/user/:id', (req, res) => {
 		.catch(err => res.json(err));
 });
 
-// Don't need NEW/CREATE as you handled this in Auth above
 
 // @route   POST /users
 // @descrip EDIT/UPDATE a user (EditUserModal)
 // @access  Private
-// router.post('/user/edit/:id', (req, res) => {
-// 	User.findById(req.params.id, (err, user) => {
-// 		if(!user) {
-// 			res.status(404).json("User not found")
-// 		} else {
-// 			user.main = req.body.main;
-// 			user.secondary = req.body.secondary;
-// 			user.friendCode = req.body.friendCode;
-// 		}
-// 		user.save()
-// 			.then(() => res.json("Updated successfully"))
-// 			.catch(() => res.json(err));
-// 	});
-// });
+router.post('/user/:id', (req, res) => {
+	User.findById(req.params.id, (err, user) => {
+		// Check if User exists
+		if(!user) {
+			res.status(404).json("User not found")
+		} else {
+			// Prevent blank submissions from changing the data
+			if(req.body.main && !req.body.secondary) {
+				user.main = req.body.main;
+				user.secondary != req.body.secondary;
+			} else if(!req.body.main && req.body.secondary) {
+				user.main != req.body.main;
+				user.secondary = req.body.secondary;
+			}	else if(!req.body.main && !req.body.secondary) {
+				user.main != req.body.main;
+				user.secondary != req.body.secondary;
+			} else {
+				user.main = req.body.main;
+				user.secondary = req.body.secondary;
+			}
+		}
+		user.save()
+			.then(() => res.json("Updated successfully"))
+			.catch(() => res.json(err));
+	});
+});
 
 
 // @route   /users/user
