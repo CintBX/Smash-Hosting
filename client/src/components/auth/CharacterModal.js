@@ -53,6 +53,7 @@ class CharacterModal extends Component {
 		user.secondary = this.state.secondary;
 
 		this.props.addCharacter(user);
+		this.toggle();
 	};
 
 	render() {
