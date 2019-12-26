@@ -21,6 +21,7 @@ class CharacterModal extends Component {
 		this.onSubmit = this.onSubmit.bind(this);
 		this.state = {
 			modal: false,
+			id: this.props.user._id,
 			main: '',
 			secondary: '',
 		};
@@ -46,12 +47,10 @@ class CharacterModal extends Component {
 	onSubmit(e) {
 		e.preventDefault();
 
-		const { main, secondary } = this.state;
-
-		const user = {
-			main,
-			secondary
-		};
+		const { user } = this.props;
+		
+		user.main = this.state.main;
+		user.secondary = this.state.secondary;
 
 		this.props.addCharacter(user);
 	};
@@ -80,6 +79,7 @@ class CharacterModal extends Component {
 									placeholder="Your favorite fighter"
 									className="mb-3"
 									onChange={this.onChange}
+									autofocus="autofocus"
 								/>
 
 								<Label for="secondary">Secondary Character</Label>
