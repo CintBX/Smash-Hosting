@@ -13,6 +13,7 @@ import axios from 'axios';
 import { returnErrors } from './errorActions';
 
 
+// User adds or edits their main/secondary characters
 export const addCharacter = ({ _id, main, secondary }) => dispatch => {
 	const config = {
 		headers: {
@@ -33,9 +34,6 @@ export const addCharacter = ({ _id, main, secondary }) => dispatch => {
 };
 
 
-
-// ***** *****WORKING ACTIONS***** *****
-
 // Check token and load user
 export const loadUser = () => (dispatch, getState) => {
 	// User Loading
@@ -55,6 +53,7 @@ export const loadUser = () => (dispatch, getState) => {
 };
 
 
+// Register a new user
 export const register = ({ username, password, friendCode, main, secondary }) => dispatch => {
 	// Headers
 	const config = {
@@ -80,6 +79,7 @@ export const register = ({ username, password, friendCode, main, secondary }) =>
 };
 
 
+// Login existing user
 export const login = ({ username, password }) => dispatch => {
 	// Headers
 	const config = {
@@ -105,6 +105,7 @@ export const login = ({ username, password }) => dispatch => {
 };
 
 
+// Logout user session
 export const logout = () => {
 	return {
 		type: LOGOUT_SUCCESS
@@ -112,6 +113,7 @@ export const logout = () => {
 };
 
 
+// Token configuration
 export const tokenConfig = getState => {
 	// Get Token from LocalStorage
 	const token = getState().auth.token;
