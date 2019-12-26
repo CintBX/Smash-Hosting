@@ -59,11 +59,12 @@ class CharacterModal extends Component {
 		return (
 			<div>
 				<Button 
-					color="link"
+					outline
+					color="primary"
 					className="mb-3"
 					onClick={this.toggle}
 				>
-					<b>Change</b>
+					<b>Characters</b>
 				</Button>
 
 				<Modal isOpen={this.state.modal} toggle={this.toggle}>
