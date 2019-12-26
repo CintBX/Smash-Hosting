@@ -92,7 +92,10 @@ router.post('/login', (req, res) => {
 							token,
 							user: {
 								id: user.id,
-								username: user.username
+								username: user.username,
+								friendCode: user.friendCode,
+								main: user.main,
+								secondary: user.secondary
 							}
 						})
 					}
