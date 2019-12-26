@@ -55,9 +55,9 @@ class ProfileSidebar extends Component {
 								</CardTitle> 
 								<CardText>{ user.friendCode ? user.friendCode : "Friend Code:" }</CardText>
 								<CardText>
-									{ user.main ? `${user.main} / ` : "" } { user.secondary ? user.secondary : "Characters:" } <CharacterModal/>
+									{ user.main ? `${user.main} / ` : "" } { user.secondary ? user.secondary : "Characters:" }
 								</CardText>
-
+								<CharacterModal/>
 							</Fragment> :
 							null							
 						}
