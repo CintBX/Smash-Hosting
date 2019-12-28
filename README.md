@@ -41,12 +41,28 @@ Change Character form pre-set to have all the characters listed so that it autoc
 
 
 ### Tasks:
-__ERROR: When you Login, the State only returns User's ID and Username (seen in Redux DevTools)__
-- Figure out why, and make it so when you Login, the loaded user state contains everything (main, secondary, f-code)
-
+X __ERROR: When you Login, the State only returns User's ID and Username (seen in Redux DevTools)__
+X Figure out why, and make it so when you Login, the loaded user state contains everything (main, secondary, f-code)
 X Test Register (Register a new user, fill in ALL fields, see which of it renders upon register completion) - WORKS
+X Character Modal doesn't close when you submit (easy fix)
+X __ERROR: Seems your Login route fix caused a bug.  When you use character modal, nothing happens, refresh, AUTH_ERROR__
 
-- Character Modal doesn't close when you submit (easy fix)
+- UPDATE_SUCCESS charactermodal change doesn't work right away because it turns your state from:
+	user: { allUserData } 
+	to
+	"Updated Successfully"
+
+##### First Theory
+routes/api/users.js
+	In your POST /users/user/:id route (which is what you made to perform this character update),
+	change the res.json("Updated Successfully!")
+	to res.json({ token, user: { allUserData } })		<~ just like in your /login route
+
+##### Second Theory
+client/src/reducers/authReducer
+	Do some shit with that file.  Perhaps the data set you chose UPDATE_SUCCESS to return is causing the issue.
+	(Like the payload, or the TYPE returns)
+
 
 - IMAGES/IMG directory containing a shitload of images
 - Generic Image, that also checks the user.main data (user, isAuthenticated)

@@ -127,7 +127,7 @@ router.get('/user/:id', (req, res) => {
 
 
 // @route   POST /users
-// @descrip EDIT/UPDATE a user (EditUserModal)
+// @descrip EDIT/UPDATE a user (CharacterModal)
 // @access  Private
 router.post('/user/:id', (req, res) => {
 	User.findById(req.params.id, (err, user) => {
@@ -151,7 +151,7 @@ router.post('/user/:id', (req, res) => {
 			}
 		}
 		user.save()
-			.then(() => res.json("Updated successfully"))
+			.then(() => res.json(user))
 			.catch(() => res.json(err));
 	});
 });
