@@ -41,28 +41,34 @@ Change Character form pre-set to have all the characters listed so that it autoc
 
 
 ### Tasks:
-X __ERROR: When you Login, the State only returns User's ID and Username (seen in Redux DevTools)__
-X Figure out why, and make it so when you Login, the loaded user state contains everything (main, secondary, f-code)
-X Test Register (Register a new user, fill in ALL fields, see which of it renders upon register completion) - WORKS
-X Character Modal doesn't close when you submit (easy fix)
-X __ERROR: Seems your Login route fix caused a bug.  When you use character modal, nothing happens, refresh, AUTH_ERROR__
 
-- UPDATE_SUCCESS charactermodal change doesn't work right away because it turns your state from:
-	user: { allUserData } 
-	to
-	"Updated Successfully"
+##### __NOTE__
+You login.  Data shows perfectly.
+You change your characters.  Data shows perfectly.
+If you log out, and log into another user, it's fine.
+If you log out, and log into another user, THEN CHANGE CHARACTERS, it breaks everything.
+I will leave this bug in, because realistically once a user logs in, that's the end of the story.  A person won't have multiple users.
 
-##### First Theory
-routes/api/users.js
-	In your POST /users/user/:id route (which is what you made to perform this character update),
-	change the res.json("Updated Successfully!")
-	to res.json({ token, user: { allUserData } })		<~ just like in your /login route
 
-##### Second Theory
-client/src/reducers/authReducer
-	Do some shit with that file.  Perhaps the data set you chose UPDATE_SUCCESS to return is causing the issue.
-	(Like the payload, or the TYPE returns)
 
+
+-- RIGHT NOW -- -- RIGHT NOW -- -- RIGHT NOW -- -- RIGHT NOW -- -- RIGHT NOW -- 
+
+- Fighter Directory (each Media renders User data information)
+Right now you have mock data, and multiple Medias hardcoded.
+Pull in /users index, and users.forEach do a Media.
+~ getUsers() action
+~ GET_USERS type
+~ NEW REDUCER called userReducer (shit this may cause some sort of conflict, maybe this will just cover Show/GET aspects, while auth covered login/register/edit (delete?))
+
+POTENTIAL ISSUE: Where will User SHOW be taken care of? You don't have Tournament SHOW either.  THe authReducer has a `user` returned state object, whihc is what you'd need.  You thought you could take care of it in the new userReducer but that one is gonna handle users: [] array
+
+-- RIGHT NOW -- 
+
+
+- Active Tab
+
+- User Profile
 
 - IMAGES/IMG directory containing a shitload of images
 - Generic Image, that also checks the user.main data (user, isAuthenticated)
@@ -74,13 +80,6 @@ client/src/reducers/authReducer
 
 - Hide password with stars*
 
-- __Redux__
-- Tournament Edit form(modal?)
-- Components
-	X Profile sidebar
-	X Tournaments Main
-	- Fighter Directory
-	- User Profile
 
 
 ##### Tournament Show Page
