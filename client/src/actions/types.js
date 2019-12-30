@@ -17,3 +17,6 @@ export const GET_ERRORS = 'GET_ERRORS';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
 export const UPDATE_SUCCESS = 'UPDATE_SUCCESS';
+
+export const GET_FIGHTERS = 'GET_FIGHTERS';
+export const FIGHTERS_LOADING = 'FIGHTERS_LOADING';
