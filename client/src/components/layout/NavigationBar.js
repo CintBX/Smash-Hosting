@@ -67,7 +67,7 @@ class NavigationBar extends Component {
 								<img src={logo} width="80" height="80" alt="Smash Brothers Logo" />
 								<span className="ml-3"><strong>{ user.username }</strong></span>
 							</NavbarBrand> :
-							<NavbarBrand href="#" style={{fontSize:'28px'}}>
+							<NavbarBrand href="/" style={{fontSize:'28px'}}>
 								<img src={logo} width="80" height="80" alt="Smash Brothers Logo" />
 								<span className="ml-3"><strong>SmashHosting</strong></span>
 							</NavbarBrand>
