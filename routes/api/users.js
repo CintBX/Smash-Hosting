@@ -157,7 +157,7 @@ router.post('/user/:id', (req, res) => {
 });
 
 
-// @route   /users/user
+// @route   /users
 // @descrip GET user data && VALIDATE user using Tokens
 // @access  Private
 router.get('/user', authorize, (req, res) => {

@@ -4,6 +4,44 @@
 - Character most used (?)
 - Win/Loss calculation (refer to screenshots of convo wth Chris)
 - "View Rulsets" possibly a Nested Modal within the Host Tourney modal
+- Means for opponents to coordinate their matches
+
+
+
+##### Prototype completion
+- View all Pages
+- Log in/Register
+- Log out
+- Edit characters
+- Friend Code validation (1111-1111-1111 format)
+- User Profile
+- Fighter Directory 
+- View/join tournaments
+- Host tournament
+- Users can join
+- Single Elim rules only at first:
+- STEPS:
+	- Tournament Created
+	- While Open, users "join"
+	- Host decides when to Close it, (and joins it if he wants)
+	- Users get randomized
+	- If even # of users, they get paired up; If odd # of users, pair up except last user
+	- Tournament Show page shows the paired up users (plus the By if applicable)
+	- Tournament Show: Round 1, lists all pairs/bys in Format (basic for now)
+	- Tournament Show: Directs users to add their opponent via f-code
+		(Means of coordination is needed.  For now, they'll just talk on whatsapp)
+	- Players fight and report to Host
+	- Host selects Winners (click of a button)
+	- Winners move to Round 2; Losers drop out
+	- Tournament Show page shows updated bracket (only updates upon prevRound completion)
+	- Players fight and report to Host
+	- Host selects Winners
+	- Winners advance; Losers drop out
+	- Tournament Show page shows updated bracket
+	- Rinse and repeat until the end
+	- If 4 players left, Semi-finals will be the Title (Round 1, Round 2, etc... SemiFinals)
+	- If 2 players left, Finals
+
 
 
 ##### Finishing Touches
@@ -21,11 +59,11 @@
 	-Find and choose a consistent colorscheme
 	-Background images
 
-- User Profile: Toggle buttons for displaying tourneys participating in (card/background varients)
-
 - How to stop people from typing random URL paths
 
 - Darken <CardHeader> of "View Rulesets"
+
+
 
 ##### Late Stage
 Messaging/inbox
@@ -48,37 +86,30 @@ You change your characters.  Data shows perfectly.
 If you log out, and log into another user, it's fine.
 If you log out, and log into another user, THEN CHANGE CHARACTERS, it breaks everything.
 I will leave this bug in, because realistically once a user logs in, that's the end of the story.  A person won't have multiple users.
+Also, this similar thing happened if you log in, edit user and check Fighters tab
+This all may be due to shitty internet connection.
 
 
 
 
 -- RIGHT NOW -- -- RIGHT NOW -- -- RIGHT NOW -- -- RIGHT NOW -- -- RIGHT NOW -- 
 
-- Fighter Directory (each Media renders User data information)
-Right now you have mock data, and multiple Medias hardcoded.
-Pull in /users index, and users.forEach do a Media.
-~ getUsers() action
-~ GET_USERS type
-~ NEW REDUCER called userReducer (shit this may cause some sort of conflict, maybe this will just cover Show/GET aspects, while auth covered login/register/edit (delete?))
-
-POTENTIAL ISSUE: Where will User SHOW be taken care of? You don't have Tournament SHOW either.  THe authReducer has a `user` returned state object, whihc is what you'd need.  You thought you could take care of it in the new userReducer but that one is gonna handle users: [] array
-
--- RIGHT NOW -- 
-
-
 - Active Tab
 
-- User Profile
+-- RIGHT NOW -- -- RIGHT NOW -- -- RIGHT NOW -- -- RIGHT NOW -- -- RIGHT NOW -- 
 
+
+
+
+
+
+
+##### Images
 - IMAGES/IMG directory containing a shitload of images
 - Generic Image, that also checks the user.main data (user, isAuthenticated)
 - List of images, each of which will render according to the user.main (image files will be named accordingly)
 - Images database (Every character, one Question Mark for random, and one Generic pic for default/guests/users without a 'main')
 - Rendering the right img on a person's profile sidebar depending on their Main
-
-- User Profile page
-
-- Hide password with stars*
 
 
 
@@ -87,7 +118,19 @@ POTENTIAL ISSUE: Where will User SHOW be taken care of? You don't have Tournamen
 
 
 
+##### User Show Page
+- the secondest big cahuna
+- User Profile page
+- Toggle buttons for displaying tourneys participating in (card/background varients)
+
+
+
 -----
+
+
+
+### Advanced Issue:
+Deleting a User while there are tournament objects active in his/her name
 
 
 
@@ -100,14 +143,14 @@ POTENTIAL ISSUE: Where will User SHOW be taken care of? You don't have Tournamen
 
  
 ### Routes
+__Users__
+/users
 /users/register
 /users/login
-/users/user (DOUBLE CHECK THIS: It may just be for Token validation/session tracking, but it may also be used for show)
-NOTE: If /users/user GETS the user's data... then there's no reason that shouldn't be usable for SHOW
-Still needs:
-	- /users/all (for INDEX of users) or just /users
-	- /users/:id (for EDIT and DELETE and SHOW[?]) or maybe /users/user will suffice
+/users/user/:id (Show, Update)
+/users/user (Validate user via token)
 
+__Tournaments__
 /tournaments
 /tournaments/new
 /tournaments/:id (for DELETE)
