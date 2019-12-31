@@ -49,17 +49,18 @@ OKAY!
 Tournament.title:
 	The tournament title will be blank, until you select an option, it becomes title
 	BUG: Selecting "Choose from below" will cause the tournament title to be "Choose from below"
+	Prevention Ideas:
+	-In the backend (or redux), disable blank submissions (and then delete "choose from below" and leave it "")
+	-Find some React way to stop that first option from being a selectable option
+	-Some conditional somewhere "if(title === "CHoose from below")" return error
 Tournament.description:
-	Conditional: If title === "Single Elim", description = "etc"
-	Do this for each type. 
-	OPTIONS FOR ERROR PREVENTION REGARDING "choose from below"
-	- Conditional error-prevention: If title === "Choose from below" return error
-	- Find some sort of input code/jsx to prevent Choose From Below from being an option
+	handled on the frontend on Tournaments/Index via ternary operators
 Tournament.hostedBy:
 	The isAuthenticated user at the time of creation
 Tournament.status:
-	"Open"
-	If isAuthenticated user === tournament.hostedBy, button Toggle status
+	Set to "Open" automatically, no need for form submission to affect it
+Tournament.participants:
+	An array automatically included upon Tournament creation.  Will be altered after creation
 
 
 ### CREATING A TOURNEY
