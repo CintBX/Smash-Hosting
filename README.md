@@ -1,21 +1,11 @@
 # Smash-Hosting
 
-### Future Tasks:
-- Character most used (?)
-- Win/Loss calculation (refer to screenshots of convo wth Chris)
-- "View Rulsets" possibly a Nested Modal within the Host Tourney modal
-- Means for opponents to coordinate their matches
-
-
-
-##### Prototype completion
-- View all Pages
-- Log in/Register
-- Log out
-- Edit characters
-- Friend Code validation (1111-1111-1111 format)
-- User Profile
-- Fighter Directory 
+## Prototype completion
+X View all Pages
+X Log in/Register
+X Log out
+X Edit characters
+X Fighter Directory 
 - View/join tournaments
 - Host tournament
 - Users can join
@@ -44,63 +34,61 @@
 
 
 
-##### Finishing Touches
-- Smash News 
-	-Gather links
-	-Carousel
-	-Display links (and perhaps images) in Carousel OR a series of images
-		-Options:
-			-Carousel
-			-List-group/Custom content
-			-Card/Image Overlays or Background Varients
-
-- Background
-	-Invert it.  Dark background/Light foreground
-	-Find and choose a consistent colorscheme
-	-Background images
-
-- How to stop people from typing random URL paths
-
-- Darken <CardHeader> of "View Rulesets"
+--------------------------------------------------------------------------------------------------------------
 
 
 
-##### Late Stage
-Messaging/inbox
-User agreement
-Rules & regulations (code of conduct, no racial slurs, etc)
-with Ticket system
-Change Character form pre-set to have all the characters listed so that it autocorrects typos
+## Tasks:
+
+---- RIGHT NOW ---- ---- RIGHT NOW ---- ---- RIGHT NOW ---- ---- RIGHT NOW ----
+
+### Tournament Hosting
+-> Host Tournament -> Tournament renders on page, with Title, hostedBy, Descrip, btns
+
+OKAY! 
+Tournament.title:
+	The tournament title will be blank, until you select an option, it becomes title
+	BUG: Selecting "Choose from below" will cause the tournament title to be "Choose from below"
+Tournament.description:
+	Conditional: If title === "Single Elim", description = "etc"
+	Do this for each type. 
+	OPTIONS FOR ERROR PREVENTION REGARDING "choose from below"
+	- Conditional error-prevention: If title === "Choose from below" return error
+	- Find some sort of input code/jsx to prevent Choose From Below from being an option
+Tournament.hostedBy:
+	The isAuthenticated user at the time of creation
+Tournament.status:
+	"Open"
+	If isAuthenticated user === tournament.hostedBy, button Toggle status
+
+
+### CREATING A TOURNEY
+-hostedBy user.id
+-description: (Long conditional logic somewhere, perhaps in it's own component, that you import and use in creation so that it knows to apply a certain status given the type of tournament selected.  Lots of hard-coding required, but so be it)
+-status: set default to "Open" in the model.  "Closed" and "Complete" will be buttons the Host will press as tourney progresses
+-entrants: [] an array that you will add to.  Once a user clicks "Sign Up" make a function that will add that user's Username to the state collection array.  Hmm.. perhaps a Quit button would be good also, but leave that out for now
+
+
+---- RIGHT NOW ---- ---- RIGHT NOW ---- ---- RIGHT NOW ---- ---- RIGHT NOW ---- 
 
 
 
------
-
-
-
-### Tasks:
-
-##### __NOTE__
-You login.  Data shows perfectly.
-You change your characters.  Data shows perfectly.
-If you log out, and log into another user, it's fine.
-If you log out, and log into another user, THEN CHANGE CHARACTERS, it breaks everything.
-I will leave this bug in, because realistically once a user logs in, that's the end of the story.  A person won't have multiple users.
-Also, this similar thing happened if you log in, edit user and check Fighters tab
-This all may be due to shitty internet connection.
-
-
-
-
--- RIGHT NOW -- -- RIGHT NOW -- -- RIGHT NOW -- -- RIGHT NOW -- -- RIGHT NOW -- 
-
-- Active Tab
-
--- RIGHT NOW -- -- RIGHT NOW -- -- RIGHT NOW -- -- RIGHT NOW -- -- RIGHT NOW -- 
-
-
-
-
+##### User Profile
+- Route
+- Type
+- Reducer
+- Action
+- In Component: PropTypes, connect, action, mapStateToProps
+- Render
+	- Username, 
+	- Main, 
+	- Secondary, 
+	- FriendCode, 
+	- Date(member since:), 
+	- Edit username/password (Later)
+	- Tournaments participating in
+	- Wins
+	- Losses
 
 
 
@@ -125,7 +113,59 @@ This all may be due to shitty internet connection.
 
 
 
------
+---------------------------------------------------------------------------------------------------------------
+
+
+
+## Future Tasks:
+
+- Character most used (?)
+- Win/Loss calculation (refer to screenshots of convo wth Chris)
+- "View Rulsets" possibly a Nested Modal within the Host Tourney modal
+- Means for opponents to coordinate their matches
+
+
+
+##### Finishing Touches
+- Smash News 
+	-Gather links
+	-Carousel
+	-Display links (and perhaps images) in Carousel OR a series of images
+		-Options:
+			-Carousel
+			-List-group/Custom content
+			-Card/Image Overlays or Background Varients
+
+- Background
+	-Invert it.  Dark background/Light foreground
+	-Find and choose a consistent colorscheme
+	-Background images
+
+- How to stop people from typing random URL paths
+
+- Darken <CardHeader> of "View Rulesets"
+
+- Active Tab
+
+- Friend Code validation (1111-1111-1111 format)
+
+- Edit User form (jesus.  This one lets you edit Username Password)
+
+- User Profile
+
+
+
+##### Late Stage
+Entrance fees (paypal API or venmo API or something similar)
+Messaging/inbox
+User agreement
+Rules & regulations (code of conduct, no racial slurs, etc)
+with Ticket system
+Change Character form pre-set to have all the characters listed so that it autocorrects typos
+
+
+
+-------------------------------------------------------------------------------------------------------------
 
 
 
@@ -134,14 +174,6 @@ Deleting a User while there are tournament objects active in his/her name
 
 
 
-### CREATING A TOURNEY
--hostedBy user.id
--description: (Long conditional logic somewhere, perhaps in it's own component, that you import and use in creation so that it knows to apply a certain status given the type of tournament selected.  Lots of hard-coding required, but so be it)
--status: set default to "Open" in the model.  "Closed" and "Complete" will be buttons the Host will press as tourney progresses
--entrants: [] an array that you will add to.  Once a user clicks "Sign Up" make a function that will add that user's Username to the state collection array.  Hmm.. perhaps a Quit button would be good also, but leave that out for now
-
-
- 
 ### Routes
 __Users__
 /users
