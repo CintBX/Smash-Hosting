@@ -21,11 +21,11 @@ router.get('/', (req, res) => {
 // @descrip NEW/CREATE
 // @access 	Private
 router.post('/new', authorize, (req, res) => {
-	const { title, description } = req.body
+	const { title, hostedBy } = req.body
 
 	const newTournament = new Tournament({
 		title: title,
-		description: description
+		hostedBy: hostedBy
 	});
 
 	newTournament.save()
