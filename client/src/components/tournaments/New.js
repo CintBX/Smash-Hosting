@@ -8,6 +8,7 @@ import {
 	Button,
 	Label,
 	Input,
+	CustomInput,
 	InputGroup,
 	InputGroupAddon,
 	Alert
@@ -25,12 +26,14 @@ class NewTournament extends Component {
 		this.onSubmit = this.onSubmit.bind(this);
 		this.state = {
 			modal: false,
-			title: ''
+			title: '',
+			hostedBy: ''
 		};
 	};
 
 	static propTypes = {
-		isAuthenticated: PropTypes.bool
+		isAuthenticated: PropTypes.bool,
+		user: PropTypes.object.isRequired
 	};
 
 	toggle() {
@@ -42,20 +45,24 @@ class NewTournament extends Component {
 	onChange(e) {
 		this.setState({
 			title: e.target.value
-		})
-	}
+		});
+	};
 
 	onSubmit(e) {
 		e.preventDefault();
 
+		// title is set via state (form onChange)
+		// hostedBy is set to the current auth state 'user' username
 		const newTournament = {
-			title: this.state.title
+			title: this.state.title,
+			hostedBy: this.props.user.username
 		};
 
 		this.props.addTournament(newTournament);
 
+		// close modal upon submission
 		this.toggle();
-	}
+	};
 
 	render() {
 		return (
@@ -81,15 +88,15 @@ class NewTournament extends Component {
 								<Label for="title">Tournament</Label>
 								<Input
 									type="select"
-									name="select"
-									id="tournament"
+									name="title"
+									id="title"
 									onChange={this.onChange}
 								>
 									<option>Choose from below</option>
-									<option>Single Elim</option>
-									<option>Double Elim</option>
+									<option>Single Elimination</option>
+									<option>Double Elimination</option>
 									<option>Round Robin</option>
-									<option>Standard Rules</option>
+									<option>Pools</option>
 								</Input>
 							</FormGroup>
 
@@ -111,7 +118,8 @@ class NewTournament extends Component {
 
 const mapStateToProps = state => ({
 	tournament: state.tournament,
-	isAuthenticated: state.auth.isAuthenticated
+	isAuthenticated: state.auth.isAuthenticated,
+	user: state.auth.user
 });
 
 export default connect(mapStateToProps, { addTournament })(NewTournament);
