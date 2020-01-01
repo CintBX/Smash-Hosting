@@ -8,7 +8,6 @@ import {
 	Button,
 	Label,
 	Input,
-	CustomInput,
 	InputGroup,
 	InputGroupAddon,
 	Alert
@@ -92,7 +91,7 @@ class NewTournament extends Component {
 									id="title"
 									onChange={this.onChange}
 								>
-									<option>Choose from below</option>
+									<option value="">Choose from below</option>
 									<option>Single Elimination</option>
 									<option>Double Elimination</option>
 									<option>Round Robin</option>
