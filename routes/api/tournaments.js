@@ -40,7 +40,7 @@ router.post('/new', authorize, (req, res) => {
 router.delete('/:id', authorize, (req, res) => {
 	Tournament.findById(req.params.id)
 		.then(tournament => tournament.remove().then(() => res.json({ success: true })))
-		.catch(err => res.status(404).json({ success: false }));
+		.catch(err => res.status(404).json(err));
 });
 
 module.exports = router;
