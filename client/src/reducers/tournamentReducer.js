@@ -1,4 +1,4 @@
-import { GET_TOURNAMENTS, ADD_TOURNAMENT, DELETE_TOURNAMENT, TOURNAMENTS_LOADING, ADD_TOURNAMENT_FAIL } from '../actions/types';
+import { GET_TOURNAMENTS, ADD_TOURNAMENT, DELETE_TOURNAMENT, TOURNAMENTS_LOADING } from '../actions/types';
 
 const initialState = {
 	tournaments: [],
@@ -32,11 +32,6 @@ export default function(state = initialState, action) {
 				loading: true
 			};
 
-		case ADD_TOURNAMENT_FAIL:
-			return {
-				...state
-			}
-			
 		default:
 			return state;
 	};

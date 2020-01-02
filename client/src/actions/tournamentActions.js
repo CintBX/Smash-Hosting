@@ -1,4 +1,4 @@
-import { GET_TOURNAMENTS, ADD_TOURNAMENT, DELETE_TOURNAMENT, TOURNAMENTS_LOADING, ADD_TOURNAMENT_FAIL } from './types';
+import { GET_TOURNAMENTS, ADD_TOURNAMENT, DELETE_TOURNAMENT, TOURNAMENTS_LOADING } from './types';
 import axios from 'axios';
 import { tokenConfig } from './authActions';
 import { returnErrors } from './errorActions';
@@ -21,12 +21,7 @@ export const addTournament = tournament => (dispatch, getState) => {
 			type: ADD_TOURNAMENT,
 			payload: tournament
 		}))
-		.catch(err => {
-			dispatch(returnErrors(err.response.data, err.response.status, 'ADD_TOURNAMENT_FAIL'));
-			dispatch({
-				type: ADD_TOURNAMENT_FAIL
-			});
-		});
+		.catch(err => dispatch(returnErrors(err.response.data, err.response.status)));
 };
 
 export const deleteTournament = id => (dispatch, getState) => {
