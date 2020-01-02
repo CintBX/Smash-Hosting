@@ -9,8 +9,7 @@ const TournamentSchema = new Schema({
 	},
 	hostedBy: {
 		type: String,
-		required: false,
-		default: 'TestUser'
+		required: false
 	},
 	status: {
 		type: String,
