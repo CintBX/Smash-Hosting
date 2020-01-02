@@ -12,9 +12,9 @@ import {
 	InputGroupAddon,
 	Alert
 } from 'reactstrap';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addTournament } from '../../actions/tournamentActions';
-import PropTypes from 'prop-types';
 
 
 class NewTournament extends Component {
@@ -32,12 +32,19 @@ class NewTournament extends Component {
 
 	static propTypes = {
 		isAuthenticated: PropTypes.bool,
-		user: PropTypes.object.isRequired
+		user: PropTypes.object,
+		addTournament: PropTypes.func.isRequired
+	};
+
+	componentDidMount() {
+		this.setState({
+			title: ""
+		});
 	};
 
 	toggle() {
 		this.setState({
-			modal: !this.state.modal
+			modal: !this.state.modal,
 		});
 	};
 
@@ -50,8 +57,6 @@ class NewTournament extends Component {
 	onSubmit(e) {
 		e.preventDefault();
 
-		// title is set via state (form onChange)
-		// hostedBy is set to the current auth state 'user' username
 		const newTournament = {
 			title: this.state.title,
 			hostedBy: this.props.user.username
@@ -59,7 +64,6 @@ class NewTournament extends Component {
 
 		this.props.addTournament(newTournament);
 
-		// close modal upon submission
 		this.toggle();
 	};
 
@@ -82,7 +86,7 @@ class NewTournament extends Component {
 				<Modal isOpen={this.state.modal} toggle={this.toggle}>
 					<ModalHeader toggle={this.toggle}>Create a New Tournament</ModalHeader>
 					<ModalBody>
-						<Form onSubmit={this.onSubmit}>
+						<Form onSubmit={ this.state.title !== "Choose from below" ? this.onSubmit : null}>
 							<FormGroup>
 								<Label for="title">Tournament</Label>
 								<Input
@@ -106,7 +110,10 @@ class NewTournament extends Component {
 
 							<br/>
 							
-							<Button block color="dark">Create Tournament</Button>
+							{ this.state.title === "" ? 
+								<Button block color="dark" disabled>Create Tournament</Button> :
+								<Button block color="primary">Create Tournament</Button>
+							}
 						</Form>
 					</ModalBody>
 				</Modal>
