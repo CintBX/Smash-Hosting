@@ -22,6 +22,12 @@ export const addTournament = tournament => (dispatch, getState) => {
 			payload: tournament
 		}))
 		.catch(err => dispatch(returnErrors(err.response.data, err.response.status)));
+
+	axios.get('/tournaments')
+		.then(res => dispatch({
+			type: GET_TOURNAMENTS,
+			payload: res.data
+		}))
 };
 
 export const deleteTournament = id => (dispatch, getState) => {
