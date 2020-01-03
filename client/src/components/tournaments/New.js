@@ -25,8 +25,7 @@ class NewTournament extends Component {
 		this.onSubmit = this.onSubmit.bind(this);
 		this.state = {
 			modal: false,
-			title: '',
-			hostedBy: ''
+			title: ''
 		};
 	};
 
@@ -34,12 +33,6 @@ class NewTournament extends Component {
 		isAuthenticated: PropTypes.bool,
 		user: PropTypes.object,
 		addTournament: PropTypes.func.isRequired
-	};
-
-	componentDidMount() {
-		this.setState({
-			title: ""
-		});
 	};
 
 	toggle() {
@@ -65,6 +58,10 @@ class NewTournament extends Component {
 		this.props.addTournament(newTournament);
 
 		this.toggle();
+
+		this.setState({
+			title: ""
+		});
 	};
 
 	render() {
