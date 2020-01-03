@@ -6,6 +6,7 @@ import Results from './buttons/Results';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getTournaments, deleteTournament } from '../../actions/tournamentActions';
+import TournamentDescription from './descriptions';
 
 
 class TournamentIndex extends Component {
@@ -36,27 +37,9 @@ class TournamentIndex extends Component {
 					</h1>
 
 					<h4>
-						{ 
-							title === 'Single Elimination' ?
-							"Winners advance to the next round while losers are eliminated, until only one fighter remains." :
-							null
-						}
-						{ 
-							title === 'Double Elimination' ?
-							"Winners remain and advance in the Winners Bracket. Losers are placed in the Losers Bracket and compete against anyone who loses a match in the Winners Bracket, at corresponding rounds." :
-							null
-						}
-						{ 
-							title === 'Round Robin' ?
-							"Each player fights every other player until all possible matches are played. The player with the most wins is the Champion." :
-							null
-						}
-						{ 
-							title === 'Pools' ?
-							"Players are placed into Pools, each Pool having its own Round Robin. Pool Winners form a Bracket with either Single or Double Elimination rules (determined by the Host)." :
-							null
-						}
-				 	</h4>
+						<TournamentDescription key={_id} title={title} />
+					</h4>
+
 					<hr className="my-2"/>
 
 					{ status === "Open" ? <SignUp /> : null }
