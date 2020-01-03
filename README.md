@@ -40,13 +40,16 @@ X Fighter Directory
 
 ## Tasks:
 
+- Tournament Descriptions
+- "Are you sure?" alert on tournament delete
+
+- FIgure out how React won't render the full Tournament object when you create one.
+(The backend works, the issue has to be in Redux or React)
+
 ---- RIGHT NOW ---- ---- RIGHT NOW ---- ---- RIGHT NOW ---- ---- RIGHT NOW ----
 
 ### Tournament Hosting
--> Host Tournament -> Tournament renders on page, with Title, hostedBy, Descrip, btns
-
-OKAY! 
-Tournament.title:
+X Tournament.title:
 	The tournament title will be blank, until you select an option, it becomes title
 	BUG: Selecting "Choose from below" will cause the tournament title to be "Choose from below"
 	Prevention Ideas:
@@ -55,11 +58,11 @@ Tournament.title:
 	-Some conditional somewhere "if(title === "CHoose from below")" return error
 Tournament.description:
 	handled on the frontend on Tournaments/Index via ternary operators
-Tournament.hostedBy:
+X Tournament.hostedBy:
 	The isAuthenticated user at the time of creation
-Tournament.status:
+X Tournament.status:
 	Set to "Open" automatically, no need for form submission to affect it
-Tournament.participants:
+X Tournament.participants:
 	An array automatically included upon Tournament creation.  Will be altered after creation
 
 
