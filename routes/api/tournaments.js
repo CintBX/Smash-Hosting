@@ -29,7 +29,15 @@ router.post('/new', authorize, (req, res) => {
 	});
 
 	newTournament.save()
-		.then(tournament => res.json(tournament))
+		.then(tournament => res.json({
+			tournament: {
+				id: tournament.id,
+				title: tournament.title,
+				hostedBy: tournament.hostedBy,
+				status: tournament.status,
+				participants: tournament.participants
+			}
+		}))
 		.catch(err => res.status(400).json({ msg: "Please choose a tournament type" }));
 });
 
