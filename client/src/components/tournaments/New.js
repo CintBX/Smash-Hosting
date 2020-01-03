@@ -91,6 +91,7 @@ class NewTournament extends Component {
 									name="title"
 									id="title"
 									onChange={this.onChange}
+									autofocus="autofocus"
 								>
 									<option value="">Choose from below</option>
 									<option>Single Elimination</option>
