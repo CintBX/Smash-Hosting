@@ -22,6 +22,7 @@ class TournamentIndex extends Component {
 
 	onDelete(id) {
 		this.props.deleteTournament(id);
+		alert("Delete this tournament?");
 	};
 
 	render() {
