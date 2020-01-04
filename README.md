@@ -6,8 +6,8 @@ X Log in/Register
 X Log out
 X Edit characters
 X Fighter Directory 
-- View/join tournaments
-- Host tournament
+X View tournaments
+X Host tournament
 - Users can join
 - Single Elim rules only at first:
 - STEPS:
@@ -39,41 +39,7 @@ X Fighter Directory
 
 
 ## Tasks:
-
-- Tournament Descriptions
 - "Are you sure?" alert on tournament delete
-
-- FIgure out how React won't render the full Tournament object when you create one.
-(The backend works, the issue has to be in Redux or React)
-
----- RIGHT NOW ---- ---- RIGHT NOW ---- ---- RIGHT NOW ---- ---- RIGHT NOW ----
-
-### Tournament Hosting
-X Tournament.title:
-	The tournament title will be blank, until you select an option, it becomes title
-	BUG: Selecting "Choose from below" will cause the tournament title to be "Choose from below"
-	Prevention Ideas:
-	-In the backend (or redux), disable blank submissions (and then delete "choose from below" and leave it "")
-	-Find some React way to stop that first option from being a selectable option
-	-Some conditional somewhere "if(title === "CHoose from below")" return error
-Tournament.description:
-	handled on the frontend on Tournaments/Index via ternary operators
-X Tournament.hostedBy:
-	The isAuthenticated user at the time of creation
-X Tournament.status:
-	Set to "Open" automatically, no need for form submission to affect it
-X Tournament.participants:
-	An array automatically included upon Tournament creation.  Will be altered after creation
-
-
-### CREATING A TOURNEY
--hostedBy user.id
--description: (Long conditional logic somewhere, perhaps in it's own component, that you import and use in creation so that it knows to apply a certain status given the type of tournament selected.  Lots of hard-coding required, but so be it)
--status: set default to "Open" in the model.  "Closed" and "Complete" will be buttons the Host will press as tourney progresses
--entrants: [] an array that you will add to.  Once a user clicks "Sign Up" make a function that will add that user's Username to the state collection array.  Hmm.. perhaps a Quit button would be good also, but leave that out for now
-
-
----- RIGHT NOW ---- ---- RIGHT NOW ---- ---- RIGHT NOW ---- ---- RIGHT NOW ---- 
 
 
 
