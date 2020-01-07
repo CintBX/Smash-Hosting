@@ -8,6 +8,12 @@ X Edit characters
 X Fighter Directory 
 X View tournaments
 X Host tournament
+- Images
+	- Default image
+	- Store all images in a directory (in the backend? Front end? In Mongo???)
+	- Image will change when a user selects/changes their characters*
+	*NOTE: This ties into.. you need to prevent mispellings of character names.  Perhaps have all characters names listed in an array somewhere, and have the form autofill whatever a person types or tries to type, like those location services on those job applications*
+- Character name validation
 - Users can join
 - Single Elim rules only at first:
 - STEPS:
@@ -39,7 +45,28 @@ X Host tournament
 
 
 ## Tasks:
-- "Are you sure?" alert on tournament delete
+__Images__
+You asked two communities, but for now just set a folder in... client/public/imgs
+X Create imgs folder in client/public
+X Place default image inside client/public/img
+- Set your placeholder sidebar img to this default image
+_Note_ Image can be it's own component.  You can remove the <CardImage> from SideBar and replace it with a new component you'll call SidebarImage which will contain the logic that will look for the user.main and render the corresponding img
+_Note_ "encode images in base64 and store them in my mongo instance"
+_Note_ Research image storage/use, Mongo or otherwise.
+_Note_ Microservice? Perhaps another backend? Axios? More routes/redux actions?
+
+__Character Name Validation__
+
+__Users can join__
+-Tournaments on the page, a user looks at them, picks one he wants to join, and clicks "Sign Up"
+-The tournament object, in the backend, must be updated with the this.props.user.username added to the tournaments.participants array.
+OPTIONS:
+	1) Sign Up button will then be changed to View Tournament or Enter (Tournament only visible to participants)
+	2) Sign Up will be disabled with a Thank You message, and instead, View Tournament will either be:
+		2a) A clickable  button, probably under Sign Up
+		2b) The modal itself will be clickable (though that can lead to accidental clicks - not good user experience)
+-
+
 
 
 
