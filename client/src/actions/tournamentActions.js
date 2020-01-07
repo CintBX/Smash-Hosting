@@ -27,7 +27,7 @@ export const addTournament = tournament => (dispatch, getState) => {
 		.then(res => dispatch({
 			type: GET_TOURNAMENTS,
 			payload: res.data
-		}))
+		}));
 };
 
 export const deleteTournament = id => (dispatch, getState) => {

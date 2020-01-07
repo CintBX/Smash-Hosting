@@ -47,6 +47,9 @@ class TournamentIndex extends Component {
 					{ status === "Closed" ? <InProgress /> : null }
 					{ status === "Complete" ? <Results /> : null }
 					
+					{/*Link To Tournament Show Page*/}
+					<Button color="success" block className="mt-2">View Bracket</Button>
+
 					{
 						isAuthenticated && user.username === hostedBy ?
 						<span className="float-right">
