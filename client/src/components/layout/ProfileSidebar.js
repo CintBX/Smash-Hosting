@@ -18,6 +18,7 @@ import CharacterModal from '../auth/CharacterModal';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import SidebarImage from './SidebarImage';
+import smashultimate3 from '../../img/smashultimate3.jpg';
 
 
 class ProfileSidebar extends Component {
@@ -45,9 +46,14 @@ class ProfileSidebar extends Component {
 		const { user, isAuthenticated } = this.props;
 		return (
 			<div>
-				<Card className="mb-4" style={{border:'none'}}>
-					{/*<CardImg top width="100%" src="https://via.placeholder.com/300x250" alt="Character" />*/}
-					<SidebarImage/>
+				<Card className="mb-4" style={{ border:'none' }}>
+
+					{
+						isAuthenticated && user.main ?
+						<SidebarImage main={ user.main } /> :
+						<img width="100%" src={ smashultimate3 } alt="default" />
+					}
+
 					<CardBody>
 						{
 							user ?
