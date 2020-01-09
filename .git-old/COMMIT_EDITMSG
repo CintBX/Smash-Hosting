@@ -1,0 +1,1 @@
+Added entire roster to app; Imported them, set them to an array of objects; Algorithm renders the appropriate one depending on user.main
