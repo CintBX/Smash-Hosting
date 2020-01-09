@@ -1,170 +1,94 @@
 import React from 'react';
-import banjokazooie from '../../img/roster/banjokazooie.jpg';
-import bayonetta from '../../img/roster/bayonetta.jpg';
-import bowser from '../../img/roster/bowser.jpg';
-import bowserjr from '../../img/roster/bowserjr.jpg';
-import captainfalcon from '../../img/roster/captainfalcon.jpg';
-import chrom from '../../img/roster/chrom.jpg';
-import cloud from '../../img/roster/cloud.jpg';
-import corrin from '../../img/roster/corrin.jpg';
-import daisy from '../../img/roster/daisy.jpg';
-import darkpit from '../../img/roster/darkpit.jpg';
-import darksamus from '../../img/roster/darksamus.jpg';
-import diddykong from '../../img/roster/diddykong.jpg';
-import donkeykong from '../../img/roster/donkeykong.jpg';
-import drmario from '../../img/roster/drmario.jpg';
-import duckhunt from '../../img/roster/duckhunt.jpg';
-import falco from '../../img/roster/falco.jpg';
-import fox from '../../img/roster/fox.jpg';
-import gameandwatch from '../../img/roster/gameandwatch.jpg';
-import ganondorf from '../../img/roster/ganondorf.jpg';
-import greninja from '../../img/roster/greninja.jpg';
-import hero from '../../img/roster/hero.jpg';
-import iceclimbers from '../../img/roster/iceclimbers.jpg';
-import ike from '../../img/roster/ike.jpg';
-import incineroar from '../../img/roster/incineroar.jpg';
-import inkling from '../../img/roster/inkling.jpg';
-import isabelle from '../../img/roster/isabelle.jpg';
-import jigglypuff from '../../img/roster/jigglypuff.jpg';
-import joker from '../../img/roster/joker.jpg';
-import ken from '../../img/roster/ken.jpg';
-import kingdedede from '../../img/roster/kingdedede.jpg';
-import kingkrool from '../../img/roster/kingkrool.jpg';
-import kirby from '../../img/roster/kirby.jpg';
-import link from '../../img/roster/link.jpg';
-import littlemac from '../../img/roster/littlemac.jpg';
-import lucario from '../../img/roster/lucario.jpg';
-import lucas from '../../img/roster/lucas.jpg';
-import lucina from '../../img/roster/lucina.jpg';
-import luigi from '../../img/roster/luigi.jpg';
-import mario from '../../img/roster/mario.jpg';
-import marth from '../../img/roster/marth.jpg';
-import megaman from '../../img/roster/megaman.jpg';
-import metaknight from '../../img/roster/metaknight.jpg';
-import mewtwo from '../../img/roster/mewtwo.jpg';
-import miifighter from '../../img/roster/miifighter.jpg';
-import ness from '../../img/roster/ness.jpg';
-import olimar from '../../img/roster/olimar.jpg';
-import pacman from '../../img/roster/pacman.jpg';
-import palutena from '../../img/roster/palutena.jpg';
-import peach from '../../img/roster/peach.jpg';
-import pichu from '../../img/roster/pichu.jpg';
-import pikachu from '../../img/roster/pikachu.jpg';
-import piranhaplant from '../../img/roster/piranhaplant.jpg';
-import pit from '../../img/roster/pit.jpg';
-import pokemontrainer from '../../img/roster/pokemontrainer.jpg';
-import richter from '../../img/roster/richter.jpg';
-import ridley from '../../img/roster/ridley.jpg';
-import ROB from '../../img/roster/ROB.jpg';
-import robin from '../../img/roster/robin.jpg';
-import rosalina from '../../img/roster/rosalina.jpg';
-import roy from '../../img/roster/roy.jpg';
-import ryu from '../../img/roster/ryu.jpg';
-import samus from '../../img/roster/samus.jpg';
-import sheik from '../../img/roster/sheik.jpg';
-import shulk from '../../img/roster/shulk.jpg';
-import simon from '../../img/roster/simon.jpg';
-import snake from '../../img/roster/snake.jpg';
-import sonic from '../../img/roster/sonic.jpg';
-import terry from '../../img/roster/terry.jpg';
-import toonlink from '../../img/roster/toonlink.jpg';
-import villager from '../../img/roster/villager.jpg';
-import wario from '../../img/roster/wario.jpg';
-import wiifittrainer from '../../img/roster/wiifittrainer.jpg';
-import wolf from '../../img/roster/wolf.jpg';
-import yoshi from '../../img/roster/yoshi.jpg';
-import younglink from '../../img/roster/younglink.jpg';
-import zelda from '../../img/roster/zelda.jpg';
-import zerosuit from '../../img/roster/zerosuit.jpg';
 
 function SidebarImage(props) {
-	const images = [
-		{ id: 1, src: banjokazooie, name: 'Banjo-Kazooie' },
-		{ id: 2, src: bayonetta, name: 'Bayonetta' },
-		{ id: 3, src: bowser, name: 'Bowser' },
-		{ id: 4, src: bowserjr, name: 'Bowser Jr.' },
-		{ id: 5, src: captainfalcon, name: 'Captain Falcon' },
-		{ id: 6, src: chrom, name: 'Chrom' },
-		{ id: 7, src: cloud, name: 'Cloud' },
-		{ id: 8, src: corrin, name: 'Corrin' },
-		{ id: 9, src: daisy, name: 'Daisy' },
-		{ id: 10, src: darkpit, name: 'Dark Pit' },
-		{ id: 11, src: darksamus, name: 'Dark Samus' },
-		{ id: 12, src: diddykong, name: 'Diddy Kong' },
-		{ id: 13, src: donkeykong, name: 'Donkey Kong' },
-		{ id: 14, src: drmario, name: 'Dr. Mario' },
-		{ id: 15, src: duckhunt, name: 'Duck Hunt' },
-		{ id: 16, src: falco, name: 'Falco' },
-		{ id: 17, src: fox, name: 'Fox' },
-		{ id: 18, src: gameandwatch, name: 'Mr. Game & Watch' },
-		{ id: 19, src: ganondorf, name: 'Ganondorf' },
-		{ id: 20, src: greninja, name: 'Greninja' },
+	const rosterImages = [
+		{ id: 1, src: require('../../img/roster/banjokazooie.jpg'), name: 'Banjo-Kazooie' },
+		{ id: 2, src: require('../../img/roster/bayonetta.jpg'), name: 'Bayonetta' },
+		{ id: 3, src: require('../../img/roster/bowser.jpg'	), name: 'Bowser' },
+		{ id: 4, src: require('../../img/roster/bowserjr.jpg'), name: 'Bowser Jr.' },
+		{ id: 5, src: require('../../img/roster/captainfalcon.jpg'), name: 'Captain Falcon' },
+		{ id: 6, src: require('../../img/roster/chrom.jpg'), name: 'Chrom' },
+		{ id: 7, src: require('../../img/roster/cloud.jpg'), name: 'Cloud' },
+		{ id: 8, src: require('../../img/roster/corrin.jpg'), name: 'Corrin' },
+		{ id: 9, src: require('../../img/roster/daisy.jpg'), name: 'Daisy' },
+		{ id: 10, src: require('../../img/roster/darkpit.jpg'), name: 'Dark Pit' },
 
-		{ id: 21, src: hero, name: 'Hero' },
-		{ id: 22, src: iceclimbers, name: 'Ice Climbers' },
-		{ id: 23, src: ike, name: 'Ike' },
-		{ id: 24, src: incineroar, name: 'Incineroar' },
-		{ id: 25, src: inkling, name: 'Inkling' },
-		{ id: 26, src: isabelle, name: 'Isabelle' },
-		{ id: 27, src: jigglypuff, name: 'Jigglypuff' },
-		{ id: 28, src: joker, name: 'Joker' },
-		{ id: 29, src: ken, name: 'Ken' },
-		{ id: 30, src: kingdedede, name: 'King Dedede' },
+		{ id: 11, src: require('../../img/roster/darksamus.jpg'), name: 'Dark Samus' },
+		{ id: 12, src: require('../../img/roster/diddykong.jpg'), name: 'Diddy Kong' },
+		{ id: 13, src: require('../../img/roster/donkeykong.jpg'), name: 'Donkey Kong' },
+		{ id: 14, src: require('../../img/roster/drmario.jpg'), name: 'Dr. Mario' },
+		{ id: 15, src: require('../../img/roster/duckhunt.jpg'), name: 'Duck Hunt' },
+		{ id: 16, src: require('../../img/roster/falco.jpg'), name: 'Falco' },
+		{ id: 17, src: require('../../img/roster/fox.jpg'), name: 'Fox' },
+		{ id: 18, src: require('../../img/roster/gameandwatch.jpg'), name: 'Mr. Game & Watch' },
+		{ id: 19, src: require('../../img/roster/ganondorf.jpg'), name: 'Ganondorf' },
+		{ id: 20, src: require('../../img/roster/greninja.jpg'), name: 'Greninja' },
 
-		{ id: 31, src: kingkrool, name: 'King K. Rool' },
-		{ id: 32, src: kirby, name: 'Kirby' },
-		{ id: 33, src: link, name: 'Link' },
-		{ id: 34, src: littlemac, name: 'Little Mac' },
-		{ id: 35, src: lucario, name: 'Lucario' },
-		{ id: 36, src: lucas, name: 'Lucas' },
-		{ id: 37, src: lucina, name: 'Lucina' },
-		{ id: 38, src: luigi, name: 'Luigi' },
-		{ id: 39, src: mario, name: 'Mario' },
-		{ id: 40, src: marth, name: 'Marth' },
+		{ id: 21, src: require('../../img/roster/hero.jpg'), name: 'Hero' },
+		{ id: 22, src: require('../../img/roster/iceclimbers.jpg'), name: 'Ice Climbers' },
+		{ id: 23, src: require('../../img/roster/ike.jpg'), name: 'Ike' },
+		{ id: 24, src: require('../../img/roster/incineroar.jpg'), name: 'Incineroar' },
+		{ id: 25, src: require('../../img/roster/inkling.jpg'), name: 'Inkling' },
+		{ id: 26, src: require('../../img/roster/isabelle.jpg'), name: 'Isabelle' },
+		{ id: 27, src: require('../../img/roster/jigglypuff.jpg'), name: 'Jigglypuff' },
+		{ id: 28, src: require('../../img/roster/joker.jpg'), name: 'Joker' },
+		{ id: 29, src: require('../../img/roster/ken.jpg'), name: 'Ken' },
+		{ id: 30, src: require('../../img/roster/kingdedede.jpg'), name: 'King Dedede' },
 
-		{ id: 41, src: megaman, name: 'Mega Man' },
-		{ id: 42, src: metaknight, name: 'Meta Knight' },
-		{ id: 43, src: mewtwo, name: 'Mewtwo' },
-		{ id: 44, src: miifighter, name: 'Mii Fighter' },
-		{ id: 45, src: ness, name: 'Ness' },
-		{ id: 46, src: olimar, name: 'Olimar' },
-		{ id: 47, src: pacman, name: 'Pac-Man' },
-		{ id: 48, src: palutena, name: 'Palutena' },
-		{ id: 49, src: peach, name: 'Peach' },
-		{ id: 50, src: pichu, name: 'Pichu' },
+		{ id: 31, src: require('../../img/roster/kingkrool.jpg'), name: 'King K. Rool' },
+		{ id: 32, src: require('../../img/roster/kirby.jpg'), name: 'Kirby' },
+		{ id: 33, src: require('../../img/roster/link.jpg'), name: 'Link' },
+		{ id: 34, src: require('../../img/roster/littlemac.jpg'), name: 'Little Mac' },
+		{ id: 35, src: require('../../img/roster/lucario.jpg'), name: 'Lucario' },
+		{ id: 36, src: require('../../img/roster/lucas.jpg'), name: 'Lucas' },
+		{ id: 37, src: require('../../img/roster/lucina.jpg'), name: 'Lucina' },
+		{ id: 38, src: require('../../img/roster/luigi.jpg'), name: 'Luigi' },
+		{ id: 39, src: require('../../img/roster/mario.jpg'), name: 'Mario' },
+		{ id: 40, src: require('../../img/roster/marth.jpg'), name: 'Marth' },
 
-		{ id: 51, src: pikachu, name: 'Pikachu' },
-		{ id: 52, src: piranhaplant, name: 'Piranha Plant' },
-		{ id: 53, src: pit, name: 'Pit' },
-		{ id: 54, src: pokemontrainer, name: 'Pokemon Trainer' },
-		{ id: 55, src: richter, name: 'Richter' },
-		{ id: 56, src: ridley, name: 'Ridley' },
-		{ id: 57, src: ROB, name: 'R.O.B.' },
-		{ id: 58, src: robin, name: 'Robin' },
-		{ id: 59, src: rosalina, name: 'Rosalina' },
-		{ id: 60, src: roy, name: 'Roy' },
+		{ id: 41, src: require('../../img/roster/megaman.jpg'), name: 'Mega Man' },
+		{ id: 42, src: require('../../img/roster/metaknight.jpg'), name: 'Meta Knight' },
+		{ id: 43, src: require('../../img/roster/mewtwo.jpg'), name: 'Mewtwo' },
+		{ id: 44, src: require('../../img/roster/miifighter.jpg'), name: 'Mii Fighter' },
+		{ id: 45, src: require('../../img/roster/ness.jpg'), name: 'Ness' },
+		{ id: 46, src: require('../../img/roster/olimar.jpg'), name: 'Olimar' },
+		{ id: 47, src: require('../../img/roster/pacman.jpg'), name: 'Pac-Man' },
+		{ id: 48, src: require('../../img/roster/palutena.jpg'), name: 'Palutena' },
+		{ id: 49, src: require('../../img/roster/peach.jpg'), name: 'Peach' },
+		{ id: 50, src: require('../../img/roster/pichu.jpg'), name: 'Pichu' },
 
-		{ id: 61, src: ryu, name: 'Ryu' },
-		{ id: 62, src: samus, name: 'Samus' },
-		{ id: 63, src: sheik, name: 'Sheik' },
-		{ id: 64, src: shulk, name: 'Shulk' },
-		{ id: 65, src: simon, name: 'Simon' },
-		{ id: 66, src: snake, name: 'Snake' },
-		{ id: 67, src: sonic, name: 'Sonic' },
-		{ id: 68, src: terry, name: 'Terry' },
-		{ id: 69, src: toonlink, name: 'Toon Link' },
-		{ id: 70, src: villager, name: 'Villager' },
+		{ id: 51, src: require('../../img/roster/pikachu.jpg'), name: 'Pikachu' },
+		{ id: 52, src: require('../../img/roster/piranhaplant.jpg'), name: 'Piranha Plant' },
+		{ id: 53, src: require('../../img/roster/pit.jpg'), name: 'Pit' },
+		{ id: 54, src: require('../../img/roster/pokemontrainer.jpg'), name: 'Pokemon Trainer' },
+		{ id: 55, src: require('../../img/roster/richter.jpg'), name: 'Richter' },
+		{ id: 56, src: require('../../img/roster/ridley.jpg'), name: 'Ridley' },
+		{ id: 57, src: require('../../img/roster/ROB.jpg'), name: 'R.O.B.' },
+		{ id: 58, src: require('../../img/roster/robin.jpg'), name: 'Robin' },
+		{ id: 59, src: require('../../img/roster/rosalina.jpg'), name: 'Rosalina' },
+		{ id: 60, src: require('../../img/roster/roy.jpg'), name: 'Roy' },
 
-		{ id: 71, src: wario, name: 'Wario' },
-		{ id: 72, src: wiifittrainer, name: 'Wii Fit Trainer' },
-		{ id: 73, src: wolf, name: 'Wolf' },
-		{ id: 74, src: yoshi, name: 'Yoshi' },
-		{ id: 75, src: younglink, name: 'Young Link' },
-		{ id: 76, src: zelda, name: 'Zelda' },
-		{ id: 77, src: zerosuit, name: 'Zero Suit Samus' }
+		{ id: 61, src: require('../../img/roster/ryu.jpg'), name: 'Ryu' },
+		{ id: 62, src: require('../../img/roster/samus.jpg'), name: 'Samus' },
+		{ id: 63, src: require('../../img/roster/sheik.jpg'), name: 'Sheik' },
+		{ id: 64, src: require('../../img/roster/shulk.jpg'), name: 'Shulk' },
+		{ id: 65, src: require('../../img/roster/simon.jpg'), name: 'Simon' },
+		{ id: 66, src: require('../../img/roster/snake.jpg'), name: 'Snake' },
+		{ id: 67, src: require('../../img/roster/sonic.jpg'), name: 'Sonic' },
+		{ id: 68, src: require('../../img/roster/terry.jpg'), name: 'Terry' },
+		{ id: 69, src: require('../../img/roster/toonlink.jpg'), name: 'Toon Link' },
+		{ id: 70, src: require('../../img/roster/villager.jpg'), name: 'Villager' },
+
+		{ id: 71, src: require('../../img/roster/wario.jpg'), name: 'Wario' },
+		{ id: 72, src: require('../../img/roster/wiifittrainer.jpg'), name: 'Wii Fit Trainer' },
+		{ id: 73, src: require('../../img/roster/wolf.jpg'), name: 'Wolf' },
+		{ id: 74, src: require('../../img/roster/yoshi.jpg'), name: 'Yoshi' },
+		{ id: 75, src: require('../../img/roster/younglink.jpg'), name: 'Young Link' },
+		{ id: 76, src: require('../../img/roster/zelda.jpg'), name: 'Zelda' },
+		{ id: 77, src: require('../../img/roster/zerosuit.jpg'), name: 'Zero Suit Samus' }
 	];
 
-	return images.map(({ id, src, name }) => {
+	return rosterImages.map(({ id, src, name }) => {
 		if(name === props.main) {			
 			return <img width="100%" id={id} src={src} name={name} alt="main character" />
 		};
