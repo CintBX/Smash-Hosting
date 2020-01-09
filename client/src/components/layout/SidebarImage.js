@@ -153,7 +153,7 @@ function SidebarImage(props) {
 		{ id: 67, src: sonic, name: 'Sonic' },
 		{ id: 68, src: terry, name: 'Terry' },
 		{ id: 69, src: toonlink, name: 'Toon Link' },
-		{ id: 70, src: villager, name: 'Samus' },
+		{ id: 70, src: villager, name: 'Villager' },
 
 		{ id: 71, src: wario, name: 'Wario' },
 		{ id: 72, src: wiifittrainer, name: 'Wii Fit Trainer' },
