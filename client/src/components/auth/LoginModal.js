@@ -92,31 +92,29 @@ class LoginModal extends Component {
 					Login
 				</NavLink>
 				<Modal isOpen={this.state.modal} toggle={this.toggle}>
-					<ModalHeader toggle={this.toggle}>Login</ModalHeader>
+					<ModalHeader toggle={this.toggle} className="text-center">Login</ModalHeader>
 
 					<ModalBody>
 						{ this.state.msg ? <Alert color="danger">{ this.state.msg }</Alert> : null }
 
 						<Form onSubmit={this.onSubmit}>
 							<FormGroup>
-								<Label for="username">Username</Label>
 								<Input
 									type="text"
 									name="username"
 									id="username"
 									className="mb-3"
-									placeholder="Your Smash Ultimate online username"
+									placeholder="Username"
 									autofocus="autofocus"
 									onChange={this.onChange}
 								/>
 
-								<Label for="password">Password</Label>
 								<Input
 									type="password"
 									name="password"
 									id="password"
 									className="mb-3"
-									placeholder="Enter your password"
+									placeholder="Password"
 									onChange={this.onChange}
 								/>
 
