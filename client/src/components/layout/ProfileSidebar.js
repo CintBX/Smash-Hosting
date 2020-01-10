@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import {
-	Card, 
-	CardImg,
+	Card,
 	CardText,
 	CardBody,
 	CardTitle,
