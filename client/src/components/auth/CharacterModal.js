@@ -12,6 +12,10 @@ import {
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { addCharacter } from '../../actions/authActions';
+import { fullRoster } from '../Characters';
+import TextField from '@material-ui/core/TextField';
+import Autocomplete from '@material-ui/lab/Autocomplete';
+
 
 class CharacterModal extends Component {
 	constructor(props) {
@@ -73,8 +77,47 @@ class CharacterModal extends Component {
 					<ModalBody>
 						<Form onSubmit={this.onSubmit}>
 							<FormGroup>
-								<Label for="main">Main Character</Label>
-								<Input
+								<Autocomplete
+									id="main"
+									name="main"
+									options={fullRoster}
+									getOptionLabel={option => option.name}
+									style={{ width: '100%' }}
+									className="mb-3"
+									renderInput={params => (
+										<TextField 
+											{...params} 
+											id="main" 
+											name="main" 
+											label="Main Character" 
+											variant="outlined" 
+											fullWidth
+											onChange={this.onChange}
+										/>
+									)}
+								/>
+
+								<Autocomplete
+									id="secondary"
+									name="secondary"
+									options={fullRoster}
+									getOptionLabel={option => option.name}
+									style={{ width: '100%' }}
+									className="mb-3"
+									renderInput={params => (
+										<TextField 
+											{...params} 
+											id="secondary" 
+											name="secondary" 
+											label="Secondary Character" 
+											variant="outlined" 
+											fullWidth
+											onChange={this.onChange}
+										/>
+									)}
+								/>
+
+								{/*<Input
 									type="text"
 									name="main"
 									id="main"
@@ -84,7 +127,6 @@ class CharacterModal extends Component {
 									autofocus="autofocus"
 								/>
 
-								<Label for="secondary">Secondary Character</Label>
 								<Input
 									type="text"
 									name="secondary"
@@ -92,7 +134,7 @@ class CharacterModal extends Component {
 									placeholder="Your counter-pick or 2nd-favorite"
 									className="mb-3"
 									onChange={this.onChange}
-								/>
+								/>*/}
 							</FormGroup>
 
 							<Button color="primary" style={{marginTop:'2rem'}} block>
