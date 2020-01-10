@@ -8,12 +8,12 @@ X Edit characters
 X Fighter Directory 
 X View tournaments
 X Host tournament
-- Images
-	- Default image
-	- Store all images in a directory (in the backend? Front end? In Mongo???)
-	- Image will change when a user selects/changes their characters*
-	*NOTE: This ties into.. you need to prevent mispellings of character names.  Perhaps have all characters names listed in an array somewhere, and have the form autofill whatever a person types or tries to type, like those location services on those job applications*
-- Character name validation
+X Images
+	X Default image
+	X Store all images in a directory (in the backend? Front end? In Mongo???)
+	X Image will change when a user selects/changes their characters*
+- Character names main/secondary validation
+- Friend Code validation
 - Users can join
 - Single Elim rules only at first:
 - STEPS:
