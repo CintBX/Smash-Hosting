@@ -14,11 +14,11 @@ X Images
 	X Image will change when a user selects/changes their characters*
 X Character names main/secondary validation
 X Clean Login/Register Modals
-- Friend Code validation
+X Friend Code validation
 - Users can join
-- Single Elim rules only at first:
+* Single Elim rules only at first:
 - STEPS:
-	- Tournament Created
+	X Tournament Created
 	- While Open, users "join"
 	- Host decides when to Close it, (and joins it if he wants)
 	- Users get randomized
@@ -45,19 +45,7 @@ X Clean Login/Register Modals
 
 
 
-## Tasks:
-__Images__
-You asked two communities, but for now just set a folder in... client/public/imgs
-X Create imgs folder in client/public
-X Place default image inside client/public/img
-- Set your placeholder sidebar img to this default image
-_Note_ Image can be it's own component.  You can remove the <CardImage> from SideBar and replace it with a new component you'll call SidebarImage which will contain the logic that will look for the user.main and render the corresponding img
-_Note_ "encode images in base64 and store them in my mongo instance"
-_Note_ Research image storage/use, Mongo or otherwise.
-_Note_ Microservice? Perhaps another backend? Axios? More routes/redux actions?
-
-__Character Name Validation__
-
+## Task Breakdown:
 __Users can join__
 -Tournaments on the page, a user looks at them, picks one he wants to join, and clicks "Sign Up"
 -The tournament object, in the backend, must be updated with the this.props.user.username added to the tournaments.participants array.
@@ -90,15 +78,6 @@ OPTIONS:
 
 
 
-##### Images
-- IMAGES/IMG directory containing a shitload of images
-- Generic Image, that also checks the user.main data (user, isAuthenticated)
-- List of images, each of which will render according to the user.main (image files will be named accordingly)
-- Images database (Every character, one Question Mark for random, and one Generic pic for default/guests/users without a 'main')
-- Rendering the right img on a person's profile sidebar depending on their Main
-
-
-
 ##### Tournament Show Page
 - the big cahuna
 
@@ -117,6 +96,8 @@ OPTIONS:
 
 ## Future Tasks:
 
+- Find/create the perfect default image, and then remove the ability to select character in Registration
+- .... ORRRRR!!!! Put that abiliyt back in RegistrationModal
 - Character most used (?)
 - Win/Loss calculation (refer to screenshots of convo wth Chris)
 - "View Rulsets" possibly a Nested Modal within the Host Tourney modal

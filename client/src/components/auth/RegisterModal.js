@@ -16,10 +16,10 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { register } from '../../actions/authActions';
 import { clearErrors } from '../../actions/errorActions';
-import { fullRoster } from '../Characters';
-import TextField from '@material-ui/core/TextField';
-import Autocomplete from '@material-ui/lab/Autocomplete';
 import NumberFormat from 'react-number-format';
+// import { fullRoster } from '../Characters';
+// import TextField from '@material-ui/core/TextField';
+// import Autocomplete from '@material-ui/lab/Autocomplete';
 
 class RegisterModal extends Component {
 	constructor(props) {
@@ -109,9 +109,9 @@ class RegisterModal extends Component {
 						{ this.state.msg ? <Alert color="danger">{ this.state.msg }</Alert> : null }
 						<Form onSubmit={this.onSubmit}>
 							<FormGroup>
-								<FormText color="muted" className="mb-3">
+								{/*<FormText color="muted" className="mb-3">
 									Required Fields
-								</FormText>
+								</FormText>*/}
 								<Input
 									type="text"
 									name="username"
@@ -141,7 +141,7 @@ class RegisterModal extends Component {
 									format="#### #### ####"
 								/>
 
-								<hr/>
+								{/*<hr/>
 
 								<FormText color="muted" className="mb-3">
 									Optional: Select your characters (You may do this later)
@@ -185,7 +185,7 @@ class RegisterModal extends Component {
 											onChange={this.onChange}
 										/>
 									)}
-								/>
+								/>*/}
 								<Button color="primary" style={{marginTop: '2rem'}} block>
 									Register
 								</Button>
