@@ -116,25 +116,6 @@ class CharacterModal extends Component {
 										/>
 									)}
 								/>
-
-								{/*<Input
-									type="text"
-									name="main"
-									id="main"
-									placeholder="Your favorite fighter"
-									className="mb-3"
-									onChange={this.onChange}
-									autofocus="autofocus"
-								/>
-
-								<Input
-									type="text"
-									name="secondary"
-									id="secondary"
-									placeholder="Your counter-pick or 2nd-favorite"
-									className="mb-3"
-									onChange={this.onChange}
-								/>*/}
 							</FormGroup>
 
 							<Button color="primary" style={{marginTop:'2rem'}} block>

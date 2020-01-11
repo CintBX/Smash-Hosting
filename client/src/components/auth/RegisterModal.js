@@ -19,6 +19,7 @@ import { clearErrors } from '../../actions/errorActions';
 import { fullRoster } from '../Characters';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
+import NumberFormat from 'react-number-format';
 
 class RegisterModal extends Component {
 	constructor(props) {
@@ -130,16 +131,18 @@ class RegisterModal extends Component {
 									onChange={this.onChange}
 								/>
 
-								<Input
+								<NumberFormat 
 									type="text"
 									name="friendCode"
 									id="friendCode"
-									className="mb-3"
-									placeholder="12-digit Switch friend code"
+									className="mb-3 form-control"
+									placeholder="12-digit Switch Friend code"
 									onChange={this.onChange}
+									format="#### #### ####"
 								/>
 
 								<hr/>
+
 								<FormText color="muted" className="mb-3">
 									Optional: Select your characters (You may do this later)
 								</FormText>
@@ -183,26 +186,6 @@ class RegisterModal extends Component {
 										/>
 									)}
 								/>
-
-								{/*<Label for="main">Main</Label>
-								<Input
-									type="text"
-									name="main"
-									id="main"
-									placeholder="Who's your best character?"
-									className="mb-3"
-									onChange={this.onChange}
-								/>
-
-								<Label for="secondary">Secondary</Label>
-								<Input
-									type="text"
-									name="secondary"
-									id="secondary"
-									placeholder="Second-best character for counter-picks"
-									className="mb-3"
-									onChange={this.onChange}
-								/>*/}
 								<Button color="primary" style={{marginTop: '2rem'}} block>
 									Register
 								</Button>
