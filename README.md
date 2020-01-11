@@ -13,6 +13,7 @@ X Images
 	X Store all images in a directory (in the backend? Front end? In Mongo???)
 	X Image will change when a user selects/changes their characters*
 X Character names main/secondary validation
+X Clean Login/Register Modals
 - Friend Code validation
 - Users can join
 - Single Elim rules only at first:
