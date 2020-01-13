@@ -46,6 +46,10 @@ X Friend Code validation
 
 
 ## Task Breakdown:
+*BUG ALERT*
+The Main/Secondary forms still allow incorrect entries.
+The Form is not actually looking at the selection choice.. it's only watching your text input
+
 __Users can join__
 -Tournaments on the page, a user looks at them, picks one he wants to join, and clicks "Sign Up"
 -The tournament object, in the backend, must be updated with the this.props.user.username added to the tournaments.participants array.
