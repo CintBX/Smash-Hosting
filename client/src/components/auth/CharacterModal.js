@@ -44,7 +44,7 @@ class CharacterModal extends Component {
 
 	onChange(e) {
 		this.setState({
-			[e.target.name]: e.target.value
+			main: e.target.value
 		});
 	};
 
@@ -79,7 +79,6 @@ class CharacterModal extends Component {
 							<FormGroup>
 								<Autocomplete
 									id="main"
-									name="main"
 									options={fullRoster}
 									getOptionLabel={option => option.name}
 									style={{ width: '100%' }}
@@ -92,18 +91,19 @@ class CharacterModal extends Component {
 											label="Main Character" 
 											variant="outlined" 
 											fullWidth
-											onChange={this.onChange}
+											onSelect={this.onChange}
+											value={this.state.main}
 										/>
 									)}
 								/>
 
 								<Autocomplete
 									id="secondary"
-									name="secondary"
 									options={fullRoster}
 									getOptionLabel={option => option.name}
 									style={{ width: '100%' }}
 									className="mb-3"
+									autoComplete
 									renderInput={params => (
 										<TextField 
 											{...params} 
@@ -113,6 +113,7 @@ class CharacterModal extends Component {
 											variant="outlined" 
 											fullWidth
 											onChange={this.onChange}
+											value={this.state.secondary}
 										/>
 									)}
 								/>
