@@ -44,7 +44,7 @@ class CharacterModal extends Component {
 
 	onChange(e) {
 		this.setState({
-			main: e.target.value
+			[e.target.name]: e.target.value
 		});
 	};
 
@@ -112,7 +112,7 @@ class CharacterModal extends Component {
 											label="Secondary Character" 
 											variant="outlined" 
 											fullWidth
-											onChange={this.onChange}
+											onSelect={this.onChange}
 											value={this.state.secondary}
 										/>
 									)}
