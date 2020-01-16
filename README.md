@@ -16,8 +16,8 @@ X Character names main/secondary validation
 X Clean Login/Register Modals
 X Friend Code validation
 - Users can join
-* Single Elim rules only at first:
 - STEPS:
+	* Single Elim rules only at first:
 	X Tournament Created
 	- While Open, users "join"
 	- Host decides when to Close it, (and joins it if he wants)
@@ -49,6 +49,15 @@ X Friend Code validation
 *BUG ALERT*
 The Main/Secondary forms still allow incorrect entries.
 The Form is not actually looking at the selection choice.. it's only watching your text input
+-FIXED-
+
+*BUG ALERT*
+Main/Secondary now properly selects whoever you click on in the combobox whether you type it or select it
+THE BUG: Main/Secondary aren't working.  They are both updating Main.
+-FIXED-
+
+*BUG ALERT*
+Main/Secondary Modal character modal works perfectly. But, a user can still mispell a character if they type something and just hit enter.
 
 __Users can join__
 -Tournaments on the page, a user looks at them, picks one he wants to join, and clicks "Sign Up"
