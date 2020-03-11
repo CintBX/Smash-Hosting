@@ -1,3 +1,8 @@
+Getting back to work 3/11
+1) See if you can fix that thing that happens where you change character, and you have to restart the app to fix it
+2) It's not auto-selecting the Username field in login/register forms
+
+
 # Smash-Hosting
 
 ## Prototype completion
