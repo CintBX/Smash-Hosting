@@ -22,7 +22,7 @@ router.get('/', (req, res) => {
 router.get('/tournament/:id', (req, res) => {
 	Tournament.findById(req.params.id)
 		.then(tournament => res.json(tournament))
-		.catch(err => res.json(err));
+		.catch(err => res.status(404).json({ msg: "Tournament not found" }));
 });
 
 
