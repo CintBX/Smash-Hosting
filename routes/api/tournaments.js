@@ -16,6 +16,15 @@ router.get('/', (req, res) => {
 		.catch(err => console.log(err));
 });
 
+// @route 	SHOW /tournament/:id
+// @descrip Display a single tournament
+// @access 	Public
+router.get('/tournament/:id', (req, res) => {
+	Tournament.findById(req.params.id)
+		.then(tournament => res.json(tournament))
+		.catch(err => res.json(err));
+});
+
 
 // @route 	POST /tournaments/new
 // @descrip NEW/CREATE
