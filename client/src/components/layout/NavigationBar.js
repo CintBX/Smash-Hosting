@@ -69,7 +69,7 @@ class NavigationBar extends Component {
 							</NavbarBrand> :
 							<NavbarBrand href="/" style={{fontSize:'28px'}}>
 								<img src={logo} width="80" height="80" alt="Smash Brothers Logo" />
-								<span className="ml-3"><strong>SmashHosting</strong></span>
+								<span className="ml-3"><strong>Smash Hosting</strong></span>
 							</NavbarBrand>
 						}
 						<NavbarToggler onClick={this.toggle} />

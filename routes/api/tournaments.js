@@ -16,10 +16,11 @@ router.get('/', (req, res) => {
 		.catch(err => console.log(err));
 });
 
-// @route 	SHOW /tournament/:id
+
+// @route 	SHOW /tournaments/:id
 // @descrip Display a single tournament
 // @access 	Public
-router.get('/tournament/:id', (req, res) => {
+router.get('/:id', (req, res) => {
 	Tournament.findById(req.params.id)
 		.then(tournament => res.json(tournament))
 		.catch(err => res.status(404).json({ msg: "Tournament not found" }));
