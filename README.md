@@ -2,6 +2,11 @@ Getting back to work 3/11
 - It's not auto-selecting the Username field in login/register forms
 - See if you can fix that thing that happens where you change character, and you have to restart the app to fix it
 - Fix User Routes in users.js
+- You may not need tournament.description anymore, as you turned the descriptions into a Component
+- change instances of `autofocus` to `autoFocus`
+- Jesus.  Okay, change Buttons format.. You can have em all in one file.  Make it a const with props, or a function with props, and the button will change inside the component the button is rendered in, and you will put tournament.status inside the prop, which will tell the component which button to render.
+With that said, however, Sign Up is special because it needs logic to add the player to tournament.participants array.
+Perhaps all it needs is an onClick={} prop, and in the parent component you can have the logic for adding user to tournament.participants, and <SignUp> will simply take care of it without you having to necessarily do anything in the button component.
 
 
 # Smash-Hosting

@@ -1,13 +1,54 @@
-import React, { Component } from 'react';
-import { Jumbotron, Button } from 'reactstrap';
-import SignUp from './buttons/SignUp';
-import InProgress from './buttons/InProgress';
-import Results from './buttons/Results';
+import React, { Component, Fragment } from 'react';
+import { Jumbotron, 
+	Button, 
+	Spinner,
+	UncontrolledPopover, 
+	PopoverHeader, 
+	PopoverBody
+} from 'reactstrap';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getTournaments, deleteTournament } from '../../actions/tournamentActions';
 import TournamentDescription from './descriptions';
 
+// Buttons
+function SignUp() {
+	return (
+		<Fragment>
+			<Link to="#">
+				<Button className="mt-4" color="primary" block onClick={() => console.log("Hello there")}>Sign up</Button>
+			</Link>
+		</Fragment>
+	);
+};
+
+function InProgress() {
+	return (
+		<Fragment>
+			<Spinner className="mt-3 mr-2" color="danger" />In progress...
+		</Fragment>
+	);
+};
+
+function ResultsPopover() {
+	return (
+		<Fragment>
+			<Button 
+				id="results" 
+				type="button" 
+				color="success"
+				className="mt-3"
+			>
+				Results
+			</Button>
+			<UncontrolledPopover trigger="focus" placement="bottom" target="results">
+				<PopoverBody><b>Finals: </b> Cin <i>(Samus)</i> vs Vagalume <i>(Pit)</i></PopoverBody>
+				<PopoverHeader><b>WINNER: </b> Cin</PopoverHeader>
+			</UncontrolledPopover>
+		</Fragment>
+	);
+};
 
 class TournamentIndex extends Component {
 	componentDidMount() {
@@ -29,7 +70,7 @@ class TournamentIndex extends Component {
 		const { tournaments } = this.props.tournament;
 		const { isAuthenticated, user } = this.props.auth;
 
-		return tournaments.map(({ _id, title, hostedBy, description, status }) => {
+		return tournaments.map(({ _id, title, hostedBy, description, status, participants }) => {
 			return (
 				<Jumbotron>
 					<h1 className="mb-5 text-center">
@@ -45,7 +86,7 @@ class TournamentIndex extends Component {
 
 					{ status === "Open" ? <SignUp /> : null }
 					{ status === "Closed" ? <InProgress /> : null }
-					{ status === "Complete" ? <Results /> : null }
+					{ status === "Complete" ? <ResultsPopover /> : null }
 					
 					{/*Link To Tournament Show Page*/}
 					<Button color="success" block className="mt-2">View Bracket</Button>
