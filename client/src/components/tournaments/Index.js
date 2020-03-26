@@ -1,54 +1,10 @@
-import React, { Component, Fragment } from 'react';
-import { Jumbotron, 
-	Button, 
-	Spinner,
-	UncontrolledPopover, 
-	PopoverHeader, 
-	PopoverBody
-} from 'reactstrap';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react';
+import { Jumbotron, Button } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getTournaments, deleteTournament } from '../../actions/tournamentActions';
 import TournamentDescription from './descriptions';
-
-// Buttons
-function SignUp() {
-	return (
-		<Fragment>
-			<Link to="#">
-				<Button className="mt-4" color="primary" block onClick={() => console.log("Hello there")}>Sign up</Button>
-			</Link>
-		</Fragment>
-	);
-};
-
-function InProgress() {
-	return (
-		<Fragment>
-			<Spinner className="mt-3 mr-2" color="danger" />In progress...
-		</Fragment>
-	);
-};
-
-function ResultsPopover() {
-	return (
-		<Fragment>
-			<Button 
-				id="results" 
-				type="button" 
-				color="success"
-				className="mt-3"
-			>
-				Results
-			</Button>
-			<UncontrolledPopover trigger="focus" placement="bottom" target="results">
-				<PopoverBody><b>Finals: </b> Cin <i>(Samus)</i> vs Vagalume <i>(Pit)</i></PopoverBody>
-				<PopoverHeader><b>WINNER: </b> Cin</PopoverHeader>
-			</UncontrolledPopover>
-		</Fragment>
-	);
-};
+import { SignUp, InProgress, ResultsPopover } from './buttons';
 
 class TournamentIndex extends Component {
 	componentDidMount() {
@@ -70,7 +26,7 @@ class TournamentIndex extends Component {
 		const { tournaments } = this.props.tournament;
 		const { isAuthenticated, user } = this.props.auth;
 
-		return tournaments.map(({ _id, title, hostedBy, description, status, participants }) => {
+		return tournaments.map(({ _id, title, hostedBy, status, participants }) => {
 			return (
 				<Jumbotron>
 					<h1 className="mb-5 text-center">
@@ -84,7 +40,7 @@ class TournamentIndex extends Component {
 
 					<hr className="my-2"/>
 
-					{ status === "Open" ? <SignUp /> : null }
+					{ status === "Open" ? <SignUp onClick={() => console.log("Hi")}/> : null }
 					{ status === "Closed" ? <InProgress /> : null }
 					{ status === "Complete" ? <ResultsPopover /> : null }
 					
