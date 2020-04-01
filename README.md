@@ -56,34 +56,7 @@ X Friend Code validation
 
 ## Above Steps
 USER CAN JOIN
-
-tournament.participants is an empty array.  A user logs on, is authenticated, is current_user I think.. 
-They click the button "Sign Up" and the logged in user should be added to Tournament.participants array.
-All users who click Sign Up should be added to that array.
-[POSSIBLE REFACTOR SCENARIO] If the button is gonna perform this much logic perhaps it should be it's own component
-
-This file needs a lot now. 
-It needs access to the User redux
-It needs access to the Tournament redux
-static propTypes
-Then you need an Action and a Type
-A route probably..
-
-Okay, follow the same order of acttions
-Do this on the backEnd first, then incorporate it into the Button
-
-1) tournamentReducer.js
-USER_JOINS_TOURNAMENT action
-case USER_JOINS_TOURNAMENT:
-return {
-...state,
-tournaments: tournaments
-2) actions/types.js
-USER_JOINS_TOURNAMENT type to the list
-3) 
-
-
-I see the issue here.. my current setup is for a group of tournaments.  Separate reducer for single tournaments?
+I see the issue here.. my current setup is for a group of tournaments.  Separate reducer for single tournaments?7
 Something like.. the initialState = {tournament: null} which, when the thing occurs, the tournament becomes action.payload
 which will be the selected/shown tournament.
 Then, in that same file, you can have this USER_JOINS_TOURNAMENT case do tournament: tournament.push(action.payload)
@@ -91,6 +64,9 @@ where the action.payload is the user who clicks Sign Up (or, at first, goes to t
 
 Alright.. step 1.  Create a Route for Tournament Show.  This way, you can select a tournament individually and show it. (hoping
 to then be able to alter it)
+
+X 1) Create a backend route ~tournaments.js
+2) Wire up Redux
 
 
 
