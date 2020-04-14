@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { Jumbotron, Button } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getTournaments, deleteTournament } from '../../actions/tournamentActions';
-import TournamentDescription from './descriptions';
 import { SignUp, InProgress, ResultsPopover } from './buttons';
+import { getTournaments, deleteTournament } from '../../actions/tournamentActions';
+import { addParticipant } from '../../actions/participantActions';
+import TournamentDescription from './descriptions';
 
 class TournamentIndex extends Component {
 	componentDidMount() {
@@ -22,13 +23,17 @@ class TournamentIndex extends Component {
 		alert("Delete this tournament?");
 	};
 
+	onSignUp(tournamentId, participant) {
+		this.props.addParticipant(tournamentId, participant);
+	}
+
 	render() {
 		const { tournaments } = this.props.tournament;
 		const { isAuthenticated, user } = this.props.auth;
 
-		return tournaments.map(({ _id, title, hostedBy, status, participants }) => {
+		return tournaments.map(({ _id, title, hostedBy, status }) => {
 			return (
-				<Jumbotron>
+				<Jumbotron key={_id}>
 					<h1 className="mb-5 text-center">
 						{ title }
 						<p style={{fontSize: '0.6em'}} className="text-muted">Hosted by: { hostedBy }</p>
@@ -40,13 +45,15 @@ class TournamentIndex extends Component {
 
 					<hr className="my-2"/>
 
-					{ status === "Open" ? <SignUp onClick={() => console.log("Hi")}/> : null }
+					{/* Status Buttons */}
+					{ status === "Open" && isAuthenticated ? <SignUp onClick={this.onSignUp.bind(this, _id, user)}/> : null }
 					{ status === "Closed" ? <InProgress /> : null }
 					{ status === "Complete" ? <ResultsPopover /> : null }
 					
 					{/*Link To Tournament Show Page*/}
 					<Button color="success" block className="mt-2">View Bracket</Button>
 
+					{/* Edit/Delete */}
 					{
 						isAuthenticated && user.username === hostedBy ?
 						<span className="float-right">
@@ -74,4 +81,4 @@ const mapStateToProps = state => ({
 	auth: state.auth
 });
 
-export default connect(mapStateToProps, { getTournaments, deleteTournament })(TournamentIndex);
+export default connect(mapStateToProps, { getTournaments, deleteTournament, addParticipant })(TournamentIndex);

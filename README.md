@@ -67,6 +67,20 @@ to then be able to alter it)
 
 X 1) Create a backend route ~tournaments.js
 2) Wire up Redux
+	-CHALLENGE: The type/reducer/action are configured.  The Action is questionable, but is coherent enough.  You need to do two things:
+	1) Make sure the Action is impeccable and correct.  Still needs some work
+	2) Refactor the Tournament Index, so your addParticipant() function will work.  Refactor by:
+		a) Creating a new file, perhaps called TournamentCard.js, and place the reactstrap jumbotron code there
+		b) Then, in tournaments/Index.js, simply render <TournamentCard key={tournament._id}> and whatever other value.
+			 The idea is, that right now your cards are listed but your Sign Up button might not know exactly which tournamet is targeted.
+			 So.. when rendered this way, you're assigning an actual Key={} value.
+			NOTE: Issues that may arise.. is the fact that you had to iterate through your tournaments data, and for each one, you
+						called this <Jumbotron>.  Make sure you can smoothly transition that in your refactor.
+						Ahh.. but if you can't, you can just.. yes, i got it.  
+						You are still iterating over the tournaments in Index.js, but now you are simply rendering
+						<TournamentCard> and pass, as props, all the stuff you're passing now directly.  Looks like:
+						<TournamentCard key={} title={} hostedBy={} status={} etc>
+			Then of course make sure you can code onClick somehow, now that you'll be rendering this separately.
 
 
 
