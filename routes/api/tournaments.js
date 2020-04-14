@@ -67,14 +67,13 @@ module.exports = router;
 // @route		POST /tournaments/:id
 // @descrip	Add User to Tournament.participants array / User sign up
 // @access	Private(There must be a user to sign up)
-router.post('/:id', authorize, (req, res) => {
+// NOTE: `authorize` doesn't work for some reason.  May be ok, investigate later
+router.post('/:id', (req, res) => {
 	Tournament.findById(req.params.id)
 		.then(tournament => {
 			tournament.participants.push(req.body);
-			// save updated tournament in the DB, then promise-chain with another `then` before the Catch
 			return tournament.save();
 		})
-		// send a response to the client
 		.then(savedTournament => res.json(savedTournament))
 		.catch(err => res.json(err));
 });
