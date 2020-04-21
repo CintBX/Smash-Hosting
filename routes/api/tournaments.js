@@ -71,7 +71,37 @@ module.exports = router;
 router.post('/:id', (req, res) => {
 	Tournament.findById(req.params.id)
 		.then(tournament => {
-			tournament.participants.push(req.body);
+			// One possible solution
+			// const username = req.body.user.username;
+			// const id = req.body.user._id;
+			
+			// if(tournament.participants.includes(id)) {
+			// 	return res.status(400).json({ msg: "This user is already signed up" });
+			// } else {
+			// 	tournament.participants.push({username, id});
+			// 	return tournament.save();
+			// };
+
+			// Other solution, involving passing only { "user": "user_ID" } via Redux
+			// if (tournament.participants.includes(req.body.user)) {
+			// 	return res.status(400).json({ msg: "This user is already signed up" });
+			// } else {
+			// 	tournament.participants.push(req.body.user);
+			// 	return tournament.save();
+			// };
+
+			// Third solution: You can't use native comparison operators with objects (such as Array.includes)
+			// Instead, create a function using the Arr.some() method
+			// Rename this later for gods sake
+			const userSignedUp = (participantsArray, user) => {
+				return participantsArray.some(arr => arr.user === user);
+			};
+
+			if (userSignedUp(tournament.participants, req.body.user._id) !== true && userSignedUp(tournament.participants, req.body.user.id) !== true) {
+				tournament.participants.push(req.body.user);
+			} else {
+				return res.status(400).json({ msg: "This user is already signed up" });
+			}
 			return tournament.save();
 		})
 		.then(savedTournament => res.json(savedTournament))

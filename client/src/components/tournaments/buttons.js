@@ -9,13 +9,23 @@ import {
 } from 'reactstrap';
 
 export const SignUp = (props) => {
-	return (
-		<Fragment>
-			<Link to="#">
-				<Button className="mt-4" color="primary" block onClick={props.onClick}>Sign up</Button>
-			</Link>
-		</Fragment>
-	);
+	// if(props.participants.includes(props.user)) {
+	// 	return (
+	// 		<Fragment>
+	// 			<Link to="#">
+	// 				<Button className="mt-4" color="secondary" block >Good luck!</Button>
+	// 			</Link>
+	// 		</Fragment>
+	// 	)
+	// } else {
+		return (
+			<Fragment>
+				<Link to="#">
+					<Button className="mt-4" color="primary" block onClick={props.onClick}>Sign up</Button>
+				</Link>
+			</Fragment>
+		);
+	// };
 };
 
 export const InProgress = () => {

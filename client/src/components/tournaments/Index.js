@@ -23,8 +23,8 @@ class TournamentIndex extends Component {
 		alert("Delete this tournament?");
 	};
 
-	onSignUp(tournamentId, participant) {
-		this.props.addParticipant(tournamentId, participant);
+	onSignUp(tournamentId, user) {
+		this.props.addParticipant(tournamentId, user);
 	}
 
 	render() {
@@ -46,7 +46,7 @@ class TournamentIndex extends Component {
 					<hr className="my-2"/>
 
 					{/* Status Buttons */}
-					{ status === "Open" && isAuthenticated ? <SignUp onClick={this.onSignUp.bind(this, _id, user)}/> : null }
+					{ status === "Open" && isAuthenticated ? <SignUp onClick={this.onSignUp.bind(this, _id, user)} /> : null }
 					{ status === "Closed" ? <InProgress /> : null }
 					{ status === "Complete" ? <ResultsPopover /> : null }
 					

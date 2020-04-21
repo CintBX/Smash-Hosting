@@ -1,4 +1,4 @@
-import { USER_JOINS_TOURNAMENT } from '../actions/types';
+import { USER_JOINS_TOURNAMENT, TOURNAMENT_SIGN_UP_FAIL } from '../actions/types';
 
 const initialState = {
   participant: null
@@ -10,6 +10,12 @@ export default function(state = initialState, action) {
       return {
         ...state,
         participant: action.payload
+      }
+
+    case TOURNAMENT_SIGN_UP_FAIL:
+      return {
+        ...state,
+        participant: null
       }
 
     default:
