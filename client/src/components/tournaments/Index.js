@@ -31,7 +31,7 @@ class TournamentIndex extends Component {
 		const { tournaments } = this.props.tournament;
 		const { isAuthenticated, user } = this.props.auth;
 
-		return tournaments.map(({ _id, title, hostedBy, status }) => {
+		return tournaments.map(({ _id, title, hostedBy, status, participants }) => {
 			return (
 				<Jumbotron key={_id}>
 					<h1 className="mb-5 text-center">
@@ -46,7 +46,13 @@ class TournamentIndex extends Component {
 					<hr className="my-2"/>
 
 					{/* Status Buttons */}
-					{ status === "Open" && isAuthenticated ? <SignUp onClick={this.onSignUp.bind(this, _id, user)} /> : null }
+					{ status === "Open" && isAuthenticated ?
+						<SignUp 
+							onClick={ this.onSignUp.bind(this, _id, user) }
+							className={ participants.some(arr => arr.username === user.username) === true ? "mt-4 hide-btn" : "mt-4" }
+						/> : 
+						null
+					}
 					{ status === "Closed" ? <InProgress /> : null }
 					{ status === "Complete" ? <ResultsPopover /> : null }
 					
