@@ -43,13 +43,13 @@ class TournamentIndex extends Component {
 						<TournamentDescription key={_id} title={title} />
 					</h4>
 
-					<hr className="my-2"/>
+					<hr className="my-4"/>
 
 					{/* Status Buttons */}
 					{ status === "Open" && isAuthenticated ?
 						<SignUp 
 							onClick={ this.onSignUp.bind(this, _id, user) }
-							className={ participants.some(arr => arr.username === user.username) === true ? "mt-4 hide-btn" : "mt-4" }
+							className={ participants.some(arr => arr.username === user.username) === true ? "hide-btn" : "mt-4" }
 						/> : 
 						null
 					}
@@ -57,7 +57,7 @@ class TournamentIndex extends Component {
 					{ status === "Complete" ? <ResultsPopover /> : null }
 					
 					{/*Link To Tournament Show Page*/}
-					<Button color="success" block className="mt-2">View Bracket</Button>
+					<Button color="success" block className="mt-2">Click to Enter</Button>
 
 					{/* Edit/Delete */}
 					{
