@@ -6,12 +6,12 @@ class TournamentDescription extends Component {
 			<Fragment>
 				{ 
 					this.props.title === 'Single Elimination' ?
-					"Winners advance to the next round while losers are eliminated, until only one fighter remains." :
+					"Winners advance while losers are eliminated, until only one player remains." :
 					null
 				}
 				{ 
 					this.props.title === 'Double Elimination' ?
-					"Winners remain and advance in the Winners Bracket. Losers are placed in the Losers Bracket and compete against anyone who loses a match in the Winners Bracket, at corresponding rounds." :
+					"Players begin in one bracket.  Winners continue in the Winners Bracket, and losers fall into the Losers Bracket. There, they gain a second chance to advance to the Finals." :
 					null
 				}
 				{ 
@@ -21,7 +21,7 @@ class TournamentDescription extends Component {
 				}
 				{ 
 					this.props.title === 'Pools' ?
-					"Players are placed into Pools, each Pool having its own Round Robin. Pool Winners form a Bracket with either Single or Double Elimination rules (determined by the Host)." :
+					"Players are placed into Pools, and each Pool has its own Round Robin. Then, winners from each Pool move on to form a new bracket with either Single or Double Elimination rules (determined by the Host)." :
 					null
 				}
 			</Fragment>
