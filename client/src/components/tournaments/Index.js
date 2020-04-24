@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import { Jumbotron, Button } from 'reactstrap';
-import SignUp from './buttons/SignUp';
-import InProgress from './buttons/InProgress';
-import Results from './buttons/Results';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { SignUp, InProgress, ResultsPopover } from './buttons';
 import { getTournaments, deleteTournament } from '../../actions/tournamentActions';
+import { addParticipant } from '../../actions/participantActions';
 import TournamentDescription from './descriptions';
-
 
 class TournamentIndex extends Component {
 	componentDidMount() {
@@ -25,13 +23,17 @@ class TournamentIndex extends Component {
 		alert("Delete this tournament?");
 	};
 
+	onSignUp(tournamentId, user) {
+		this.props.addParticipant(tournamentId, user);
+	}
+
 	render() {
 		const { tournaments } = this.props.tournament;
 		const { isAuthenticated, user } = this.props.auth;
 
-		return tournaments.map(({ _id, title, hostedBy, description, status }) => {
+		return tournaments.map(({ _id, title, hostedBy, status, participants }) => {
 			return (
-				<Jumbotron>
+				<Jumbotron key={_id}>
 					<h1 className="mb-5 text-center">
 						{ title }
 						<p style={{fontSize: '0.6em'}} className="text-muted">Hosted by: { hostedBy }</p>
@@ -41,15 +43,23 @@ class TournamentIndex extends Component {
 						<TournamentDescription key={_id} title={title} />
 					</h4>
 
-					<hr className="my-2"/>
+					<hr className="my-4"/>
 
-					{ status === "Open" ? <SignUp /> : null }
+					{/* Status Buttons */}
+					{ status === "Open" && isAuthenticated ?
+						<SignUp 
+							onClick={ this.onSignUp.bind(this, _id, user) }
+							className={ participants.some(arr => arr.username === user.username) === true ? "hide-btn" : "mt-4" }
+						/> : 
+						null
+					}
 					{ status === "Closed" ? <InProgress /> : null }
-					{ status === "Complete" ? <Results /> : null }
+					{ status === "Complete" ? <ResultsPopover /> : null }
 					
 					{/*Link To Tournament Show Page*/}
-					<Button color="success" block className="mt-2">View Bracket</Button>
+					<Button color="success" block className="mt-2">Click to Enter</Button>
 
+					{/* Edit/Delete */}
 					{
 						isAuthenticated && user.username === hostedBy ?
 						<span className="float-right">
@@ -77,4 +87,4 @@ const mapStateToProps = state => ({
 	auth: state.auth
 });
 
-export default connect(mapStateToProps, { getTournaments, deleteTournament })(TournamentIndex);
+export default connect(mapStateToProps, { getTournaments, deleteTournament, addParticipant })(TournamentIndex);

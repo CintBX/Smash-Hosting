@@ -5,3 +5,7 @@
 	color: #7FFF00;
 	padding: 8px;
 }
+
+.hide-btn {
+	display: none !important;
+}
