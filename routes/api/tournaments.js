@@ -61,8 +61,6 @@ router.delete('/:id', authorize, (req, res) => {
 		.catch(err => res.status(404).json(err));
 });
 
-module.exports = router;
-
 
 // @route		POST /tournaments/:id
 // @descrip	Add User to Tournament.participants array / User sign up
@@ -82,4 +80,7 @@ router.post('/:id', (req, res) => {
 			return res.json(savedTournament);
 		})
 		.catch(err => res.json(err));
-});
+	});
+	
+	
+	module.exports = router;
