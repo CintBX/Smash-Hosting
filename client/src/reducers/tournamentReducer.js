@@ -1,4 +1,11 @@
-import { GET_TOURNAMENTS, ADD_TOURNAMENT, DELETE_TOURNAMENT, TOURNAMENTS_LOADING } from '../actions/types';
+import { 
+	GET_TOURNAMENTS, 
+	DISPLAY_TOURNAMENT, 
+	ADD_TOURNAMENT, 
+	DELETE_TOURNAMENT, 
+	TOURNAMENTS_LOADING, 
+	TOURNAMENT_LOADING 
+} from '../actions/types';
 
 const initialState = {
 	tournaments: [],
@@ -11,6 +18,16 @@ export default function(state = initialState, action) {
 			return {
 				...state,
 				tournaments: action.payload,
+				loading: false
+			};
+
+		case DISPLAY_TOURNAMENT:
+			return {
+				...state,
+				tournaments: state.tournaments.map(tournament => tournament._id === action.payload ?
+					{ tournament } :
+					tournament
+				),
 				loading: false
 			};
 			
@@ -27,6 +44,7 @@ export default function(state = initialState, action) {
 			};
 			
 		case TOURNAMENTS_LOADING:
+		case TOURNAMENT_LOADING:
 			return {
 				...state,
 				loading: true
