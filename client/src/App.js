@@ -39,7 +39,7 @@ export default class App extends Component{
                   <Route path="/profile" component={UserProfile} />
                   <Route path="/smash-news" component={SmashNews} />
                   <Route path="/roster" component={FighterDirectory} />
-                  <Route path="/tournament/:id" component={TournamentShow} />
+                  <Route path="/tournaments/:id" component={TournamentShow} />
                 </Switch>
               </Col>
             </Row>
