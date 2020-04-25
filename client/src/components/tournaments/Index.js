@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { Jumbotron, Button } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -57,7 +58,9 @@ class TournamentIndex extends Component {
 					{ status === "Complete" ? <ResultsPopover /> : null }
 					
 					{/*Link To Tournament Show Page*/}
-					<Button color="success" block className="mt-2">Click to Enter</Button>
+					<Link to={`/tournament/${_id}`}>
+						<Button color="success" block className="mt-2">Click to Enter</Button>
+					</Link>
 
 					{/* Edit/Delete */}
 					{
