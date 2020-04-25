@@ -4,7 +4,7 @@ import { Jumbotron, Button } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { SignUp, InProgress, ResultsPopover } from './buttons';
-import { getTournaments, deleteTournament } from '../../actions/tournamentActions';
+import { getTournaments, showTournament, deleteTournament } from '../../actions/tournamentActions';
 import { addParticipant } from '../../actions/participantActions';
 import TournamentDescription from './descriptions';
 
@@ -26,7 +26,11 @@ class TournamentIndex extends Component {
 
 	onSignUp(tournamentId, user) {
 		this.props.addParticipant(tournamentId, user);
-	}
+	};
+
+	onShowTournament(id) {
+		this.props.showTournament(id);
+	};
 
 	render() {
 		const { tournaments } = this.props.tournament;
@@ -62,7 +66,7 @@ class TournamentIndex extends Component {
 					{/* which could pull from state to display whatever */}
 					{/* What to do about that afterwards?  Maybe it's fine.  State should go back to normal with `Back` button */}
 					<Link to={`/tournaments/${_id}`}>
-						<Button color="success" block className="mt-2">Click to Enter</Button>
+						<Button color="success" block className="mt-2" onClick={this.onShowTournament.bind(this, _id)}>Click to Enter</Button>
 					</Link>
 
 					{/* Edit/Delete */}
@@ -93,4 +97,4 @@ const mapStateToProps = state => ({
 	auth: state.auth
 });
 
-export default connect(mapStateToProps, { getTournaments, deleteTournament, addParticipant })(TournamentIndex);
+export default connect(mapStateToProps, { getTournaments, showTournament, deleteTournament, addParticipant })(TournamentIndex);
