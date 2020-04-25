@@ -23,7 +23,6 @@ const UserSchema = new Schema({
 		type: String,
 		required: false,
 	},
-	// FOR LATER: Make your form automatically format friendcodes so all of them adhere to a standard (ie: 1234-4321-1234)
 	date: {
 		type: Date,
 		default: Date.now
