@@ -35,7 +35,7 @@ export const showTournament = id => dispatch => {
 export const addTournament = tournament => (dispatch, getState) => {
 	axios
 		.post('/tournaments/new', tournament, tokenConfig(getState))
-		.then(res => dispatch({
+		.then(() => dispatch({
 			type: ADD_TOURNAMENT,
 			payload: tournament
 		}))
