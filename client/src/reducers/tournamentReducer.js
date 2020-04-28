@@ -24,10 +24,10 @@ export default function(state = initialState, action) {
 		case DISPLAY_TOURNAMENT:
 			return {
 				...state,
-				tournaments: state.tournaments.map(tournament => tournament._id === action.payload ?
+				tournaments: state.tournaments.find(tournament => tournament._id === action.payload ?
 					{ tournament } :
-					tournament
-				),
+					null
+					),
 				loading: false
 			};
 			
