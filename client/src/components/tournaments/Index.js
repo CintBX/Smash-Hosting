@@ -61,11 +61,7 @@ class TournamentIndex extends Component {
 					{ status === "Closed" ? <InProgress /> : null }
 					{ status === "Complete" ? <ResultsPopover /> : null }
 					
-					{/*Link To Tournament Show Page*/}
-					{/* onClick = showTournamet(_id), and then.. your state should contain the stuff, as you move to next page, */}
-					{/* which could pull from state to display whatever */}
-					{/* What to do about that afterwards?  Maybe it's fine.  State should go back to normal with `Back` button */}
-					<Link to={`/tournaments/${_id}`}>
+					<Link to={ `tournaments/${_id}` }>
 						<Button color="success" block className="mt-2" onClick={this.onShowTournament.bind(this, _id)}>Click to Enter</Button>
 					</Link>
 
