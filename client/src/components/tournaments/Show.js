@@ -1,51 +1,43 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import TournamentDescription from './descriptions';
-import uuid from 'uuid';
+import { showTournament } from '../../actions/tournamentActions';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-// export const TournamentShow = props => {
-// 	return (
-// 		<div>
-// 			<h1>{ props.title }</h1>
-// 			<h3><TournamentDescription key={props._id} title={props.title} /></h3>
-// 			<p>status: { props.status }</p>
-// 			<p>Registered Fighters:
-// 					{ 
-// 						props.participants.forEach(participant => {
-// 							return <p>{participant}</p>
-// 						})
-// 					}
-// 			</p>
-// 			<p>Hosted by: { props.hostedBy }</p>
+class TournamentShow extends Component {
+	// state = {
+	// 	tournament: {
+	// 		_id: '',
+	// 		title: '',
+	// 		hostedBy: '',
+	// 		status: '',
+	// 		participants: []
+	// 	}
+	// };
 
-// 			<Link to="/">Tournaments Main Page</Link>
-// 		</div>
-// 	)
-// }
+	// componentDidUpdate(prevProps) {
+	// 	if(!shallowEqual(this.props.tournament, prevProps.tournament)) {
+	// 		this.props.showTournament(this.state.tournament._id);
 
-export default class TournamentShow extends Component {
-	state = {
-		tournament: {
-			_id: "",
-			title: "", 
-			hostedBy: "",
-			status: "",
-			participants: [],
-		}
-	};
+	// 		this.setState({
+	// 			_id: this.props.tournament._id,
+	// 			title: this.props.tournament.title,
+	// 			hostedBy: this.props.tournament.hostedBy,
+	// 			status: this.props.tournament.status,
+	// 			participants: this.props.tournament.participants
+	// 		});
+	// 	}
+	// };
 
-	componentDidMount() {
-		this.setState({
-			_id: this.props._id,
-			title: this.props.title,
-			hostedBy: this.props.hostedBy,
-			status: this.props.status,
-			participants: this.props.participants,
-		})
+	static propTypes = {
+		// showTournament: PropTypes.func.isRequired,
+		tournament: PropTypes.object.isRequired,
+		auth: PropTypes.object.isRequired
 	};
 
 	render() {
-		const { _id, title, hostedBy, status, participants } = this.state.tournament;
+		const { _id, title, hostedBy, status, participants } = this.props.tournament.selectTournament;
 
 		return (
 			<div>
@@ -54,7 +46,7 @@ export default class TournamentShow extends Component {
 				<p>status: { status }</p>
 
 				<p>Registered Fighters:
-					{
+					{/* {
 						participants.map((participant, index) => {
 							return (
 								<ul key={ index }>
@@ -62,13 +54,21 @@ export default class TournamentShow extends Component {
 								</ul>
 							)
 						})
-					}
+					} */}
 				</p>
 
 				<p>Hosted by: { hostedBy }</p>
 
+				<Link to="#">Sign Up</Link><br/>
 				<Link to="/">Back to Tournaments main page</Link>
 			</div>
 		)
 	}
 };
+
+const mapStateToProps = state => ({
+	tournament: state.tournament,
+	auth: state.auth
+});
+
+export default connect(mapStateToProps, { showTournament })(TournamentShow);

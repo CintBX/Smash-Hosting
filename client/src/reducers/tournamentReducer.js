@@ -9,6 +9,7 @@ import {
 
 const initialState = {
 	tournaments: [],
+	selectTournament: "",
 	loading: false
 }
 
@@ -24,10 +25,8 @@ export default function(state = initialState, action) {
 		case DISPLAY_TOURNAMENT:
 			return {
 				...state,
-				tournaments: state.tournaments.find(tournament => tournament._id === action.payload ?
-					{ tournament } :
-					null
-					),
+				// You may need to add the ternary operator `find(etc ? {tournament} : null)`
+				selectTournament: state.tournaments.find(tournament => tournament._id === action.payload),
 				loading: false
 			};
 			
