@@ -20,17 +20,14 @@ class TournamentShow extends Component {
 				<h3> <TournamentDescription key={_id} title={ title } /> </h3>
 				<p>status: { status }</p>
 
-				<p>Registered Fighters:
-					{/* {
-						participants.map((participant, index) => {
-							return (
-								<ul key={ index }>
-									<li>{ participant }</li>
-								</ul>
-							)
-						})
-					} */}
-				</p>
+				<p>Registered Fighters:</p>
+				<ul>
+					{
+						participants && participants.map(participant => (
+							<li key={participant._id}>{participant.username}</li>
+						))
+					}
+				</ul>
 
 				<p>Hosted by: { hostedBy }</p>
 
