@@ -1,6 +1,6 @@
 import { 
 	GET_TOURNAMENTS, 
-	DISPLAY_TOURNAMENT, 
+	SHOW_TOURNAMENT, 
 	ADD_TOURNAMENT, 
 	DELETE_TOURNAMENT, 
 	TOURNAMENTS_LOADING, 
@@ -9,7 +9,7 @@ import {
 
 const initialState = {
 	tournaments: [],
-	selectTournament: "",
+	showTournament: "",
 	loading: false
 }
 
@@ -22,11 +22,10 @@ export default function(state = initialState, action) {
 				loading: false
 			};
 
-		case DISPLAY_TOURNAMENT:
+		case SHOW_TOURNAMENT:
 			return {
 				...state,
-				// You may need to add the ternary operator `find(etc ? {tournament} : null)`
-				selectTournament: state.tournaments.find(tournament => tournament._id === action.payload),
+				showTournament: state.tournaments.find(tournament => tournament._id === action.payload),
 				loading: false
 			};
 			
