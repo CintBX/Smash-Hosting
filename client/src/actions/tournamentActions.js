@@ -1,6 +1,6 @@
 import { 
 	GET_TOURNAMENTS, 
-	DISPLAY_TOURNAMENT, 
+	SHOW_TOURNAMENT, 
 	ADD_TOURNAMENT, 
 	DELETE_TOURNAMENT, 
 	TOURNAMENTS_LOADING, 
@@ -26,7 +26,7 @@ export const showTournament = id => dispatch => {
 	axios
 		.get(`/tournaments/${id}`)
 		.then(() => dispatch({
-			type: DISPLAY_TOURNAMENT,
+			type: SHOW_TOURNAMENT,
 			payload: id
 		}))
 		.catch(err => dispatch(returnErrors(err.response.data, err.response.status)));
