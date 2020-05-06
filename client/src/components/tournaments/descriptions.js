@@ -16,7 +16,7 @@ class TournamentDescription extends Component {
 				}
 				{ 
 					this.props.title === 'Round Robin' ?
-					"Each player fights every other player until all possible matches are played. The player with the most wins is the Champion." :
+					"Each player fights every other player until all possible matchups are complete. The player with the most wins is the Champion." :
 					null
 				}
 				{ 
