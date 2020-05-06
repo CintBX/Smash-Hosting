@@ -1,45 +1,46 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import uuid from 'uuid';
+import TournamentDescription from './descriptions';
+import { showTournament } from '../../actions/tournamentActions';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-export default class TournamentShow extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			tournament: {
-				id: uuid(),
-				status: "Open",
-				title: "Single Elimination", 
-				description: "Single Elim tournament rules go in this space.", 
-				entrants: ["Cin", "Vagalume", "Sille", "GucciRob", "Apollo", "Ian"],
-				hostedBy: "Apollo",
-			}
-		}
-	}
+class TournamentShow extends Component {
+	static propTypes = {
+		tournament: PropTypes.object.isRequired,
+		auth: PropTypes.object.isRequired
+	};
 
 	render() {
-		const { status, title, description, entrants, hostedBy } = this.state.tournament;
-		return(
+		const { _id, title, hostedBy, status, participants } = this.props.tournament.showTournament;
+
+		return (
 			<div>
 				<h1>{ title }</h1>
-				<h3>{ description }</h3>
+				<h3> <TournamentDescription key={_id} title={ title } /> </h3>
 				<p>status: { status }</p>
-				<p>Registered Fighters:
-					<ul>
-						<li>{ entrants[0] }</li>
-						<li>{ entrants[1] }</li>
-						<li>{ entrants[2] }</li>
-						<li>{ entrants[3] }</li>
-						<li>{ entrants[4] }</li>
-						<li>{ entrants[5] }</li>
-						<li>{ entrants[6] }</li>
-						<li>{ entrants[7] }</li>
-					</ul>
-				</p>
+
+				<p>Registered Fighters:</p>
+				<ul>
+					{
+						participants && participants.map(participant => (
+							<li key={participant._id}>{participant.username}</li>
+						))
+					}
+				</ul>
+
 				<p>Hosted by: { hostedBy }</p>
 
+				<Link to="#">Sign Up</Link><br/>
 				<Link to="/">Back to Tournaments main page</Link>
 			</div>
 		)
 	}
 };
+
+const mapStateToProps = state => ({
+	tournament: state.tournament,
+	auth: state.auth
+});
+
+export default connect(mapStateToProps, { showTournament })(TournamentShow);

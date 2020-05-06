@@ -1,10 +1,17 @@
-import { GET_TOURNAMENTS, ADD_TOURNAMENT, DELETE_TOURNAMENT, TOURNAMENTS_LOADING } from './types';
+import { 
+	GET_TOURNAMENTS, 
+	SHOW_TOURNAMENT, 
+	ADD_TOURNAMENT, 
+	DELETE_TOURNAMENT, 
+	TOURNAMENTS_LOADING, 
+	TOURNAMENT_LOADING 
+} from './types';
 import axios from 'axios';
 import { tokenConfig } from './authActions';
 import { returnErrors } from './errorActions';
 
 export const getTournaments = () => dispatch => {
-	dispatch(setTourneysLoading());
+	dispatch(setTourneysLoading());	
 	axios
 		.get('/tournaments')
 		.then(res => dispatch({
@@ -14,16 +21,28 @@ export const getTournaments = () => dispatch => {
 		.catch(err => dispatch(returnErrors(err.response.data, err.response.status)));
 };
 
+export const showTournament = id => dispatch => {
+	dispatch(singleTourneyLoading());	
+	axios
+		.get(`/tournaments/${id}`)
+		.then(() => dispatch({
+			type: SHOW_TOURNAMENT,
+			payload: id
+		}))
+		.catch(err => dispatch(returnErrors(err.response.data, err.response.status)));
+};
+
 export const addTournament = tournament => (dispatch, getState) => {
 	axios
 		.post('/tournaments/new', tournament, tokenConfig(getState))
-		.then(res => dispatch({
+		.then(() => dispatch({
 			type: ADD_TOURNAMENT,
 			payload: tournament
 		}))
 		.catch(err => dispatch(returnErrors(err.response.data, err.response.status)));
 
-	axios.get('/tournaments')
+	axios
+		.get('/tournaments')
 		.then(res => dispatch({
 			type: GET_TOURNAMENTS,
 			payload: res.data
@@ -43,5 +62,11 @@ export const deleteTournament = id => (dispatch, getState) => {
 export const setTourneysLoading = () => {
 	return {
 		type: TOURNAMENTS_LOADING
-	}
+	};
+};
+
+export const singleTourneyLoading = () => {
+	return {
+		type: TOURNAMENT_LOADING
+	};
 };
