@@ -4,6 +4,8 @@ import TournamentDescription from './descriptions';
 import { showTournament } from '../../actions/tournamentActions';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { SignUp } from './buttons';
+import { addParticipant } from '../../actions/participantActions';
 
 class TournamentShow extends Component {
 	static propTypes = {
@@ -11,13 +13,19 @@ class TournamentShow extends Component {
 		auth: PropTypes.object.isRequired
 	};
 
+	onSignUp(tournamentId, user) {
+		this.props.addParticipant(tournamentId, user);
+	};
+
 	render() {
 		const { _id, title, hostedBy, status, participants } = this.props.tournament.showTournament;
+		const { user } = this.props.auth;
 
 		return (
 			<div>
 				<h1>{ title }</h1>
 				<h3> <TournamentDescription key={_id} title={ title } /> </h3>
+				<p>Hosted by: { hostedBy }</p>
 				<p>status: { status }</p>
 
 				<p>Registered Fighters:</p>
@@ -29,9 +37,10 @@ class TournamentShow extends Component {
 					}
 				</ul>
 
-				<p>Hosted by: { hostedBy }</p>
 
-				<Link to="#">Sign Up</Link><br/>
+				<SignUp onClick={ this.onSignUp.bind(this, _id, user) } /><br/>
+
+
 				<Link to="/">Back to Tournaments main page</Link>
 			</div>
 		)
@@ -43,4 +52,4 @@ const mapStateToProps = state => ({
 	auth: state.auth
 });
 
-export default connect(mapStateToProps, { showTournament })(TournamentShow);
+export default connect(mapStateToProps, { showTournament, addParticipant })(TournamentShow);
