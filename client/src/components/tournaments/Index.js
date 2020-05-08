@@ -3,9 +3,8 @@ import { Link } from 'react-router-dom';
 import { Jumbotron, Button } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { SignUp, InProgress, ResultsPopover } from './buttons';
+import { InProgress, ResultsPopover } from './buttons';
 import { getTournaments, showTournament, deleteTournament } from '../../actions/tournamentActions';
-import { addParticipant } from '../../actions/participantActions';
 import TournamentDescription from './descriptions';
 
 class TournamentIndex extends Component {
@@ -22,10 +21,6 @@ class TournamentIndex extends Component {
 	onDelete(id) {
 		this.props.deleteTournament(id);
 		alert("Delete this tournament?");
-	};
-
-	onSignUp(tournamentId, user) {
-		this.props.addParticipant(tournamentId, user);
 	};
 
 	onShowTournament(id) {
@@ -51,13 +46,6 @@ class TournamentIndex extends Component {
 					<hr className="my-4"/>
 
 					{/* Status Buttons */}
-					{ status === "Open" && isAuthenticated ?
-						<SignUp 
-							onClick={ this.onSignUp.bind(this, _id, user) }
-							className={ participants.some(arr => arr.username === user.username) === true ? "hide-btn" : "mt-4" }
-						/> : 
-						null
-					}
 					{ status === "Closed" ? <InProgress /> : null }
 					{ status === "Complete" ? <ResultsPopover /> : null }
 					
@@ -93,4 +81,4 @@ const mapStateToProps = state => ({
 	auth: state.auth
 });
 
-export default connect(mapStateToProps, { getTournaments, showTournament, deleteTournament, addParticipant })(TournamentIndex);
+export default connect(mapStateToProps, { getTournaments, showTournament, deleteTournament })(TournamentIndex);
