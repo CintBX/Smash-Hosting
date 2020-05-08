@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { SignUp } from './buttons';
 import { addParticipant } from '../../actions/participantActions';
+import { Button } from 'reactstrap';
 
 class TournamentShow extends Component {
 	static propTypes = {
@@ -19,7 +20,7 @@ class TournamentShow extends Component {
 
 	render() {
 		const { _id, title, hostedBy, status, participants } = this.props.tournament.showTournament;
-		const { user } = this.props.auth;
+		const { isAuthenticated, user } = this.props.auth;
 
 		return (
 			<div>
@@ -37,11 +38,13 @@ class TournamentShow extends Component {
 					}
 				</ul>
 
+				{
+					status === "Open" && isAuthenticated ?
+					<SignUp onClick={ this.onSignUp.bind(this, _id, user) } /> :
+					<Button block disabled>Log in to sign up for this tournament</Button>
+				}
 
-				<SignUp onClick={ this.onSignUp.bind(this, _id, user) } /><br/>
-
-
-				<Link to="/">Back to Tournaments main page</Link>
+				<br/><Link to="/">Back to Tournaments main page</Link>
 			</div>
 		)
 	}
