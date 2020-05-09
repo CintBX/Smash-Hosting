@@ -60,10 +60,10 @@ class ProfileSidebar extends Component {
 								<CardTitle style={{fontSize: '1.5rem'}}>
 									{ user.username }
 								</CardTitle> 
-								<CardText>{ user.friendCode ? user.friendCode : "Friend Code:" }</CardText>
 								<CardText>
 									{ user.main ? `${user.main} / ` : "" } { user.secondary ? user.secondary : "Characters:" }
 								</CardText>
+								<CardText>{ user.friendCode ? user.friendCode : "Friend Code:" }</CardText>
 								<CharacterModal/>
 							</Fragment> :
 							null							
