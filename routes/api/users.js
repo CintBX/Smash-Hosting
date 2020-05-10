@@ -116,17 +116,17 @@ router.get('/', (req, res) => {
 		.catch(err => console.log(err));
 });
 
-// @route   /users/:id
-// @descrip SHOW a user (To view other's profile pages (??))
+// @route   GET /users/user/:id
+// @descrip SHOW a user
 // @access  Public
-router.get('/:id', (req, res) => {
+router.get('/user/:id', (req, res) => {
 	User.findById(req.params.id)
 		.then(user => res.json(user))
 		.catch(err => res.json(err));
 });
 
 
-// @route   POST /users
+// @route   POST /users/user/:id
 // @descrip EDIT/UPDATE a user (CharacterModal)
 // @access  Private
 router.post('/user/:id', (req, res) => {
@@ -157,7 +157,7 @@ router.post('/user/:id', (req, res) => {
 });
 
 
-// @route   /users
+// @route   /users/user
 // @descrip GET user data && VALIDATE user using Tokens
 // @access  Private
 router.get('/user', authorize, (req, res) => {
