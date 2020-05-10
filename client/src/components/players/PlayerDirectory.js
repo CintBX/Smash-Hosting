@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { Media } from 'reactstrap';
 import { getPlayers } from '../../actions/playerActions';
 
-
 class PlayerDirectory extends Component {
 	componentDidMount() {
 		this.props.getPlayers();
