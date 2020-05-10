@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Media } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Media } from 'reactstrap';
 import { getPlayers } from '../../actions/playerActions';
 
 
