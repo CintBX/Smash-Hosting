@@ -36,10 +36,10 @@ export default class App extends Component{
               <Col lg="8">
                 <Switch>
                   <Route exact path="/" component={TournamentIndex} />
+                  <Route path="/tournaments/:id" component={TournamentShow} />
+                  <Route path="/roster" component={PlayerDirectory} />
                   <Route path="/profile" component={PlayerProfile} />
                   <Route path="/smash-news" component={SmashNews} />
-                  <Route path="/roster" component={PlayerDirectory} />
-                  <Route path="/tournaments/:id" component={TournamentShow} />
                 </Switch>
               </Col>
             </Row>
