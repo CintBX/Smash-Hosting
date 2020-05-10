@@ -2,22 +2,23 @@ import React, { Component } from 'react';
 import { Media } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getFighters } from '../../actions/fighterActions';
+import { getPlayers } from '../../actions/playerActions';
 
 
-class FighterDirectory extends Component {
+class PlayerDirectory extends Component {
 	componentDidMount() {
-		this.props.getFighters();
+		this.props.getPlayers();
 	};
 
 	static propTypes = {
-		getFighters: PropTypes.func.isRequired,
-		fighter: PropTypes.object.isRequired
+		getPlayers: PropTypes.func.isRequired,
+		player: PropTypes.object.isRequired
 	};
 
 	render() {
-		const { fighters } = this.props.fighter;
-		return fighters.map(({ username, main, secondary, friendCode }) => {
+		const { players } = this.props.player;
+
+		return players.map(({ username, main, secondary, friendCode }) => {
 			return (
 				<div>
 					<Media className="media-element">
@@ -41,7 +42,7 @@ class FighterDirectory extends Component {
 };
 
 const mapStateToProps = state => ({
-	fighter: state.fighter
+	player: state.player
 });
 
-export default connect(mapStateToProps, { getFighters })(FighterDirectory);
+export default connect(mapStateToProps, { getPlayers })(PlayerDirectory);

@@ -83,7 +83,7 @@ class NavigationBar extends Component {
 
 								<NavItem>
 									<NavLink href="/roster" className="ml-1">
-										Fighters
+										Player Directory
 									</NavLink>
 								</NavItem>
 

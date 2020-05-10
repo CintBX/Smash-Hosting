@@ -13,7 +13,7 @@ import TournamentIndex from './components/tournaments/Index';
 import TournamentShow from './components/tournaments/Show';
 import UserProfile from './components/users/UserProfile';
 import SmashNews from './components/news/SmashNews';
-import FighterDirectory from './components/users/FighterDirectory';
+import PlayerDirectory from './components/users/PlayerDirectory';
 
 import { loadUser } from './actions/authActions';
 
@@ -38,7 +38,7 @@ export default class App extends Component{
                   <Route exact path="/" component={TournamentIndex} />
                   <Route path="/profile" component={UserProfile} />
                   <Route path="/smash-news" component={SmashNews} />
-                  <Route path="/roster" component={FighterDirectory} />
+                  <Route path="/roster" component={PlayerDirectory} />
                   <Route path="/tournaments/:id" component={TournamentShow} />
                 </Switch>
               </Col>
