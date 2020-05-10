@@ -24,8 +24,8 @@ export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 // Registered Players
 export const GET_PLAYERS = 'GET_PLAYERS';
 export const PLAYERS_LOADING = 'PLAYERS_LOADING';
-// export const SHOW_PLAYER = 'SHOW_PLAYER';
-// export const PLAYER_LOADING = 'PLAYER_LOADING';
+export const SHOW_PLAYER = 'SHOW_PLAYER';
+export const PLAYER_LOADING = 'PLAYER_LOADING';
 
 // Tournament Sign-up
 export const USER_JOINS_TOURNAMENT = 'USER_JOINS_TOURNAMENT';
