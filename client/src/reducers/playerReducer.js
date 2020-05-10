@@ -1,7 +1,13 @@
-import { GET_PLAYERS, PLAYERS_LOADING } from '../actions/types';
+import { 
+	GET_PLAYERS,
+	SHOW_PLAYER,
+	PLAYERS_LOADING, 
+	PLAYER_LOADING
+} from '../actions/types';
 
 const initialState = {
 	players: [],
+	showPlayer: "",
 	loading: false
 }
 
@@ -14,7 +20,15 @@ export default function(state = initialState, action) {
 				loading: false
 			}
 
+		case SHOW_PLAYER: {
+			return {
+				...state,
+				showPlayer: state.players.find(player => player._id === action.payload)
+			}
+		}
+
 		case PLAYERS_LOADING:
+		case PLAYER_LOADING:
 			return {
 				...state,
 				loading: true
