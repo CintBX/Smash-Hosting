@@ -13,7 +13,7 @@ const UserSchema = new Schema({
 	},
 	friendCode: {
 		type: String,
-		required: true,
+		required: false,
 	},
 	main: {
 		type: String,
@@ -22,6 +22,18 @@ const UserSchema = new Schema({
 	secondary: {
 		type: String,
 		required: false,
+	},
+	tournamentsPlayed: {
+		type: Array,
+		required: false
+	},
+	wins: {
+		type: Number,
+		required: false
+	},
+	losses: {
+		type: Number,
+		required: false
 	},
 	date: {
 		type: Date,

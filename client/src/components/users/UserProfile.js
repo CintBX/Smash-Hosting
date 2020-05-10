@@ -1,47 +1,48 @@
 import React, { Component } from 'react';
-import { Button } from 'reactstrap';
-import uuid from 'uuid';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-export default class UserProfile extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			user: [
-				{
-					id: uuid(),
-					username: 'Cin',
-					main: 'Samus',
-					secondary: 'Belmont',
-					friendCode: '111-222-333',
-					date: Date.today,
-					tournaments: ['list of tournaments this user is in (when a user signs up, update user.state to add that tournament to user.tournaments[])'],
-					tourneyWins: 0,
-					matchWins: 0,
-					matchLoss: 0
-				}
-			]
-		}
-	}
+class UserProfile extends Component {
+	static propTypes = {
+		auth: PropTypes.object.isRequired
+	};
+
 	render() {
-		const { username, date, tourneyWins, matchWins, matchLoss } = this.state.user;
+		// const { user } = this.props.auth;
+
 		return (
+			// <div>
+			// 	{
+			// 		user && user.map(user => (
+			// 			<p key={user._id}>
+			// 				{user.username}
+			// 			</p>
+			// 		))
+			// 	}
+			// </div>
+
 			<div>
 				<h1 className="text-center">User Profile Page</h1>
-				<p>
-					Things to display later:
-					<ul>
-						<li>{ username }</li>
-						<li>member since: { date }</li>
-						<li>
-							<Button color="warning">Edit</Button>
-						</li>
-						<li>tournaments participating in (toggle button displaying them as colorful card components)</li>
-						<li>Tournaments won: { tourneyWins }</li>
-						<li>Matches won: { matchWins }</li>
-						<li>Matches lost: { matchLoss }</li>
-					</ul>
-				</p>
+					
+				<h2>Username: </h2>
+				<h3>Main: </h3>
+				<h3>Secondary: </h3>
+				<h4>Friend Code: </h4>
+				<h5>Edit Details</h5>
+				<p>Member Since: </p>
+				<br/>
+
+				<h2>Tournament History</h2>
+				<p>Tounaments Won: </p>
+				<p>Matches won: </p>
+				<p>Matches lost: </p>
 			</div>
 		)
 	}
 };
+
+const mapStateToProps = state => ({
+	auth: state.auth
+});
+
+export default connect(mapStateToProps, null)(UserProfile);
