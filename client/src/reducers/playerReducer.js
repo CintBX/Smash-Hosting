@@ -10,7 +10,7 @@ export default function(state = initialState, action) {
 		case GET_PLAYERS:
 			return {
 				...state,
-				fighters: action.payload,
+				players: action.payload,
 				loading: false
 			}
 
