@@ -11,9 +11,9 @@ import NavigationBar from './components/layout/NavigationBar';
 import ProfileSidebar from './components/layout/ProfileSidebar';
 import TournamentIndex from './components/tournaments/Index';
 import TournamentShow from './components/tournaments/Show';
-import PlayerProfile from './components/users/PlayerProfile';
+import PlayerProfile from './components/players/PlayerProfile';
+import PlayerDirectory from './components/players/PlayerDirectory';
 import SmashNews from './components/news/SmashNews';
-import PlayerDirectory from './components/users/PlayerDirectory';
 
 import { loadUser } from './actions/authActions';
 
