@@ -116,10 +116,10 @@ router.get('/', (req, res) => {
 		.catch(err => console.log(err));
 });
 
-// @route   /users
+// @route   /users/:id
 // @descrip SHOW a user (To view other's profile pages (??))
 // @access  Public
-router.get('/user/:id', (req, res) => {
+router.get('/:id', (req, res) => {
 	User.findById(req.params.id)
 		.then(user => res.json(user))
 		.catch(err => res.json(err));
