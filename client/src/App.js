@@ -37,8 +37,8 @@ export default class App extends Component{
                 <Switch>
                   <Route exact path="/" component={TournamentIndex} />
                   <Route path="/tournaments/:id" component={TournamentShow} />
-                  <Route path="/roster" component={PlayerDirectory} />
-                  <Route path="/profile" component={PlayerProfile} />
+                  <Route path="/players" component={PlayerDirectory} />
+                  <Route path="/player/:id" component={PlayerProfile} />
                   <Route path="/smash-news" component={SmashNews} />
                 </Switch>
               </Col>

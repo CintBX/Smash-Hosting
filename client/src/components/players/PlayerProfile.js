@@ -1,27 +1,22 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { showPlayer } from '../../actions/playerActions';
+// import { showPlayer } from '../../actions/playerActions';
 
 class PlayerProfile extends Component {
-	static propTypes = {
-		auth: PropTypes.object.isRequired
-	};
+	// componentDidMount() {
+	// 	this.props.showPlayer(this.props.auth.user._id);
+	// }
+	
+	// static propTypes = {
+	// 	showPlayer: PropTypes.func.isRequired,
+	// 	player: PropTypes.object.isRequired
+	// };
 
 	render() {
-		// const { user } = this.props.auth;
+		// const { showPlayer } = this.props.player;
 
 		return (
-			// <div>
-			// 	{
-			// 		user && user.map(user => (
-			// 			<p key={user._id}>
-			// 				{user.username}
-			// 			</p>
-			// 		))
-			// 	}
-			// </div>
-
 			<div>
 				<h1 className="text-center">User Profile Page</h1>
 					
@@ -43,7 +38,8 @@ class PlayerProfile extends Component {
 };
 
 const mapStateToProps = state => ({
-	auth: state.auth
+	auth: state.auth,
+	// showPlayer: state.player.showPlayer
 });
 
 export default connect(mapStateToProps, null)(PlayerProfile);

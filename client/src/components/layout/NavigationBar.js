@@ -13,8 +13,8 @@ import logo from '../../logo.svg.png';
 import RegisterModal from '../auth/RegisterModal';
 import LoginModal from '../auth/LoginModal';
 import Logout from '../auth/Logout';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 class NavigationBar extends Component {
 	constructor(props) {
@@ -63,7 +63,7 @@ class NavigationBar extends Component {
 					<Container>
 						{
 							isAuthenticated ?
-							<NavbarBrand href="/profile" style={{fontSize:'28px'}}>
+							<NavbarBrand href={`/player/${user._id}`} style={{fontSize:'28px'}}>
 								<img src={logo} width="80" height="80" alt="Smash Brothers Logo" />
 								<span className="ml-3"><strong>{ user.username }</strong></span>
 							</NavbarBrand> :
@@ -82,7 +82,7 @@ class NavigationBar extends Component {
 								</NavItem>
 
 								<NavItem>
-									<NavLink href="/roster" className="ml-1">
+									<NavLink href="/players" className="ml-1">
 										Player Directory
 									</NavLink>
 								</NavItem>
