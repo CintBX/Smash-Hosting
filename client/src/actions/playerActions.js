@@ -21,7 +21,7 @@ export const getPlayers = () => dispatch => {
 export const showPlayer = id => dispatch => {
 	dispatch(onePlayerLoading());
 	axios
-		.get(`/users/${id}`)
+		.get(`/users/user/${id}`)
 		.then(() => dispatch({
 			type: SHOW_PLAYER,
 			payload: id
