@@ -15,7 +15,7 @@ import LoginModal from '../auth/LoginModal';
 import Logout from '../auth/Logout';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { showPlayer } from '../../actions/playerActions';
+import { getPlayers, showPlayer } from '../../actions/playerActions';
 
 class NavigationBar extends Component {
 	constructor(props) {
@@ -29,6 +29,7 @@ class NavigationBar extends Component {
 
 	static propTypes = {
 		auth: PropTypes.object.isRequired,
+		getPlayers: PropTypes.func,
 		showPlayer: PropTypes.func
 	};
 
@@ -39,6 +40,10 @@ class NavigationBar extends Component {
 	};
 
 	onShowPlayer(userId) {
+		// First load players
+		this.props.getPlayers();
+
+		// Then choose player from list
 		this.props.showPlayer(userId);
 	};
 
@@ -114,4 +119,4 @@ const mapStateToProps = state => ({
 	auth: state.auth,
 });
 
-export default connect(mapStateToProps, { showPlayer })(NavigationBar);
+export default connect(mapStateToProps, { getPlayers, showPlayer })(NavigationBar);
