@@ -25,7 +25,6 @@ class PlayerProfile extends Component {
 					<h3>Secondary: {secondary}</h3>
 					<h4>Friend Code: {friendCode}</h4>
 					<h5>Edit Details</h5>
-					<p>Member Since: {date}</p>
 					<br/>
 
 					<h2>Tournament History</h2>
