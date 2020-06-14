@@ -12,7 +12,7 @@ const User = require('../../models/User');
 
 // ~~~~~~~~~~ REGISTER ~~~~~~~~~~ ~~~~~~~~~~ REGISTER ~~~~~~~~~~ ~~~~~~~~~~ REGISTER ~~~~~~~~~~
 
-// @route   POST /users
+// @route   POST /users/register
 // @descrip Register New User
 // @access  Public
 router.post('/register', (req, res) => {
@@ -62,7 +62,7 @@ router.post('/register', (req, res) => {
 
 // ~~~~~~~~~~ LOG IN ~~~~~~~~~~ ~~~~~~~~~~ LOG IN ~~~~~~~~~~ ~~~~~~~~~~ LOG IN ~~~~~~~~~~
 
-// @route   POST /users
+// @route   POST /users/login
 // @descrip Login Existing User
 // @access  Public
 router.post('/login', (req, res) => {
