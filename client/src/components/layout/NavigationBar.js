@@ -40,10 +40,7 @@ class NavigationBar extends Component {
 	};
 
 	onShowPlayer(userId) {
-		// First load players
 		this.props.getPlayers();
-
-		// Then choose player from list
 		this.props.showPlayer(userId);
 	};
 

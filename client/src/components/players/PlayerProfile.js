@@ -1,31 +1,31 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-// import { showPlayer } from '../../actions/playerActions';
+import { showPlayer } from '../../actions/playerActions';
 
 class PlayerProfile extends Component {
 	// componentDidMount() {
 	// 	this.props.showPlayer(this.props.auth.user._id);
 	// }
 	
-	// static propTypes = {
-	// 	showPlayer: PropTypes.func.isRequired,
-	// 	player: PropTypes.object.isRequired
-	// };
+	static propTypes = {
+		// showPlayer: PropTypes.func.isRequired,
+		player: PropTypes.object.isRequired
+	};
 
 	render() {
-		// const { showPlayer } = this.props.player;
+		const { username, main, secondary, friendCode, date, tournamentsPlayed } = this.props.player.showPlayer;
 
 		return (
 			<div>
 				<h1 className="text-center">User Profile Page</h1>
 					
-				<h2>Username: </h2>
-				<h3>Main: </h3>
-				<h3>Secondary: </h3>
-				<h4>Friend Code: </h4>
+				<h2>Username: {username}</h2>
+				<h3>Main: {main}</h3>
+				<h3>Secondary: {secondary}</h3>
+				<h4>Friend Code: {friendCode}</h4>
 				<h5>Edit Details</h5>
-				<p>Member Since: </p>
+				<p>Member Since: {date}</p>
 				<br/>
 
 				<h2>Tournament History</h2>
@@ -38,8 +38,8 @@ class PlayerProfile extends Component {
 };
 
 const mapStateToProps = state => ({
-	auth: state.auth,
-	// showPlayer: state.player.showPlayer
+	// auth: state.auth,
+	player: state.player
 });
 
-export default connect(mapStateToProps, null)(PlayerProfile);
+export default connect(mapStateToProps, { showPlayer })(PlayerProfile);
