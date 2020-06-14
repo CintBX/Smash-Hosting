@@ -23,7 +23,8 @@ export default function(state = initialState, action) {
 		case SHOW_PLAYER: {
 			return {
 				...state,
-				showPlayer: state.players.find(player => player._id === action.payload)
+				showPlayer: state.players.find(player => player._id === action.payload),
+				loading: false
 			}
 		}
 
