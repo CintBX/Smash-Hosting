@@ -13,26 +13,35 @@ import logo from '../../logo.svg.png';
 import RegisterModal from '../auth/RegisterModal';
 import LoginModal from '../auth/LoginModal';
 import Logout from '../auth/Logout';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { getPlayers, showPlayer } from '../../actions/playerActions';
 
 class NavigationBar extends Component {
 	constructor(props) {
 		super(props);
 		this.toggle = this.toggle.bind(this);
+		this.onShowPlayer = this.onShowPlayer.bind(this);
 		this.state = {
 			isOpen: false,
 		};
 	};
 
 	static propTypes = {
-		auth: PropTypes.object.isRequired
-	}
+		auth: PropTypes.object.isRequired,
+		getPlayers: PropTypes.func,
+		showPlayer: PropTypes.func
+	};
 
 	toggle() {
 		this.setState({
 			isOpen: !this.state.isOpen
 		});
+	};
+
+	onShowPlayer(userId) {
+		this.props.getPlayers();
+		this.props.showPlayer(userId);
 	};
 
 	render() {
@@ -63,7 +72,7 @@ class NavigationBar extends Component {
 					<Container>
 						{
 							isAuthenticated ?
-							<NavbarBrand href="/profile" style={{fontSize:'28px'}}>
+							<NavbarBrand onClick={this.onShowPlayer(user._id)} href={`/player/${user._id}`} style={{fontSize:'28px'}}>
 								<img src={logo} width="80" height="80" alt="Smash Brothers Logo" />
 								<span className="ml-3"><strong>{ user.username }</strong></span>
 							</NavbarBrand> :
@@ -82,8 +91,8 @@ class NavigationBar extends Component {
 								</NavItem>
 
 								<NavItem>
-									<NavLink href="/roster" className="ml-1">
-										Fighters
+									<NavLink href="/players" className="ml-1">
+										Player Directory
 									</NavLink>
 								</NavItem>
 
@@ -104,7 +113,7 @@ class NavigationBar extends Component {
 };
 
 const mapStateToProps = state => ({
-	auth: state.auth
+	auth: state.auth,
 });
 
-export default connect(mapStateToProps, null)(NavigationBar);
+export default connect(mapStateToProps, { getPlayers, showPlayer })(NavigationBar);
