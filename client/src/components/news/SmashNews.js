@@ -40,12 +40,12 @@ export default class SmashNews extends React.Component {
 						</a>
 					</li>
 					<li>
-						<a href="https://www.express.co.uk/entertainment/gaming/1212564/Nintendo-Switch-news-Super-Smash-Bros-update-Fighters-Pass-DLC-character-5" target="_blank">
+						<a href="https://smashbros.nintendo.com/buy/dlc/" target="_blank">
 							DLC News
 						</a>
 					</li>
 					<li>
-						<a href="https://www.newsweek.com/smash-ultimate-version-6-0-patch-notes-fighter-adjustments-1470128" target="_blank">
+						<a href="https://en-americas-support.nintendo.com/app/answers/detail/a_id/48674/~/super-smash-bros.-ultimate-update-ver.-7.0.0---fighter-adjustments" target="_blank">
 							Latest Patch Notes
 						</a>
 					</li>
@@ -55,7 +55,7 @@ export default class SmashNews extends React.Component {
 						</a>
 					</li>
 					<li>
-						<a href="https://smash.gg/tournament/esports-arena-smash-ultimate-tournament-sponsored-by-progressive/events" target="_blank">
+						<a href="https://smash.gg/tournaments?filter=%7B%22published%22%3Atrue%2C%22hasBannerImages%22%3Atrue%2C%22regOpen%22%3Atrue%2C%22topGames%22%3A%7B%22gameNums%22%3A%5B1%5D%7D%2C%22upcoming%22%3Atrue%7D" target="_blank">
 							ESports Schedule
 						</a>
 					</li>
