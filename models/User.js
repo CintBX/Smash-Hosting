@@ -24,16 +24,19 @@ const UserSchema = new Schema({
 		required: false,
 	},
 	tournamentsPlayed: {
-		type: Array,
-		required: false
-	},
-	wins: {
 		type: Number,
-		required: false
+		required: false,
+		default: 0
 	},
-	losses: {
+	tournamentWins: {
 		type: Number,
-		required: false
+		required: false,
+		default: 0
+	},
+	matchWins: {
+		type: Number,
+		required: false,
+		default: 0
 	},
 	date: {
 		type: Date,
