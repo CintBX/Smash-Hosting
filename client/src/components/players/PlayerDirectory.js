@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Media } from 'reactstrap';
-import { getPlayers } from '../../actions/playerActions';
+import { Media, Button } from 'reactstrap';
+import { getPlayers, showPlayer } from '../../actions/playerActions';
+import { Link } from 'react-router-dom';
 
 class PlayerDirectory extends Component {
 	componentDidMount() {
@@ -17,7 +18,7 @@ class PlayerDirectory extends Component {
 	render() {
 		const { players } = this.props.player;
 
-		return players.map(({ username, main, secondary, friendCode }) => {
+		return players.map(({ _id, username, main, secondary, friendCode }) => {
 			return (
 				<div>
 					<Media className="media-element">
