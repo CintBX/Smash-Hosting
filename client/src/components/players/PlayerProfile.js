@@ -24,20 +24,19 @@ class PlayerProfile extends Component {
 
 		return (
 			<div>
-				<h1 className="text-center">User Profile Page</h1>
-					
-				<h2>Username: {username}</h2>
-				<h3>Main: {main}</h3>
-				<h3>Secondary: {secondary}</h3>
+				<h2>Player Details</h2><br/>
+				<h4>Username: {username}</h4>
+				<h4>Main: {main}</h4>
+				<h4>Secondary: {secondary}</h4>
 				<h4>Friend Code: {friendCode}</h4>
 				<h4>Member since: {date}</h4>
 				<h5>Edit Details</h5>
 				<br/>
 
-				<h2>Tournament History</h2>
-				<p>Tounaments Participated in: {tournamentsPlayed}</p>
-				<p>Tournaments won: {tournamentWins}</p>
-				<p>Matches won: {matchWins}</p>
+				<h2>Tournament History</h2><br/>
+				<h4>Tounaments Participated in: {tournamentsPlayed}</h4>
+				<h4>Tournaments won: {tournamentWins}</h4>
+				<h4>Matches won: {matchWins}</h4>
 			</div>
 		)
 	}
