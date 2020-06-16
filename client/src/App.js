@@ -11,9 +11,9 @@ import NavigationBar from './components/layout/NavigationBar';
 import ProfileSidebar from './components/layout/ProfileSidebar';
 import TournamentIndex from './components/tournaments/Index';
 import TournamentShow from './components/tournaments/Show';
-import UserProfile from './components/users/UserProfile';
+import PlayerProfile from './components/players/PlayerProfile';
+import PlayerDirectory from './components/players/PlayerDirectory';
 import SmashNews from './components/news/SmashNews';
-import FighterDirectory from './components/users/FighterDirectory';
 
 import { loadUser } from './actions/authActions';
 
@@ -36,10 +36,10 @@ export default class App extends Component{
               <Col lg="8">
                 <Switch>
                   <Route exact path="/" component={TournamentIndex} />
-                  <Route path="/profile" component={UserProfile} />
-                  <Route path="/smash-news" component={SmashNews} />
-                  <Route path="/roster" component={FighterDirectory} />
                   <Route path="/tournaments/:id" component={TournamentShow} />
+                  <Route path="/players" component={PlayerDirectory} />
+                  <Route path="/player/:id" component={PlayerProfile} />
+                  <Route path="/smash-news" component={SmashNews} />
                 </Switch>
               </Col>
             </Row>

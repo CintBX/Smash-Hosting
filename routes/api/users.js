@@ -12,7 +12,7 @@ const User = require('../../models/User');
 
 // ~~~~~~~~~~ REGISTER ~~~~~~~~~~ ~~~~~~~~~~ REGISTER ~~~~~~~~~~ ~~~~~~~~~~ REGISTER ~~~~~~~~~~
 
-// @route   POST /users
+// @route   POST /users/register
 // @descrip Register New User
 // @access  Public
 router.post('/register', (req, res) => {
@@ -62,7 +62,7 @@ router.post('/register', (req, res) => {
 
 // ~~~~~~~~~~ LOG IN ~~~~~~~~~~ ~~~~~~~~~~ LOG IN ~~~~~~~~~~ ~~~~~~~~~~ LOG IN ~~~~~~~~~~
 
-// @route   POST /users
+// @route   POST /users/login
 // @descrip Login Existing User
 // @access  Public
 router.post('/login', (req, res) => {
@@ -116,8 +116,8 @@ router.get('/', (req, res) => {
 		.catch(err => console.log(err));
 });
 
-// @route   /users
-// @descrip SHOW a user (To view other's profile pages (??))
+// @route   GET /users/user/:id
+// @descrip SHOW a user
 // @access  Public
 router.get('/user/:id', (req, res) => {
 	User.findById(req.params.id)
@@ -126,7 +126,7 @@ router.get('/user/:id', (req, res) => {
 });
 
 
-// @route   POST /users
+// @route   POST /users/user/:id
 // @descrip EDIT/UPDATE a user (CharacterModal)
 // @access  Private
 router.post('/user/:id', (req, res) => {
@@ -157,7 +157,7 @@ router.post('/user/:id', (req, res) => {
 });
 
 
-// @route   /users
+// @route   /users/user
 // @descrip GET user data && VALIDATE user using Tokens
 // @access  Private
 router.get('/user', authorize, (req, res) => {
