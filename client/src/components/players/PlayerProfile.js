@@ -10,7 +10,16 @@ class PlayerProfile extends Component {
 	};
 
 	render() {
-		const { username, main, secondary, friendCode, date, tournamentsPlayed } = this.props.player.showPlayer;
+		const { 
+			username, 
+			main, 
+			secondary, 
+			friendCode, 
+			date, 
+			tournamentsPlayed, 
+			tournamentWins, 
+			matchWins 
+		} = this.props.player.showPlayer;
 		const { isAuthenticated } = this.props.auth;
 
 		return (
@@ -21,13 +30,14 @@ class PlayerProfile extends Component {
 				<h3>Main: {main}</h3>
 				<h3>Secondary: {secondary}</h3>
 				<h4>Friend Code: {friendCode}</h4>
+				<h4>Member since: {date}</h4>
 				<h5>Edit Details</h5>
 				<br/>
 
 				<h2>Tournament History</h2>
-				<p>Tounaments Won: </p>
-				<p>Matches won: </p>
-				<p>Matches lost: </p>
+				<p>Tounaments Participated in: {tournamentsPlayed}</p>
+				<p>Tournaments won: {tournamentWins}</p>
+				<p>Matches won: {matchWins}</p>
 			</div>
 		)
 	}
