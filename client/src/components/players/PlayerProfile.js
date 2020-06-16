@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { showPlayer } from '../../actions/playerActions';
+import moment from 'moment';
 
 class PlayerProfile extends Component {
 	static propTypes = {
@@ -29,7 +30,7 @@ class PlayerProfile extends Component {
 				<h4>Main: {main}</h4>
 				<h4>Secondary: {secondary}</h4>
 				<h4>Friend Code: {friendCode}</h4>
-				<h4>Member since: {date}</h4>
+				<h4>Member since: {moment(date).format("dddd, MMMM Do YYYY, h:mm:ss a")}</h4>
 				<h5>Edit Details</h5>
 				<br/>
 
