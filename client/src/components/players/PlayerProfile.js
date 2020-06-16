@@ -15,25 +15,19 @@ class PlayerProfile extends Component {
 
 		return (
 			<div>
-			{
-				isAuthenticated ?
-				<div>
-					<h1 className="text-center">User Profile Page</h1>
-						
-					<h2>Username: {username}</h2>
-					<h3>Main: {main}</h3>
-					<h3>Secondary: {secondary}</h3>
-					<h4>Friend Code: {friendCode}</h4>
-					<h5>Edit Details</h5>
-					<br/>
+				<h1 className="text-center">User Profile Page</h1>
+					
+				<h2>Username: {username}</h2>
+				<h3>Main: {main}</h3>
+				<h3>Secondary: {secondary}</h3>
+				<h4>Friend Code: {friendCode}</h4>
+				<h5>Edit Details</h5>
+				<br/>
 
-					<h2>Tournament History</h2>
-					<p>Tounaments Won: </p>
-					<p>Matches won: </p>
-					<p>Matches lost: </p>
-				</div> :
-				<p>Sorry! You do not have access to this page</p>
-			}
+				<h2>Tournament History</h2>
+				<p>Tounaments Won: </p>
+				<p>Matches won: </p>
+				<p>Matches lost: </p>
 			</div>
 		)
 	}
