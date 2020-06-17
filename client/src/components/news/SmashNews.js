@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../css/smashNewsStyles.css';
 import SmashMain from '../../img/smashNews/SmashMain.png';
+import DLCnews from '../../img/smashNews/DLCnews.png';
 
 // const items = [
 // 	{
@@ -76,62 +77,31 @@ export default class SmashNews extends React.Component {
 		return (
 			<div>
 				<body>
-					{/* <div className="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-						<div className="col-md-5 p-lg-5 mx-auto my-5">
-							<h1 className="display-4 font-weight-normal">Punny headline</h1>
-							<p className="lead font-weight-normal">And an even wittier subheading to boot. Jumpstart your marketing efforts with this example based on Apple’s marketing pages.</p>
-							<a className="btn btn-outline-secondary" href="#">Coming soon</a>
-						</div>
-						<div className="product-device shadow-sm d-none d-md-block"></div>
-						<div className="product-device product-device-2 shadow-sm d-none d-md-block"></div>
-					</div> */}
-
 					<div className="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
-						{/* <div className="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
-							<div className="my-3 py-3">
-								<h2 className="display-5">Another headline</h2>
-								<p className="lead">And an even wittier subheading.</p>
-							</div>
-							<div className="bg-light shadow-sm mx-auto" style={{width: '90%', height: '300px', borderRadius: '21px 21px 0 0'}}></div>
-						</div> */}
-
 						<div className="bg-danger mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
 							<div className="my-3 py-3">
-								<h2 className="display-5">Smash Ultimate</h2>
+								<h2 className="display-5">Smash Ultimate Main</h2>
 								<p className="lead">The official website for Super Smash Bros. Ultimate</p>
 							</div>
 							<div className="bg-light shadow-sm mx-auto" style={{width: '90%', height: '300px', borderRadius: '21px 21px 0 0'}}>
 								<img src={ SmashMain } style={{width: '100%'}}/>
 							</div>
 						</div>
-
-						{/* <div className="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-							<div className="my-3 p-3">
-								<h2 className="display-5">Another headline</h2>
-								<p className="lead">And an even wittier subheading.</p>
-							</div>
-							<div className="bg-dark shadow-sm mx-auto" style={{width: '90%', height: '300px', borderRadius: '21px 21px 0 0'}}></div>
-						</div> */}
 					</div>
-{/* 
+
 					<div className="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
-						<div className="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-							<div className="my-3 p-3">
-								<h2 className="display-5">Another headline</h2>
-								<p className="lead">And an even wittier subheading.</p>
-							</div>
-							<div className="bg-dark shadow-sm mx-auto" style={{width: '80%', height: '300px', borderRadius: '21px 21px 0 0'}}></div>
-						</div>
 						<div className="bg-primary mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
 							<div className="my-3 py-3">
-								<h2 className="display-5">Another headline</h2>
-								<p className="lead">And an even wittier subheading.</p>
+								<h2 className="display-5">Downloadable Content</h2>
+								<p className="lead">Click here for news on the latest DLC</p>
 							</div>
-							<div className="bg-light shadow-sm mx-auto" style={{width: '90%', height: '300px', borderRadius: '21px 21px 0 0'}}></div>
+							<div className="bg-light shadow-sm mx-auto" style={{width: '90%', height: '300px', borderRadius: '21px 21px 0 0'}}>
+								<img src={ DLCnews } style={{width: '100%'}}/>
+							</div>
 						</div>
 					</div>
 
-					<div className="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+					{/* <div className="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
 						<div className="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
 							<div className="my-3 p-3">
 								<h2 className="display-5">Another headline</h2>
