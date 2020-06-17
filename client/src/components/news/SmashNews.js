@@ -2,6 +2,7 @@ import React from 'react';
 import '../../css/smashNewsStyles.css';
 import SmashMain from '../../img/smashNews/SmashMain.png';
 import DLCnews from '../../img/smashNews/DLCnews.png';
+import PatchNotes from '../../img/smashNews/PatchNotes.png';
 
 // const items = [
 // 	{
@@ -84,7 +85,7 @@ export default class SmashNews extends React.Component {
 								<p className="lead">The official website for Super Smash Bros. Ultimate</p>
 							</div>
 							<div className="bg-light shadow-sm mx-auto" style={{width: '90%', height: '300px', borderRadius: '21px 21px 0 0'}}>
-								<img src={ SmashMain } style={{width: '100%'}}/>
+								<img src={ SmashMain } style={{width: '100%', height: '100%'}}/>
 							</div>
 						</div>
 					</div>
@@ -96,7 +97,19 @@ export default class SmashNews extends React.Component {
 								<p className="lead">Click here for news on the latest DLC</p>
 							</div>
 							<div className="bg-light shadow-sm mx-auto" style={{width: '90%', height: '300px', borderRadius: '21px 21px 0 0'}}>
-								<img src={ DLCnews } style={{width: '100%'}}/>
+								<img src={ DLCnews } style={{width: '100%', height: '100%'}}/>
+							</div>
+						</div>
+					</div>
+
+					<div className="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+						<div className="bg-success mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+							<div className="my-3 py-3">
+								<h2 className="display-5">Patch Notes</h2>
+								<p className="lead">All changes to your favorite characters and more</p>
+							</div>
+							<div className="bg-light shadow-sm mx-auto" style={{width: '90%', height: '300px', borderRadius: '21px 21px 0 0'}}>
+								<img src={ PatchNotes } style={{width: '100%', height: '100%'}}/>
 							</div>
 						</div>
 					</div>
