@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Media } from 'reactstrap';
 import { getPlayers, showPlayer } from '../../actions/playerActions';
 import { Link } from 'react-router-dom';
+import DirectoryImage from './DirectoryImage';
 
 class PlayerDirectory extends Component {
 	componentDidMount() {
@@ -49,7 +50,7 @@ class PlayerDirectory extends Component {
 								<Link to={`/player/${_id}`}>
 									<Media className="media-element" onClick={this.onShowPlayer.bind(this, _id)}>
 										<Media left href="#">
-											<Media object src="https://via.placeholder.com/50x50" />
+											<DirectoryImage key={_id} main={main} />
 										</Media>
 										<Media body>
 											<Media heading className="ml-2">

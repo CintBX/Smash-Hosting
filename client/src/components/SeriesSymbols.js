@@ -8,7 +8,7 @@
 // to that series...
 // For now, just do a bunch of requires per character even if it looks like shit
 
-export const seriesSymbols = [
+const seriesSymbols = [
   { id: 1, src: require('../img/symbols/AnimalCrossing.png'), name: 'Isabelle' },
   { id: 2, src: require('../img/symbols/AnimalCrossing.png'), name: 'Villager' },
 	{ id: 3, src: require('../img/symbols/BanjoKazooie.png'), name: 'Banjo-Kazooie' },
@@ -95,3 +95,5 @@ export const seriesSymbols = [
   { id: 77, src: require('../img/symbols/Xenoblade.png'), name: 'Shulk' },
 	{ id: 78, src: require('../img/symbols/Yoshi.png'), name: 'Yoshi' },
 ];
+
+export default seriesSymbols;
