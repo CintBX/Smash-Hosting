@@ -49,7 +49,7 @@ class NavigationBar extends Component {
 
 		const authLinks = (
 			<Fragment>
-				<NavItem>
+				<NavItem className="ml-1">
 					<Logout />
 				</NavItem>
 			</Fragment>
@@ -57,10 +57,10 @@ class NavigationBar extends Component {
 
 		const guestLinks = (
 			<Fragment>
-				<NavItem>
+				<NavItem className="ml-1">
 					<RegisterModal />
 				</NavItem>
-				<NavItem>
+				<NavItem className="ml-1">
 					<LoginModal />
 				</NavItem>
 			</Fragment>
@@ -68,7 +68,7 @@ class NavigationBar extends Component {
 
 		return (
 			<div>
-				<Navbar color="primary" dark expand="sm" className="mb-5">
+				<Navbar style={{backgroundColor: '#56A8CBFF'}} dark expand="sm" className="mb-5">
 					<Container>
 						{
 							isAuthenticated ?
@@ -102,7 +102,11 @@ class NavigationBar extends Component {
 									</NavLink>
 								</NavItem>
 
-								{ isAuthenticated ? authLinks : guestLinks }
+								{ 
+									isAuthenticated ? 
+									authLinks : 
+									guestLinks 
+								}
 							</Nav>
 						</Collapse>
 					</Container>
