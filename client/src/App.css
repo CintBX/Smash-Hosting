@@ -1,7 +1,9 @@
 /* 
- * NavBar
+ * App Body
  */
- 
+body {
+	margin-top: 17vh;
+}
 
 /* 
  * Player Directory

@@ -68,7 +68,7 @@ class NavigationBar extends Component {
 
 		return (
 			<div>
-				<Navbar style={{backgroundColor: '#56A8CBFF'}} dark expand="sm" className="mb-5">
+				<Navbar fixed="top" style={{backgroundColor: '#56A8CBFF'}} dark expand="sm" className="mb-5">
 					<Container>
 						{
 							isAuthenticated ?
