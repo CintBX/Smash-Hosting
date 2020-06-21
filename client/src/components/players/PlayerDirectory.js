@@ -53,12 +53,12 @@ class PlayerDirectory extends Component {
 											<DirectoryImage key={_id} main={main} />
 										</Media>
 										<Media body>
-											<Media heading className="ml-2">
+											<Media heading className="ml-3">
 												<b>{ username }</b>
 											</Media>
 											<i style={{fontSize:"0.9rem"}}>
-												<Media className="ml-2">{ main } / { secondary } </Media>
-												<Media className="ml-2">{ friendCode }</Media>
+												<Media className="ml-3">{ main } / { secondary } </Media>
+												<Media className="ml-3">{ friendCode }</Media>
 											</i>
 										</Media>
 									</Media><br/>
