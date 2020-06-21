@@ -1,11 +1,17 @@
+/* 
+ * Player Directory
+ */
 .media-element {
-	border: 0.8px solid black;
-	border-radius: 5px;
-	background-color: #696969;
-	color: #7FFF00;
+	border: 0.2px solid black;
+	border-radius: 15px;
+	background-color: #56A8CBFF;
+	color: #DA291CFF;
 	padding: 8px;
 }
-
-.hide-btn {
-	display: none !important;
+.media-hover:hover {
+	/* background-color: #7e7b7b; */
+	box-shadow: 0 0 3px #000000;
+}
+.media-link:hover {
+	text-decoration: none;
 }
