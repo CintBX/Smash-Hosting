@@ -48,7 +48,7 @@ class PlayerDirectory extends Component {
 						return (
 							<div>
 								<Link to={`/player/${_id}`} className="media-link">
-									<Media className="media-element" onClick={this.onShowPlayer.bind(this, _id)}>
+									<Media className="media-element media-hover" onClick={this.onShowPlayer.bind(this, _id)}>
 										<Media left>
 											<DirectoryImage key={_id} main={main} />
 										</Media>

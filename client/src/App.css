@@ -8,12 +8,10 @@
 	color: #DA291CFF;
 	padding: 8px;
 }
-
-.media-element:hover {
+.media-hover:hover {
 	/* background-color: #7e7b7b; */
 	box-shadow: 0 0 3px #000000;
 }
-
 .media-link:hover {
 	text-decoration: none;
 }
