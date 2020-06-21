@@ -47,7 +47,7 @@ class PlayerDirectory extends Component {
 					players.map(({ _id, username, main, secondary, friendCode }) => {
 						return (
 							<div>
-								<Link to={`/player/${_id}`}>
+								<Link to={`/player/${_id}`} className="media-link">
 									<Media className="media-element" onClick={this.onShowPlayer.bind(this, _id)}>
 										<Media left href="#">
 											<DirectoryImage key={_id} main={main} />
@@ -57,7 +57,11 @@ class PlayerDirectory extends Component {
 												<b>{ username }</b>
 											</Media>
 											<i style={{fontSize:"0.9rem"}}>
-												<Media className="ml-3">{ main } / { secondary } </Media>
+												{
+													main && secondary ?
+													<Media className="ml-3">{ main } / { secondary }</Media> :
+													null
+												}
 												<Media className="ml-3">{ friendCode }</Media>
 											</i>
 										</Media>
