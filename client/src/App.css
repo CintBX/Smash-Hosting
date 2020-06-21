@@ -1,11 +1,15 @@
 .media-element {
-	border: 0.8px solid black;
-	border-radius: 5px;
+	border: 0.5px solid black;
+	border-radius: 15px;
 	background-color: #696969;
 	color: #7FFF00;
 	padding: 8px;
 }
 
-.hide-btn {
-	display: none !important;
+.media-element:hover {
+	background-color: #7e7b7b;
+}
+
+.media-link:hover {
+	text-decoration: none;
 }
