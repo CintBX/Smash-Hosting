@@ -6,6 +6,14 @@ body {
 }
 
 /* 
+ * NavBar
+ */
+.nav-styles {
+	background-color: #56A8CBFF;
+	font-weight: 600;
+}
+
+/* 
  * Player Directory
  */
 .media-element {
