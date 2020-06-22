@@ -5,6 +5,7 @@ body {
 	margin-top: 17vh;
 }
 
+
 /* 
  * NavBar
  */
@@ -12,6 +13,7 @@ body {
 	background-color: #56A8CBFF;
 	font-weight: 600;
 }
+
 
 /* 
  * Player Directory
@@ -29,4 +31,11 @@ body {
 }
 .media-link:hover {
 	text-decoration: none;
+}
+
+/* 
+ * Smash News
+ */
+.smash-news {
+	margin-top: 1vh !important;	
 }

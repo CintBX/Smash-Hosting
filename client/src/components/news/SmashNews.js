@@ -9,7 +9,7 @@ export default class SmashNews extends Component {
 	render() {
 		return (
 			<div>
-				<body>
+				<body className="smash-news">
 					<div className="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
 						<div className="bg-danger mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
 							<div className="my-3 py-3">
