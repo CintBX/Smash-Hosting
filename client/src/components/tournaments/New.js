@@ -71,11 +71,12 @@ class NewTournament extends Component {
 					this.props.isAuthenticated ?
 					<Button 
 						outline
+						block
 						color="danger"
 						className="mb-3"
 						onClick={this.toggle}
 					>
-						<b>Host a Tourney</b>
+						<b>Host a Tournament</b>
 					</Button> :
 					<Alert color="dark" className="text-center">Log in to host a Tournament</Alert>
 				}
