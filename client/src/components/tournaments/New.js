@@ -86,15 +86,16 @@ class NewTournament extends Component {
 					<ModalBody>
 						<Form onSubmit={ this.state.title !== "Choose from below" ? this.onSubmit : null}>
 							<FormGroup>
-								<Label for="title">Tournament</Label>
+								<Label for="title">Select a ruleset</Label>
 								<Input
 									type="select"
 									name="title"
 									id="title"
+									className="mb-4"
 									onChange={this.onChange}
 									autofocus="autofocus"
 								>
-									<option value="">Choose from below</option>
+									<option value=""></option>
 									<option>Single Elimination</option>
 									<option>Double Elimination</option>
 									<option>Round Robin</option>
@@ -102,14 +103,15 @@ class NewTournament extends Component {
 								</Input>
 							</FormGroup>
 
-							<InputGroup>
+							{/* <InputGroup>
 								<InputGroupAddon addonType="prepend">$</InputGroupAddon>
 								<Input type="text" name="text" id="fee" placeholder="Entrance fee" />
-							</InputGroup>
+							</InputGroup> */}
 
-							<br/>
+							{/* <br/> */}
 							
-							{ this.state.title === "" ? 
+							{ 
+								this.state.title === "" ? 
 								<Button block color="dark" disabled>Create Tournament</Button> :
 								<Button block color="primary">Create Tournament</Button>
 							}
