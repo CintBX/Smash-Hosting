@@ -4,6 +4,7 @@ import {
 	CardText,
 	CardBody,
 	CardTitle,
+	Button
 } from 'reactstrap';
 import NewTournament from '../tournaments/New';
 import PropTypes from 'prop-types';
@@ -61,6 +62,9 @@ class ProfileSidebar extends Component {
 							null							
 						}
 						
+						<Button outline block color="info" style={{marginBottom: '1rem'}}>
+							<b>Update Details</b>
+						</Button>
 						<NewTournament/>
 						<RuleSets/>
 					</CardBody>
