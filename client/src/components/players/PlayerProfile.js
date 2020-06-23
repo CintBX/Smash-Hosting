@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { showPlayer } from '../../actions/playerActions';
 import moment from 'moment';
+import { Jumbotron, Button } from 'reactstrap';
 
 class PlayerProfile extends Component {
 	static propTypes = {
@@ -21,24 +22,30 @@ class PlayerProfile extends Component {
 			tournamentWins, 
 			matchWins 
 		} = this.props.player.showPlayer;
-		const { isAuthenticated } = this.props.auth;
+		const { isAuthenticated, user } = this.props.auth;
 
 		return (
-			<div>
-				<h2>Player Details</h2><br/>
-				<h4>Username: {username}</h4>
-				<h4>Main: {main}</h4>
-				<h4>Secondary: {secondary}</h4>
-				<h4>Friend Code: {friendCode}</h4>
-				<h4>Member since: {moment(date).format("dddd, MMMM Do YYYY, h:mm:ss a")}</h4>
-				<h5>Edit Details</h5>
+			<Jumbotron className="profile">
+				<h1 className="text-center">{username}</h1><hr />
+
+				<h5>
+					Plays: { main && secondary ? main + ", " + secondary : main || secondary || "Unselected" }
+				</h5>
+				<h5>Code: {friendCode}</h5>
+				<h5>Joined: {moment(date).format("dddd, MMMM Do YYYY")}</h5>
+				
 				<br/>
 
-				<h2>Tournament History</h2><br/>
-				<h4>Tounaments Participated in: {tournamentsPlayed}</h4>
-				<h4>Tournaments won: {tournamentWins}</h4>
-				<h4>Matches won: {matchWins}</h4>
-			</div>
+				<h4 className="mt-3">Tounaments Participated in: {tournamentsPlayed}</h4>
+				<h5>Tournaments won: {tournamentWins}</h5>
+				<h5>Matches won: {matchWins}</h5>
+
+				{
+					isAuthenticated && user.username === username ?
+					<div><br/><Button color="warning">Edit Details</Button></div> :
+					null
+				}
+			</Jumbotron>
 		)
 	}
 };

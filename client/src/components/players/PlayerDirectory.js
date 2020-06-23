@@ -59,8 +59,8 @@ class PlayerDirectory extends Component {
 											<i style={{fontSize:"0.9rem"}}>
 												{
 													main && secondary ?
-													<Media className="ml-3">{ main } / { secondary }</Media> :
-													null
+													<Media className="ml-3">{ main + ", " + secondary }</Media> :
+													<Media className="ml-3">{ main || secondary || null }</Media>
 												}
 												<Media className="ml-3">{ friendCode }</Media>
 											</i>
