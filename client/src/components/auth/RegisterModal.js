@@ -6,8 +6,6 @@ import {
 	ModalBody,
 	Form,
 	FormGroup,
-	FormText,
-	Label,
 	Input,
 	NavLink,
 	Alert
@@ -136,56 +134,10 @@ class RegisterModal extends Component {
 									name="friendCode"
 									id="friendCode"
 									className="mb-3 form-control"
-									placeholder="12-digit Switch Friend code"
+									placeholder="12-digit friend code (Optional)"
 									onChange={this.onChange}
 									format="#### #### ####"
 								/>
-
-								{/*<hr/>
-
-								<FormText color="muted" className="mb-3">
-									Optional: Select your characters (You may do this later)
-								</FormText>
-
-								<Autocomplete
-									id="main"
-									name="main"
-									options={fullRoster}
-									getOptionLabel={option => option.name}
-									style={{ width: '100%' }}
-									className="mb-3"
-									renderInput={params => (
-										<TextField 
-											{...params} 
-											id="main" 
-											name="main" 
-											label="Main Character" 
-											variant="outlined" 
-											fullWidth
-											onChange={this.onChange}
-										/>
-									)}
-								/>
-
-								<Autocomplete
-									id="secondary"
-									name="secondary"
-									options={fullRoster}
-									getOptionLabel={option => option.name}
-									style={{ width: '100%' }}
-									className="mb-3"
-									renderInput={params => (
-										<TextField 
-											{...params} 
-											id="secondary" 
-											name="secondary" 
-											label="Secondary Character" 
-											variant="outlined" 
-											fullWidth
-											onChange={this.onChange}
-										/>
-									)}
-								/>*/}
 								<Button color="primary" style={{marginTop: '2rem'}} block>
 									Register
 								</Button>

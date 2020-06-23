@@ -19,8 +19,8 @@ router.post('/register', (req, res) => {
 	const { username, password, friendCode, main, secondary } = req.body;
 
 	// Validation (DO THIS FOR TOURNAMENTS LATER)
-	if (!username || !password || !friendCode) {
-		return res.status(400).json({ msg: "Username, Password and Friend Code are required" });
+	if (!username || !password) {
+		return res.status(400).json({ msg: "Username and Password are required" });
 	};
 
 	// Check for existing Username
