@@ -29,7 +29,7 @@ class PlayerProfile extends Component {
 				<h1 className="text-center">{username}</h1><hr />
 
 				<h4>
-					Plays: { main && secondary ? main + ", " + secondary : main || secondary || "Unselected" }
+					Plays: { main && secondary ? main + ", " + secondary : main || secondary || "No characters selected" }
 				</h4>
 				<h5>Code: {friendCode}</h5>
 				<h5>Joined: {moment(date).format("dddd, MMMM Do YYYY")}</h5>
