@@ -19,11 +19,11 @@ body {
  * Tournament Index
  */
 .singleelimination {
-	border: 10px solid #C0C29B;
+	border: 10px solid #CDC4A4;
 	border-radius: 15px;
-	background-color: #55D00D;
-	color: #C0C29B;
-	/* text-shadow: 0.5px 0.5px 1px; */
+	background-color: #48AB0B;
+	color: #CDC4A4;
+	text-shadow: 0.5px 0.5px;
 }
 
 .doubleelimination {
