@@ -1,4 +1,12 @@
 /* 
+ * General
+ */
+.remove-underline:hover {
+	text-decoration: none;
+}
+
+
+/* 
  * App Body
  */
 body {
@@ -26,7 +34,6 @@ body {
 	text-shadow: 0.2px 0.2px 1.5px;
 	box-shadow: inset 0 0 10px #CDC4A4;
 }
-
 .doubleelimination {
 	border: 10px solid #6AA8AA;
 	border-radius: 15px;
@@ -35,7 +42,6 @@ body {
 	text-shadow: 0.2px 0.2px 1.5px;
 	box-shadow: inset 0 0 10px #6AA8AA;
 }
-
 .roundrobin {
 	border: 10px solid #D34932;
 	border-radius: 15px;
@@ -44,11 +50,6 @@ body {
 	text-shadow: 0.2px 0.2px 1.5px;
 	box-shadow: inset 0 0 10px #D34932;
 }
-/* NOTE: Water symbol is different.
-	Supposed to be: border && background color are same; color is diff
-	Try it this way for now.  If you want to stay true to the symbols, use inset shadows to distinguish 
-	border/background-color
-*/
 .pools {
 	border: 10px solid #0063B2FF;
 	border-radius: 15px;
@@ -56,6 +57,9 @@ body {
 	color: #0063B2FF;
 	text-shadow: 0.2px 0.2px 1.5px;
 	box-shadow: inset 0 0 10px #0063B2FF;
+}
+.enter-btn {
+	font-size: 1.3em;
 }
 
 
@@ -72,9 +76,6 @@ body {
 .media-hover:hover {
 	/* background-color: #7e7b7b; */
 	box-shadow: 0 0 3px #000000;
-}
-.media-link:hover {
-	text-decoration: none;
 }
 
 
