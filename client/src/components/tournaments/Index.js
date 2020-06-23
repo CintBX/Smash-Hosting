@@ -33,7 +33,7 @@ class TournamentIndex extends Component {
 
 		return tournaments.map(({ _id, title, hostedBy, status, participants }) => {
 			return (
-				<Jumbotron key={_id}>
+				<Jumbotron key={_id} className={title.toLowerCase().replace(/\s+/g, '')}>
 					<h1 className="mb-5 text-center">
 						{ title }
 						<p style={{fontSize: '0.6em'}} className="text-muted">Hosted by: { hostedBy }</p>

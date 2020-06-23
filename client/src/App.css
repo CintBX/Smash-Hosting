@@ -16,6 +16,46 @@ body {
 
 
 /* 
+ * Tournament Index
+ */
+.singleelimination {
+	border: 10px solid #C0C29B;
+	border-radius: 15px;
+	background-color: #55D00D;
+	color: #C0C29B;
+	/* text-shadow: 0.5px 0.5px 1px; */
+}
+
+.doubleelimination {
+	border: 10px solid #7ECED1;
+	border-radius: 15px;
+	background-color: #F0F0F0;
+	color: #7ECED1;
+	/* text-shadow: 0.5px 0.5px 1px; */
+}
+
+.roundrobin {
+	border: 10px solid #D34932;
+	border-radius: 15px;
+	background-color: #3F0C03;
+	color: #D34932;
+	/* text-shadow: 0.5px 0.5px 1px; */
+}
+/* NOTE: Water symbol is different.
+	Supposed to be: border && background color are same; color is diff
+	Try it this way for now.  If you want to stay true to the symbols, use inset shadows to distinguish 
+	border/background-color
+*/
+.pools {
+	border: 10px solid #2C80B1;
+	border-radius: 15px;
+	background-color: #54EAEA;
+	color: #2C80B1;
+	/* text-shadow: 0.5px 0.5px 1px; */
+}
+
+
+/* 
  * Player Directory
  */
 .media-element {
@@ -32,6 +72,7 @@ body {
 .media-link:hover {
 	text-decoration: none;
 }
+
 
 /* 
  * Smash News
