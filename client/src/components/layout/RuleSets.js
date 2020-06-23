@@ -33,7 +33,8 @@ export default class RuleSets extends Component {
         <FormGroup>
           <Button 
             outline
-            color="success"
+            block
+            color="dark"
             onClick={this.toggle} 
             style={{ marginBottom:'1rem' }}
           >
