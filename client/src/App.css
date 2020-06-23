@@ -64,6 +64,15 @@ body {
 
 
 /* 
+ * Player Profile
+ */
+.profile {
+	background-color: #56A8CBFF;
+	color: #DA291CFF;
+}
+
+
+/* 
  * Player Directory
  */
 .media-element {
