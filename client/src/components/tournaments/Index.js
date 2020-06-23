@@ -50,7 +50,7 @@ class TournamentIndex extends Component {
 					{ status === "Complete" ? <ResultsPopover /> : null }
 					
 					<Link to={ `/tournaments/${_id}` }>
-						<Button color="success" block className="mt-2" onClick={this.onShowTournament.bind(this, _id)}>Click to Enter</Button>
+						<Button color="secondary" outline block className="mt-2" onClick={this.onShowTournament.bind(this, _id)}>Click to Enter</Button>
 					</Link>
 
 					{/* Edit/Delete */}
