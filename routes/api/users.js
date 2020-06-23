@@ -127,7 +127,7 @@ router.get('/user/:id', (req, res) => {
 
 
 // @route   POST /users/user/:id
-// @descrip EDIT/UPDATE a user (CharacterModal)
+// @descrip EDIT/UPDATE a user
 // @access  Private
 router.post('/user/:id', (req, res) => {
 	User.findById(req.params.id, (err, user) => {
