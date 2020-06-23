@@ -73,7 +73,7 @@ class NewTournament extends Component {
 						outline
 						block
 						color="danger"
-						className="mb-3"
+						style={{marginBottom: '1rem'}}
 						onClick={this.toggle}
 					>
 						<b>Host a Tournament</b>
