@@ -50,12 +50,12 @@ body {
 	border/background-color
 */
 .pools {
-	border: 10px solid #2C80B1;
+	border: 10px solid #0063B2FF;
 	border-radius: 15px;
-	background-color: #54EAEA;
-	color: #2C80B1;
+	background-color: #9CC3D5FF;
+	color: #0063B2FF;
 	text-shadow: 0.2px 0.2px 1.5px;
-	box-shadow: inset 0 0 10px #2C80B1;
+	box-shadow: inset 0 0 10px #0063B2FF;
 }
 
 
