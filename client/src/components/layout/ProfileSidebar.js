@@ -66,9 +66,13 @@ class ProfileSidebar extends Component {
 							null							
 						}
 						
-						<Button outline block color="info" style={{marginBottom: '1rem'}}>
-							<b>Update Details</b>
-						</Button>
+						{
+							isAuthenticated ?
+							<Button outline block color="info" style={{marginBottom: '1rem'}}>
+								<b>Update Details</b>
+							</Button> :
+							null
+						}
 						<NewTournament/>
 						<RuleSets/>
 					</CardBody>
