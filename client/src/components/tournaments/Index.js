@@ -33,7 +33,7 @@ class TournamentIndex extends Component {
 
 		return tournaments.map(({ _id, title, hostedBy, status, participants }) => {
 			return (
-				<Jumbotron key={_id}>
+				<Jumbotron key={_id} className={title.toLowerCase().replace(/\s+/g, '')}>
 					<h1 className="mb-5 text-center">
 						{ title }
 						<p style={{fontSize: '0.6em'}} className="text-muted">Hosted by: { hostedBy }</p>
@@ -49,8 +49,10 @@ class TournamentIndex extends Component {
 					{ status === "Closed" ? <InProgress /> : null }
 					{ status === "Complete" ? <ResultsPopover /> : null }
 					
-					<Link to={ `/tournaments/${_id}` }>
-						<Button color="success" block className="mt-2" onClick={this.onShowTournament.bind(this, _id)}>Click to Enter</Button>
+					<Link to={ `/tournaments/${_id}` } className="remove-underline">
+						<Button color="secondary" outline block className="mt-2" onClick={this.onShowTournament.bind(this, _id)}>
+							<span className="enter-btn">Enter</span>
+						</Button>
 					</Link>
 
 					{/* Edit/Delete */}

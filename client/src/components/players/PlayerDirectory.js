@@ -47,7 +47,7 @@ class PlayerDirectory extends Component {
 					players.map(({ _id, username, main, secondary, friendCode }) => {
 						return (
 							<div>
-								<Link to={`/player/${_id}`} className="media-link">
+								<Link to={`/player/${_id}`} className="remove-underline">
 									<Media className="media-element media-hover" onClick={this.onShowPlayer.bind(this, _id)}>
 										<Media left>
 											<DirectoryImage key={_id} main={main} />
