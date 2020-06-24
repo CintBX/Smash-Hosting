@@ -45,34 +45,30 @@ class TournamentIndex extends Component {
 
 					<hr className="my-4"/>
 
-					{/* Status Buttons */}
-					{ status === "Closed" ? <InProgress /> : null }
-					{ status === "Complete" ? <ResultsPopover /> : null }
-					
 					{
 						isAuthenticated && user.username === hostedBy ?
 							<Fragment>
+								<Button
+									outline
+									color="warning"
+									className="mb-3 mr-2 edit-delete float-right"
+									onClick={this.onDelete.bind(this, _id)}
+								>
+									Delete Tournament
+								</Button>
+								<Button
+									outline
+									color="info"
+									className="mb-3 mr-2 edit-delete float-right"
+								>
+									Change Ruleset
+								</Button>
+
 								<Link to={ `/tournaments/${_id}` } className="remove-underline">
 									<Button color="secondary" outline block className="mt-2" onClick={this.onShowTournament.bind(this, _id)}>
 										<b className="enter-btn">Enter</b>
 									</Button>
 								</Link>
-
-								<Button
-									outline
-									color="info"
-									className="mt-3 mr-2 edit-delete"
-								>
-									Change Rules
-								</Button>
-								<Button
-									outline
-									color="warning"
-									className="mt-3 mr-2 edit-delete"
-									onClick={this.onDelete.bind(this, _id)}
-								>
-									Delete Tournament
-								</Button>
 							</Fragment> 
 						:
 						<Link to={ `/tournaments/${_id}` } className="remove-underline">
@@ -81,6 +77,9 @@ class TournamentIndex extends Component {
 							</Button>
 						</Link>
 					}
+
+					{ status === "Closed" ? <InProgress /> : null }
+					{ status === "Complete" ? <ResultsPopover /> : null }
 				</Jumbotron>
 			);
 		});
