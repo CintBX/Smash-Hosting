@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { Jumbotron, Button } from 'reactstrap';
 import PropTypes from 'prop-types';
@@ -31,7 +31,7 @@ class TournamentIndex extends Component {
 		const { tournaments } = this.props.tournament;
 		const { isAuthenticated, user } = this.props.auth;
 
-		return tournaments.map(({ _id, title, hostedBy, status, participants }) => {
+		return tournaments.map(({ _id, title, hostedBy, status }) => {
 			return (
 				<Jumbotron key={_id} className={title.toLowerCase().replace(/\s+/g, '')}>
 					<h1 className="mb-5 text-center">
@@ -45,33 +45,41 @@ class TournamentIndex extends Component {
 
 					<hr className="my-4"/>
 
-					{/* Status Buttons */}
-					{ status === "Closed" ? <InProgress /> : null }
-					{ status === "Complete" ? <ResultsPopover /> : null }
-					
-					<Link to={ `/tournaments/${_id}` } className="remove-underline">
-						<Button color="secondary" outline block className="mt-2" onClick={this.onShowTournament.bind(this, _id)}>
-							<span className="enter-btn">Enter</span>
-						</Button>
-					</Link>
-
-					{/* Edit/Delete */}
 					{
 						isAuthenticated && user.username === hostedBy ?
-						<span className="float-right">
-							<Button color="warning" className="mx-1 mt-3">
-								Edit
+							<Fragment>
+								<Button
+									outline
+									color="warning"
+									className="mb-3 mr-2 edit-delete float-right"
+									onClick={this.onDelete.bind(this, _id)}
+								>
+									Delete Tournament
+								</Button>
+								<Button
+									outline
+									color="info"
+									className="mb-3 mr-2 edit-delete float-right"
+								>
+									Change Ruleset
+								</Button>
+
+								<Link to={ `/tournaments/${_id}` } className="remove-underline">
+									<Button color="secondary" outline block className="mt-2" onClick={this.onShowTournament.bind(this, _id)}>
+										<b className="enter-btn">Enter</b>
+									</Button>
+								</Link>
+							</Fragment> 
+						:
+						<Link to={ `/tournaments/${_id}` } className="remove-underline">
+							<Button color="secondary" outline block className="mt-2" onClick={this.onShowTournament.bind(this, _id)}>
+								<b className="enter-btn">Enter</b>
 							</Button>
-							<Button 
-								color="danger" 
-								className="mx-1 mt-3"
-								onClick={this.onDelete.bind(this, _id)}
-							>
-								Delete
-							</Button>
-						</span> :
-						null
+						</Link>
 					}
+
+					{ status === "Closed" ? <InProgress /> : null }
+					{ status === "Complete" ? <ResultsPopover /> : null }
 				</Jumbotron>
 			);
 		});

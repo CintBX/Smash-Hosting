@@ -6,7 +6,6 @@ import {
 	ModalBody,
 	Form,
 	FormGroup,
-	FormText,
 	Label,
 	Input,
 	NavLink,
@@ -17,9 +16,9 @@ import PropTypes from 'prop-types';
 import { register } from '../../actions/authActions';
 import { clearErrors } from '../../actions/errorActions';
 import NumberFormat from 'react-number-format';
-// import { fullRoster } from '../Characters';
-// import TextField from '@material-ui/core/TextField';
-// import Autocomplete from '@material-ui/lab/Autocomplete';
+import { fullRoster } from '../Characters';
+import TextField from '@material-ui/core/TextField';
+import Autocomplete from '@material-ui/lab/Autocomplete';
 
 class RegisterModal extends Component {
 	constructor(props) {
@@ -104,20 +103,18 @@ class RegisterModal extends Component {
 				</NavLink>
 
 				<Modal isOpen={this.state.modal} toggle={this.toggle}>
-					<ModalHeader toggle={this.toggle} className="text-center">Create Your Account</ModalHeader>
+					<ModalHeader toggle={this.toggle}>Create Your Account</ModalHeader>
 					<ModalBody>
 						{ this.state.msg ? <Alert color="danger">{ this.state.msg }</Alert> : null }
 						<Form onSubmit={this.onSubmit}>
+							<Label>Required Fields</Label>
 							<FormGroup>
-								{/*<FormText color="muted" className="mb-3">
-									Required Fields
-								</FormText>*/}
 								<Input
 									type="text"
 									name="username"
 									id="username"
 									className="mb-3"
-									placeholder="Create Username"
+									placeholder="Username (case-sensitive)"
 									autofocus="autofocus"
 									onChange={this.onChange}
 								/>
@@ -127,29 +124,24 @@ class RegisterModal extends Component {
 									name="password"
 									id="password"
 									className="mb-3"
-									placeholder="Enter Password"
+									placeholder="Password"
 									onChange={this.onChange}
-								/>
+								/><br />
+
+								<Label>Optional</Label>
 
 								<NumberFormat 
 									type="text"
 									name="friendCode"
 									id="friendCode"
 									className="mb-3 form-control"
-									placeholder="12-digit Switch Friend code"
+									placeholder="12-digit friend code"
 									onChange={this.onChange}
 									format="#### #### ####"
 								/>
 
-								{/*<hr/>
-
-								<FormText color="muted" className="mb-3">
-									Optional: Select your characters (You may do this later)
-								</FormText>
-
 								<Autocomplete
 									id="main"
-									name="main"
 									options={fullRoster}
 									getOptionLabel={option => option.name}
 									style={{ width: '100%' }}
@@ -159,33 +151,36 @@ class RegisterModal extends Component {
 											{...params} 
 											id="main" 
 											name="main" 
-											label="Main Character" 
+											label="Select Main Character" 
 											variant="outlined" 
 											fullWidth
-											onChange={this.onChange}
+											onSelect={this.onChange}
+											value={this.state.main}
 										/>
 									)}
 								/>
 
 								<Autocomplete
 									id="secondary"
-									name="secondary"
 									options={fullRoster}
 									getOptionLabel={option => option.name}
 									style={{ width: '100%' }}
 									className="mb-3"
+									autoComplete
 									renderInput={params => (
 										<TextField 
 											{...params} 
 											id="secondary" 
 											name="secondary" 
-											label="Secondary Character" 
+											label="Select Secondary" 
 											variant="outlined" 
 											fullWidth
-											onChange={this.onChange}
+											onSelect={this.onChange}
+											value={this.state.secondary}
 										/>
 									)}
-								/>*/}
+								/>
+
 								<Button color="primary" style={{marginTop: '2rem'}} block>
 									Register
 								</Button>
