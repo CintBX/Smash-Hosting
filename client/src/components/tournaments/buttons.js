@@ -21,7 +21,7 @@ export const SignUp = (props) => {
 export const InProgress = () => {
 	return (
 		<Fragment>
-			<Spinner className="mt-2 mr-2" color="danger" />In progress...
+			<Spinner className="mt-3 mr-2" color="danger" />Sign-ups closed. Tournament in progress...
 		</Fragment>
 	);
 };
@@ -33,10 +33,10 @@ export const ResultsPopover = () => {
 				id="results" 
 				type="button" 
 				color="dark"
-				className="mt-4"
+				className="mt-3"
 				block
 			>
-				Results
+				Tournament Complete. View Results.
 			</Button>
 			<UncontrolledPopover trigger="focus" placement="bottom" target="results">
 				<PopoverBody><b>Finals: </b> Cin <i>(Samus)</i> vs Vagalume <i>(Pit)</i></PopoverBody>
