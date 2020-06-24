@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { Jumbotron, Button } from 'reactstrap';
 import PropTypes from 'prop-types';
@@ -49,28 +49,37 @@ class TournamentIndex extends Component {
 					{ status === "Closed" ? <InProgress /> : null }
 					{ status === "Complete" ? <ResultsPopover /> : null }
 					
-					<Link to={ `/tournaments/${_id}` } className="remove-underline">
-						<Button color="secondary" outline block className="mt-2" onClick={this.onShowTournament.bind(this, _id)}>
-							<span className="enter-btn">Enter</span>
-						</Button>
-					</Link>
-
-					{/* Edit/Delete */}
 					{
 						isAuthenticated && user.username === hostedBy ?
-						<span className="float-right">
-							<Button color="warning" className="mx-1 mt-3">
-								Edit
+							<Fragment>
+								<Link to={ `/tournaments/${_id}` } className="remove-underline">
+									<Button color="secondary" outline block className="mt-2" onClick={this.onShowTournament.bind(this, _id)}>
+										<b className="enter-btn">Enter</b>
+									</Button>
+								</Link>
+
+								<Button
+									outline
+									color="info"
+									className="mt-3 mr-2 edit-delete"
+								>
+									Change Rules
+								</Button>
+								<Button
+									outline
+									color="warning"
+									className="mt-3 mr-2 edit-delete"
+									onClick={this.onDelete.bind(this, _id)}
+								>
+									Delete Tournament
+								</Button>
+							</Fragment> 
+						:
+						<Link to={ `/tournaments/${_id}` } className="remove-underline">
+							<Button color="secondary" outline block className="mt-2" onClick={this.onShowTournament.bind(this, _id)}>
+								<b className="enter-btn">Enter</b>
 							</Button>
-							<Button 
-								color="danger" 
-								className="mx-1 mt-3"
-								onClick={this.onDelete.bind(this, _id)}
-							>
-								Delete
-							</Button>
-						</span> :
-						null
+						</Link>
 					}
 				</Jumbotron>
 			);
