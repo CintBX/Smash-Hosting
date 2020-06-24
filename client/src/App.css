@@ -10,7 +10,7 @@
  * App Body
  */
 body {
-	margin-top: 17vh;
+	margin-top: 20vh;
 }
 
 
@@ -60,6 +60,9 @@ body {
 }
 .enter-btn {
 	font-size: 1.3em;
+}
+.edit-delete {
+	font-size: 0.8rem;
 }
 
 
