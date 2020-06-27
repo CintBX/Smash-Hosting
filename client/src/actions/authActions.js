@@ -7,7 +7,8 @@ import {
 	LOGOUT_SUCCESS,
 	REGISTER_SUCCESS,
 	REGISTER_FAIL,
-	UPDATE_SUCCESS
+	UPDATE_SUCCESS,
+	DELETE_ACCOUNT
 } from './types';
 import axios from 'axios';
 import { returnErrors } from './errorActions';
@@ -110,6 +111,18 @@ export const logout = () => {
 	return {
 		type: LOGOUT_SUCCESS
 	};
+};
+
+
+// Delete user account
+export const deleteAccount = id => dispatch => {
+	axios
+		.delete(`/users/user/${id}`)
+		.then(() => dispatch({
+			type: DELETE_ACCOUNT,
+			payload: id
+		}))
+		.catch(err => dispatch(returnErrors(err.response.data, err.response.status)));
 };
 
 
