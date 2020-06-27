@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import { showPlayer } from '../../actions/playerActions';
 import { deleteAccount } from '../../actions/authActions';
 import moment from 'moment';
-import { Jumbotron, Button } from 'reactstrap';
+import { Jumbotron } from 'reactstrap';
+import DeleteModal from '../delete/DeleteModal';
 
 class PlayerProfile extends Component {
 	static propTypes = {
@@ -49,9 +50,11 @@ class PlayerProfile extends Component {
 
 				{
 					isAuthenticated && user.username === username ?
-					<Button color="warning" onClick={this.onDelete.bind(this, user._id)}>
-						Delete My Account
-					</Button> :
+					<DeleteModal 
+						type={"Profile"} 
+						title={"Delete your account"} 
+						onClick={this.onDelete.bind(this, user._id)} 
+					/> :
 					null
 				}
 			</Jumbotron>
