@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import {
   Button, Modal, ModalHeader, ModalBody, ModalFooter
 } from 'reactstrap';
+import { BsFillTrashFill } from 'react-icons/bs';
 
 export default class DeleteModal extends Component {
   constructor(props) {
@@ -21,13 +22,17 @@ export default class DeleteModal extends Component {
   render() {
     return (
       <Fragment>
-        <Button color={this.props.color} onClick={this.toggle}>
-          Delete Modal
-        </Button>
+        {
+          this.props.type === "Profile" ?
+          <Button color="warning" onClick={this.toggle}>
+            Delete Account
+          </Button> :
+          <BsFillTrashFill className="delete-icon" color="black" size="1.2em" onClick={this.toggle} />
+        }
 
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalHeader>
-            {this.props.object}
+            {this.props.title}
           </ModalHeader>
 
           <ModalBody>

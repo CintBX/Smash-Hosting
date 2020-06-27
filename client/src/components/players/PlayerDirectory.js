@@ -6,6 +6,7 @@ import { getPlayers, showPlayer, deleteThisPlayer } from '../../actions/playerAc
 import { Link } from 'react-router-dom';
 import DirectoryImage from './DirectoryImage';
 import { BsFillTrashFill } from 'react-icons/bs';
+import DeleteModal from '../delete/DeleteModal';
 
 class PlayerDirectory extends Component {
 	componentDidMount() {
@@ -58,7 +59,11 @@ class PlayerDirectory extends Component {
 							<div>
 								{
 									isAuthenticated && user.role === "admin" ?
-									<BsFillTrashFill className="delete-icon" color="black" size="1.2em" onClick={this.onDeletePlayer.bind(this, _id)} /> :
+									<DeleteModal
+										type={"Directory"} 
+										title={`Delete ${username}`} 
+										onClick={this.onDeletePlayer.bind(this, _id)} 
+									/> :
 									null
 								}
 								<Link to={`/player/${_id}`} className="remove-underline">

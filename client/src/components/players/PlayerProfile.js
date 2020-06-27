@@ -50,7 +50,11 @@ class PlayerProfile extends Component {
 
 				{
 					isAuthenticated && user.username === username ?
-					<DeleteModal color={'warning'} object={"Delete your account"} onClick={this.onDelete.bind(this, user._id)} /> :
+					<DeleteModal 
+						type={"Profile"} 
+						title={"Delete your account"} 
+						onClick={this.onDelete.bind(this, user._id)} 
+					/> :
 					null
 				}
 			</Jumbotron>
