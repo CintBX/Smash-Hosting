@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Media } from 'reactstrap';
@@ -16,7 +16,8 @@ class PlayerDirectory extends Component {
 		getPlayers: PropTypes.func.isRequired,
 		player: PropTypes.object.isRequired,
 		showPlayer: PropTypes.func,
-		deleteThisPlayer: PropTypes.func
+		deleteThisPlayer: PropTypes.func,
+		auth: PropTypes.object.isRequired
 	};
 
 	onShowPlayer(userId) {
@@ -28,6 +29,8 @@ class PlayerDirectory extends Component {
 	};
 
 	render() {
+		const { isAuthenticated, user } = this.props.auth;
+
 		const { players } = this.props.player;
 
 		const alphabeticalOrder = (a, b) => {
@@ -53,6 +56,11 @@ class PlayerDirectory extends Component {
 					players.map(({ _id, username, main, secondary, friendCode }) => {
 						return (
 							<div>
+								{
+									isAuthenticated && user.role === "admin" ?
+									<BsFillTrashFill className="delete-icon" color="black" size="1.2em" onClick={this.onDeletePlayer.bind(this, _id)} /> :
+									null
+								}
 								<Link to={`/player/${_id}`} className="remove-underline">
 									<Media className="media-element media-hover" onClick={this.onShowPlayer.bind(this, _id)}>
 										<Media left>
@@ -73,7 +81,6 @@ class PlayerDirectory extends Component {
 										</Media>
 									</Media>
 								</Link>
-								<BsFillTrashFill color="black" size="1.2em" onClick={this.onDeletePlayer.bind(this, _id)} />
 								<br/>
 							</div>
 						)
@@ -85,7 +92,8 @@ class PlayerDirectory extends Component {
 };
 
 const mapStateToProps = state => ({
-	player: state.player
+	player: state.player,
+	auth: state.auth
 });
 
 export default connect(mapStateToProps, { getPlayers, showPlayer, deleteThisPlayer })(PlayerDirectory);
