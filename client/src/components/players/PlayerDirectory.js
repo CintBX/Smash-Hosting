@@ -5,7 +5,6 @@ import { Media } from 'reactstrap';
 import { getPlayers, showPlayer, deleteThisPlayer } from '../../actions/playerActions';
 import { Link } from 'react-router-dom';
 import DirectoryImage from './DirectoryImage';
-import { BsFillTrashFill } from 'react-icons/bs';
 import DeleteModal from '../delete/DeleteModal';
 
 class PlayerDirectory extends Component {
