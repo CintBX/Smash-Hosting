@@ -2,14 +2,20 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { showPlayer } from '../../actions/playerActions';
+import { deleteAccount } from '../../actions/authActions';
 import moment from 'moment';
 import { Jumbotron, Button } from 'reactstrap';
 
 class PlayerProfile extends Component {
 	static propTypes = {
 		player: PropTypes.object.isRequired,
-		auth: PropTypes.object.isRequired
+		auth: PropTypes.object.isRequired,
+		deleteAccount: PropTypes.func.isRequired
 	};
+
+	onDelete(id) {
+		this.props.deleteAccount(id);
+	}
 
 	render() {
 		const { 
@@ -22,6 +28,7 @@ class PlayerProfile extends Component {
 			tournamentWins, 
 			matchWins 
 		} = this.props.player.showPlayer;
+
 		const { isAuthenticated, user } = this.props.auth;
 
 		return (
@@ -38,7 +45,15 @@ class PlayerProfile extends Component {
 
 				<h5 className="mt-3">Tounaments Participated in: {tournamentsPlayed}</h5>
 				<h5>Tournaments won: {tournamentWins}</h5>
-				<h5>Matches won: {matchWins}</h5>
+				<h5>Matches won: {matchWins}</h5><br />
+
+				{
+					isAuthenticated && user.username === username ?
+					<Button color="warning" onClick={this.onDelete.bind(this, user._id)}>
+						Delete My Account
+					</Button> :
+					null
+				}
 			</Jumbotron>
 		)
 	}
@@ -49,4 +64,4 @@ const mapStateToProps = state => ({
 	player: state.player
 });
 
-export default connect(mapStateToProps, { showPlayer })(PlayerProfile);
+export default connect(mapStateToProps, { showPlayer, deleteAccount })(PlayerProfile);

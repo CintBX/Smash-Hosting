@@ -157,6 +157,16 @@ router.post('/user/:id', (req, res) => {
 });
 
 
+// @route 	/users/user/:id
+// @descrip User DELETES his own account
+// @access 	Private
+router.delete(`/user/:id`, (req, res) => {
+	User.findByIdAndDelete(req.params.id)
+		.then(() => res.json({ msg: `User ID ${req.params.id} has been deleted successfully` }))
+		.catch(err => res.json({ msg: `User not deleted. Error: ${err}` }));
+});
+
+
 // @route   /users/user
 // @descrip GET user data && VALIDATE user using Tokens
 // @access  Private
