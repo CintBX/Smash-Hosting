@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Media } from 'reactstrap';
-import { getPlayers, showPlayer } from '../../actions/playerActions';
+import { getPlayers, showPlayer, deleteThisPlayer } from '../../actions/playerActions';
 import { Link } from 'react-router-dom';
 import DirectoryImage from './DirectoryImage';
+import { BsFillTrashFill } from 'react-icons/bs';
 
 class PlayerDirectory extends Component {
 	componentDidMount() {
@@ -14,14 +15,22 @@ class PlayerDirectory extends Component {
 	static propTypes = {
 		getPlayers: PropTypes.func.isRequired,
 		player: PropTypes.object.isRequired,
-		showPlayer: PropTypes.func
+		showPlayer: PropTypes.func,
+		deleteThisPlayer: PropTypes.func,
+		auth: PropTypes.object.isRequired
 	};
 
 	onShowPlayer(userId) {
 		this.props.showPlayer(userId);
-	}
+	};
+
+	onDeletePlayer(userId) {
+		this.props.deleteThisPlayer(userId);
+	};
 
 	render() {
+		const { isAuthenticated, user } = this.props.auth;
+
 		const { players } = this.props.player;
 
 		const alphabeticalOrder = (a, b) => {
@@ -47,6 +56,11 @@ class PlayerDirectory extends Component {
 					players.map(({ _id, username, main, secondary, friendCode }) => {
 						return (
 							<div>
+								{
+									isAuthenticated && user.role === "admin" ?
+									<BsFillTrashFill className="delete-icon" color="black" size="1.2em" onClick={this.onDeletePlayer.bind(this, _id)} /> :
+									null
+								}
 								<Link to={`/player/${_id}`} className="remove-underline">
 									<Media className="media-element media-hover" onClick={this.onShowPlayer.bind(this, _id)}>
 										<Media left>
@@ -65,8 +79,9 @@ class PlayerDirectory extends Component {
 												<Media className="ml-3">{ friendCode }</Media>
 											</i>
 										</Media>
-									</Media><br/>
+									</Media>
 								</Link>
+								<br/>
 							</div>
 						)
 					})
@@ -77,7 +92,8 @@ class PlayerDirectory extends Component {
 };
 
 const mapStateToProps = state => ({
-	player: state.player
+	player: state.player,
+	auth: state.auth
 });
 
-export default connect(mapStateToProps, { getPlayers, showPlayer })(PlayerDirectory);
+export default connect(mapStateToProps, { getPlayers, showPlayer, deleteThisPlayer })(PlayerDirectory);

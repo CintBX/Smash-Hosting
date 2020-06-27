@@ -31,3 +31,6 @@ export const PLAYER_LOADING = 'PLAYER_LOADING';
 // Tournament Sign-up
 export const USER_JOINS_TOURNAMENT = 'USER_JOINS_TOURNAMENT';
 export const TOURNAMENT_SIGN_UP_FAIL = 'TOURNAMENT_SIGN_UP_FAIL';
+
+// Admin action
+export const DELETE_A_USER = 'DELETE_A_USER';
