@@ -21,13 +21,13 @@ export default class DeleteModal extends Component {
   render() {
     return (
       <Fragment>
-        <Button color="warning" onClick={this.toggle}>
+        <Button color={this.props.color} onClick={this.toggle}>
           Delete Modal
         </Button>
 
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
-          <ModalHeader toggle={this.toggle}>
-            Delete
+          <ModalHeader>
+            {this.props.object}
           </ModalHeader>
 
           <ModalBody>
@@ -35,8 +35,8 @@ export default class DeleteModal extends Component {
           </ModalBody>
 
           <ModalFooter>
-          <Button color="secondary">Cancel</Button>
-          <Button color="primary">Confirm</Button>
+            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+            <Button color="primary" onClick={this.props.onClick}>Confirm</Button>
           </ModalFooter>
         </Modal>
       </Fragment>
