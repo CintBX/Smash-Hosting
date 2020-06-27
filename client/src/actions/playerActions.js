@@ -2,7 +2,8 @@ import {
 	GET_PLAYERS,
 	SHOW_PLAYER,
 	PLAYERS_LOADING, 
-	PLAYER_LOADING
+	PLAYER_LOADING,
+	DELETE_A_USER
 } from './types';
 import axios from 'axios';
 import { returnErrors } from './errorActions';
@@ -27,6 +28,17 @@ export const showPlayer = id => dispatch => {
 			payload: id
 		}))
 		.catch(err => dispatch(returnErrors(err.response.data, err.response.status)));
+};
+
+// HINT: You may need tokenConfig//getState setup like tournamentAction.  Try first without it.
+export const deleteThisPlayer = id => dispatch => {
+	axios
+		.delete(`/users/user/${id}`)
+		.then(() => dispatch({
+			type: DELETE_A_USER,
+			payload: id
+		}))
+		.catch(err => returnErrors(err.response.data, err.response.status));
 };
 
 export const allPlayersLoading = () => {
