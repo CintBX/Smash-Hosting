@@ -38,8 +38,10 @@ export default class DeleteModal extends Component {
           </ModalBody>
 
           <ModalFooter>
-            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
-            <Button color="primary" onClick={this.props.onClick}>Confirm</Button>
+            <div onClick={this.toggle}>
+              <Button className="ml-3" color="secondary">Cancel</Button>
+              <Button className="ml-3" color="primary" onClick={this.props.onClick}>Confirm</Button>
+            </div>
           </ModalFooter>
         </Modal>
       </Fragment>
