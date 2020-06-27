@@ -108,7 +108,7 @@ router.post('/login', (req, res) => {
 // ~~~~~~~~~~ CRUD ~~~~~~~~~~ ~~~~~~~~~~ CRUD ~~~~~~~~~~ ~~~~~~~~~~ CRUD ~~~~~~~~~~
 
 // @route   GET /users
-// @descrip INDEX all users (Fighter Directory)
+// @descrip INDEX all users (Player Directory)
 // @access Public
 router.get('/', (req, res) => {
 	User.find()
@@ -158,7 +158,7 @@ router.post('/user/:id', (req, res) => {
 
 
 // @route 	/users/user/:id
-// @descrip User DELETES his own account
+// @descrip User DELETES his own account || Admin deletes a player's account
 // @access 	Private
 router.delete(`/user/:id`, (req, res) => {
 	User.findByIdAndDelete(req.params.id)
