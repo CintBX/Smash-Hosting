@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Media } from 'reactstrap';
-import { getPlayers, showPlayer } from '../../actions/playerActions';
+import { getPlayers, showPlayer, deleteThisPlayer } from '../../actions/playerActions';
 import { Link } from 'react-router-dom';
 import DirectoryImage from './DirectoryImage';
 import { BsFillTrashFill } from 'react-icons/bs';
@@ -15,12 +15,17 @@ class PlayerDirectory extends Component {
 	static propTypes = {
 		getPlayers: PropTypes.func.isRequired,
 		player: PropTypes.object.isRequired,
-		showPlayer: PropTypes.func
+		showPlayer: PropTypes.func,
+		deleteThisPlayer: PropTypes.func
 	};
 
 	onShowPlayer(userId) {
 		this.props.showPlayer(userId);
-	}
+	};
+
+	onDeletePlayer(userId) {
+		this.props.deleteThisPlayer(userId);
+	};
 
 	render() {
 		const { players } = this.props.player;
@@ -68,7 +73,7 @@ class PlayerDirectory extends Component {
 										</Media>
 									</Media>
 								</Link>
-								<BsFillTrashFill color="black" size="1.2em" onClick={() => console.log("Trash")} />
+								<BsFillTrashFill color="black" size="1.2em" onClick={this.onDeletePlayer.bind(this, _id)} />
 								<br/>
 							</div>
 						)
@@ -83,4 +88,4 @@ const mapStateToProps = state => ({
 	player: state.player
 });
 
-export default connect(mapStateToProps, { getPlayers, showPlayer })(PlayerDirectory);
+export default connect(mapStateToProps, { getPlayers, showPlayer, deleteThisPlayer })(PlayerDirectory);
