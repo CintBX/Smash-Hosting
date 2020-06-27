@@ -13,6 +13,10 @@ class PlayerProfile extends Component {
 		deleteAccount: PropTypes.func.isRequired
 	};
 
+	onDelete(id) {
+		this.props.deleteAccount(id);
+	}
+
 	render() {
 		const { 
 			username, 
@@ -41,7 +45,15 @@ class PlayerProfile extends Component {
 
 				<h5 className="mt-3">Tounaments Participated in: {tournamentsPlayed}</h5>
 				<h5>Tournaments won: {tournamentWins}</h5>
-				<h5>Matches won: {matchWins}</h5>
+				<h5>Matches won: {matchWins}</h5><br />
+
+				{
+					isAuthenticated && user.username === username ?
+					<Button color="warning" onClick={this.onDelete.bind(this, user._id)}>
+						Delete My Account
+					</Button> :
+					null
+				}
 			</Jumbotron>
 		)
 	}
