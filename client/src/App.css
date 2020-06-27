@@ -89,6 +89,15 @@ body {
 	/* background-color: #7e7b7b; */
 	box-shadow: 0 0 3px #000000;
 }
+.delete-icon {
+	float: right;
+	position: sticky;
+	margin-top: 15px;
+	right: 45px;
+}
+.delete-icon:hover {
+	cursor: pointer;
+}
 
 
 /* 
