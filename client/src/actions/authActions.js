@@ -115,9 +115,9 @@ export const logout = () => {
 
 
 // Delete user account
-export const deleteAccount = id => (dispatch, getState) => {
+export const deleteAccount = id => dispatch => {
 	axios
-		.delete(`/users/user/${id}`, tokenConfig(getState))
+		.delete(`/users/user/${id}`)
 		.then(() => dispatch({
 			type: DELETE_ACCOUNT,
 			payload: id

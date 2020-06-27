@@ -59,9 +59,11 @@ export default function(state = initialState, action) {
 			};
 
 		case DELETE_ACCOUNT:
-			// localStorage.removeItem('token');
+			localStorage.removeItem('token');
 			return {
 				...state,
+				token: null,
+				isAuthenticated: false,
 				user: delete action.payload
 			};
 
