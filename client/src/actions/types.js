@@ -6,7 +6,7 @@ export const DELETE_TOURNAMENT = 'DELETE_TOURNAMENT';
 export const SHOW_TOURNAMENT = 'SHOW_TOURNAMENT';
 export const TOURNAMENT_LOADING = 'TOURNAMENT_LOADING';
 
-// User Authentication
+// User Authentication && CRUD
 export const USER_LOADING = 'USER_LOADING';
 export const USER_LOADED = 'USER_LOADED';
 export const AUTH_ERROR = 'AUTH_ERROR';
@@ -16,6 +16,7 @@ export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
 export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
 export const REGISTER_FAIL = 'REGISTER_FAIL';
 export const UPDATE_SUCCESS = 'UPDATE_SUCCESS';
+export const DELETE_ACCOUNT = 'DELETE_ACCOUNT';
 
 // Error Handling
 export const GET_ERRORS = 'GET_ERRORS';
