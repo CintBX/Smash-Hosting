@@ -2,7 +2,8 @@ import {
 	GET_PLAYERS,
 	SHOW_PLAYER,
 	PLAYERS_LOADING, 
-	PLAYER_LOADING
+	PLAYER_LOADING,
+	DELETE_A_USER
 } from '../actions/types';
 
 const initialState = {
@@ -33,6 +34,12 @@ export default function(state = initialState, action) {
 			return {
 				...state,
 				loading: true
+			}
+
+		case DELETE_A_USER:
+			return {
+				...state,
+				players: state.players.filter(player => player._id !== action.payload)
 			}
 
 		default:
