@@ -7,7 +7,8 @@ import {
 	LOGOUT_SUCCESS,
 	REGISTER_SUCCESS,
 	REGISTER_FAIL,
-	UPDATE_SUCCESS
+	UPDATE_SUCCESS,
+	DELETE_ACCOUNT
 } from '../actions/types';
 
 const initialState = {
@@ -55,6 +56,13 @@ export default function(state = initialState, action) {
 				user: null,
 				isAuthenticated: false,
 				isLoading: false
+			};
+
+		case DELETE_ACCOUNT:
+			// localStorage.removeItem('token');
+			return {
+				...state,
+				user: delete action.payload
 			};
 
 		default:
