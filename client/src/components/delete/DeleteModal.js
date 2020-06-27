@@ -1,7 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import {
-  Button, Modal, ModalHeader, ModalBody, ModalFooter
-} from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { BsFillTrashFill } from 'react-icons/bs';
 
 export default class DeleteModal extends Component {
