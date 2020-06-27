@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { showPlayer } from '../../actions/playerActions';
+import { deleteAccount } from '../../actions/authActions';
 import moment from 'moment';
 import { Jumbotron, Button } from 'reactstrap';
 
 class PlayerProfile extends Component {
 	static propTypes = {
 		player: PropTypes.object.isRequired,
-		auth: PropTypes.object.isRequired
+		auth: PropTypes.object.isRequired,
+		deleteAccount: PropTypes.func.isRequired
 	};
 
 	render() {
@@ -22,6 +24,7 @@ class PlayerProfile extends Component {
 			tournamentWins, 
 			matchWins 
 		} = this.props.player.showPlayer;
+
 		const { isAuthenticated, user } = this.props.auth;
 
 		return (
@@ -49,4 +52,4 @@ const mapStateToProps = state => ({
 	player: state.player
 });
 
-export default connect(mapStateToProps, { showPlayer })(PlayerProfile);
+export default connect(mapStateToProps, { showPlayer, deleteAccount })(PlayerProfile);
