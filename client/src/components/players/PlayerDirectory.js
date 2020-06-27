@@ -5,6 +5,7 @@ import { Media } from 'reactstrap';
 import { getPlayers, showPlayer } from '../../actions/playerActions';
 import { Link } from 'react-router-dom';
 import DirectoryImage from './DirectoryImage';
+import { BsFillTrashFill } from 'react-icons/bs';
 
 class PlayerDirectory extends Component {
 	componentDidMount() {
@@ -65,8 +66,10 @@ class PlayerDirectory extends Component {
 												<Media className="ml-3">{ friendCode }</Media>
 											</i>
 										</Media>
-									</Media><br/>
+									</Media>
 								</Link>
+								<BsFillTrashFill color="black" size="1.2em" onClick={() => console.log("Trash")} />
+								<br/>
 							</div>
 						)
 					})
