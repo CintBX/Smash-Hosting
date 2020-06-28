@@ -59,8 +59,8 @@ class PlayerDirectory extends Component {
 								{
 									isAuthenticated && user.role === "admin" ?
 									<DeleteModal
-										type={"Directory"} 
-										title={`Delete ${username}`} 
+										page={"Player Directory"} 
+										title={`Delete ${username}'s account`} 
 										onClick={this.onDeletePlayer.bind(this, _id)} 
 									/> :
 									null

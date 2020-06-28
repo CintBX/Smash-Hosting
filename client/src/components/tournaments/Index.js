@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { InProgress, ResultsPopover } from './buttons';
 import { getTournaments, showTournament, deleteTournament } from '../../actions/tournamentActions';
 import TournamentDescription from './descriptions';
+import DeleteModal from '../delete/DeleteModal';
 
 class TournamentIndex extends Component {
 	componentDidMount() {
@@ -20,7 +21,6 @@ class TournamentIndex extends Component {
 
 	onDelete(id) {
 		this.props.deleteTournament(id);
-		alert("Delete this tournament?");
 	};
 
 	onShowTournament(id) {
@@ -48,14 +48,11 @@ class TournamentIndex extends Component {
 					{
 						isAuthenticated && user.username === hostedBy ?
 							<Fragment>
-								<Button
-									outline
-									color="warning"
-									className="mb-3 mr-2 edit-delete float-right"
-									onClick={this.onDelete.bind(this, _id)}
-								>
-									Delete Tournament
-								</Button>
+								<DeleteModal 
+									page={"Tournament Index"} 
+									title={"Delete Tournament"} 
+									onClick={this.onDelete.bind(this, _id)} 
+								/>
 								<Button
 									outline
 									color="info"
