@@ -20,12 +20,22 @@ export default class DeleteModal extends Component {
   render() {
     return (
       <Fragment>
+        { 
+          this.props.page === "Player Profile" ? 
+          <Button color="warning" onClick={this.toggle}>Delete Account</Button> :
+          null 
+        }
         {
-          this.props.type === "Profile" ?
-          <Button color="warning" onClick={this.toggle}>
-            Delete Account
+          this.props.page === "Player Directory" ?
+          <BsFillTrashFill className="delete-icon" color="black" size="1.2em" onClick={this.toggle} /> :
+          null
+        }
+        {
+          this.props.page === "Tournament Index" ?
+          <Button	outline color="warning"	className="mb-3 mr-2 edit-delete float-right"	onClick={this.toggle}>
+            Delete Tournament
           </Button> :
-          <BsFillTrashFill className="delete-icon" color="black" size="1.2em" onClick={this.toggle} />
+          null
         }
 
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
@@ -38,7 +48,7 @@ export default class DeleteModal extends Component {
           </ModalBody>
 
           <ModalFooter>
-            <div onClick={this.toggle}>
+            <div className="float-center" onClick={this.toggle}>
               <Button className="ml-3" color="secondary">Cancel</Button>
               <Button className="ml-3" color="primary" onClick={this.props.onClick}>Confirm</Button>
             </div>

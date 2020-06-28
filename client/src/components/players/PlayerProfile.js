@@ -51,7 +51,7 @@ class PlayerProfile extends Component {
 				{
 					isAuthenticated && user.username === username ?
 					<DeleteModal 
-						type={"Profile"} 
+						page={"Player Profile"} 
 						title={"Delete your account"} 
 						onClick={this.onDelete.bind(this, user._id)} 
 					/> :
