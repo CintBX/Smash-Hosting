@@ -9,13 +9,14 @@ import {
 } from 'reactstrap';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { addCharacter } from '../../actions/authActions';
+import { updateUserDetails } from '../../actions/authActions';
 import { fullRoster } from '../Characters';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
+import NumberFormat from 'react-number-format';
 
 
-class CharacterModal extends Component {
+class UpdateDetailsModal extends Component {
 	constructor(props) {
 		super(props);
 		this.toggle = this.toggle.bind(this);
@@ -25,13 +26,14 @@ class CharacterModal extends Component {
 			modal: false,
 			id: this.props.user._id,
 			main: '',
-			secondary: '',
+      secondary: '',
+      friendCode: ''
 		};
 	};
 
 	static propTypes = {
 		user: PropTypes.object.isRequired,
-		addCharacter: PropTypes.func.isRequired
+		updateUserDetails: PropTypes.func.isRequired
 	};
 
 	toggle() {
@@ -52,9 +54,10 @@ class CharacterModal extends Component {
 		const { user } = this.props;
 		
 		user.main = this.state.main;
-		user.secondary = this.state.secondary;
+    user.secondary = this.state.secondary;
+    user.friendCode = this.state.friendCode;
 
-		this.props.addCharacter(user);
+		this.props.updateUserDetails(user);
 		this.toggle();
 	};
 
@@ -62,12 +65,13 @@ class CharacterModal extends Component {
 		return (
 			<div>
 				<Button 
-					outline
-					color="primary"
-					className="mb-3"
+          outline
+          block
+					color="info"
+					style={{marginBottom: '1rem'}}
 					onClick={this.toggle}
 				>
-					<b>Characters</b>
+					<b>Update Details</b>
 				</Button>
 
 				<Modal isOpen={this.state.modal} toggle={this.toggle}>
@@ -115,10 +119,20 @@ class CharacterModal extends Component {
 										/>
 									)}
 								/>
+
+                <NumberFormat 
+									type="text"
+									name="friendCode"
+									id="friendCode"
+									className="mb-3 form-control"
+									placeholder="12-digit friend code"
+									onChange={this.onChange}
+									format="#### #### ####"
+								/>
 							</FormGroup>
 
 							<Button color="primary" style={{marginTop:'2rem'}} block>
-								Update Characters
+								Update
 							</Button>
 						</Form>
 					</ModalBody>
@@ -132,4 +146,4 @@ const mapStateToProps = state => ({
 	user: state.auth.user
 });
 
-export default connect(mapStateToProps, { addCharacter })(CharacterModal);
+export default connect(mapStateToProps, { updateUserDetails })(UpdateDetailsModal);

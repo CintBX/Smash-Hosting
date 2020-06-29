@@ -12,6 +12,7 @@ import { connect } from 'react-redux';
 import SidebarImage from './SidebarImage';
 import smashultimate3 from '../../img/smashultimate3.jpg';
 import RuleSets from './RuleSets';
+import UpdateDetailsModal from '../auth/UpdateDetailsModal';
 
 
 class ProfileSidebar extends Component {
@@ -68,9 +69,7 @@ class ProfileSidebar extends Component {
 						
 						{
 							isAuthenticated ?
-							<Button outline block color="info" style={{marginBottom: '1rem'}}>
-								<b>Update Details</b>
-							</Button> :
+							<UpdateDetailsModal /> :
 							null
 						}
 						<NewTournament/>
