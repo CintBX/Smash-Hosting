@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import {
 	Button,
 	Modal,
 	ModalHeader,
 	ModalBody,
 	Form,
-	FormGroup,
+  FormGroup,
+  Label
 } from 'reactstrap';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -63,7 +64,7 @@ class UpdateDetailsModal extends Component {
 
 	render() {
 		return (
-			<div>
+			<Fragment>
 				<Button 
           outline
           block
@@ -79,6 +80,8 @@ class UpdateDetailsModal extends Component {
 					<ModalBody>
 						<Form onSubmit={this.onSubmit}>
 							<FormGroup>
+                <Label>Fill in the fields you wish to update</Label>
+
 								<Autocomplete
 									id="main"
 									options={fullRoster}
@@ -137,7 +140,7 @@ class UpdateDetailsModal extends Component {
 						</Form>
 					</ModalBody>
 				</Modal>
-			</div>
+			</Fragment>
 		);
 	};
 };
