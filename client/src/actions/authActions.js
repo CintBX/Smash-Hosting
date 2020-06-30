@@ -14,15 +14,15 @@ import axios from 'axios';
 import { returnErrors } from './errorActions';
 
 
-// User adds or edits their main/secondary characters
-export const addCharacter = ({ _id, main, secondary }) => dispatch => {
+// User updates or edits their main/secondary/friendCode
+export const updateUserDetails = ({ _id, main, secondary, friendCode }) => dispatch => {
 	const config = {
 		headers: {
 			"Content-Type": "application/json"
 		}
 	};
 
-	const body = JSON.stringify({ main, secondary });
+	const body = JSON.stringify({ main, secondary, friendCode });
 
 	axios.post(`/users/user/${_id}`, body, config)
 		.then(res => dispatch({

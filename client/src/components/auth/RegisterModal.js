@@ -135,7 +135,7 @@ class RegisterModal extends Component {
 									name="friendCode"
 									id="friendCode"
 									className="mb-3 form-control"
-									placeholder="12-digit friend code"
+									placeholder="Switch friend code"
 									onChange={this.onChange}
 									format="#### #### ####"
 								/>
