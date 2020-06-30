@@ -52,6 +52,27 @@ router.post('/new', authorize, (req, res) => {
 });
 
 
+// @route 	UPDATE /tournaments/update/:id
+// @descrip	Update an existing tournament
+// @access	Private
+router.post('/update/:id', (req, res) => {
+	Tournament.findById(req.params.id, (err, tournament) => {
+		if(!tournament) {
+			res.status(404).json({ msg: "This tournament does not exist" });
+		} else {
+			if(!req.body.title) {
+				tournament.title != req.body.title
+			} else {
+				tournament.title = req.body.title
+			}
+		}
+		tournament.save()
+			.then(() => res.json(tournament))
+			.catch(() => res.json(err));
+	});
+});
+
+
 // @route		DELETE /tournaments/:id
 // @descrip DELETE
 // @access  Private
