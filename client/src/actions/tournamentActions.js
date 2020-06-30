@@ -4,7 +4,8 @@ import {
 	ADD_TOURNAMENT, 
 	DELETE_TOURNAMENT, 
 	TOURNAMENTS_LOADING, 
-	TOURNAMENT_LOADING 
+	TOURNAMENT_LOADING,
+	UPDATE_TOURNAMENT
 } from './types';
 import axios from 'axios';
 import { tokenConfig } from './authActions';
@@ -47,6 +48,26 @@ export const addTournament = tournament => (dispatch, getState) => {
 			type: GET_TOURNAMENTS,
 			payload: res.data
 		}));
+};
+
+export const updateTournament = ({ _id, title }) => dispatch => {
+	const config = {
+		headers: {
+			"Content-Type": "application/json"
+		}
+	};
+
+	const body = JSON.stringify({ title });
+
+	axios
+		.post(`/tournaments/update/${_id}`, body, config)
+		.then(res => dispatch({
+			type: UPDATE_TOURNAMENT,
+			payload: res.data
+		}))
+		.catch(err => {
+			dispatch(returnErrors(err.response.data, err.response.status));
+		});
 };
 
 export const deleteTournament = id => (dispatch, getState) => {
