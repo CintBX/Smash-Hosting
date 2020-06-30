@@ -127,7 +127,7 @@ router.get('/user/:id', (req, res) => {
 
 
 // @route   POST /users/user/:id
-// @descrip EDIT/UPDATE a user
+// @descrip EDIT/UPDATE a user's details
 // @access  Private
 router.post('/user/:id', (req, res) => {
 	User.findById(req.params.id, (err, user) => {
@@ -136,18 +136,39 @@ router.post('/user/:id', (req, res) => {
 			res.status(404).json("User not found")
 		} else {
 			// Prevent blank submissions from changing the data
-			if(req.body.main && !req.body.secondary) {
+			// (All combinations of potential field entries)
+			if(!req.body.main && !req.body.secondary && !req.body.friendCode) {
+				user.main != req.body.main;
+				user.secondary != req.body.secondary;
+				user.friendCode != req.body.friendCode;
+			} else if(req.body.main && !req.body.secondary && !req.body.friendCode) {
 				user.main = req.body.main;
 				user.secondary != req.body.secondary;
-			} else if(!req.body.main && req.body.secondary) {
+				user.friendCode != req.body.friendCode;
+			}	else if(!req.body.main && req.body.secondary && !req.body.friendCode) {
 				user.main != req.body.main;
 				user.secondary = req.body.secondary;
-			}	else if(!req.body.main && !req.body.secondary) {
+				user.friendCode != req.body.friendCode;
+			} else if (!req.body.main && !req.body.secondary && req.body.friendCode) {
 				user.main != req.body.main;
 				user.secondary != req.body.secondary;
+				user.friendCode = req.body.friendCode;
+			} else if(req.body.main && req.body.secondary && !req.body.friendCode) {
+				user.main = req.body.main;
+				user.secondary = req.body.secondary;
+				user.friendCode != req.body.friendCode;
+			} else if(req.body.main && !req.body.secondary && req.body.friendCode) {
+				user.main = req.body.main;
+				user.secondary != req.body.secondary;
+				user.friendCode = req.body.friendCode;
+			} else if(!req.body.main && req.body.secondary && req.body.friendCode) {
+				user.main != req.body.main;
+				user.secondary = req.body.secondary;
+				user.friendCode = req.body.friendCode;
 			} else {
 				user.main = req.body.main;
 				user.secondary = req.body.secondary;
+				user.friendCode = req.body.friendCode;
 			}
 		}
 		user.save()
