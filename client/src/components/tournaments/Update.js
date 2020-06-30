@@ -8,7 +8,6 @@ import {
 	Button,
 	Label,
 	Input,
-	Alert
 } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -61,6 +60,7 @@ class UpdateTournamentModal extends Component {
           outline
           color="info"
           className="mb-3 mr-2 edit-delete float-right"
+          onClick={this.toggle}
         >
           Change Ruleset
         </Button>
@@ -68,7 +68,7 @@ class UpdateTournamentModal extends Component {
 				<Modal isOpen={this.state.modal} toggle={this.toggle}>
 					<ModalHeader toggle={this.toggle}>Change Ruleset</ModalHeader>
 					<ModalBody>
-						<Form onSubmit={ this.state.title !== "Choose from below" ? this.onSubmit : null}>
+						<Form onSubmit={ this.state.title !== "" ? this.onSubmit : null}>
 							<FormGroup>
 								<Label for="title">Select the new ruleset</Label>
 								<Input
@@ -101,7 +101,8 @@ class UpdateTournamentModal extends Component {
 };
 
 const mapStateToProps = state => ({
-	tournament: state.tournament,
+  tournament: state.tournament,
+  auth: state.auth
 });
 
 export default connect(mapStateToProps, { updateTournament })(UpdateTournamentModal);
