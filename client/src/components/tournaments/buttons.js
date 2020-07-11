@@ -10,7 +10,7 @@ import {
 
 export const TournamentSignUp = props => {
 	if (props.participants.find(participant => participant._id === props.userId)) {
-		return <Button color="primary" block disabled>Good luck!</Button>
+		return <Button className="confirm-btn" color="primary" block disabled>Good luck!</Button>
 	} else {
 		return (
 		<Link to="#">

@@ -67,6 +67,22 @@ body {
 
 
 /* 
+ * Tournament Show
+ */
+.fade-out {
+	opacity: 0;
+	transition: all 0.5s ease-out;
+}
+.fade-in {
+	opacity: 0;
+	transition:all 0.5s ease-in;
+}
+.confirm-btn {
+	cursor: default;
+}
+
+
+/* 
  * Player Profile
  */
 .profile {
