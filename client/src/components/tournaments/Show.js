@@ -5,7 +5,7 @@ import { showTournament } from '../../actions/tournamentActions';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { TournamentSignUp } from './buttons';
-import { addParticipant } from '../../actions/participantActions';
+import { addParticipant } from '../../actions/tournamentActions';
 import { Button } from 'reactstrap';
 
 class TournamentShow extends Component {
