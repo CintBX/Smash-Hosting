@@ -5,13 +5,16 @@ import {
 	DELETE_TOURNAMENT, 
 	TOURNAMENTS_LOADING, 
 	TOURNAMENT_LOADING,
-	UPDATE_TOURNAMENT
+	UPDATE_TOURNAMENT,
+	USER_JOINS_TOURNAMENT, 
+	TOURNAMENT_SIGN_UP_FAIL
 } from '../actions/types';
 
 const initialState = {
 	tournaments: [],
 	showTournament: "",
-	loading: false
+	loading: false,
+	participant: null
 }
 
 export default function(state = initialState, action) {
@@ -49,6 +52,18 @@ export default function(state = initialState, action) {
 				...state,
 				loading: true
 			};
+
+		case USER_JOINS_TOURNAMENT:
+      return {
+        ...state,
+				participant: state.showTournament.participants.push(action.payload)
+      }
+
+    case TOURNAMENT_SIGN_UP_FAIL:
+      return {
+        ...state,
+        participant: null
+      }
 
 		default:
 			return state;
