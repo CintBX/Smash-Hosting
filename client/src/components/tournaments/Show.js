@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import TournamentDescription from './descriptions';
-import { showTournament } from '../../actions/tournamentActions';
+import { showTournament, addParticipant } from '../../actions/tournamentActions';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { TournamentSignUp } from './buttons';
-import { addParticipant } from '../../actions/tournamentActions';
 import { Button } from 'reactstrap';
 
 class TournamentShow extends Component {
