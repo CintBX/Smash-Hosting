@@ -8,14 +8,16 @@ import {
 	PopoverBody
 } from 'reactstrap';
 
-export const SignUp = (props) => {
-	return (
-		<Fragment>
-			<Link to="#">
-				<Button className={props.className} color="primary" block onClick={props.onClick}>Sign up</Button>
-			</Link>
-		</Fragment>
-	);
+export const TournamentSignUp = props => {
+	if (props.participants.find(participant => participant._id === props.userId)) {
+		return <Button className="confirm-btn" color="primary" block disabled>Good luck!</Button>
+	} else {
+		return (
+		<Link to="#">
+			<Button color="primary" block onClick={props.onClick}>Sign up</Button>
+		</Link>
+		)
+	};
 };
 
 export const InProgress = () => {

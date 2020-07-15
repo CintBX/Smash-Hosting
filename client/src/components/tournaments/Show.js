@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import TournamentDescription from './descriptions';
-import { showTournament } from '../../actions/tournamentActions';
+import { showTournament, addParticipant } from '../../actions/tournamentActions';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { SignUp } from './buttons';
-import { addParticipant } from '../../actions/participantActions';
+import { TournamentSignUp } from './buttons';
 import { Button } from 'reactstrap';
 
 class TournamentShow extends Component {
+	constructor(props) {
+		super(props);
+		this.onSignUp = this.onSignUp.bind(this);
+	};
+
 	static propTypes = {
 		tournament: PropTypes.object.isRequired,
 		auth: PropTypes.object.isRequired
@@ -40,7 +44,11 @@ class TournamentShow extends Component {
 
 				{
 					status === "Open" && isAuthenticated ?
-					<SignUp onClick={ this.onSignUp.bind(this, _id, user) } /> :
+					<TournamentSignUp
+						participants={participants}
+						userId={user._id}
+						onClick={() => this.onSignUp(_id, user)} 
+					/> :
 					<Button block disabled>Log in to sign up for this tournament</Button>
 				}
 
