@@ -56,7 +56,7 @@ export default function(state = initialState, action) {
 		case USER_JOINS_TOURNAMENT:
       return {
         ...state,
-        participant: action.payload
+				participant: state.showTournament.participants.push(action.payload)
       }
 
     case TOURNAMENT_SIGN_UP_FAIL:
