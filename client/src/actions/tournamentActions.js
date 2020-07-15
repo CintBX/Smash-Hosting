@@ -101,7 +101,9 @@ export const addParticipant = (_id, user) => dispatch => {
       dispatch({
         type: TOURNAMENT_SIGN_UP_FAIL
       });
-    });
+		});
+		
+		showTournament(_id);
 };
 
 export const setTourneysLoading = () => {
