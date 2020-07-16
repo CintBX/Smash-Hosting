@@ -51,6 +51,7 @@ class UpdateTournamentModal extends Component {
     this.props.updateTournament(tournamentId, tournamentTitle);
 
 		this.toggle();
+		this.setState({ title: "" })
 	};
 
 	render() {

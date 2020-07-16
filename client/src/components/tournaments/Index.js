@@ -55,7 +55,8 @@ class TournamentIndex extends Component {
 									onClick={this.onDelete.bind(this, _id)} 
 								/>
 								
-								<UpdateTournamentModal id={_id} />
+								{/* Cancelling feature for now.  Consider for later */}
+								{/* <UpdateTournamentModal id={_id} /> */}
 
 								<Link to={ `/tournaments/${_id}` } className="remove-underline">
 									<Button color="secondary" outline block className="mt-2" onClick={this.onShowTournament.bind(this, _id)}>
