@@ -45,7 +45,7 @@ export default class SmashNews extends Component {
 								<p className="lead">All changes to your favorite characters and more</p>
 							</div>
 							<div className="bg-light shadow-sm mx-auto" style={{width: '90%', height: '300px', borderRadius: '21px 21px 0 0'}}>
-								<a href="https://en-americas-support.nintendo.com/app/answers/detail/a_id/48674/~/super-smash-bros.-ultimate-update-ver.-7.0.0---fighter-adjustments" target="_blank">
+								<a href="https://en-americas-support.nintendo.com/app/answers/detail/a_id/49877" target="_blank">
 									<img src={ PatchNotes } style={{ width: '100%', height: '100%' }} />
 								</a>
 							</div>
