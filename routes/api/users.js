@@ -16,11 +16,15 @@ const User = require('../../models/User');
 // @descrip Register New User
 // @access  Public
 router.post('/register', (req, res) => {
-	const { username, password, friendCode, main, secondary } = req.body;
+	const { username, password, passwordConfirmation, friendCode, main, secondary } = req.body;
 
-	// Validation (DO THIS FOR TOURNAMENTS LATER)
+	// Validation
 	if (!username || !password) {
 		return res.status(400).json({ msg: "Username and Password are required" });
+	};
+
+	if (password != passwordConfirmation) {
+		return res.status(400).json({ msg: "Passwords must match" })
 	};
 
 	// Check for existing Username
@@ -48,7 +52,7 @@ router.post('/register', (req, res) => {
 										username: user.username,
 										friendCode: user.friendCode,
 										main: user.main,
-										secondary: user.secondary
+										secondary: user.secondary,
 									}
 								})
 							}
