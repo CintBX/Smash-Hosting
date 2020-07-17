@@ -50,14 +50,9 @@ router.post('/register', (req, res) => {
 									user: {
 										id: user.id,
 										username: user.username,
-										role: user.role,
 										friendCode: user.friendCode,
 										main: user.main,
 										secondary: user.secondary,
-										tournamentsPlayed: user.tournamentsPlayed,
-										tournamentWins: user.tournamentWins,
-										matchWins: user.matchWins,
-										date: user.date
 									}
 								})
 							}
