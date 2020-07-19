@@ -16,7 +16,15 @@ const GameSchema = new Schema({
       required: true,
     },
     matches: {
-      type: Array,
+      playerOne: {
+        type: Array
+      },
+      playerTwo: {
+        type: Array
+      },
+      winner: {
+        type: Array
+      }
     },
     semiFinal: {
       type: Array,
@@ -25,7 +33,7 @@ const GameSchema = new Schema({
       type: Array,
     },
   },
-  winner: {
+  tournamentWinner: {
     type: String,
   }
 });
