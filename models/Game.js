@@ -29,3 +29,5 @@ const GameSchema = new Schema({
     type: String,
   }
 });
+
+module.exports = Game = mongoose.model('game', GameSchema);
