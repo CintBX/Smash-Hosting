@@ -14,6 +14,7 @@ const GameSchema = new Schema({
     number: {
       Type: Number,
       required: true,
+      default: 1
     },
     matches: {
       playerOne: {
