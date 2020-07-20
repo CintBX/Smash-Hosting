@@ -10,11 +10,28 @@ import {
 
 export const TournamentSignUp = props => {
 	if (props.participants.find(participant => participant._id === props.userId)) {
-		return <Button className="confirm-btn" color="primary" block disabled>Good luck!</Button>
+		return (
+			<Button 
+				className="confirm-btn" 
+				color="primary" 
+				block 
+				disabled
+				style={{marginBottom: '1rem'}}
+			>
+				Good luck!
+			</Button>
+		)
 	} else {
 		return (
 		<Link to="#">
-			<Button color="primary" block onClick={props.onClick}>Sign up</Button>
+			<Button 
+				color="primary" 
+				block 
+				onClick={props.onClick}
+				style={{marginBottom: '1rem'}}
+			>
+				Sign up
+			</Button>
 		</Link>
 		)
 	};
@@ -22,9 +39,28 @@ export const TournamentSignUp = props => {
 
 export const StartTournament = props => {
 	if (props.participants.length >= 8) {
-		return <Button color="danger" block onClick={props.onClick}>Start Tournament</Button>
+		return (
+			<Button 
+				color="danger" 
+				block 
+				onClick={props.onClick}
+				style={{marginBottom: '1rem'}}
+			>
+				Start Tournament
+			</Button>
+		)
 	} else {
-		return <Button color="dark" block disabled style={{cursor: 'default'}}>You need at least 8 fighters to start</Button>
+		return (
+			<Button 
+				className="confirm-btn"
+				color="dark" 
+				block 
+				disabled 
+				style={{marginBottom: '1rem'}}
+			>
+				You need at least 8 fighters to start
+			</Button>
+		)
 	}
 }
 
