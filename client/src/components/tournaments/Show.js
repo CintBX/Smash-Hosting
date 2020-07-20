@@ -52,7 +52,7 @@ class TournamentShow extends Component {
 								participants={participants}
 								userId={user._id}
 								onClick={() => this.onSignUp(_id, user)} 
-							/><br/>
+							/>
 						</div> :
 						<Button block disabled>Log in to sign up for this tournament</Button>
 					}
@@ -63,7 +63,7 @@ class TournamentShow extends Component {
 							<StartTournament 
 								participants={participants} 
 								onClick={() => console.log("Hello sweetie pie")} 
-							/><br/>
+							/>
 						</div> :
 						null
 					}
