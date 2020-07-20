@@ -20,6 +20,14 @@ export const TournamentSignUp = props => {
 	};
 };
 
+export const StartTournament = props => {
+	if (props.participants.length >= 8) {
+		return <Button color="danger" block onClick={props.onClick}>Start Tournament</Button>
+	} else {
+		return <Button color="dark" block disabled style={{cursor: 'default'}}>You need at least 8 fighters to start</Button>
+	}
+}
+
 export const InProgress = () => {
 	return (
 		<Fragment>
