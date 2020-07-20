@@ -46,7 +46,7 @@ class TournamentShow extends Component {
 					</ul>
 	
 					{
-						status === "Open" && isAuthenticated ?
+						isAuthenticated ?
 						<div>
 							<TournamentSignUp
 								participants={participants}
