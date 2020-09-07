@@ -4,7 +4,7 @@ import TournamentDescription from './descriptions';
 import { showTournament, addParticipant } from '../../actions/tournamentActions';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { TournamentSignUp } from './buttons';
+import { TournamentSignUp, StartTournament } from './buttons';
 import { Button } from 'reactstrap';
 
 class TournamentShow extends Component {
@@ -28,31 +28,50 @@ class TournamentShow extends Component {
 
 		return (
 			<div>
-				<h1>{ title }</h1>
-				<h3> <TournamentDescription key={_id} title={ title } /> </h3>
-				<p>Hosted by: { hostedBy }</p>
-				<p>status: { status }</p>
-
-				<p>Registered Fighters:</p>
-				<ul>
+			{
+				status === "Open" ?
+				<div>
+					<h1>{ title }</h1>
+					<h3> <TournamentDescription key={_id} title={ title } /> </h3>
+					<p>Hosted by: { hostedBy }</p>
+					<p>status: { status }</p>
+	
+					<p>{participants.length} Registered Fighters</p>
+					<ul>
+						{
+							participants && participants.map(participant => (
+								<li key={participant._id}>{participant.username}</li>
+							))
+						}
+					</ul>
+	
 					{
-						participants && participants.map(participant => (
-							<li key={participant._id}>{participant.username}</li>
-						))
+						isAuthenticated ?
+						<div>
+							<TournamentSignUp
+								participants={participants}
+								userId={user._id}
+								onClick={() => this.onSignUp(_id, user)} 
+							/>
+						</div> :
+						<Button block disabled>Log in to sign up for this tournament</Button>
 					}
-				</ul>
 
-				{
-					status === "Open" && isAuthenticated ?
-					<TournamentSignUp
-						participants={participants}
-						userId={user._id}
-						onClick={() => this.onSignUp(_id, user)} 
-					/> :
-					<Button block disabled>Log in to sign up for this tournament</Button>
-				}
-
-				<br/><Link to="/">Back to Tournaments main page</Link>
+					{
+						isAuthenticated && user.username === hostedBy ?
+						<div>
+							<StartTournament 
+								participants={participants} 
+								onClick={() => console.log("Hello sweetie pie")} 
+							/>
+						</div> :
+						null
+					}
+	
+					<br/><Link to="/">Back to Tournaments main page</Link>
+				</div> :
+				<h1>Bracket goes here</h1>
+			}
 			</div>
 		)
 	}
