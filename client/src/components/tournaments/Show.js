@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { TournamentSignUp, StartTournament } from './buttons';
 import { Button } from 'reactstrap';
+import { StartTournamentModal } from './Start';
 
 class TournamentShow extends Component {
 	constructor(props) {
@@ -60,7 +61,7 @@ class TournamentShow extends Component {
 					{
 						isAuthenticated && user.username === hostedBy ?
 						<div>
-							<StartTournament 
+							<StartTournamentModal //here
 								participants={participants} 
 								onClick={() => console.log("Hello sweetie pie")} 
 							/>

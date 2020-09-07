@@ -36,7 +36,7 @@ export const TournamentSignUp = props => {
 		)
 	};
 };
-
+ // Replace this
 export const StartTournament = props => {
 	if (props.participants.length >= 8) {
 		return (
