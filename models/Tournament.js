@@ -23,6 +23,9 @@ const TournamentSchema = new Schema({
 	participants: {
 		type: Array,
 		required: false
+	},
+	game: {
+		type: Array
 	}
 	// entranceFee: { tthis may be added later.  But start it off where this isn't a thing, just free tourneys for now }
 });
