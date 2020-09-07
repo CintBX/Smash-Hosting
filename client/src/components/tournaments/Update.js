@@ -78,7 +78,6 @@ class UpdateTournamentModal extends Component {
 									id="title"
 									className="mb-4"
 									onChange={this.onChange}
-									autofocus="autofocus"
 								>
 									<option value=""></option>
 									<option>Single Elimination</option>
