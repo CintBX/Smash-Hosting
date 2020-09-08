@@ -4,9 +4,9 @@ import TournamentDescription from './descriptions';
 import { showTournament, addParticipant } from '../../actions/tournamentActions';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { TournamentSignUp } from './buttons';
+import { TournamentSignUp, StartTournament } from './buttons';
 import { Button } from 'reactstrap';
-import StartTournamentModal from './Start';
+import TournamentStart from './Start';
 
 class TournamentShow extends Component {
 	constructor(props) {
@@ -61,7 +61,7 @@ class TournamentShow extends Component {
 					{
 						isAuthenticated && user.username === hostedBy ?
 						<div>
-							<StartTournamentModal
+							<StartTournament
 								participants={participants}
 							/>
 						</div> :
@@ -70,7 +70,7 @@ class TournamentShow extends Component {
 	
 					<br/><Link to="/">Back to Tournaments main page</Link>
 				</div> :
-				<h1>Bracket goes here</h1>
+				<TournamentStart />
 			}
 			</div>
 		)
