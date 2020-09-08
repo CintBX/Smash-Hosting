@@ -11,6 +11,7 @@ import {
 	NavLink,
 	Alert
 } from 'reactstrap';
+import playerBracket from '../../img/playerBracket.png';
 // import { connect } from 'react-redux';
 // import PropTypes from 'prop-types';
 
