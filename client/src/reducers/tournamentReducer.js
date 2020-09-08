@@ -7,14 +7,16 @@ import {
 	TOURNAMENT_LOADING,
 	UPDATE_TOURNAMENT,
 	USER_JOINS_TOURNAMENT, 
-	TOURNAMENT_SIGN_UP_FAIL
+	TOURNAMENT_SIGN_UP_FAIL,
+	TOURNAMENT_STATUS_UPDATE
 } from '../actions/types';
 
 const initialState = {
 	tournaments: [],
 	showTournament: "",
 	loading: false,
-	participant: null
+	participant: null,
+	status: null
 }
 
 export default function(state = initialState, action) {
@@ -57,13 +59,19 @@ export default function(state = initialState, action) {
       return {
         ...state,
 				participant: state.showTournament.participants.push(action.payload)
-      }
+      };
 
     case TOURNAMENT_SIGN_UP_FAIL:
       return {
         ...state,
         participant: null
-      }
+      };
+
+		case TOURNAMENT_STATUS_UPDATE:
+			return {
+				...state,
+				status: state.showTournament.status = action.payload
+			};
 
 		default:
 			return state;
