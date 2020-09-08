@@ -11,9 +11,8 @@ import {
 	NavLink,
 	Alert
 } from 'reactstrap';
-import { StartTournament } from './buttons';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+// import { connect } from 'react-redux';
+// import PropTypes from 'prop-types';
 
 class StartTournamentModal extends Component {
   constructor(props) {
@@ -32,10 +31,27 @@ class StartTournamentModal extends Component {
   render() {
     return (
       <div>
-        <StartTournament 
-          participants={participants} 
-          onClick={this.toggle}
-        />
+        {
+          this.props.participants.length >= 8 ? 
+          <Button
+            color="danger"
+            block
+            onClick={this.toggle}
+            style={{ marginBottom: '1rem' }}
+          >
+            Start Tournament
+          </Button>
+          :
+          <Button 
+            className="confirm-btn"
+            color="dark" 
+            block 
+            disabled 
+            style={{ marginBottom: '1rem' }}
+          >
+            You need at least 8 fighters to start
+          </Button>
+        }
 
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>Modal Title</ModalHeader>
