@@ -60,10 +60,11 @@ class StartTournamentModal extends Component {
           <ModalBody className="bracket">
             <img width="100%" src={ playerBracket } alt="default" />
             <div className="bracket-entry">
-              <p>Player One</p>
-              <p>Player Two</p>
-              <p>Player Three</p>
-              <p>Player Four</p>
+              <div>
+              {
+                this.props.participants.map(participant => <p>{participant.username}</p>)
+              }
+              </div>
             </div>
           </ModalBody>
         </Modal>
