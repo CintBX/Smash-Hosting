@@ -5,7 +5,6 @@ import {
 	DELETE_TOURNAMENT, 
 	TOURNAMENTS_LOADING, 
 	TOURNAMENT_LOADING,
-	UPDATE_TOURNAMENT,
 	USER_JOINS_TOURNAMENT, 
 	TOURNAMENT_SIGN_UP_FAIL,
 	TOURNAMENT_STATUS_UPDATE
@@ -36,7 +35,6 @@ export default function(state = initialState, action) {
 			};
 			
 		case ADD_TOURNAMENT:
-		case UPDATE_TOURNAMENT:
 			return {
 				...state,
 				tournaments: [action.payload, ...state.tournaments]
