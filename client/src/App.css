@@ -127,3 +127,14 @@ body {
 /* 
  * Start Tournament Modal Bracket
  */
+.bracket img {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: 1;
+}
+
+.bracket-entry {
+	z-index: 2;
+	position: relative;
+}
