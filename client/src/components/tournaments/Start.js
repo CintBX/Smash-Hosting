@@ -56,9 +56,15 @@ class StartTournamentModal extends Component {
         }
 
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
-          <ModalHeader toggle={this.toggle}>Modal Title</ModalHeader>
-          <ModalBody>
-            Bracket goes here
+          <ModalHeader toggle={this.toggle}>Single Elim Bracket</ModalHeader>
+          <ModalBody className="bracket">
+            <img width="100%" src={ playerBracket } alt="default" />
+            <div className="bracket-entry">
+              <p>Player One</p>
+              <p>Player Two</p>
+              <p>Player Three</p>
+              <p>Player Four</p>
+            </div>
           </ModalBody>
         </Modal>
       </div>
