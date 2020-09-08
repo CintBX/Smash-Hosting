@@ -7,7 +7,8 @@ import {
 	TOURNAMENT_LOADING,
 	UPDATE_TOURNAMENT,
 	USER_JOINS_TOURNAMENT, 
-	TOURNAMENT_SIGN_UP_FAIL
+	TOURNAMENT_SIGN_UP_FAIL,
+	TOURNAMENT_STATUS_UPDATE
 } from './types';
 import axios from 'axios';
 import { tokenConfig } from './authActions';
@@ -52,23 +53,22 @@ export const addTournament = tournament => (dispatch, getState) => {
 		}));
 };
 
-export const updateTournament = ({ _id, title }) => dispatch => {
+export const updateTournamentStatus = ({ _id, status }) => dispatch => {
 	const config = {
 		headers: {
 			"Content-Type": "application/json"
 		}
 	};
-
-	const body = JSON.stringify({ title });
+	const body = JSON.stringify({ status });
 
 	axios
 		.post(`/tournaments/update/${_id}`, body, config)
-		.then(res => dispatch({
-			type: UPDATE_TOURNAMENT,
-			payload: res.data
+		.then(() => dispatch({
+			type: TOURNAMENT_STATUS_UPDATE,
+			payload: status
 		}))
 		.catch(err => {
-			dispatch(returnErrors(err.response.data, err.response.status));
+			dispatch(returnErrors(err.status.data, err.response.status));
 		});
 
 	axios
