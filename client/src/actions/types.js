@@ -29,9 +29,10 @@ export const PLAYERS_LOADING = 'PLAYERS_LOADING';
 export const SHOW_PLAYER = 'SHOW_PLAYER';
 export const PLAYER_LOADING = 'PLAYER_LOADING';
 
-// Tournament Sign-up
+// Tournament Sign-up && Status Update
 export const USER_JOINS_TOURNAMENT = 'USER_JOINS_TOURNAMENT';
 export const TOURNAMENT_SIGN_UP_FAIL = 'TOURNAMENT_SIGN_UP_FAIL';
+export const TOURNAMENT_STATUS_UPDATE = 'TOURNAMENT_STATUS_UPDATE';
 
 // Admin action
 export const DELETE_A_USER = 'DELETE_A_USER';
