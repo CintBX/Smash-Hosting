@@ -68,7 +68,7 @@ class TournamentShow extends Component {
 						<div>
 							<StartTournament
 								participants={participants}
-								onClick={this.onCloseTournament(_id, status)}
+								onClick={() => this.onCloseTournament(_id, status)}
 							/>
 						</div> :
 						null
