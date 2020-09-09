@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import TournamentDescription from './descriptions';
-import { showTournament, addParticipant } from '../../actions/tournamentActions';
+import { showTournament, addParticipant, updateTournamentStatus } from '../../actions/tournamentActions';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { TournamentSignUp, StartTournament } from './buttons';
@@ -12,6 +12,7 @@ class TournamentShow extends Component {
 	constructor(props) {
 		super(props);
 		this.onSignUp = this.onSignUp.bind(this);
+		this.onCloseTournament = this.onCloseTournament.bind(this);
 	};
 
 	static propTypes = {
@@ -21,6 +22,10 @@ class TournamentShow extends Component {
 
 	onSignUp(tournamentId, user) {
 		this.props.addParticipant(tournamentId, user);
+	};
+
+	onCloseTournament(tourneyId, tourneyStatus) {
+		this.props.updateTournamentStatus(tourneyId, tourneyStatus);
 	};
 
 	render() {
@@ -63,6 +68,7 @@ class TournamentShow extends Component {
 						<div>
 							<StartTournament
 								participants={participants}
+								onClick={this.onCloseTournament(_id, status)}
 							/>
 						</div> :
 						null
@@ -82,4 +88,4 @@ const mapStateToProps = state => ({
 	auth: state.auth
 });
 
-export default connect(mapStateToProps, { showTournament, addParticipant })(TournamentShow);
+export default connect(mapStateToProps, { showTournament, addParticipant, updateTournamentStatus })(TournamentShow);

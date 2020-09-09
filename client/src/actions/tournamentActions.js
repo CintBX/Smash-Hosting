@@ -7,7 +7,8 @@ import {
 	TOURNAMENT_LOADING,
 	USER_JOINS_TOURNAMENT, 
 	TOURNAMENT_SIGN_UP_FAIL,
-	TOURNAMENT_STATUS_UPDATE
+	TOURNAMENT_STATUS_UPDATE,
+	TOURNAMENT_STATUS_FAILED
 } from './types';
 import axios from 'axios';
 import { tokenConfig } from './authActions';
@@ -67,15 +68,18 @@ export const updateTournamentStatus = ({ _id, status }) => dispatch => {
 			payload: status
 		}))
 		.catch(err => {
-			dispatch(returnErrors(err.status.data, err.response.status));
+			dispatch(returnErrors(err.response.data, err.response.status));
+			dispatch({
+				type: TOURNAMENT_STATUS_FAILED
+			})
 		});
 
-	axios
-		.get('/tournaments')
-		.then(res => dispatch({
-			type: GET_TOURNAMENTS,
-			payload: res.data
-		}));
+	// axios
+	// 	.get('/tournaments')
+	// 	.then(res => dispatch({
+	// 		type: GET_TOURNAMENTS,
+	// 		payload: res.data
+	// 	}));
 };
 
 export const deleteTournament = id => (dispatch, getState) => {
