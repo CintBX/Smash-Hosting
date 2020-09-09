@@ -24,8 +24,9 @@ class TournamentShow extends Component {
 		this.props.addParticipant(tournamentId, user);
 	};
 
-	onCloseTournament(tourneyId, tourneyStatus) {
-		this.props.updateTournamentStatus(tourneyId, tourneyStatus);
+	onCloseTournament(tourneyId) {
+		const newStatus = "Closed";
+		this.props.updateTournamentStatus(tourneyId, newStatus);
 	};
 
 	render() {
@@ -68,7 +69,7 @@ class TournamentShow extends Component {
 						<div>
 							<StartTournament
 								participants={participants}
-								onClick={() => this.onCloseTournament(_id, status)}
+								onClick={() => this.onCloseTournament(_id)}
 							/>
 						</div> :
 						null
