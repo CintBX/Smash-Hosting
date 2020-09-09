@@ -53,7 +53,7 @@ export const addTournament = tournament => (dispatch, getState) => {
 		}));
 };
 
-export const updateTournamentStatus = ({ _id, status }) => dispatch => {
+export const updateTournamentStatus = (_id, status) => dispatch => {
 	const config = {
 		headers: {
 			"Content-Type": "application/json"
@@ -73,13 +73,6 @@ export const updateTournamentStatus = ({ _id, status }) => dispatch => {
 				type: TOURNAMENT_STATUS_FAILED
 			})
 		});
-
-	// axios
-	// 	.get('/tournaments')
-	// 	.then(res => dispatch({
-	// 		type: GET_TOURNAMENTS,
-	// 		payload: res.data
-	// 	}));
 };
 
 export const deleteTournament = id => (dispatch, getState) => {
