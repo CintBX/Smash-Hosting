@@ -7,7 +7,8 @@ import {
 	TOURNAMENT_LOADING,
 	USER_JOINS_TOURNAMENT, 
 	TOURNAMENT_SIGN_UP_FAIL,
-	TOURNAMENT_STATUS_UPDATE
+	TOURNAMENT_STATUS_UPDATE,
+	TOURNAMENT_STATUS_FAILED
 } from '../actions/types';
 
 const initialState = {
@@ -70,6 +71,12 @@ export default function(state = initialState, action) {
 				...state,
 				status: state.showTournament.status = action.payload
 			};
+
+		case TOURNAMENT_STATUS_FAILED:
+			return {
+				...state,
+				status: null
+			}
 
 		default:
 			return state;
