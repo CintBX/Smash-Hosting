@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { updateTournamentStatus } from '../../actions/tournamentActions';
-import { connect } from 'react-redux';
 
 class TournamentStart extends Component {
   constructor(props) {
