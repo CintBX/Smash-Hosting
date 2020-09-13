@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import TournamentDescription from './descriptions';
-import { showTournament, addParticipant } from '../../actions/tournamentActions';
+import { showTournament, addParticipant, updateTournamentStatus } from '../../actions/tournamentActions';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { TournamentSignUp, StartTournament } from './buttons';
 import { Button } from 'reactstrap';
+import TournamentStart from './Start';
 
 class TournamentShow extends Component {
 	constructor(props) {
 		super(props);
 		this.onSignUp = this.onSignUp.bind(this);
+		this.onCloseTournament = this.onCloseTournament.bind(this);
 	};
 
 	static propTypes = {
@@ -20,6 +22,11 @@ class TournamentShow extends Component {
 
 	onSignUp(tournamentId, user) {
 		this.props.addParticipant(tournamentId, user);
+	};
+
+	onCloseTournament(tourneyId) {
+		const newStatus = "Closed";
+		this.props.updateTournamentStatus(tourneyId, newStatus);
 	};
 
 	render() {
@@ -60,9 +67,9 @@ class TournamentShow extends Component {
 					{
 						isAuthenticated && user.username === hostedBy ?
 						<div>
-							<StartTournament 
-								participants={participants} 
-								onClick={() => console.log("Hello sweetie pie")} 
+							<StartTournament
+								participants={participants}
+								onClick={() => this.onCloseTournament(_id)}
 							/>
 						</div> :
 						null
@@ -70,7 +77,7 @@ class TournamentShow extends Component {
 	
 					<br/><Link to="/">Back to Tournaments main page</Link>
 				</div> :
-				<h1>Bracket goes here</h1>
+				<TournamentStart />
 			}
 			</div>
 		)
@@ -82,4 +89,4 @@ const mapStateToProps = state => ({
 	auth: state.auth
 });
 
-export default connect(mapStateToProps, { showTournament, addParticipant })(TournamentShow);
+export default connect(mapStateToProps, { showTournament, addParticipant, updateTournamentStatus })(TournamentShow);

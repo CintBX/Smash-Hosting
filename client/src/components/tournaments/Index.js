@@ -7,7 +7,6 @@ import { InProgress, ResultsPopover } from './buttons';
 import { getTournaments, showTournament, deleteTournament } from '../../actions/tournamentActions';
 import TournamentDescription from './descriptions';
 import DeleteModal from '../delete/DeleteModal';
-import UpdateTournamentModal from './Update';
 
 class TournamentIndex extends Component {
 	componentDidMount() {
@@ -55,9 +54,6 @@ class TournamentIndex extends Component {
 									onClick={this.onDelete.bind(this, _id)} 
 								/>
 								
-								{/* Cancelling feature for now.  Consider for later */}
-								{/* <UpdateTournamentModal id={_id} /> */}
-
 								<Link to={ `/tournaments/${_id}` } className="remove-underline">
 									<Button color="secondary" outline block className="mt-2" onClick={this.onShowTournament.bind(this, _id)}>
 										<b className="enter-btn">Enter</b>
