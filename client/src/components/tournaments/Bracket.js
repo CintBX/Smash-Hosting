@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import Bracket from './Bracket';
 
-class TournamentStart extends Component {
+class Bracket extends Component {
   constructor(props) {
     super(props);
   };
@@ -9,10 +8,10 @@ class TournamentStart extends Component {
   render() {
     return (
       <div>
-        <Bracket />
+        <h1>Bracket</h1>
       </div>
     );
   };
 };
 
-export default TournamentStart;
+export default Bracket;
