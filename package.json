@@ -22,7 +22,8 @@
     "jsonwebtoken": "^8.5.1",
     "moment": "^2.26.0",
     "mongoose": "^5.7.12",
-    "react-icons": "^3.10.0"
+    "react-icons": "^3.10.0",
+    "react-tournament-bracket": "^0.2.4"
   },
   "devDependencies": {
     "nodemon": "^1.19.4"
