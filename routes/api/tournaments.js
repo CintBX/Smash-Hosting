@@ -53,18 +53,14 @@ router.post('/new', authorize, (req, res) => {
 
 
 // @route 	UPDATE /tournaments/update/:id
-// @descrip	Update an existing tournament
+// @descrip	Update tournament status
 // @access	Private
 router.post('/update/:id', (req, res) => {
 	Tournament.findById(req.params.id, (err, tournament) => {
 		if(!tournament) {
 			res.status(404).json({ msg: "This tournament does not exist" });
 		} else {
-			if(!req.body.title) {
-				tournament.title != req.body.title
-			} else {
-				tournament.title = req.body.title
-			}
+			if(req.body.status) tournament.status = req.body.status;
 		}
 		tournament.save()
 			.then(() => res.json(tournament))

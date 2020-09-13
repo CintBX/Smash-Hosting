@@ -5,7 +5,6 @@ export const ADD_TOURNAMENT = 'ADD_TOURNAMENT';
 export const DELETE_TOURNAMENT = 'DELETE_TOURNAMENT';
 export const SHOW_TOURNAMENT = 'SHOW_TOURNAMENT';
 export const TOURNAMENT_LOADING = 'TOURNAMENT_LOADING';
-export const UPDATE_TOURNAMENT = 'UPDATE_TOURNAMENT';
 
 // User Authentication && CRUD
 export const USER_LOADING = 'USER_LOADING';
@@ -29,9 +28,11 @@ export const PLAYERS_LOADING = 'PLAYERS_LOADING';
 export const SHOW_PLAYER = 'SHOW_PLAYER';
 export const PLAYER_LOADING = 'PLAYER_LOADING';
 
-// Tournament Sign-up
+// Tournament Sign-up && Status Update
 export const USER_JOINS_TOURNAMENT = 'USER_JOINS_TOURNAMENT';
 export const TOURNAMENT_SIGN_UP_FAIL = 'TOURNAMENT_SIGN_UP_FAIL';
+export const TOURNAMENT_STATUS_UPDATE = 'TOURNAMENT_STATUS_UPDATE';
+export const TOURNAMENT_STATUS_FAILED = 'TOURNAMENT_STATUS_FAILED';
 
 // Admin action
 export const DELETE_A_USER = 'DELETE_A_USER';
