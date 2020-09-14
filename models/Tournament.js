@@ -25,9 +25,13 @@ const TournamentSchema = new Schema({
 		required: false
 	},
 	game: {
-		type: Array
+		winners: {
+			type: Array
+		},
+		losers: {
+			type: Array
+		}
 	}
-	// entranceFee: { tthis may be added later.  But start it off where this isn't a thing, just free tourneys for now }
 });
 
 module.exports = Tournament = mongoose.model('tournament', TournamentSchema);
