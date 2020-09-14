@@ -25,12 +25,10 @@ const TournamentSchema = new Schema({
 		required: false
 	},
 	game: {
-		winners: {
-			type: Array
-		},
-		losers: {
-			type: Array
-		}
+		currentRound: { type: Array },
+		winners: { type: Array },
+		losers: { type: Array },
+		nextRound: null
 	}
 });
 
