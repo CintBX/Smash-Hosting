@@ -93,6 +93,7 @@ router.post('/:id', (req, res) => {
 // @descrip	Start Tournament: Randomize the participants and place them in game.current
 // @access	Private
 router.post('/rounds/:id', (req, res) => {
+	// Function that shuffles players
 	function shuffleParticipants(array) {
 		let currentIndex = array.length, temporaryValue, randomIndex;	
 		while(0 !== currentIndex) {
@@ -107,10 +108,18 @@ router.post('/rounds/:id', (req, res) => {
 
 	Tournament.findById(req.params.id)
 		.then(tournament => {
+			// bind call for shuffle function, and put participants as argument
 			const players = shuffleParticipants(tournament.participants);
+			// bind for game.current
 			const currentRound = tournament.game.current;
 
-			currentRound.push(players);
+			// Iterate through `players` and push each one into `currentRound`
+			players.forEach(player => currentRound.push(player))
+
+			// code here to break up game.current[] entries into pairs, array of arrays
+			// ...
+
+			// save result
 			return tournament.save();
 		})
 		.then(savedTournament => res.json(savedTournament))
