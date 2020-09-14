@@ -89,7 +89,7 @@ router.post('/update/:id', (req, res) => {
 
 
 // @route		UPDATE /tournaments/rounds/:id
-// @descrip	Add participants array to Tournament.game in sets of Rounds
+// @descrip	Randomize the tournament participants
 // @access	Private
 router.post('/rounds/:id', (req, res) => {
 	Tournament.findById(req.params.id)
