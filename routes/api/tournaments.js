@@ -46,9 +46,27 @@ router.post('/new', authorize, (req, res) => {
 				hostedBy: tournament.hostedBy,
 				status: tournament.status,
 				participants: tournament.participants,
+				game: tournament.game
 			}
 		}))
 		.catch(err => res.status(400).json({ msg: "Please choose a tournament type" }));
+});
+
+
+// @route 	UPDATE /tournaments/update/:id
+// @descrip	Change tournament status from Open to Closed
+// @access	Private
+router.post('/update/:id', (req, res) => {
+	Tournament.findById(req.params.id, (err, tournament) => {
+		if(!tournament) {
+			res.status(404).json({ msg: "This tournament does not exist" });
+		} else {
+			if(req.body.status) tournament.status = req.body.status;
+		}
+		tournament.save()
+			.then(() => res.json(tournament))
+			.catch(() => res.json(err));
+	});
 });
 
 
@@ -71,58 +89,33 @@ router.post('/:id', (req, res) => {
 });
 
 
-// @route 	UPDATE /tournaments/update/:id
-// @descrip	Change tournament status from Open to Closed
-// @access	Private
-router.post('/update/:id', (req, res) => {
-	Tournament.findById(req.params.id, (err, tournament) => {
-		if(!tournament) {
-			res.status(404).json({ msg: "This tournament does not exist" });
-		} else {
-			if(req.body.status) tournament.status = req.body.status;
-		}
-		tournament.save()
-			.then(() => res.json(tournament))
-			.catch(() => res.json(err));
-	});
-});
-
-
 // @route		UPDATE /tournaments/rounds/:id
-// @descrip	Randomize the tournament participants
+// @descrip	Start Tournament: Randomize the participants and place them in game.current
 // @access	Private
 router.post('/rounds/:id', (req, res) => {
+	function shuffleParticipants(array) {
+		let currentIndex = array.length, temporaryValue, randomIndex;	
+		while(0 !== currentIndex) {
+			randomIndex = Math.floor(Math.random() * currentIndex);
+			currentIndex -= 1;	
+			temporaryValue = array[currentIndex];
+			array[currentIndex] = array[randomIndex];
+			array[randomIndex] = temporaryValue;
+		}	
+		return array;
+	};
+
 	Tournament.findById(req.params.id)
 		.then(tournament => {
-			if(tournament.game.length == req.body.round.length) {
-				return res.status(400).json({ msg: "This round has already been arranged" });
-			} else {
-				tournament.game = req.body.round;
-			}
+			const players = shuffleParticipants(tournament.participants);
+			const currentRound = tournament.game.current;
+
+			currentRound.push(players);
 			return tournament.save();
 		})
 		.then(savedTournament => res.json(savedTournament))
 		.catch(err => res.json(err));
 });
-
-// What if I just make a route that takes the participants array and rearranges it with that same code?
-// That would take the logic out of the front end and put it here, in the backend route
-// Then, it would be participants itself you'd be leveraging.. though you don't wanna edit that too much.. cuz even if
-// people start losing, they are still Participants.  
-
-// Okay you can do this:  Instead of game:[], you can have winners:[] and losers:[]
-// Your backend route here will randomize the participants, and leave it be.  It will be done when Start Tournament button is 
-// pressed, and that can only be pressed once, so that will ensure that they will be randomized just once
-
-// Then, you'll have another route that pushes users to winners/losers arrays depending on their performance, respectively
-// That may not even be necessary, but leave the option available for it (this is prototype official after all)
-// What you will need, still, is to arrange the randomized participants into a set of pairs, into a graph data structure,
-// so you can pass the final game into Bracket.js
-// Oh.. I wonder if there's a way to create the graph without having initial values.. OH!
-
-// Have a graph that is structured the way the whole bracket is gonna be.. with subsequent rounds and shit.. but it will
-// have empty values that will be filled in later as players win and lose.  This way, you can pass in the "final game" to 
-// Bracket.js, which will render the CELLS of the finals match, without having actual players
 
 	
 // @route		DELETE /tournaments/:id
