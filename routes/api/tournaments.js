@@ -45,15 +45,34 @@ router.post('/new', authorize, (req, res) => {
 				title: tournament.title,
 				hostedBy: tournament.hostedBy,
 				status: tournament.status,
-				participants: tournament.participants
+				participants: tournament.participants,
 			}
 		}))
 		.catch(err => res.status(400).json({ msg: "Please choose a tournament type" }));
 });
 
 
+// @route		UPDATE /tournaments/:id
+// @descrip	Add User to Tournament.participants array / User sign up
+// @access	Private(There must be a user to sign up)
+// NOTE: `authorize` doesn't work for some reason.  May be ok, investigate later
+router.post('/:id', (req, res) => {
+	Tournament.findById(req.params.id)
+		.then(tournament => {
+			if (tournament.participants.some(array => array.username === req.body.user.username)) {
+				return res.status(400).json({ msg: "This user is already signed up" });
+			} else {
+				tournament.participants.push(req.body.user);
+			}
+			return tournament.save();
+		})
+		.then(savedTournament => res.json(savedTournament))
+		.catch(err => res.json(err));
+});
+
+
 // @route 	UPDATE /tournaments/update/:id
-// @descrip	Update tournament status
+// @descrip	Change tournament status from Open to Closed
 // @access	Private
 router.post('/update/:id', (req, res) => {
 	Tournament.findById(req.params.id, (err, tournament) => {
@@ -69,6 +88,43 @@ router.post('/update/:id', (req, res) => {
 });
 
 
+// @route		UPDATE /tournaments/rounds/:id
+// @descrip	Add participants array to Tournament.game in sets of Rounds
+// @access	Private
+router.post('/rounds/:id', (req, res) => {
+	Tournament.findById(req.params.id)
+		.then(tournament => {
+			if(tournament.game.length == req.body.round.length) {
+				return res.status(400).json({ msg: "This round has already been arranged" });
+			} else {
+				tournament.game = req.body.round;
+			}
+			return tournament.save();
+		})
+		.then(savedTournament => res.json(savedTournament))
+		.catch(err => res.json(err));
+});
+
+// What if I just make a route that takes the participants array and rearranges it with that same code?
+// That would take the logic out of the front end and put it here, in the backend route
+// Then, it would be participants itself you'd be leveraging.. though you don't wanna edit that too much.. cuz even if
+// people start losing, they are still Participants.  
+
+// Okay you can do this:  Instead of game:[], you can have winners:[] and losers:[]
+// Your backend route here will randomize the participants, and leave it be.  It will be done when Start Tournament button is 
+// pressed, and that can only be pressed once, so that will ensure that they will be randomized just once
+
+// Then, you'll have another route that pushes users to winners/losers arrays depending on their performance, respectively
+// That may not even be necessary, but leave the option available for it (this is prototype official after all)
+// What you will need, still, is to arrange the randomized participants into a set of pairs, into a graph data structure,
+// so you can pass the final game into Bracket.js
+// Oh.. I wonder if there's a way to create the graph without having initial values.. OH!
+
+// Have a graph that is structured the way the whole bracket is gonna be.. with subsequent rounds and shit.. but it will
+// have empty values that will be filled in later as players win and lose.  This way, you can pass in the "final game" to 
+// Bracket.js, which will render the CELLS of the finals match, without having actual players
+
+	
 // @route		DELETE /tournaments/:id
 // @descrip DELETE
 // @access  Private
@@ -79,25 +135,4 @@ router.delete('/:id', authorize, (req, res) => {
 });
 
 
-// @route		POST /tournaments/:id
-// @descrip	Add User to Tournament.participants array / User sign up
-// @access	Private(There must be a user to sign up)
-// NOTE: `authorize` doesn't work for some reason.  May be ok, investigate later
-router.post('/:id', (req, res) => {
-	Tournament.findById(req.params.id)
-		.then(tournament => {
-			if (tournament.participants.some(array => array.username === req.body.user.username)) {
-				return res.status(400).json({ msg: "This user is already signed up" });
-			} else {
-				tournament.participants.push(req.body.user);
-			}
-			return tournament.save();
-		})
-		.then(savedTournament => {
-			return res.json(savedTournament);
-		})
-		.catch(err => res.json(err));
-	});
-	
-	
-	module.exports = router;
+module.exports = router;
