@@ -90,7 +90,7 @@ router.post('/:id', (req, res) => {
 
 
 // @route		UPDATE /tournaments/rounds/:id
-// @descrip	Start Tournament: Randomize the participants and place them in game.current
+// @descrip	Start Tournament: Randomize participants, Add to game.current, Split into pairs
 // @access	Private
 router.post('/rounds/:id', (req, res) => {
 	// Function that shuffles players
@@ -106,20 +106,27 @@ router.post('/rounds/:id', (req, res) => {
 		return array;
 	};
 
+	// Function that divides array contents into sub-arrays (for match-pairings)
+	function pairParticipants(array, size) {
+		let n = array.length, result = [], pair;
+
+		for(var i = 0; i < n; i += size) {
+			pair = array.slice(i, i + size);
+			result.push(pair);
+		};
+
+		return pair;
+	};
+
 	Tournament.findById(req.params.id)
 		.then(tournament => {
-			// bind call for shuffle function, and put participants as argument
-			const players = shuffleParticipants(tournament.participants);
-			// bind for game.current
-			const currentRound = tournament.game.current;
+			const shuffledPlayers = shuffleParticipants(tournament.participants);
+			const { current } = tournament.game;
 
-			// Iterate through `players` and push each one into `currentRound`
-			players.forEach(player => currentRound.push(player))
+			shuffledPlayers.forEach(player => current.push(player));
 
-			// code here to break up game.current[] entries into pairs, array of arrays
-			// ...
+			pairParticipants(current, 2);
 
-			// save result
 			return tournament.save();
 		})
 		.then(savedTournament => res.json(savedTournament))
