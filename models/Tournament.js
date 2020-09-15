@@ -25,8 +25,8 @@ const TournamentSchema = new Schema({
 		required: false
 	},
 	game: {
-		current: { type: Array },
-		next: { 
+		currentRound: { type: Array },
+		nextRound: { 
 			type: Map,
 			of: String
 		}

@@ -116,11 +116,11 @@ router.post('/rounds/:id', (req, res) => {
 
 	Tournament.findById(req.params.id)
 		.then(tournament => {
-			const { current } = tournament.game;
+			const { currentRound } = tournament.game;
 
 			const shuffledPlayers = shuffleParticipants(tournament.participants);
 			const pairedPlayers = pairParticipants(shuffledPlayers);
-			pairedPlayers.forEach(pair => current.push(pair));
+			pairedPlayers.forEach(pair => currentRound.push(pair));
 
 			return tournament.save();
 		})
