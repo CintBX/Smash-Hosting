@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// Create your Schema
 const TournamentSchema = new Schema({
 	title: {
 		type: String,
