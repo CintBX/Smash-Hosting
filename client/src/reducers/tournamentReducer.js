@@ -80,10 +80,15 @@ export default function(state = initialState, action) {
 				status: null
 			}
 
-		case TOURNAMENT_START_FAIL:
+		case TOURNAMENT_START:
 			return {
 				...state,
 				showTournament: state.showTournament.participants = action.payload
+			}
+
+		case TOURNAMENT_START_FAIL:
+			return {
+				...state
 			}
 
 		default:
