@@ -12,7 +12,7 @@ class TournamentShow extends Component {
 	constructor(props) {
 		super(props);
 		this.onSignUp = this.onSignUp.bind(this);
-		this.onCloseTournament = this.onCloseTournament.bind(this);
+		this.onStartTournament = this.onStartTournament.bind(this);
 	};
 
 	static propTypes = {
@@ -24,9 +24,11 @@ class TournamentShow extends Component {
 		this.props.addParticipant(tournamentId, user);
 	};
 
-	onCloseTournament(tourneyId) {
+	onStartTournament(tourneyId) {
 		const newStatus = "Closed";
 		this.props.updateTournamentStatus(tourneyId, newStatus);
+
+		// shuffle participants
 	};
 
 	render() {
@@ -69,7 +71,7 @@ class TournamentShow extends Component {
 						<div>
 							<StartTournament
 								participants={participants}
-								onClick={() => this.onCloseTournament(_id)}
+								onClick={() => this.onStartTournament(_id)}
 							/>
 						</div> :
 						null

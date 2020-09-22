@@ -8,11 +8,14 @@ import {
 	USER_JOINS_TOURNAMENT, 
 	TOURNAMENT_SIGN_UP_FAIL,
 	TOURNAMENT_STATUS_UPDATE,
-	TOURNAMENT_STATUS_FAILED
+	TOURNAMENT_STATUS_FAILED,
+	SHUFFLE_PARTICIPANTS,
+	SHUFFLE_FAIL
 } from './types';
 import axios from 'axios';
 import { tokenConfig } from './authActions';
 import { returnErrors } from './errorActions';
+
 
 export const getTournaments = () => dispatch => {
 	dispatch(setTourneysLoading());	
@@ -25,6 +28,7 @@ export const getTournaments = () => dispatch => {
 		.catch(err => dispatch(returnErrors(err.response.data, err.response.status)));
 };
 
+
 export const showTournament = id => dispatch => {
 	dispatch(singleTourneyLoading());	
 	axios
@@ -35,6 +39,7 @@ export const showTournament = id => dispatch => {
 		}))
 		.catch(err => dispatch(returnErrors(err.response.data, err.response.status)));
 };
+
 
 export const addTournament = tournament => (dispatch, getState) => {
 	axios
@@ -52,6 +57,7 @@ export const addTournament = tournament => (dispatch, getState) => {
 			payload: res.data
 		}));
 };
+
 
 export const updateTournamentStatus = (_id, status) => dispatch => {
 	const config = {
@@ -75,15 +81,6 @@ export const updateTournamentStatus = (_id, status) => dispatch => {
 		});
 };
 
-export const deleteTournament = id => (dispatch, getState) => {
-	axios
-		.delete(`/tournaments/${id}`, tokenConfig(getState))
-		.then(res => dispatch({
-			type: DELETE_TOURNAMENT,
-			payload: id
-		}))
-		.catch(err => dispatch(returnErrors(err.response.data, err.response.status)));
-};
 
 export const addParticipant = (_id, user) => dispatch => {
   const config = {
@@ -109,11 +106,40 @@ export const addParticipant = (_id, user) => dispatch => {
 		showTournament(_id);
 };
 
+
+export const shuffleParticipants = id => dispatch => {
+	axios
+		.post(`/tournaments/start/${id}`)
+		.then(res => dispatch({
+			type: SHUFFLE_PARTICIPANTS,
+			payload: res.data
+		}))
+		.catch(err => {
+			dispatch(returnErrors(err.response.data, err.response.status));
+			dispatch({
+				type: SHUFFLE_FAIL
+			});
+		});
+};
+
+
+export const deleteTournament = id => (dispatch, getState) => {
+	axios
+		.delete(`/tournaments/${id}`, tokenConfig(getState))
+		.then(res => dispatch({
+			type: DELETE_TOURNAMENT,
+			payload: id
+		}))
+		.catch(err => dispatch(returnErrors(err.response.data, err.response.status)));
+};
+
+
 export const setTourneysLoading = () => {
 	return {
 		type: TOURNAMENTS_LOADING
 	};
 };
+
 
 export const singleTourneyLoading = () => {
 	return {
