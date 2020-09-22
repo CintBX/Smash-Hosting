@@ -9,8 +9,6 @@ import {
 	TOURNAMENT_SIGN_UP_FAIL,
 	TOURNAMENT_STATUS_UPDATE,
 	TOURNAMENT_STATUS_FAILED,
-	SHUFFLE_PARTICIPANTS,
-	SHUFFLE_FAIL
 } from './types';
 import axios from 'axios';
 import { tokenConfig } from './authActions';
@@ -104,22 +102,6 @@ export const addParticipant = (_id, user) => dispatch => {
 		});
 		
 		showTournament(_id);
-};
-
-
-export const shuffleParticipants = id => dispatch => {
-	axios
-		.post(`/tournaments/start/${id}`)
-		.then(res => dispatch({
-			type: SHUFFLE_PARTICIPANTS,
-			payload: res.data
-		}))
-		.catch(err => {
-			dispatch(returnErrors(err.response.data, err.response.status));
-			dispatch({
-				type: SHUFFLE_FAIL
-			});
-		});
 };
 
 

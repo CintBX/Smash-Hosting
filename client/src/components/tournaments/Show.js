@@ -27,8 +27,6 @@ class TournamentShow extends Component {
 	onStartTournament(tourneyId) {
 		const newStatus = "Closed";
 		this.props.updateTournamentStatus(tourneyId, newStatus);
-
-		// shuffle participants
 	};
 
 	render() {
