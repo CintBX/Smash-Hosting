@@ -54,14 +54,28 @@ router.post('/new', authorize, (req, res) => {
 
 
 // @route 	UPDATE /tournaments/update/:id
-// @descrip	Change tournament status from Open to Closed
+// @descrip	Change tournament status from Open to Closed and shuffle participants
 // @access	Private
 router.post('/update/:id', (req, res) => {
+	function shuffleParticipants(array) {
+		let currentIndex = array.length, temporaryValue, randomIndex;	
+		while(0 !== currentIndex) {
+			randomIndex = Math.floor(Math.random() * currentIndex);
+			currentIndex -= 1;	
+			temporaryValue = array[currentIndex];
+			array[currentIndex] = array[randomIndex];
+			array[randomIndex] = temporaryValue;
+		}	
+		return array;
+	};
+
 	Tournament.findById(req.params.id, (err, tournament) => {
 		if(!tournament) {
 			res.status(404).json({ msg: "This tournament does not exist" });
 		} else {
 			if(req.body.status) tournament.status = req.body.status;
+			const shuffledPlayers = shuffleParticipants(tournament.participants);
+			tournament.participants = shuffledPlayers;
 		}
 		tournament.save()
 			.then(() => res.json(tournament))
@@ -93,33 +107,8 @@ router.post('/:id', (req, res) => {
 // @descrip	Start Tournament: Randomize participants, Add to game.current, Split into pairs
 // @access	Private
 router.post('/start/:id', (req, res) => {
-	function shuffleParticipants(array) {
-		let currentIndex = array.length, temporaryValue, randomIndex;	
-		while(0 !== currentIndex) {
-			randomIndex = Math.floor(Math.random() * currentIndex);
-			currentIndex -= 1;	
-			temporaryValue = array[currentIndex];
-			array[currentIndex] = array[randomIndex];
-			array[randomIndex] = temporaryValue;
-		}	
-		return array;
-	};
-
-	// // May not need to pair them
-	// function pairParticipants(array, size = 2) {
-	// 	let n = array.length, result = [], pair;
-	// 	for(var i = 0; i < n; i += size) {
-	// 		pair = array.slice(i, i + size);
-	// 		result.push(pair);
-	// 	};
-	// 	return result;
-	// };
-
 	Tournament.findById(req.params.id)
 		.then(tournament => {
-			const shuffledPlayers = shuffleParticipants(tournament.participants);
-			// const pairedPlayers = pairParticipants(shuffledPlayers);
-			tournament.participants = shuffledPlayers;
 			return tournament.save();
 		})
 		.then(savedTournament => res.json(savedTournament))
