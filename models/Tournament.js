@@ -22,13 +22,6 @@ const TournamentSchema = new Schema({
 	participants: {
 		type: Array,
 		required: false
-	},
-	game: {
-		currentRound: { type: Array },
-		nextRound: { 
-			type: Map,
-			of: String
-		}
 	}
 });
 
