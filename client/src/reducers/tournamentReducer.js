@@ -9,8 +9,6 @@ import {
 	TOURNAMENT_SIGN_UP_FAIL,
 	TOURNAMENT_STATUS_UPDATE,
 	TOURNAMENT_STATUS_FAILED,
-	SHUFFLE_PARTICIPANTS,
-	SHUFFLE_FAIL
 } from '../actions/types';
 
 const initialState = {
@@ -78,14 +76,6 @@ export default function(state = initialState, action) {
 			return {
 				...state,
 				status: null
-			}
-
-		case SHUFFLE_PARTICIPANTS:
-				return state.showTournament.participants = action.payload
-
-		case SHUFFLE_FAIL:
-			return {
-				...state
 			}
 
 		default:
