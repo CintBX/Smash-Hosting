@@ -32,7 +32,7 @@ class TournamentShow extends Component {
 	};
 
 	render() {
-		const { _id, title, hostedBy, status, participants } = this.props.tournament.showTournament;
+		const { _id, title, hostedBy, status, participants, date } = this.props.tournament.showTournament;
 		const { isAuthenticated, user } = this.props.auth;
 
 		return (
@@ -79,7 +79,7 @@ class TournamentShow extends Component {
 	
 					<br/><Link to="/">Back to Tournaments main page</Link>
 				</div> :
-				<TournamentStartPage />
+				<TournamentStartPage title={title} hostedBy={hostedBy} participants={participants} date={date} />
 			}
 			</div>
 		)
