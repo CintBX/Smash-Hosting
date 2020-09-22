@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { TournamentSignUp, StartTournament } from './buttons';
 import { Button } from 'reactstrap';
-import TournamentStart from './Start';
+import TournamentStartPage from './Start';
 
 class TournamentShow extends Component {
 	constructor(props) {
@@ -77,7 +77,7 @@ class TournamentShow extends Component {
 	
 					<br/><Link to="/">Back to Tournaments main page</Link>
 				</div> :
-				<TournamentStart />
+				<TournamentStartPage />
 			}
 			</div>
 		)
