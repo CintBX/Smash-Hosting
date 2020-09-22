@@ -102,19 +102,6 @@ router.post('/:id', (req, res) => {
 		.catch(err => res.json(err));
 });
 
-
-// @route		UPDATE /tournaments/start/:id
-// @descrip	Start Tournament: Randomize participants, Add to game.current, Split into pairs
-// @access	Private
-router.post('/start/:id', (req, res) => {
-	Tournament.findById(req.params.id)
-		.then(tournament => {
-			return tournament.save();
-		})
-		.then(savedTournament => res.json(savedTournament))
-		.catch(err => res.json(err));
-});
-
 	
 // @route		DELETE /tournaments/:id
 // @descrip DELETE
