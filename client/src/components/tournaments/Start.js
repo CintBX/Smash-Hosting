@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { showTournament } from '../../actions/tournamentActions';
 import { Bracket } from 'react-tournament-bracket';
 
-class TournamentStart extends Component {
+class TournamentStartPage extends Component {
   constructor(props) {
     super(props);
   };
@@ -215,4 +215,4 @@ const mapStateToProps = state => ({
   tournament: state.tournament 
 });
 
-export default connect(mapStateToProps, { showTournament })(TournamentStart);
+export default connect(mapStateToProps, { showTournament })(TournamentStartPage);
