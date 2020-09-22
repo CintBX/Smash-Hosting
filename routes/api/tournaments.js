@@ -89,10 +89,10 @@ router.post('/:id', (req, res) => {
 });
 
 
-// @route		UPDATE /tournaments/rounds/:id
+// @route		UPDATE /tournaments/start/:id
 // @descrip	Start Tournament: Randomize participants, Add to game.current, Split into pairs
 // @access	Private
-router.post('/rounds/:id', (req, res) => {
+router.post('/start/:id', (req, res) => {
 	function shuffleParticipants(array) {
 		let currentIndex = array.length, temporaryValue, randomIndex;	
 		while(0 !== currentIndex) {
@@ -105,23 +105,21 @@ router.post('/rounds/:id', (req, res) => {
 		return array;
 	};
 
-	function pairParticipants(array, size = 2) {
-		let n = array.length, result = [], pair;
-		for(var i = 0; i < n; i += size) {
-			pair = array.slice(i, i + size);
-			result.push(pair);
-		};
-		return result;
-	};
+	// // May not need to pair them
+	// function pairParticipants(array, size = 2) {
+	// 	let n = array.length, result = [], pair;
+	// 	for(var i = 0; i < n; i += size) {
+	// 		pair = array.slice(i, i + size);
+	// 		result.push(pair);
+	// 	};
+	// 	return result;
+	// };
 
 	Tournament.findById(req.params.id)
 		.then(tournament => {
-			const { currentRound } = tournament.game;
-
 			const shuffledPlayers = shuffleParticipants(tournament.participants);
-			const pairedPlayers = pairParticipants(shuffledPlayers);
-			pairedPlayers.forEach(pair => currentRound.push(pair));
-
+			// const pairedPlayers = pairParticipants(shuffledPlayers);
+			tournament.participants = shuffledPlayers;
 			return tournament.save();
 		})
 		.then(savedTournament => res.json(savedTournament))
