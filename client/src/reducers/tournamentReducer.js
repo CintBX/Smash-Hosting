@@ -16,7 +16,8 @@ const initialState = {
 	showTournament: "",
 	loading: false,
 	participant: null,
-	status: null
+	status: null,
+	shuffledParticipants: null,
 }
 
 export default function(state = initialState, action) {
@@ -69,13 +70,15 @@ export default function(state = initialState, action) {
 		case TOURNAMENT_STATUS_UPDATE:
 			return {
 				...state,
-				status: state.showTournament.status = action.payload
+				status: state.showTournament.status = action.payload.status,
+				shuffledParticipants: state.showTournament.participants = action.payload.participants
 			};
 
 		case TOURNAMENT_STATUS_FAILED:
 			return {
 				...state,
-				status: null
+				status: null,
+				shuffledParticipants: null
 			}
 
 		default:

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { Bracket } from 'react-tournament-bracket';
 
 class TournamentStartPage extends Component {
@@ -6,8 +8,12 @@ class TournamentStartPage extends Component {
     super(props);
   };
 
+  static propTypes = {
+    tournament: PropTypes.object.isRequired
+  };
+
   render() {
-    const { title, hostedBy, participants, date } = this.props;
+    const { title, hostedBy, date, participants } = this.props.tournament.showTournament;
 
     let usernames = []
     participants && participants.forEach(participant => {
@@ -178,7 +184,11 @@ class TournamentStartPage extends Component {
   };
 };
 
-export default TournamentStartPage;
+const mapStateToProps = state => ({
+  tournament: state.tournament
+});
+
+export default connect(mapStateToProps, null)(TournamentStartPage);
 
 
 // // Array To List function from Eloquent JS

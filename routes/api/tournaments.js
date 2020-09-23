@@ -46,41 +46,10 @@ router.post('/new', authorize, (req, res) => {
 				hostedBy: tournament.hostedBy,
 				status: tournament.status,
 				participants: tournament.participants,
-				game: tournament.game
+				starters: tournament.starters
 			}
 		}))
 		.catch(err => res.status(400).json({ msg: "Please choose a tournament type" }));
-});
-
-
-// @route 	UPDATE /tournaments/update/:id
-// @descrip	Change tournament status from Open to Closed and shuffle participants
-// @access	Private
-router.post('/update/:id', (req, res) => {
-	function shuffleParticipants(array) {
-		let currentIndex = array.length, temporaryValue, randomIndex;	
-		while(0 !== currentIndex) {
-			randomIndex = Math.floor(Math.random() * currentIndex);
-			currentIndex -= 1;	
-			temporaryValue = array[currentIndex];
-			array[currentIndex] = array[randomIndex];
-			array[randomIndex] = temporaryValue;
-		}	
-		return array;
-	};
-
-	Tournament.findById(req.params.id, (err, tournament) => {
-		if(!tournament) {
-			res.status(404).json({ msg: "This tournament does not exist" });
-		} else {
-			if(req.body.status) tournament.status = req.body.status;
-			const shuffledPlayers = shuffleParticipants(tournament.participants);
-			tournament.participants = shuffledPlayers;
-		}
-		tournament.save()
-			.then(() => res.json(tournament))
-			.catch(() => res.json(err));
-	});
 });
 
 
@@ -102,7 +71,25 @@ router.post('/:id', (req, res) => {
 		.catch(err => res.json(err));
 });
 
-	
+
+// @route 	UPDATE /tournaments/update/:id
+// @descrip	Change tournament status from Open to Closed and shuffle participants
+// @access	Private
+router.post('/update/:id', (req, res) => {
+	Tournament.findById(req.params.id, (err, tournament) => {
+		if(!tournament) {
+			res.status(404).json({ msg: "This tournament does not exist" });
+		} else {
+			if(req.body.status) tournament.status = req.body.status;
+			if(req.body.participants) tournament.participants = req.body.participants;
+		}
+		tournament.save()
+			.then(() => res.json(tournament))
+			.catch(() => res.json(err));
+	});
+});
+
+
 // @route		DELETE /tournaments/:id
 // @descrip DELETE
 // @access  Private

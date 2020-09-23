@@ -57,7 +57,7 @@ export const addTournament = tournament => (dispatch, getState) => {
 };
 
 
-export const updateTournamentStatus = (_id, status) => dispatch => {
+export const updateTournamentStatus = (_id, status, participants) => dispatch => {
 	const config = {
 		headers: {
 			"Content-Type": "application/json"
@@ -65,11 +65,26 @@ export const updateTournamentStatus = (_id, status) => dispatch => {
 	};
 	const body = JSON.stringify({ status });
 
+	function shuffleParticipants(array) {
+		let currentIndex = array.length, temporaryValue, randomIndex;	
+		while(0 !== currentIndex) {
+			randomIndex = Math.floor(Math.random() * currentIndex);
+			currentIndex -= 1;	
+			temporaryValue = array[currentIndex];
+			array[currentIndex] = array[randomIndex];
+			array[randomIndex] = temporaryValue;
+		}	
+		return array;
+	};
+
 	axios
 		.post(`/tournaments/update/${_id}`, body, config)
 		.then(() => dispatch({
 			type: TOURNAMENT_STATUS_UPDATE,
-			payload: status
+			payload: {
+				status: status,
+				participants: shuffleParticipants(participants)
+			}
 		}))
 		.catch(err => {
 			dispatch(returnErrors(err.response.data, err.response.status));
