@@ -24,9 +24,9 @@ class TournamentShow extends Component {
 		this.props.addParticipant(tournamentId, user);
 	};
 
-	onStartTournament(tourneyId) {
+	onStartTournament(tourneyId, players) {
 		const newStatus = "Closed";
-		this.props.updateTournamentStatus(tourneyId, newStatus);
+		this.props.updateTournamentStatus(tourneyId, newStatus, players);
 	};
 
 	render() {
@@ -69,7 +69,7 @@ class TournamentShow extends Component {
 						<div>
 							<StartTournament
 								participants={participants}
-								onClick={() => this.onStartTournament(_id)}
+								onClick={() => this.onStartTournament(_id, participants)}
 							/>
 						</div> :
 						null
@@ -77,7 +77,7 @@ class TournamentShow extends Component {
 	
 					<br/><Link to="/">Back to Tournaments main page</Link>
 				</div> :
-				<TournamentStartPage title={title} hostedBy={hostedBy} participants={participants} date={date} />
+				<TournamentStartPage />
 			}
 			</div>
 		)
