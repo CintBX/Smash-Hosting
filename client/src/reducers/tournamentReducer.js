@@ -8,15 +8,13 @@ import {
 	USER_JOINS_TOURNAMENT, 
 	TOURNAMENT_SIGN_UP_FAIL,
 	TOURNAMENT_STATUS_UPDATE,
-	TOURNAMENT_STATUS_FAILED
+	TOURNAMENT_STATUS_FAILED,
 } from '../actions/types';
 
 const initialState = {
 	tournaments: [],
 	showTournament: "",
 	loading: false,
-	participant: null,
-	status: null
 }
 
 export default function(state = initialState, action) {
@@ -57,25 +55,20 @@ export default function(state = initialState, action) {
 		case USER_JOINS_TOURNAMENT:
       return {
         ...state,
-				participant: state.showTournament.participants.push(action.payload)
+				...state.showTournament.participants.push(action.payload)
       };
 
-    case TOURNAMENT_SIGN_UP_FAIL:
-      return {
-        ...state,
-        participant: null
-      };
-
-		case TOURNAMENT_STATUS_UPDATE:
+    case TOURNAMENT_STATUS_UPDATE:
 			return {
 				...state,
-				status: state.showTournament.status = action.payload
+				...state.showTournament.participants = action.payload.participants,
+				...state.showTournament.status = action.payload.status
 			};
 
+		case TOURNAMENT_SIGN_UP_FAIL:
 		case TOURNAMENT_STATUS_FAILED:
 			return {
 				...state,
-				status: null
 			}
 
 		default:
