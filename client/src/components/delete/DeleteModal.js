@@ -27,7 +27,7 @@ export default class DeleteModal extends Component {
         }
         {
           this.props.page === "Player Directory" ?
-          <BsFillTrashFill className="delete-icon" color="white" size="1.2em" onClick={this.toggle} /> :
+          <BsFillTrashFill className="delete-icon" color="lightgrey" size="1.2em" onClick={this.toggle} /> :
           null
         }
         {
