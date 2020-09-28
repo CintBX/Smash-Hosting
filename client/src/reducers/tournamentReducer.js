@@ -15,9 +15,6 @@ const initialState = {
 	tournaments: [],
 	showTournament: "",
 	loading: false,
-	participant: null,
-	status: null,
-	shuffledParticipants: null,
 }
 
 export default function(state = initialState, action) {
@@ -58,27 +55,20 @@ export default function(state = initialState, action) {
 		case USER_JOINS_TOURNAMENT:
       return {
         ...state,
-				participant: state.showTournament.participants.push(action.payload)
+				...state.showTournament.participants.push(action.payload)
       };
 
-    case TOURNAMENT_SIGN_UP_FAIL:
-      return {
-        ...state,
-        participant: null
-      };
-
-		case TOURNAMENT_STATUS_UPDATE:
+    case TOURNAMENT_STATUS_UPDATE:
 			return {
 				...state,
-				status: state.showTournament.status = action.payload.status,
-				shuffledParticipants: state.showTournament.participants = action.payload.participants
+				...state.showTournament.participants = action.payload.participants,
+				...state.showTournament.status = action.payload.status
 			};
 
+		case TOURNAMENT_SIGN_UP_FAIL:
 		case TOURNAMENT_STATUS_FAILED:
 			return {
 				...state,
-				status: null,
-				shuffledParticipants: null
 			}
 
 		default:

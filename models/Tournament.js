@@ -22,10 +22,6 @@ const TournamentSchema = new Schema({
 	participants: {
 		type: Array,
 		required: false
-	},
-	starters: {
-		type: Array,
-		required: false
 	}
 });
 
