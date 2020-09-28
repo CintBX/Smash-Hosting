@@ -39,7 +39,7 @@ class PlayerProfile extends Component {
 				{
 					isAuthenticated && user.username === username ?
 					<h1 className="mb-3">
-						{username + " "} 
+						{ username } 
 						<DeleteModal 
 						page={"Player Profile"} 
 						title={"Delete your account"} 
