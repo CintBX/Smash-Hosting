@@ -57,44 +57,6 @@ export const addTournament = tournament => (dispatch, getState) => {
 };
 
 
-export const updateTournamentStatus = (_id, status, participants) => dispatch => {
-	const config = {
-		headers: {
-			"Content-Type": "application/json"
-		}
-	};
-	const body = JSON.stringify({ status });
-
-	function shuffleParticipants(array) {
-		let currentIndex = array.length, temporaryValue, randomIndex;	
-		while(0 !== currentIndex) {
-			randomIndex = Math.floor(Math.random() * currentIndex);
-			currentIndex -= 1;	
-			temporaryValue = array[currentIndex];
-			array[currentIndex] = array[randomIndex];
-			array[randomIndex] = temporaryValue;
-		}	
-		return array;
-	};
-
-	axios
-		.post(`/tournaments/update/${_id}`, body, config)
-		.then(() => dispatch({
-			type: TOURNAMENT_STATUS_UPDATE,
-			payload: {
-				status: status,
-				participants: shuffleParticipants(participants)
-			}
-		}))
-		.catch(err => {
-			dispatch(returnErrors(err.response.data, err.response.status));
-			dispatch({
-				type: TOURNAMENT_STATUS_FAILED
-			})
-		});
-};
-
-
 export const addParticipant = (_id, user) => dispatch => {
   const config = {
     headers: {
@@ -120,6 +82,32 @@ export const addParticipant = (_id, user) => dispatch => {
 };
 
 
+export const updateTournamentStatus = (_id, participants, status = "Closed") => dispatch => {
+	const config = {
+		headers: {
+			"Content-Type": "application/json"
+		}
+	};
+	const body = JSON.stringify({ participants, status });
+
+	axios
+		.post(`/tournaments/update/${_id}`, body, config)
+		.then(() => dispatch({
+			type: TOURNAMENT_STATUS_UPDATE,
+			payload: {
+				participants: shuffleParticipants(participants),
+				status: status,
+			}
+		}))
+		.catch(err => {
+			dispatch(returnErrors(err.response.data, err.response.status));
+			dispatch({
+				type: TOURNAMENT_STATUS_FAILED
+			})
+		});
+};
+
+
 export const deleteTournament = id => (dispatch, getState) => {
 	axios
 		.delete(`/tournaments/${id}`, tokenConfig(getState))
@@ -142,4 +130,17 @@ export const singleTourneyLoading = () => {
 	return {
 		type: TOURNAMENT_LOADING
 	};
+};
+
+
+export const shuffleParticipants = array => {
+	let currentIndex = array.length, temporaryValue, randomIndex;	
+	while(0 !== currentIndex) {
+		randomIndex = Math.floor(Math.random() * currentIndex);
+		currentIndex -= 1;	
+		temporaryValue = array[currentIndex];
+		array[currentIndex] = array[randomIndex];
+		array[randomIndex] = temporaryValue;
+	}	
+	return array;
 };

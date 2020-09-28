@@ -73,20 +73,24 @@ router.post('/:id', (req, res) => {
 
 
 // @route 	UPDATE /tournaments/update/:id
-// @descrip	Change tournament status from Open to Closed and shuffle participants
+// @descrip	Close tournaments and shuffle participants
 // @access	Private
 router.post('/update/:id', (req, res) => {
-	Tournament.findById(req.params.id, (err, tournament) => {
-		if(!tournament) {
-			res.status(404).json({ msg: "This tournament does not exist" });
-		} else {
-			if(req.body.status) tournament.status = req.body.status;
-			if(req.body.participants) tournament.participants = req.body.participants;
-		}
-		tournament.save()
-			.then(() => res.json(tournament))
-			.catch(() => res.json(err));
-	});
+	Tournament.findById(req.params.id)
+		.then(tournament => {
+			if(!tournament) res.status(404).json({ msg: "Cannot find this tournament" });
+			else {
+				if(req.body.participants && req.body.status) {
+					tournament.participants = req.body.participants;
+					tournament.status = req.body.status;
+				} else {
+					return res.status(404).json({ msg: "Both status and participants are required" });
+				}
+			};
+			return tournament.save();
+		})
+		.then(savedTournament => res.json(savedTournament))
+		.catch(err => res.json(err));
 });
 
 

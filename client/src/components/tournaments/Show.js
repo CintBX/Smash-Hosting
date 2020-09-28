@@ -24,9 +24,8 @@ class TournamentShow extends Component {
 		this.props.addParticipant(tournamentId, user);
 	};
 
-	onStartTournament(tourneyId, players) {
-		const newStatus = "Closed";
-		this.props.updateTournamentStatus(tourneyId, newStatus, players);
+	onStartTournament(tourneyId, tourneyParticipants) {
+		this.props.updateTournamentStatus(tourneyId, tourneyParticipants);
 	};
 
 	render() {
