@@ -45,41 +45,15 @@ router.post('/new', authorize, (req, res) => {
 				title: tournament.title,
 				hostedBy: tournament.hostedBy,
 				status: tournament.status,
-				participants: tournament.participants
+				participants: tournament.participants,
+				starters: tournament.starters
 			}
 		}))
 		.catch(err => res.status(400).json({ msg: "Please choose a tournament type" }));
 });
 
 
-// @route 	UPDATE /tournaments/update/:id
-// @descrip	Update tournament status
-// @access	Private
-router.post('/update/:id', (req, res) => {
-	Tournament.findById(req.params.id, (err, tournament) => {
-		if(!tournament) {
-			res.status(404).json({ msg: "This tournament does not exist" });
-		} else {
-			if(req.body.status) tournament.status = req.body.status;
-		}
-		tournament.save()
-			.then(() => res.json(tournament))
-			.catch(() => res.json(err));
-	});
-});
-
-
-// @route		DELETE /tournaments/:id
-// @descrip DELETE
-// @access  Private
-router.delete('/:id', authorize, (req, res) => {
-	Tournament.findById(req.params.id)
-		.then(tournament => tournament.remove().then(() => res.json({ success: true })))
-		.catch(err => res.status(404).json(err));
-});
-
-
-// @route		POST /tournaments/:id
+// @route		UPDATE /tournaments/:id
 // @descrip	Add User to Tournament.participants array / User sign up
 // @access	Private(There must be a user to sign up)
 // NOTE: `authorize` doesn't work for some reason.  May be ok, investigate later
@@ -93,11 +67,41 @@ router.post('/:id', (req, res) => {
 			}
 			return tournament.save();
 		})
-		.then(savedTournament => {
-			return res.json(savedTournament);
-		})
+		.then(savedTournament => res.json(savedTournament))
 		.catch(err => res.json(err));
-	});
-	
-	
-	module.exports = router;
+});
+
+
+// @route 	UPDATE /tournaments/update/:id
+// @descrip	Close tournaments and shuffle participants
+// @access	Private
+router.post('/update/:id', (req, res) => {
+	Tournament.findById(req.params.id)
+		.then(tournament => {
+			if(!tournament) res.status(404).json({ msg: "Cannot find this tournament" });
+			else {
+				if(req.body.participants && req.body.status) {
+					tournament.participants = req.body.participants;
+					tournament.status = req.body.status;
+				} else {
+					return res.status(404).json({ msg: "Both status and participants are required" });
+				}
+			};
+			return tournament.save();
+		})
+		.then(savedTournament => res.json(savedTournament))
+		.catch(err => res.json(err));
+});
+
+
+// @route		DELETE /tournaments/:id
+// @descrip DELETE
+// @access  Private
+router.delete('/:id', authorize, (req, res) => {
+	Tournament.findById(req.params.id)
+		.then(tournament => tournament.remove().then(() => res.json({ success: true })))
+		.catch(err => res.status(404).json(err));
+});
+
+
+module.exports = router;

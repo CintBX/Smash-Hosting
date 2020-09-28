@@ -8,11 +8,12 @@ import {
 	USER_JOINS_TOURNAMENT, 
 	TOURNAMENT_SIGN_UP_FAIL,
 	TOURNAMENT_STATUS_UPDATE,
-	TOURNAMENT_STATUS_FAILED
+	TOURNAMENT_STATUS_FAILED,
 } from './types';
 import axios from 'axios';
 import { tokenConfig } from './authActions';
 import { returnErrors } from './errorActions';
+
 
 export const getTournaments = () => dispatch => {
 	dispatch(setTourneysLoading());	
@@ -25,6 +26,7 @@ export const getTournaments = () => dispatch => {
 		.catch(err => dispatch(returnErrors(err.response.data, err.response.status)));
 };
 
+
 export const showTournament = id => dispatch => {
 	dispatch(singleTourneyLoading());	
 	axios
@@ -35,6 +37,7 @@ export const showTournament = id => dispatch => {
 		}))
 		.catch(err => dispatch(returnErrors(err.response.data, err.response.status)));
 };
+
 
 export const addTournament = tournament => (dispatch, getState) => {
 	axios
@@ -53,37 +56,6 @@ export const addTournament = tournament => (dispatch, getState) => {
 		}));
 };
 
-export const updateTournamentStatus = (_id, status) => dispatch => {
-	const config = {
-		headers: {
-			"Content-Type": "application/json"
-		}
-	};
-	const body = JSON.stringify({ status });
-
-	axios
-		.post(`/tournaments/update/${_id}`, body, config)
-		.then(() => dispatch({
-			type: TOURNAMENT_STATUS_UPDATE,
-			payload: status
-		}))
-		.catch(err => {
-			dispatch(returnErrors(err.response.data, err.response.status));
-			dispatch({
-				type: TOURNAMENT_STATUS_FAILED
-			})
-		});
-};
-
-export const deleteTournament = id => (dispatch, getState) => {
-	axios
-		.delete(`/tournaments/${id}`, tokenConfig(getState))
-		.then(res => dispatch({
-			type: DELETE_TOURNAMENT,
-			payload: id
-		}))
-		.catch(err => dispatch(returnErrors(err.response.data, err.response.status)));
-};
 
 export const addParticipant = (_id, user) => dispatch => {
   const config = {
@@ -109,14 +81,66 @@ export const addParticipant = (_id, user) => dispatch => {
 		showTournament(_id);
 };
 
+
+export const updateTournamentStatus = (_id, participants, status = "Closed") => dispatch => {
+	const config = {
+		headers: {
+			"Content-Type": "application/json"
+		}
+	};
+	const body = JSON.stringify({ participants, status });
+
+	axios
+		.post(`/tournaments/update/${_id}`, body, config)
+		.then(() => dispatch({
+			type: TOURNAMENT_STATUS_UPDATE,
+			payload: {
+				participants: shuffleParticipants(participants),
+				status: status,
+			}
+		}))
+		.catch(err => {
+			dispatch(returnErrors(err.response.data, err.response.status));
+			dispatch({
+				type: TOURNAMENT_STATUS_FAILED
+			})
+		});
+};
+
+
+export const deleteTournament = id => (dispatch, getState) => {
+	axios
+		.delete(`/tournaments/${id}`, tokenConfig(getState))
+		.then(res => dispatch({
+			type: DELETE_TOURNAMENT,
+			payload: id
+		}))
+		.catch(err => dispatch(returnErrors(err.response.data, err.response.status)));
+};
+
+
 export const setTourneysLoading = () => {
 	return {
 		type: TOURNAMENTS_LOADING
 	};
 };
 
+
 export const singleTourneyLoading = () => {
 	return {
 		type: TOURNAMENT_LOADING
 	};
+};
+
+
+export const shuffleParticipants = array => {
+	let currentIndex = array.length, temporaryValue, randomIndex;	
+	while(0 !== currentIndex) {
+		randomIndex = Math.floor(Math.random() * currentIndex);
+		currentIndex -= 1;	
+		temporaryValue = array[currentIndex];
+		array[currentIndex] = array[randomIndex];
+		array[randomIndex] = temporaryValue;
+	}	
+	return array;
 };
