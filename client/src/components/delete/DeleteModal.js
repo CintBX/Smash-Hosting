@@ -22,7 +22,10 @@ export default class DeleteModal extends Component {
       <Fragment>
         { 
           this.props.page === "Player Profile" ? 
-          <BsFillTrashFill className="delete-icon" color="yellow" size="0.5em" onClick={this.toggle} /> :
+          // <BsFillTrashFill className="delete-icon" color="yellow" size="0.5em" onClick={this.toggle} /> :
+          <Button outline color="warning" onClick={this.toggle}>
+            Delete Account
+          </Button> :
           null 
         }
         {

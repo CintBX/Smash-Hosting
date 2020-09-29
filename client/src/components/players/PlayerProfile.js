@@ -33,21 +33,8 @@ class PlayerProfile extends Component {
 		const { isAuthenticated, user } = this.props.auth;
 
 		return (
-			<div className="text-center" style={{color: "#56A8CBFF"}}>
-				{/* <h1 className="mb-3">{username}</h1> */}
-
-				{
-					isAuthenticated && user.username === username ?
-					<h1 className="mb-3">
-						{ username } 
-						<DeleteModal 
-						page={"Player Profile"} 
-						title={"Delete your account"} 
-						onClick={this.onDelete.bind(this, user._id)} 
-						/>
-					</h1> :
-					<h1 className="mb-3">{username}</h1>
-				}
+			<div className="text-center mb-5" style={{color: "#56A8CBFF"}}>
+				<h1>{ username }</h1><hr />
 
 				<h4>
 					Plays: { main && secondary ? main + ", " + secondary : main || secondary || "No characters selected" }
@@ -55,11 +42,23 @@ class PlayerProfile extends Component {
 				<h5>Code: {friendCode}</h5>
 				<h5>Member since {moment(date).format("dddd, MMMM Do YYYY")}</h5>
 				
-				<br/><hr/>
+				<br/><br/>
+				<span>
+					<h2>History</h2>
+					<h5>Tounaments Participated in: {tournamentsPlayed}</h5>
+					<h5>Tournaments won: {tournamentWins}</h5>
+					<h5>Matches won: {matchWins}</h5><br />
+				</span>
 
-				<h5 className="mt-3">Tounaments Participated in: {tournamentsPlayed}</h5>
-				<h5>Tournaments won: {tournamentWins}</h5>
-				<h5>Matches won: {matchWins}</h5><br />
+				{
+					isAuthenticated && user.username === username ?
+					<DeleteModal 
+						page={"Player Profile"} 
+						title={"Delete your account"} 
+						onClick={this.onDelete.bind(this, user._id)} 
+					/> :
+					null
+				}
 			</div>
 		)
 	}
