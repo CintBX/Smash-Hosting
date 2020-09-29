@@ -36,17 +36,18 @@ class TournamentShow extends Component {
 			<div>
 			{
 				status === "Open" ?
-				<div>
-					<h1>{ title }</h1>
+				<div style={{color: "#DA291CFF"}}>
+					<h1 className="text-center">{ title } <span style={{fontSize: "0.5em"}}>by { hostedBy }</span></h1>
 					<h3> <TournamentDescription key={_id} title={ title } /> </h3>
-					<p>Hosted by: { hostedBy }</p>
-					<p>status: { status }</p>
+					<p>{ status } for registration</p>
 	
-					<p>{participants.length} Registered Fighters</p>
+					<h4 className="text-left mt-5">
+						{participants.length == 1 ? `${participants.length} Registered Fighter` : `${participants.length} Registered Fighters`}
+					</h4>
 					<ul>
 						{
 							participants && participants.map(participant => (
-								<li key={participant._id}>{participant.username}</li>
+								<li key={participant._id} className="text-left" style={{fontSize: "1.1em"}}>{participant.username}</li>
 							))
 						}
 					</ul>
@@ -74,10 +75,11 @@ class TournamentShow extends Component {
 						null
 					}
 	
-					<br/><Link to="/">Back to Tournaments main page</Link>
+					<br/>
 				</div> :
 				<TournamentStartPage />
 			}
+			<br /><Link to="/">Back to Tournaments main page</Link>
 			</div>
 		)
 	}
