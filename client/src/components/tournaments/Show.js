@@ -36,10 +36,11 @@ class TournamentShow extends Component {
 			<div>
 			{
 				status === "Open" ?
-				<div style={{color: "#DA291CFF"}}>
+				<div style={{color: "lightgrey"}}>
 					<h1 className="text-center">{ title } <span style={{fontSize: "0.5em"}}>by { hostedBy }</span></h1>
-					<h3> <TournamentDescription key={_id} title={ title } /> </h3>
-					<p>{ status } for registration</p>
+					<h3> <TournamentDescription key={_id} title={ title } /> </h3><br />
+
+					<p className="text-center" style={{color: "#56A8CBFF", fontSize: "2em"}}>~ { status } for registration ~</p>
 	
 					<h4 className="text-left mt-5">
 						{participants.length == 1 ? `${participants.length} Registered Fighter` : `${participants.length} Registered Fighters`}
@@ -74,8 +75,6 @@ class TournamentShow extends Component {
 						</div> :
 						null
 					}
-	
-					<br/>
 				</div> :
 				<TournamentStartPage />
 			}
