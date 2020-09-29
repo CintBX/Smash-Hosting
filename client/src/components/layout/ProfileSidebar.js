@@ -10,7 +10,7 @@ import NewTournament from '../tournaments/New';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import SidebarImage from './SidebarImage';
-import smashultimate3 from '../../img/smashultimate3.jpg';
+import smashDefaultImage from '../../img/smashultimate1.jpg';
 import RuleSets from './RuleSets';
 import UpdateDetailsModal from '../auth/UpdateDetailsModal';
 
@@ -45,7 +45,7 @@ class ProfileSidebar extends Component {
 					{
 						isAuthenticated && user.main ?
 						<SidebarImage main={ user.main } /> :
-						<img width="100%" src={ smashultimate3 } alt="default" />
+						<img width="100%" src={ smashDefaultImage } alt="default" />
 					}
 
 					<CardBody>
