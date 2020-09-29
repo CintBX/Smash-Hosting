@@ -51,7 +51,9 @@ class PlayerDirectory extends Component {
 		
 		return (
 			<div>
-				{/* <h1 style={{color: "white"}}>Registered Fighters ({players.length})</h1><br/> */}
+				<h1 style={{color: "lightgrey"}}>
+					{ players.length == 1 ? `${players.length} Member` : `${players.length} Members` }
+				</h1><br/>
 				{
 					players.map(({ _id, username, main, secondary, friendCode }) => {
 						return (
