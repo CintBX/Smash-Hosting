@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const config = require('config');
 const cors = require('cors');
+const path = require('path');
 
 
 // Middleware
@@ -34,6 +35,7 @@ app.use('/tournaments', tournaments);
 app.use('/users', users);
 
 
+// For Heroku deployment
 if(process.env.NODE_ENV === 'production') {
 	app.use(express.static(path.join(__dirname, 'client', 'build')));
 
