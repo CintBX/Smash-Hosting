@@ -28,6 +28,7 @@
     "moment": "^2.26.0",
     "mongoose": "^5.7.12",
     "nodemon": "^1.19.4",
+    "path": "^0.12.7",
     "react-icons": "^3.10.0",
     "react-tournament-bracket": "^0.2.4"
   },
