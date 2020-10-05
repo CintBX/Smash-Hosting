@@ -139,41 +139,9 @@ router.post('/user/:id', (req, res) => {
 		if(!user) {
 			res.status(404).json("User not found")
 		} else {
-			// Prevent blank submissions from changing the data
-			// (All combinations of potential field entries)
-			if(!req.body.main && !req.body.secondary && !req.body.friendCode) {
-				user.main != req.body.main;
-				user.secondary != req.body.secondary;
-				user.friendCode != req.body.friendCode;
-			} else if(req.body.main && !req.body.secondary && !req.body.friendCode) {
-				user.main = req.body.main;
-				user.secondary != req.body.secondary;
-				user.friendCode != req.body.friendCode;
-			}	else if(!req.body.main && req.body.secondary && !req.body.friendCode) {
-				user.main != req.body.main;
-				user.secondary = req.body.secondary;
-				user.friendCode != req.body.friendCode;
-			} else if (!req.body.main && !req.body.secondary && req.body.friendCode) {
-				user.main != req.body.main;
-				user.secondary != req.body.secondary;
-				user.friendCode = req.body.friendCode;
-			} else if(req.body.main && req.body.secondary && !req.body.friendCode) {
-				user.main = req.body.main;
-				user.secondary = req.body.secondary;
-				user.friendCode != req.body.friendCode;
-			} else if(req.body.main && !req.body.secondary && req.body.friendCode) {
-				user.main = req.body.main;
-				user.secondary != req.body.secondary;
-				user.friendCode = req.body.friendCode;
-			} else if(!req.body.main && req.body.secondary && req.body.friendCode) {
-				user.main != req.body.main;
-				user.secondary = req.body.secondary;
-				user.friendCode = req.body.friendCode;
-			} else {
-				user.main = req.body.main;
-				user.secondary = req.body.secondary;
-				user.friendCode = req.body.friendCode;
-			}
+			if(req.body.main) user.main = req.body.main;
+			if(req.body.secondary) user.secondary = req.body.secondary;
+			if(req.body.friendCode) user.friendCode = req.body.friendCode;
 		}
 		user.save()
 			.then(() => res.json(user))
