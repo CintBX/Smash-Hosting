@@ -53,7 +53,7 @@ export const fullRoster = [
 	{ src: require('../img/roster/megaman.riff'), name: 'Mega Man' },
 	{ src: require('../img/roster/metaknight.riff'), name: 'Meta Knight' },
 	{ src: require('../img/roster/mewtwo.riff'), name: 'Mewtwo' },
-	{ src: require('../img/roster/miifighter.riff'), name: 'Mii Brawler' },
+	{ src: require('../img/roster/miibrawler.riff'), name: 'Mii Brawler' },
 	{ src: require('../img/roster/miigunner.riff'), name: 'Mii Gunner' },
 	{ src: require('../img/roster/miiswordfighter.riff'), name: 'Mii Swordfighter' },
 	{ src: require('../img/roster/minmin.riff'), name: "Min Min" },
@@ -74,7 +74,7 @@ export const fullRoster = [
 	{ src: require('../img/roster/random.png'), name: 'Random' },
 	{ src: require('../img/roster/richter.riff'), name: 'Richter' },
 	{ src: require('../img/roster/ridley.riff'), name: 'Ridley' },
-	{ src: require('../img/roster/ROB.riff'), name: 'R.O.B.' },
+	{ src: require('../img/roster/rob.riff'), name: 'R.O.B.' },
 	{ src: require('../img/roster/robin.riff'), name: 'Robin' },
 	{ src: require('../img/roster/rosalina.riff'), name: 'Rosalina' },
 	{ src: require('../img/roster/roy.riff'), name: 'Roy' },
@@ -101,5 +101,5 @@ export const fullRoster = [
 	{ src: require('../img/roster/younglink.riff'), name: 'Young Link' },
 
 	{ src: require('../img/roster/zelda.riff'), name: 'Zelda' },
-	{ src: require('../img/roster/zerosuit.riff'), name: 'Zero Suit Samus' }
+	{ src: require('../img/roster/zerosuitsamus.riff'), name: 'Zero Suit Samus' }
 ];
