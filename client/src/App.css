@@ -17,6 +17,9 @@ body {
 	background-position: 40% 91%;
 	font-family: 'Open Sans', sans-serif;
 }
+.container {
+	width: 100%;
+}
 
 
 /* 
