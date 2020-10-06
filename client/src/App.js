@@ -29,11 +29,11 @@ export default class App extends Component{
           <NavigationBar />
           <Container>
             <Row>
-              <Col lg="4">
+              <Col lg="5">
                 <ProfileSidebar />
               </Col>
             
-              <Col lg="8">
+              <Col lg="7">
                 <Switch>
                   <Route exact path="/" component={TournamentIndex} />
                   <Route path="/tournaments/:id" component={TournamentShow} />
