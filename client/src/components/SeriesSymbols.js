@@ -1,5 +1,5 @@
 export const seriesSymbols = [
-	{ src: require('../img/symbols/AARMS.png'), characters: ['Min Min'] },
+	// { src: require('../img/symbols/AARMS.png'), characters: ['Min Min'] },
 
 	{ src: require('../img/symbols/AnimalCrossing.png'), characters: ['Isabelle', 'Villager'] },
 	
@@ -41,7 +41,7 @@ export const seriesSymbols = [
 	
 	{ src: require('../img/symbols/Metroid.png'), characters: ['Dark Samus', 'Ridley', 'Samus', 'Zero Suit Samus'] },
 
-	{ src: require('../img/symbols/Minecraft.png'), characters: ['Steve'] },
+	// { src: require('../img/symbols/Minecraft.png'), characters: ['Steve'] },
 
 	{ src: require('../img/symbols/PacMan.png'), characters: ['Pac-Man'] },
 

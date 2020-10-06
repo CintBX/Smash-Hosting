@@ -3,7 +3,7 @@ export const fullRoster = [
 	{ src: require('../img/roster/bayonetta.jpg'), name: 'Bayonetta' },
 	{ src: require('../img/roster/bowser.jpg'	), name: 'Bowser' },
 	{ src: require('../img/roster/bowserjr.jpg'), name: 'Bowser Jr.' },
-	{ src: require('../img/roster/byleth.jpg'), name: 'Byleth' },
+	// { src: require('../img/roster/byleth.jpg'), name: 'Byleth' },
 
 	{ src: require('../img/roster/captainfalcon.jpg'), name: 'Captain Falcon' },
 	{ src: require('../img/roster/chrom.jpg'), name: 'Chrom' },
@@ -53,10 +53,10 @@ export const fullRoster = [
 	{ src: require('../img/roster/megaman.jpg'), name: 'Mega Man' },
 	{ src: require('../img/roster/metaknight.jpg'), name: 'Meta Knight' },
 	{ src: require('../img/roster/mewtwo.jpg'), name: 'Mewtwo' },
-	{ src: require('../img/roster/miifighter.jpg'), name: 'Mii Brawler' },
-	{ src: require('../img/roster/miigunner.jpg'), name: 'Mii Gunner' },
-	{ src: require('../img/roster/miiswordfighter.jpg'), name: 'Mii Swordfighter' },
-	{ src: require('../img/roster/minmin.jpg'), name: "Min Min" },
+	// { src: require('../img/roster/miifighter.jpg'), name: 'Mii Brawler' },
+	// { src: require('../img/roster/miigunner.jpg'), name: 'Mii Gunner' },
+	// { src: require('../img/roster/miiswordfighter.jpg'), name: 'Mii Swordfighter' },
+	// { src: require('../img/roster/minmin.jpg'), name: "Min Min" },
 
 	{ src: require('../img/roster/ness.jpg'), name: 'Ness' },
 
@@ -69,9 +69,9 @@ export const fullRoster = [
 	{ src: require('../img/roster/pikachu.jpg'), name: 'Pikachu' },
 	{ src: require('../img/roster/piranhaplant.jpg'), name: 'Piranha Plant' },
 	{ src: require('../img/roster/pit.jpg'), name: 'Pit' },
-	{ src: require('../img/roster/pokemontrainer.jpg'), name: 'Pokemon Trainer' },
+	{ src: require('../img/roster/pokemontrainer.riff'), name: 'Pokemon Trainer' },
 
-	{ src: require('../img/roster/random.jpg'), name: 'Random' },
+	// { src: require('../img/roster/random.jpg'), name: 'Random' },
 	{ src: require('../img/roster/richter.jpg'), name: 'Richter' },
 	{ src: require('../img/roster/ridley.jpg'), name: 'Ridley' },
 	{ src: require('../img/roster/ROB.jpg'), name: 'R.O.B.' },
@@ -86,7 +86,7 @@ export const fullRoster = [
 	{ src: require('../img/roster/simon.jpg'), name: 'Simon' },
 	{ src: require('../img/roster/snake.jpg'), name: 'Snake' },
 	{ src: require('../img/roster/sonic.jpg'), name: 'Sonic' },
-	{ src: require('../img/roster/steve.jpg'), name: 'Steve' },
+	// { src: require('../img/roster/steve.jpg'), name: 'Steve' },
 
 	{ src: require('../img/roster/terry.jpg'), name: 'Terry' },
 	{ src: require('../img/roster/toonlink.jpg'), name: 'Toon Link' },
