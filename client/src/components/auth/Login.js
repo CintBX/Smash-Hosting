@@ -15,7 +15,7 @@ import PropTypes from 'prop-types';
 import { login } from '../../actions/authActions';
 import { clearErrors } from '../../actions/errorActions';
 
-class LoginModal extends Component {
+class LoginScreen extends Component {
 	constructor(props) {
 		super(props);
 		this.toggle = this.toggle.bind(this);
@@ -134,4 +134,4 @@ const mapStateToProps = state => ({
 	error: state.error
 });
 
-export default connect(mapStateToProps, { login, clearErrors })(LoginModal);
+export default connect(mapStateToProps, { login, clearErrors })(LoginScreen);
