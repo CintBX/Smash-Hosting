@@ -104,7 +104,7 @@ class RegisterModal extends Component {
 					Register
 				</NavLink>
 
-				<Modal isOpen={this.state.modal} toggle={this.toggle}>
+				<Modal isOpen={this.state.modal} toggle={this.toggle} autoFocus={false}>
 					<ModalHeader toggle={this.toggle}>Create Your Account</ModalHeader>
 					<ModalBody>
 						{ this.state.msg ? <Alert color="danger">{ this.state.msg }</Alert> : null }
@@ -117,7 +117,7 @@ class RegisterModal extends Component {
 									id="username"
 									className="mb-3"
 									placeholder="Username (case-sensitive)"
-									autofocus="autofocus"
+									autoFocus
 									onChange={this.onChange}
 								/>
 
