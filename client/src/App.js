@@ -28,12 +28,12 @@ export default class App extends Component{
         <Router>
           <NavigationBar />
           <Container>
-            <Row>
-              <Col xs="auto" sm="5" md="5" lg="5">
+            <Row className="justify-content-sm-center justify-content-md-center">
+              <Col sm="7" md="7" lg="5" xl="5">
                 <ProfileSidebar />
               </Col>
             
-              <Col xs="auto" sm="7" md="7" lg="7">
+              <Col sm="7" md="7" lg="7" xl="7">
                 <Switch>
                   <Route exact path="/" component={TournamentIndex} />
                   <Route path="/tournaments/:id" component={TournamentShow} />
