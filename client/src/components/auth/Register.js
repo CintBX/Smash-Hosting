@@ -20,7 +20,7 @@ import { fullRoster } from '../Characters';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 
-class RegisterModal extends Component {
+class RegisterScreen extends Component {
 	constructor(props) {
 		super(props);
 		this.toggle = this.toggle.bind(this);
@@ -209,4 +209,4 @@ const mapStateToProps = state => ({
 	error: state.error
 });
 
-export default connect(mapStateToProps, { register, clearErrors })(RegisterModal);
+export default connect(mapStateToProps, { register, clearErrors })(RegisterScreen);
