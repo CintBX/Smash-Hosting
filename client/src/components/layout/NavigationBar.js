@@ -10,8 +10,8 @@ import {
 	Container
 } from 'reactstrap';
 import logo from '../../logo.svg.png';
-import RegisterScreen from '../auth/Register';
-import LoginScreen from '../auth/Login';
+import RegisterModal from '../auth/Register';
+import LoginModal from '../auth/Login';
 import Logout from '../auth/Logout';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -58,10 +58,10 @@ class NavigationBar extends Component {
 		const guestLinks = (
 			<Fragment>
 				<NavItem className="ml-1">
-					<RegisterScreen />
+					<RegisterModal />
 				</NavItem>
 				<NavItem className="ml-1">
-					<LoginScreen />
+					<LoginModal />
 				</NavItem>
 			</Fragment>
 		);
