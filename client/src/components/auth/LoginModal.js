@@ -6,7 +6,6 @@ import {
 	ModalBody,
 	Form,
 	FormGroup,
-	Label,
 	Input,
 	NavLink,
 	Alert

@@ -5,6 +5,8 @@ function DirectoryImage(props) {
   return seriesSymbols.map(({ src, characters }) => {
     if(characters.includes(props.main)) {
       return <img width="100%" src={src} alt="series symbol" />
+    } else {
+      return null;
     };
   });
 };

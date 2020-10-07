@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { showPlayer } from '../../actions/playerActions';
 import { deleteAccount } from '../../actions/authActions';
 import moment from 'moment';
-import { Jumbotron } from 'reactstrap';
 import DeleteModal from '../delete/DeleteModal';
 
 class PlayerProfile extends Component {

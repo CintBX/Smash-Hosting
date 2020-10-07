@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Media } from 'reactstrap';
@@ -52,7 +52,7 @@ class PlayerDirectory extends Component {
 		return (
 			<div>
 				<h1 style={{color: "lightgrey"}}>
-					{ players.length == 1 ? `${players.length} Member` : `${players.length} Members` }
+					{ players.length === 1 ? `${players.length} Member` : `${players.length} Members` }
 				</h1><br/>
 				{
 					players.map(({ _id, username, main, secondary, friendCode }) => {

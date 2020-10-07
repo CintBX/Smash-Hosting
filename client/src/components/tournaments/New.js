@@ -8,8 +8,6 @@ import {
 	Button,
 	Label,
 	Input,
-	InputGroup,
-	InputGroupAddon,
 	Alert
 } from 'reactstrap';
 import PropTypes from 'prop-types';

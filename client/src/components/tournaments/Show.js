@@ -29,7 +29,7 @@ class TournamentShow extends Component {
 	};
 
 	render() {
-		const { _id, title, hostedBy, status, participants, date } = this.props.tournament.showTournament;
+		const { _id, title, hostedBy, status, participants } = this.props.tournament.showTournament;
 		const { isAuthenticated, user } = this.props.auth;
 
 		return (
@@ -43,7 +43,7 @@ class TournamentShow extends Component {
 					<p className="text-center" style={{color: "#56A8CBFF", fontSize: "2em"}}>~ { status } for registration ~</p>
 	
 					<h4 className="text-left mt-5">
-						{participants.length == 1 ? `${participants.length} Registered Fighter` : `${participants.length} Registered Fighters`}
+						{participants.length === 1 ? `${participants.length} Registered Fighter` : `${participants.length} Registered Fighters`}
 					</h4>
 					<ul>
 						{
