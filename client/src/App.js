@@ -12,8 +12,6 @@ import TournamentShow from './components/tournaments/Show';
 import PlayerProfile from './components/players/PlayerProfile';
 import PlayerDirectory from './components/players/PlayerDirectory';
 import SmashNews from './components/news/SmashNews';
-import RegisterScreen from './components/auth/Register';
-import LoginScreen from './components/auth/Login';
 import { loadUser } from './actions/authActions';
 
 export default class App extends Component{
@@ -39,8 +37,6 @@ export default class App extends Component{
                   <Route path="/players" component={PlayerDirectory} />
                   <Route path="/player/:id" component={PlayerProfile} />
                   <Route path="/smash-news" component={SmashNews} />
-                  <Route path="/register" component={RegisterScreen} />
-                  <Route path="/login" component={LoginScreen} />
                 </Switch>
               </Col>
             </Row>
