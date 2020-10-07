@@ -73,14 +73,11 @@ class LoginModal extends Component {
 
 	onSubmit(e) {
 		e.preventDefault();
-
 		const { username, password } = this.state;
-
 		const user = {
 			username,
 			password
 		};
-
 		this.props.login(user);
 	}
 
@@ -90,7 +87,7 @@ class LoginModal extends Component {
 				<NavLink onClick={this.toggle} href="#">
 					Login
 				</NavLink>
-				<Modal isOpen={this.state.modal} toggle={this.toggle}>
+				<Modal isOpen={this.state.modal} toggle={this.toggle} autoFocus={false}>
 					<ModalHeader toggle={this.toggle} className="text-center">Login</ModalHeader>
 
 					<ModalBody>
@@ -104,8 +101,8 @@ class LoginModal extends Component {
 									id="username"
 									className="mb-3"
 									placeholder="Username"
-									autofocus="autofocus"
 									onChange={this.onChange}
+									autoFocus
 								/>
 
 								<Input
