@@ -21,6 +21,7 @@ class NavigationBar extends Component {
 	constructor(props) {
 		super(props);
 		this.toggle = this.toggle.bind(this);
+		this.closeMenu = this.closeMenu.bind(this);
 		this.onShowPlayer = this.onShowPlayer.bind(this);
 		this.state = {
 			isOpen: false,
@@ -39,6 +40,12 @@ class NavigationBar extends Component {
 		});
 	};
 
+	closeMenu() {
+		this.setState({
+			isOpen: false
+		});
+	};
+
 	onShowPlayer(userId) {
 		this.props.getPlayers();
 		this.props.showPlayer(userId);
@@ -49,7 +56,7 @@ class NavigationBar extends Component {
 
 		const authLinks = (
 			<Fragment>
-				<NavItem className="ml-1">
+				<NavItem className="ml-1" onClick={this.closeMenu}>
 					<Logout />
 				</NavItem>
 			</Fragment>
@@ -57,10 +64,10 @@ class NavigationBar extends Component {
 
 		const guestLinks = (
 			<Fragment>
-				<NavItem className="ml-1">
+				<NavItem className="ml-1" onClick={this.closeMenu}>
 					<RegisterModal />
 				</NavItem>
-				<NavItem className="ml-1">
+				<NavItem className="ml-1" onClick={this.closeMenu}>
 					<LoginModal />
 				</NavItem>
 			</Fragment>
