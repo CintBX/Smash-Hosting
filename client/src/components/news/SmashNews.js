@@ -17,8 +17,8 @@ export default class SmashNews extends Component {
 								<p className="lead">The official website for Super Smash Bros. Ultimate</p>
 							</div>
 							<div className="bg-light shadow-sm mx-auto" style={{width: '90%', height: '300px', borderRadius: '21px 21px 0 0'}}>
-								<a href="https://www.smashbros.com/en_US/index.html" target="_blank">
-									<img src={ SmashMain } style={{ width: '100%', height: '100%' }} />
+								<a href="https://www.smashbros.com/en_US/index.html" target="_blank" rel="noopener noreferrer">
+									<img src={ SmashMain } style={{ width: '100%', height: '100%' }} alt="smash ultimate main page" />
 								</a>
 							</div>
 						</div>
@@ -31,8 +31,8 @@ export default class SmashNews extends Component {
 								<p className="lead">Click here for news on the latest DLC</p>
 							</div>
 							<div className="bg-light shadow-sm mx-auto" style={{width: '90%', height: '300px', borderRadius: '21px 21px 0 0'}}>
-								<a href="https://smashbros.nintendo.com/buy/dlc/" target="_blank">
-									<img src={ DLCnews } style={{ width: '100%', height: '100%' }} />
+								<a href="https://smashbros.nintendo.com/buy/dlc/" target="_blank" rel="noopener noreferrer">
+									<img src={ DLCnews } style={{ width: '100%', height: '100%' }} alt="DLC news" />
 								</a>
 							</div>
 						</div>
@@ -45,8 +45,8 @@ export default class SmashNews extends Component {
 								<p className="lead">All changes to your favorite characters and more</p>
 							</div>
 							<div className="bg-light shadow-sm mx-auto" style={{width: '90%', height: '300px', borderRadius: '21px 21px 0 0'}}>
-								<a href="https://en-americas-support.nintendo.com/app/answers/detail/a_id/49877" target="_blank">
-									<img src={ PatchNotes } style={{ width: '100%', height: '100%' }} />
+								<a href="https://en-americas-support.nintendo.com/app/answers/detail/a_id/49877" target="_blank" rel="noopener noreferrer">
+									<img src={ PatchNotes } style={{ width: '100%', height: '100%' }} alt="latest patch notes" />
 								</a>
 							</div>
 						</div>
@@ -59,8 +59,8 @@ export default class SmashNews extends Component {
 								<p className="lead">Character rankings based on performance in professional competition</p>
 							</div>
 							<div className="bg-light shadow-sm mx-auto" style={{width: '90%', height: '300px', borderRadius: '21px 21px 0 0'}}>
-								<a href="https://www.proguides.com/super-smash-bros-ultimate/characters/" target="_blank">
-									<img src={ TierList } style={{ width: '100%', height: '100%' }} />
+								<a href="https://www.proguides.com/super-smash-bros-ultimate/characters/" target="_blank" rel="noopener noreferrer">
+									<img src={ TierList } style={{ width: '100%', height: '100%' }} alt="current tier list" />
 								</a>
 							</div>
 						</div>

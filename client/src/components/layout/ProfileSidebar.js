@@ -3,8 +3,7 @@ import {
 	Card,
 	CardText,
 	CardBody,
-	CardTitle,
-	Button
+	CardTitle
 } from 'reactstrap';
 import NewTournament from '../tournaments/New';
 import PropTypes from 'prop-types';

@@ -4,10 +4,6 @@ import { connect } from 'react-redux';
 import { Bracket } from 'react-tournament-bracket';
 
 class TournamentStartPage extends Component {
-  constructor(props) {
-    super(props);
-  };
-
   static propTypes = {
     tournament: PropTypes.object.isRequired
   };
