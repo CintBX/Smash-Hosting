@@ -53,21 +53,17 @@ class TournamentIndex extends Component {
 									title={"Delete Tournament"} 
 									onClick={this.onDelete.bind(this, _id)} 
 								/>
-								
-								<Link to={ `/tournaments/${_id}` } className="remove-underline">
-									<Button color="secondary" outline block className="mt-2" onClick={this.onShowTournament.bind(this, _id)}>
-										<b className="enter-btn">Enter</b>
-									</Button>
-								</Link>
 							</Fragment> 
 						:
-						<Link to={ `/tournaments/${_id}` } className="remove-underline">
-							<Button color="secondary" outline block className="mt-2" onClick={this.onShowTournament.bind(this, _id)}>
-								<b className="enter-btn">Enter</b>
-							</Button>
-						</Link>
+						null
 					}
-
+					
+					<Link to={ `/tournaments/${_id}` } className="remove-underline">
+						<Button color="secondary" outline block className="mt-2" onClick={this.onShowTournament.bind(this, _id)}>
+							<b className="enter-btn">Enter</b>
+						</Button>
+					</Link>
+					
 					{ status === "Closed" ? <InProgress /> : null }
 					{ status === "Complete" ? <ResultsPopover /> : null }
 				</Jumbotron>
