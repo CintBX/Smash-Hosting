@@ -49,13 +49,3 @@ export default class App extends Component{
     );
   };
 };
-
-
-// Old Routes
-/*
-  <Route exact path="/" component={TournamentIndex} />
-  <Route path="/tournaments/:id" component={TournamentShow} />
-  <Route path="/players" component={PlayerDirectory} />
-  <Route path="/player/:id" component={PlayerProfile} />
-  <Route path="/smash-news" component={SmashNews} />
-*/
