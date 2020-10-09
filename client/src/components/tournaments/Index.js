@@ -58,7 +58,10 @@ class TournamentIndex extends Component {
 						null
 					}
 					
-					<Link to={ `/tournaments/${_id}` } className="remove-underline">
+					<Link 
+						to={ status === "Open" ? `/tournaments/${_id}` : `/tournaments/${_id}/start` } 
+						className="remove-underline"
+					>
 						<Button color="secondary" outline block className="mt-2" onClick={this.onShowTournament.bind(this, _id)}>
 							<b className="enter-btn">Enter</b>
 						</Button>
