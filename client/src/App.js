@@ -9,6 +9,7 @@ import NavigationBar from './components/layout/NavigationBar';
 import ProfileSidebar from './components/layout/ProfileSidebar';
 import TournamentIndex from './components/tournaments/Index';
 import TournamentShow from './components/tournaments/Show';
+import TournamentStart from './components/tournaments/Start';
 import PlayerProfile from './components/players/PlayerProfile';
 import PlayerDirectory from './components/players/PlayerDirectory';
 import SmashNews from './components/news/SmashNews';
@@ -35,6 +36,7 @@ export default class App extends Component{
                 <Switch>
                   <Route exact path="/" component={TournamentIndex} />
                   <Route path="/tournaments/:id" component={TournamentShow} />
+                  <Route path="/tournaments/:id/start" component={TournamentStart} />
                   <Route path="/players" component={PlayerDirectory} />
                   <Route path="/player/:id" component={PlayerProfile} />
                   <Route path="/smash-news" component={SmashNews} />
