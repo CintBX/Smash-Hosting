@@ -33,51 +33,51 @@ class TournamentShow extends Component {
 
 		return (
 			<div>
-			{
-				status === "Open" ?
-				<div style={{color: "lightgrey"}}>
-					<h1 className="text-center">{ title } <span style={{fontSize: "0.5em"}}>by { hostedBy }</span></h1>
-					<h3> <TournamentDescription key={_id} title={ title } /> </h3><br />
+				{
+					status === "Open" ?
+					<div style={{color: "lightgrey"}}>
+						<h1 className="text-center">{ title } <span style={{fontSize: "0.5em"}}>by { hostedBy }</span></h1>
+						<h3> <TournamentDescription key={_id} title={ title } /> </h3><br />
 
-					<p className="text-center" style={{color: "#56A8CBFF", fontSize: "2em"}}>~ { status } for registration ~</p>
-	
-					<h4 className="text-left mt-5">
-						{participants.length === 1 ? `${participants.length} Registered Fighter` : `${participants.length} Registered Fighters`}
-					</h4>
-					<ul>
+						<p className="text-center" style={{color: "#56A8CBFF", fontSize: "2em"}}>~ { status } for registration ~</p>
+		
+						<h4 className="text-left mt-5">
+							{participants.length === 1 ? `${participants.length} Registered Fighter` : `${participants.length} Registered Fighters`}
+						</h4>
+						<ul>
+							{
+								participants && participants.map(participant => (
+									<li key={participant._id} className="text-left" style={{fontSize: "1.1em"}}>{participant.username}</li>
+								))
+							}
+						</ul>
+		
 						{
-							participants && participants.map(participant => (
-								<li key={participant._id} className="text-left" style={{fontSize: "1.1em"}}>{participant.username}</li>
-							))
+							isAuthenticated ?
+							<div>
+								<TournamentSignUp
+									participants={participants}
+									userId={user._id}
+									onClick={() => this.onSignUp(_id, user)} 
+								/>
+							</div> :
+							<Button block disabled>Log in to sign up for this tournament</Button>
 						}
-					</ul>
-	
-					{
-						isAuthenticated ?
-						<div>
-							<TournamentSignUp
-								participants={participants}
-								userId={user._id}
-								onClick={() => this.onSignUp(_id, user)} 
-							/>
-						</div> :
-						<Button block disabled>Log in to sign up for this tournament</Button>
-					}
 
-					{
-						isAuthenticated && user.username === hostedBy ?
-						<div>
-							<StartTournament
-								participants={participants}
-								onClick={() => this.onStartTournament(_id, participants)}
-							/>
-						</div> :
-						null
-					}
-				</div> :
-				null
-			}
-			<br /><Link to="/">Back to Tournaments main page</Link>
+						{
+							isAuthenticated && user.username === hostedBy ?
+							<div>
+								<StartTournament
+									participants={participants}
+									onClick={() => this.onStartTournament(_id, participants)}
+								/>
+							</div> :
+							null
+						}
+					</div> :
+					null
+				}
+				<br /><Link to="/">Back to Tournaments main page</Link>
 			</div>
 		)
 	}
