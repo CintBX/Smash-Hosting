@@ -34,14 +34,14 @@ export default class App extends Component{
             
               <Col sm="7" md="7" lg="7" xl="7">
                 <Switch>
-                  <Route exact path="/" component={TournamentIndex} />
-                  <Route path="/tournaments/:id" component={TournamentShow} />
                   <Route path="/tournaments/:id/start" component={TournamentStart} />
-                  <Route path="/players" component={PlayerDirectory} />
-                  <Route path="/player/:id" component={PlayerProfile} />
-                  <Route path="/smash-news" component={SmashNews} />
+                  <Route path="/tournaments/:id" component={TournamentShow} />
                   <ValidateRoute path="/tournaments" type="invalid"/>
+                  <Route path="/player/:id" component={PlayerProfile} />
+                  <Route path="/players" component={PlayerDirectory} />
                   <ValidateRoute path="/users" type="invalid"/>
+                  <Route path="/smash-news" component={SmashNews} />
+                  <Route exact path="/" component={TournamentIndex} />
                 </Switch>
               </Col>
             </Row>
