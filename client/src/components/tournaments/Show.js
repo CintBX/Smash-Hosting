@@ -35,7 +35,7 @@ class TournamentShow extends Component {
 			<div style={{color: "lightgrey"}}>
 				<h1 className="text-center">
 					{ title }
-					<span style={{fontSize: "0.5em"}}>by { hostedBy }</span>
+					<span style={{fontSize: "0.5em"}}> by { hostedBy }</span>
 				</h1>
 
 				<h3>
