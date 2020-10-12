@@ -4,7 +4,7 @@ import { Jumbotron, Button } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { InProgress, ResultsPopover } from './buttons';
-import { getTournaments, showTournament, deleteTournament } from '../../actions/tournamentActions';
+import { getTournaments, deleteTournament } from '../../actions/tournamentActions';
 import TournamentDescription from './descriptions';
 import DeleteModal from '../delete/DeleteModal';
 
@@ -12,7 +12,6 @@ class TournamentIndex extends Component {
 	constructor(props) {
 		super(props);
 		this.onDelete = this.onDelete.bind(this);
-		this.onShowTournament = this.onShowTournament.bind(this);
 	};
 
 	componentDidMount() {
@@ -27,10 +26,6 @@ class TournamentIndex extends Component {
 
 	onDelete(id) {
 		this.props.deleteTournament(id);
-	};
-
-	onShowTournament(id) {
-		this.props.showTournament(id);
 	};
 
 	render() {
@@ -68,7 +63,7 @@ class TournamentIndex extends Component {
 						to={ status === "Open" ? `/tournaments/${_id}` : `/tournaments/${_id}/start` } 
 						className="remove-underline"
 					>
-						<Button color="secondary" outline block className="mt-2" onClick={() => this.onShowTournament(_id)}>
+						<Button color="secondary" outline block className="mt-2">
 							<b className="enter-btn">Enter</b>
 						</Button>
 					</Link>
@@ -86,4 +81,4 @@ const mapStateToProps = state => ({
 	auth: state.auth
 });
 
-export default connect(mapStateToProps, { getTournaments, showTournament, deleteTournament })(TournamentIndex);
+export default connect(mapStateToProps, { getTournaments, deleteTournament })(TournamentIndex);
