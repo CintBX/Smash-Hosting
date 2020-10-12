@@ -9,6 +9,12 @@ import TournamentDescription from './descriptions';
 import DeleteModal from '../delete/DeleteModal';
 
 class TournamentIndex extends Component {
+	constructor(props) {
+		super(props);
+		this.onDelete = this.onDelete.bind(this);
+		this.onShowTournament = this.onShowTournament.bind(this);
+	};
+
 	componentDidMount() {
 		this.props.getTournaments();
 	};
@@ -51,7 +57,7 @@ class TournamentIndex extends Component {
 								<DeleteModal 
 									page={"Tournament Index"} 
 									title={"Delete Tournament"} 
-									onClick={this.onDelete.bind(this, _id)} 
+									onClick={() => this.onDelete(_id)} 
 								/>
 							</Fragment> 
 						:
@@ -62,7 +68,7 @@ class TournamentIndex extends Component {
 						to={ status === "Open" ? `/tournaments/${_id}` : `/tournaments/${_id}/start` } 
 						className="remove-underline"
 					>
-						<Button color="secondary" outline block className="mt-2" onClick={this.onShowTournament.bind(this, _id)}>
+						<Button color="secondary" outline block className="mt-2" onClick={() => this.onShowTournament(_id)}>
 							<b className="enter-btn">Enter</b>
 						</Button>
 					</Link>
