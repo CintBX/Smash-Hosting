@@ -7,3 +7,8 @@ const ValidateRoute = props => {
 };
 
 export default ValidateRoute;
+
+/*
+  <ValidateRoute path="/users" type="invalid"/>
+  <ValidateRoute path="/tournaments" type="invalid"/>
+*/
