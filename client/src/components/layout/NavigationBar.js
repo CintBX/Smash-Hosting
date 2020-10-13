@@ -70,17 +70,14 @@ class NavigationBar extends Component {
 			<div>
 				<Navbar fixed="top" dark expand="sm" className="mb-5 nav-styles">
 					<Container>
-						{
-							isAuthenticated ?
-							<NavbarBrand href={`/player/${user._id}`} style={{fontSize:'28px'}}>
-								<img src={logo} width="80" height="80" alt="Smash Brothers Logo" />
-								<span className="ml-3"><strong>{ user.username }</strong></span>
-							</NavbarBrand> :
-							<NavbarBrand href="/" style={{fontSize:'28px'}}>
-								<img src={logo} width="80" height="80" alt="Smash Brothers Logo" />
-								<span className="ml-3"><strong>Smash Hosting</strong></span>
-							</NavbarBrand>
-						}
+						<NavbarBrand
+							href={isAuthenticated ? `/player/${user._id}` : "/" }
+							style={{fontSize:'28px'}}
+						>
+							<img src={logo} width="80" height="80" alt="Smash Brothers Logo" />
+							<span className="ml-3"><strong>{isAuthenticated ? user.username : "Smash Hosting"}</strong></span>
+						</NavbarBrand>
+
 						<NavbarToggler onClick={this.toggle} />
 						<Collapse isOpen={this.state.isOpen} navbar>
 							<Nav className="mr-auto" navbar>
