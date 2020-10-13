@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import { Container, Row, Col } from 'reactstrap';
 import { Provider } from 'react-redux';
 import store from './store';
@@ -14,7 +14,6 @@ import PlayerProfile from './components/players/PlayerProfile';
 import PlayerDirectory from './components/players/PlayerDirectory';
 import SmashNews from './components/news/SmashNews';
 import { loadUser } from './actions/authActions';
-import ValidateRoute from './components/ValidateRoute';
 
 export default class App extends Component{
   componentDidMount() {
@@ -34,14 +33,14 @@ export default class App extends Component{
             
               <Col sm="7" md="7" lg="7" xl="7">
                 <Switch>
-                  <Route exact path="/" component={TournamentIndex} />
-                  <Route path="/tournaments/:id" component={TournamentShow} />
                   <Route path="/tournaments/:id/start" component={TournamentStart} />
-                  <Route path="/players" component={PlayerDirectory} />
+                  <Route path="/tournaments/:id" component={TournamentShow} />
+                  <Route path="/tournaments" render={ () => <Redirect to="/" /> } />
                   <Route path="/player/:id" component={PlayerProfile} />
+                  <Route path="/players" component={PlayerDirectory} />
+                  <Route path="/users"  render={ () => <Redirect to="/" /> } />
                   <Route path="/smash-news" component={SmashNews} />
-                  <ValidateRoute path="/tournaments" type="invalid"/>
-                  <ValidateRoute path="/users" type="invalid"/>
+                  <Route exact path="/" component={TournamentIndex} />
                 </Switch>
               </Col>
             </Row>
