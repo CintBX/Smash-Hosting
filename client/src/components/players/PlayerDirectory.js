@@ -2,12 +2,16 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Media } from 'reactstrap';
-import { getPlayers, showPlayer, deleteThisPlayer } from '../../actions/playerActions';
+import { getPlayers, deleteThisPlayer } from '../../actions/playerActions';
 import { Link } from 'react-router-dom';
 import DirectoryImage from './DirectoryImage';
 import DeleteModal from '../delete/DeleteModal';
 
 class PlayerDirectory extends Component {
+	constructor(props) {
+		super(props);
+		this.onDeletePlayer = this.onDeletePlayer.bind(this);
+	}
 	componentDidMount() {
 		this.props.getPlayers();
 	};
@@ -15,13 +19,8 @@ class PlayerDirectory extends Component {
 	static propTypes = {
 		getPlayers: PropTypes.func.isRequired,
 		player: PropTypes.object.isRequired,
-		showPlayer: PropTypes.func,
 		deleteThisPlayer: PropTypes.func,
 		auth: PropTypes.object.isRequired
-	};
-
-	onShowPlayer(userId) {
-		this.props.showPlayer(userId);
 	};
 
 	onDeletePlayer(userId) {
@@ -63,12 +62,12 @@ class PlayerDirectory extends Component {
 									<DeleteModal
 										page={"Player Directory"} 
 										title={`Delete ${username}'s account`} 
-										onClick={this.onDeletePlayer.bind(this, _id)} 
+										onClick={() => this.onDeletePlayer(_id)} 
 									/> :
 									null
 								}
 								<Link to={`/player/${_id}`} className="remove-underline">
-									<Media className="media-element media-hover" onClick={this.onShowPlayer.bind(this, _id)}>
+									<Media className="media-element media-hover">
 										<Media left>
 											<DirectoryImage key={_id} main={main} />
 										</Media>
@@ -102,4 +101,4 @@ const mapStateToProps = state => ({
 	auth: state.auth
 });
 
-export default connect(mapStateToProps, { getPlayers, showPlayer, deleteThisPlayer })(PlayerDirectory);
+export default connect(mapStateToProps, { getPlayers, deleteThisPlayer })(PlayerDirectory);
