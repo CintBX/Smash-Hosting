@@ -12,17 +12,11 @@ class TournamentShow extends Component {
 		super(props);
 		this.onSignUp = this.onSignUp.bind(this);
 		this.onStartTournament = this.onStartTournament.bind(this);
-		this.state = {
-			displayedTournament: null
-		};
 	};
 
 	componentDidMount() {
 		const id = this.props.match.params.id;
 		this.props.showTournament(id);
-		this.setState({
-			displayedTournament: this.props.tournament.showTournament
-		});
 	};
 
 	static propTypes = {
