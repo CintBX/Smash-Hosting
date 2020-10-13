@@ -7,10 +7,19 @@ import moment from 'moment';
 import DeleteModal from '../delete/DeleteModal';
 
 class PlayerProfile extends Component {
+	constructor(props) {
+		super(props);
+		this.onDelete = this.onDelete.bind(this);
+	};
+
+	componentDidMount() {
+		const id = this.props.match.params.id;
+		this.props.showPlayer(id);
+	};
+
 	static propTypes = {
 		player: PropTypes.object.isRequired,
-		auth: PropTypes.object.isRequired,
-		deleteAccount: PropTypes.func.isRequired
+		auth: PropTypes.object.isRequired
 	};
 
 	onDelete(id) {
@@ -54,7 +63,7 @@ class PlayerProfile extends Component {
 					<DeleteModal 
 						page={"Player Profile"} 
 						title={"Delete your account"} 
-						onClick={this.onDelete.bind(this, user._id)} 
+						onClick={() => this.onDelete(user._id)} 
 					/> :
 					null
 				}
