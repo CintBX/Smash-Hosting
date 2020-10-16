@@ -95,7 +95,7 @@ export const updateTournamentStatus = (_id, participants, status = "Closed") => 
 		.then(() => dispatch({
 			type: TOURNAMENT_STATUS_UPDATE,
 			payload: {
-				participants: shuffleParticipants(participants),
+				participants: participants,
 				status: status,
 			}
 		}))
@@ -130,17 +130,4 @@ export const singleTourneyLoading = () => {
 	return {
 		type: TOURNAMENT_LOADING
 	};
-};
-
-
-export const shuffleParticipants = array => {
-	let currentIndex = array.length, temporaryValue, randomIndex;	
-	while(0 !== currentIndex) {
-		randomIndex = Math.floor(Math.random() * currentIndex);
-		currentIndex -= 1;	
-		temporaryValue = array[currentIndex];
-		array[currentIndex] = array[randomIndex];
-		array[randomIndex] = temporaryValue;
-	}	
-	return array;
 };
