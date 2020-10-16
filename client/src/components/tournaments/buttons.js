@@ -9,7 +9,7 @@ import {
 } from 'reactstrap';
 
 export const TournamentSignUp = props => {
-	if (props.participants.find(participant => participant._id === props.userId)) {
+	if (props.participants && props.participants.find(participant => participant._id === props.userId)) {
 		return (
 			<Button 
 				className="confirm-btn" 
