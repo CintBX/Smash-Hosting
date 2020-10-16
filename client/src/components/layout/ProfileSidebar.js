@@ -5,7 +5,7 @@ import {
 	CardBody,
 	CardTitle
 } from 'reactstrap';
-import NewTournament from '../tournaments/New';
+import NewTournament from '../tournaments/NewTournament';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import SidebarImage from './SidebarImage';
