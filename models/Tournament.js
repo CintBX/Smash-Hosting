@@ -22,6 +22,10 @@ const TournamentSchema = new Schema({
 	participants: {
 		type: Array,
 		required: false
+	},
+	rounds: {
+		type: Array,
+		required: false
 	}
 });
 
