@@ -32,16 +32,16 @@ class TournamentIndex extends Component {
 		const { tournaments } = this.props.tournament;
 		const { isAuthenticated, user } = this.props.auth;
 
-		return tournaments.map(({ _id, title, hostedBy, status }) => {
+		return tournaments.map(({ _id, title, type, hostedBy, status }) => {
 			return (
-				<Jumbotron key={_id} className={title.toLowerCase().replace(/\s+/g, '')}>
+				<Jumbotron key={_id} className={type.toLowerCase().replace(/\s+/g, '')}>
 					<h1 className="mb-5 text-center">
 						{ title }
 						<p style={{fontSize: '0.6em'}} className="text-muted">Hosted by: { hostedBy }</p>
 					</h1>
 
 					<h4>
-						<TournamentDescription key={_id} title={title} />
+						<TournamentDescription key={_id} type={type} />
 					</h4>
 
 					<hr className="my-4"/>
