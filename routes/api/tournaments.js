@@ -72,22 +72,46 @@ router.post('/:id', (req, res) => {
 });
 
 
-// @route 	UPDATE /tournaments/update/:id
-// @descrip	Close tournaments and shuffle participants
+// @route 	CLOSE TOURNAMENT /tournaments/:id/close
+// @descrip	Start tournament by changing Status to Closed
 // @access	Private
-router.post('/update/:id', (req, res) => {
+router.post('/:id/close', (req, res) => {
 	Tournament.findById(req.params.id)
 		.then(tournament => {
 			if(!tournament) res.status(404).json({ msg: "Cannot find this tournament" });
 			else {
-				if(req.body.participants && req.body.status) {
-					tournament.participants = req.body.participants;
-					tournament.status = req.body.status;
-				} else {
-					return res.status(404).json({ msg: "Both status and participants are required" });
-				}
+				tournament.status = req.body.status;
+				return tournament.save()
 			};
-			return tournament.save();
+		})
+		.then(savedTournament => res.json(savedTournament))
+		.catch(err => res.json(err));
+});
+
+
+// @route TOURNAMENT ROUNDS /tournaments/:id/rounds
+// @descrip Push participants into rounds.roundThree
+// @access Private
+router.post('/:id/rounds', (req, res) => {
+	const shuffleParticipants = array => {
+		let currentIndex = array.length, temporaryValue, randomIndex;	
+		while(0 !== currentIndex) {
+			randomIndex = Math.floor(Math.random() * currentIndex);
+			currentIndex -= 1;	
+			temporaryValue = array[currentIndex];
+			array[currentIndex] = array[randomIndex];
+			array[randomIndex] = temporaryValue;
+		}	
+		return array;
+	};
+
+	Tournament.findById(req.params.id)
+		.then(tournament => {
+			if(!tournament) res.status(404).json({ msg: "Cannot find this tournament" });
+			else {
+				tournament.rounds.push(shuffleParticipants(req.body.participants));
+				return tournament.save();
+			};
 		})
 		.then(savedTournament => res.json(savedTournament))
 		.catch(err => res.json(err));
