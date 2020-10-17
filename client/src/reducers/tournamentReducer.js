@@ -9,13 +9,15 @@ import {
 	TOURNAMENT_SIGN_UP_FAIL,
 	TOURNAMENT_STATUS_UPDATE,
 	TOURNAMENT_STATUS_FAILED,
+	ADD_ROUND_OF_PLAYERS,
+	ADD_ROUND_FAILED
 } from '../actions/types';
 
 const initialState = {
 	tournaments: [],
 	showTournament: "",
 	loading: false,
-}
+};
 
 export default function(state = initialState, action) {
 	switch(action.type) {
@@ -61,12 +63,18 @@ export default function(state = initialState, action) {
     case TOURNAMENT_STATUS_UPDATE:
 			return {
 				...state,
-				...state.showTournament.participants = action.payload.participants,
-				...state.showTournament.status = action.payload.status
+				...state.showTournament.status = action.payload
 			};
+
+		case ADD_ROUND_OF_PLAYERS:
+			return {
+				...state,
+				...state.showTournament.rounds.push(action.payload)
+			}
 
 		case TOURNAMENT_SIGN_UP_FAIL:
 		case TOURNAMENT_STATUS_FAILED:
+		case ADD_ROUND_FAILED:
 			return {
 				...state,
 			}

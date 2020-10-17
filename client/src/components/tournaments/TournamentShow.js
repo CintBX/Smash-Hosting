@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import TournamentDescription from './descriptions';
-import { showTournament, addParticipant, updateTournamentStatus } from '../../actions/tournamentActions';
+import { showTournament, addParticipant, closeTournament, addRound } from '../../actions/tournamentActions';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { TournamentSignUp, StartTournament } from './buttons';
@@ -29,7 +29,8 @@ class TournamentShow extends Component {
 	};
 
 	onStartTournament(tourneyId, tourneyParticipants) {
-		this.props.updateTournamentStatus(tourneyId, tourneyParticipants);
+		this.props.closeTournament(tourneyId);
+		this.props.addRound(tourneyParticipants);
 	};
 
 	render() {
@@ -107,4 +108,4 @@ const mapStateToProps = state => ({
 	auth: state.auth
 });
 
-export default connect(mapStateToProps, { showTournament, addParticipant, updateTournamentStatus })(TournamentShow);
+export default connect(mapStateToProps, { showTournament, addParticipant, closeTournament, addRound })(TournamentShow);
