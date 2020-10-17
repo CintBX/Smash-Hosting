@@ -1,7 +1,8 @@
 import { 
 	GET_TOURNAMENTS, 
 	SHOW_TOURNAMENT, 
-	ADD_TOURNAMENT, 
+	ADD_TOURNAMENT,
+	ADD_TOURNAMENT_FAIL,
 	DELETE_TOURNAMENT, 
 	TOURNAMENTS_LOADING, 
 	TOURNAMENT_LOADING,
@@ -48,7 +49,12 @@ export const addTournament = tournament => (dispatch, getState) => {
 			type: ADD_TOURNAMENT,
 			payload: tournament
 		}))
-		.catch(err => dispatch(returnErrors(err.response.data, err.response.status)));
+		.catch(err => {
+			dispatch(returnErrors(err.response.data, err.response.status));
+			dispatch({
+				type: ADD_TOURNAMENT_FAIL
+			});
+		});
 
 	axios
 		.get('/tournaments')
