@@ -9,6 +9,8 @@ import {
 	TOURNAMENT_SIGN_UP_FAIL,
 	TOURNAMENT_STATUS_UPDATE,
 	TOURNAMENT_STATUS_FAILED,
+	ADD_ROUND_OF_PLAYERS,
+	ADD_ROUND_FAILED
 } from './types';
 import axios from 'axios';
 import { tokenConfig } from './authActions';
@@ -82,28 +84,48 @@ export const addParticipant = (_id, user) => dispatch => {
 };
 
 
-export const updateTournamentStatus = (_id, participants, status = "Closed") => dispatch => {
+export const closeTournament = (_id, status = "Closed") => dispatch => {
 	const config = {
 		headers: {
 			"Content-Type": "application/json"
 		}
 	};
-	const body = JSON.stringify({ participants, status });
+	const body = JSON.stringify({ status });
 
 	axios
-		.post(`/tournaments/update/${_id}`, body, config)
+		.post(`/tournaments/${_id}/close`, body, config)
 		.then(() => dispatch({
 			type: TOURNAMENT_STATUS_UPDATE,
-			payload: {
-				participants: participants,
-				status: status,
-			}
+			payload: status
 		}))
 		.catch(err => {
 			dispatch(returnErrors(err.response.data, err.response.status));
 			dispatch({
 				type: TOURNAMENT_STATUS_FAILED
-			})
+			});
+		});
+};
+
+
+export const addRound = (_id, participants) => dispatch => {
+	const config = {
+		headers: {
+			"Content-Type": "application/json"
+		}
+	};
+	const body = JSON.stringify({ participants });
+
+	axios
+		.post(`/tournaments/${_id}/rounds`, body, config)
+		.then(() => dispatch({
+			type: ADD_ROUND_OF_PLAYERS,
+			payload: participants
+		}))
+		.catch(err => {
+			dispatch(returnErrors(err.response.data, err.response.status));
+			dispatch({
+				type: ADD_ROUND_FAILED
+			});
 		});
 };
 
