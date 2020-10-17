@@ -1,7 +1,8 @@
 import { 
 	GET_TOURNAMENTS, 
 	SHOW_TOURNAMENT, 
-	ADD_TOURNAMENT, 
+	ADD_TOURNAMENT,
+	ADD_TOURNAMENT_FAIL,
 	DELETE_TOURNAMENT, 
 	TOURNAMENTS_LOADING, 
 	TOURNAMENT_LOADING,
@@ -72,6 +73,7 @@ export default function(state = initialState, action) {
 				...state.showTournament.rounds.push(action.payload)
 			}
 
+		case ADD_TOURNAMENT_FAIL:
 		case TOURNAMENT_SIGN_UP_FAIL:
 		case TOURNAMENT_STATUS_FAILED:
 		case ADD_ROUND_FAILED:
