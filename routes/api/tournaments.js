@@ -31,10 +31,13 @@ router.get('/:id', (req, res) => {
 // @descrip NEW/CREATE
 // @access 	Private
 router.post('/new', authorize, (req, res) => {
-	const { title, hostedBy } = req.body
+	const { title, type, scheduledDay, scheduledTime, hostedBy } = req.body
 
 	const newTournament = new Tournament({
 		title: title,
+		type: type,
+		scheduledDay: scheduledDay,
+		scheduledTime: scheduledTime,
 		hostedBy: hostedBy
 	});
 
@@ -43,13 +46,16 @@ router.post('/new', authorize, (req, res) => {
 			tournament: {
 				id: tournament.id,
 				title: tournament.title,
+				type: tournament.type,
+				scheduledDay: tournament.scheduledDay,
+				scheduledTime: tournament.scheduledTime,
 				hostedBy: tournament.hostedBy,
 				status: tournament.status,
 				participants: tournament.participants,
-				starters: tournament.starters
+				rounds: tournament.rounds
 			}
 		}))
-		.catch(err => res.status(400).json({ msg: "Please choose a tournament type" }));
+		.catch(err => res.status(400).json({ msg: `${err}` }));
 });
 
 

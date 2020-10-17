@@ -6,6 +6,18 @@ const TournamentSchema = new Schema({
 		type: String,
 		required: true
 	},
+	type: {
+		type: String,
+		required: true
+	},
+	scheduledDay: {
+		type: Date,
+		required: true
+	},
+	scheduledTime: {
+		type: String,
+		required: true
+	},
 	hostedBy: {
 		type: String,
 		required: false
@@ -15,7 +27,7 @@ const TournamentSchema = new Schema({
 		required: false,
 		default: 'Open'
 	},
-	date: {
+	createdAt: {
 		type: Date,
 		default: Date.now
 	},
