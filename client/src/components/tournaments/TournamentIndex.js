@@ -50,8 +50,12 @@ class TournamentIndex extends Component {
 						Ruleset: { type }
 					</h5>
 
+					<h5>
+						On { moment(schedule).format("dddd, MMMM Do YYYY") }
+					</h5>
+
 					<h5 className="mb-4">
-						On { moment(schedule).format("dddd, MMMM Do YYYY, h:mm a") }
+						{ moment(schedule).format("h:mm a") }
 					</h5>
 
 					{
