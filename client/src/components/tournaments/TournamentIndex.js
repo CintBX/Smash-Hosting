@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { InProgress, ResultsPopover } from './buttons';
 import { getTournaments, deleteTournament } from '../../actions/tournamentActions';
-import TournamentRules from './rulesets';
 import DeleteModal from '../delete/DeleteModal';
 import moment from 'moment';
 
