@@ -8,18 +8,14 @@ const TournamentSchema = new Schema({
 	},
 	description: {
 		type: String,
-		required: false
+		required: false,
 	},
 	type: {
 		type: String,
 		required: true
 	},
-	scheduledDay: {
+	schedule: {
 		type: Date,
-		required: true
-	},
-	scheduledTime: {
-		type: String,
 		required: true
 	},
 	hostedBy: {
