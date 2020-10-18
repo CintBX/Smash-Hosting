@@ -3,6 +3,8 @@ import {
 	SHOW_TOURNAMENT, 
 	ADD_TOURNAMENT,
 	ADD_TOURNAMENT_FAIL,
+	EDIT_TOURNAMENT,
+	EDIT_TOURNAMENT_FAIL,
 	DELETE_TOURNAMENT, 
 	TOURNAMENTS_LOADING, 
 	TOURNAMENT_LOADING,
@@ -11,7 +13,7 @@ import {
 	TOURNAMENT_STATUS_UPDATE,
 	TOURNAMENT_STATUS_FAILED,
 	ADD_ROUND_OF_PLAYERS,
-	ADD_ROUND_FAILED
+	ADD_ROUND_FAILED,
 } from './types';
 import axios from 'axios';
 import { tokenConfig } from './authActions';
@@ -25,18 +27,6 @@ export const getTournaments = () => dispatch => {
 		.then(res => dispatch({
 			type: GET_TOURNAMENTS,
 			payload: res.data
-		}))
-		.catch(err => dispatch(returnErrors(err.response.data, err.response.status)));
-};
-
-
-export const showTournament = id => dispatch => {
-	dispatch(singleTourneyLoading());	
-	axios
-		.get(`/tournaments/${id}`)
-		.then(() => dispatch({
-			type: SHOW_TOURNAMENT,
-			payload: id
 		}))
 		.catch(err => dispatch(returnErrors(err.response.data, err.response.status)));
 };
@@ -62,6 +52,42 @@ export const addTournament = tournament => (dispatch, getState) => {
 			type: GET_TOURNAMENTS,
 			payload: res.data
 		}));
+};
+
+
+export const editTournament = ({ _id, title, description, type, schedule }) => dispatch => {
+	const config = {
+		headers: {
+			"Content-Type": "application/json"
+		}
+	};
+
+	const body = JSON.stringify({ title, description, type, schedule });
+
+	axios
+		.post(`/tournaments/edit/${_id}`, body, config)
+		.then(res => dispatch({
+			type: EDIT_TOURNAMENT,
+			payload: res.data
+		}))
+		.catch(err => {
+			dispatch(returnErrors(err.response.data, err.response.status));
+			dispatch({
+				type: EDIT_TOURNAMENT_FAIL
+			});
+		});
+};
+
+
+export const showTournament = id => dispatch => {
+	dispatch(singleTourneyLoading());	
+	axios
+		.get(`/tournaments/${id}`)
+		.then(() => dispatch({
+			type: SHOW_TOURNAMENT,
+			payload: id
+		}))
+		.catch(err => dispatch(returnErrors(err.response.data, err.response.status)));
 };
 
 

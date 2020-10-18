@@ -10,6 +10,7 @@ import ProfileSidebar from './components/layout/ProfileSidebar';
 import TournamentIndex from './components/tournaments/TournamentIndex';
 import TournamentShow from './components/tournaments/TournamentShow';
 import TournamentStart from './components/tournaments/TournamentStart';
+import EditTournament from './components/tournaments/EditTournament';
 import PlayerProfile from './components/players/PlayerProfile';
 import PlayerDirectory from './components/players/PlayerDirectory';
 import SmashNews from './components/news/SmashNews';
@@ -33,12 +34,13 @@ export default class App extends Component{
             
               <Col sm="7" md="7" lg="7" xl="7">
                 <Switch>
+                  <Route path="/tournaments/edit/:id" component={EditTournament} />
                   <Route path="/tournaments/:id/start" component={TournamentStart} />
                   <Route exact path="/tournaments/:id" component={TournamentShow} />
                   <Route exact path="/tournaments" render={ () => <Redirect to="/" /> } />
                   <Route path="/player/:id" component={PlayerProfile} />
                   <Route exact path="/players" component={PlayerDirectory} />
-                  <Route path="/users"  render={ () => <Redirect to="/" /> } />
+                  <Route path="/users"  render={ () => <Redirect to="/players" /> } />
                   <Route path="/smash-news" component={SmashNews} />
                   <Route exact path="/" component={TournamentIndex} />
                 </Switch>
