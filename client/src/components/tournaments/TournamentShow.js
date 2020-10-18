@@ -7,12 +7,16 @@ import { connect } from 'react-redux';
 import { TournamentSignUp, StartTournament } from './buttons';
 import { Button, Spinner } from 'reactstrap';
 import moment from 'moment';
+import { Redirect } from 'react-router-dom';
 
 class TournamentShow extends Component {
 	constructor(props) {
 		super(props);
 		this.onSignUp = this.onSignUp.bind(this);
 		this.onStartTournament = this.onStartTournament.bind(this);
+		this.state = {
+			redirectToStart: false
+		};
 	};
 
 	componentDidMount() {
@@ -32,14 +36,19 @@ class TournamentShow extends Component {
 	onStartTournament(tourneyId, tourneyParticipants) {
 		this.props.closeTournament(tourneyId);
 		this.props.addRound(tourneyParticipants);
+		this.setState({
+			redirectToStart: true
+		});
 	};
 
 	render() {
 		const { _id, title, type, hostedBy, schedule, status, participants } = this.props.tournament.showTournament;
 		const { isAuthenticated, user } = this.props.auth;
+		const redirectToStart = this.state.redirectToStart;
 
 		return (
 			<div>
+				{ redirectToStart ? <Redirect to={`/tournaments/${_id}/start`} /> : null }
 				{ this.props.tournament.loading ?
 					<Spinner color="light" /> :
 					<div style={{color: "lightgrey"}}>
