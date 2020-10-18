@@ -91,7 +91,7 @@ class NewTournament extends Component {
 				<Modal isOpen={this.state.modal} toggle={this.toggle} autoFocus={false}>
 					<ModalHeader toggle={this.toggle}>Create a New Tournament</ModalHeader>
 					<ModalBody>
-						<Form onSubmit={ this.state.title !== "Choose from below" ? this.onSubmit : null}>
+						<Form onSubmit={this.onSubmit}>
 							<FormGroup>
 								<Label for="title">Name your Tournament</Label>
 								<Input
