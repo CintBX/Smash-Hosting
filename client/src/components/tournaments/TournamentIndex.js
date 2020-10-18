@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { InProgress, ResultsPopover } from './buttons';
 import { getTournaments, deleteTournament } from '../../actions/tournamentActions';
-import TournamentDescription from './descriptions';
+import TournamentRules from './rulesets';
 import DeleteModal from '../delete/DeleteModal';
 
 class TournamentIndex extends Component {
@@ -41,7 +41,7 @@ class TournamentIndex extends Component {
 					</h1>
 
 					<h4>
-						<TournamentDescription key={_id} type={type} />
+						<TournamentRules key={_id} type={type} />
 					</h4>
 
 					<hr className="my-4"/>
