@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { TournamentSignUp, StartTournament } from './buttons';
 import { Button, Spinner } from 'reactstrap';
+import moment from 'moment';
 
 class TournamentShow extends Component {
 	constructor(props) {
@@ -34,7 +35,7 @@ class TournamentShow extends Component {
 	};
 
 	render() {
-		const { _id, title, type, hostedBy, status, participants } = this.props.tournament.showTournament;
+		const { _id, title, type, hostedBy, schedule, status, participants } = this.props.tournament.showTournament;
 		const { isAuthenticated, user } = this.props.auth;
 
 		return (
@@ -44,12 +45,26 @@ class TournamentShow extends Component {
 					<div style={{color: "lightgrey"}}>
 						<h1 className="text-center">
 							{ title }
-							<span style={{fontSize: "0.5em"}}> by { hostedBy }</span>
 						</h1>
 
-						<h3>
+						<h1 className="text-center" style={{fontSize:'1.2em'}}>Hosted by { hostedBy }</h1>
+
+						<hr style={{backgroundColor:"lightgrey"}} />
+
+						<h4>
+							Ruleset: { type }
+						</h4>
+
+						<h4>
 							<TournamentRules key={_id} type={ type } />
-						</h3>
+						</h4>
+
+						<br/>
+
+						<h4>
+							Begins { moment(schedule).format("dddd, MMMM Do YYYY") }
+							<p>{ moment(schedule).format("h:mm a") }</p>
+						</h4>
 						
 						<br />
 
