@@ -59,8 +59,31 @@ router.post('/new', authorize, (req, res) => {
 });
 
 
-// @route		UPDATE /tournaments/:id
-// @descrip	Add User to Tournament.participants array / User sign up
+// @route 	POST /tournaments/edit/:id
+// @descrip	EDIT/UPDATE
+// @access Private
+router.post('/edit/:id', (req, res) => {		// add authorize after postman testing
+	const { title, description, type, schedule } = req.body;
+
+	Tournament.findById(req.params.id)
+		.then(tournament => {
+			if(!tournament) {
+				return res.status(404).json({ msg: "This tournament cannot be found, or you have selected the wrong one" })
+			} else {
+				if(title) tournament.title = title;
+				if(description) tournament.description = description;
+				if(type) tournament.type = type;
+				if(schedule) tournament.schedule = schedule;
+			}
+			return tournament.save();
+		})
+		.then(savedTournament => res.json(savedTournament))
+		.catch(err => res.json(err));
+});
+
+
+// @route		USER SIGN UP /tournaments/:id
+// @descrip	Add User to Tournament.participants array
 // @access	Private(There must be a user to sign up)
 // NOTE: `authorize` doesn't work for some reason.  May be ok, investigate later
 router.post('/:id', (req, res) => {
@@ -96,7 +119,7 @@ router.post('/:id/close', (req, res) => {
 
 
 // @route TOURNAMENT ROUNDS /tournaments/:id/rounds
-// @descrip Push participants into rounds.roundThree
+// @descrip Push participants into rounds
 // @access Private
 router.post('/:id/rounds', (req, res) => {
 	const shuffleParticipants = array => {
