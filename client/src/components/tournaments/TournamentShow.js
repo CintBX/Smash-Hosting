@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import TournamentDescription from './descriptions';
+import TournamentRules from './rulesets';
 import { showTournament, addParticipant, closeTournament, addRound } from '../../actions/tournamentActions';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -48,7 +48,7 @@ class TournamentShow extends Component {
 						</h1>
 
 						<h3>
-							<TournamentDescription key={_id} type={ type } />
+							<TournamentRules key={_id} type={ type } />
 						</h3>
 						
 						<br />

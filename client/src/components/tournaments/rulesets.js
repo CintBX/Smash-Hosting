@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 
-class TournamentDescription extends Component {
+class TournamentRules extends Component {
 	render() {
 		return (
 			<Fragment>
@@ -29,4 +29,4 @@ class TournamentDescription extends Component {
 	};
 };
 
-export default TournamentDescription;
+export default TournamentRules;
