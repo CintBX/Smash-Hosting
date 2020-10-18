@@ -26,8 +26,7 @@ class NewTournament extends Component {
 			title: '',
 			description: '',
 			type: '',
-			scheduledDay: '',
-			scheduledTime: ''
+			schedule: ''
 		};
 	};
 
@@ -56,8 +55,7 @@ class NewTournament extends Component {
 			title: this.state.title,
 			description: this.state.description,
 			type: this.state.type,
-			scheduledDay: this.state.scheduledDay,
-			scheduledTime: this.state.scheduledTime,
+			schedule: this.state.schedule,
 			hostedBy: this.props.user.username
 		};
 
@@ -69,8 +67,7 @@ class NewTournament extends Component {
 			title: '',
 			description: '',
 			type: '',
-			scheduledDay: '',
-			scheduledTime: ''
+			schedule: ''
 		});
 	};
 
@@ -136,22 +133,11 @@ class NewTournament extends Component {
 							</FormGroup>
 
 							<FormGroup>
-								<Label for="scheduledDay">Choose a date</Label>
+								<Label for="schedule">Choose a date and time</Label>
 								<Input
-									type="date"
-									name="scheduledDay"
-									id="scheduledDay"
-									className="mb-4"
-									onChange={this.onChange}
-								/>
-							</FormGroup>
-
-							<FormGroup>
-							<Label for="scheduledTime">Choose a time</Label>
-								<Input
-									type="time"
-									name="scheduledTime"
-									id="scheduledTime"
+									type="datetime-local"
+									name="schedule"
+									id="schedule"
 									className="mb-4"
 									onChange={this.onChange}
 								/>
@@ -161,8 +147,7 @@ class NewTournament extends Component {
 							{
 								this.state.title === "" ||
 								this.state.type === "" ||
-								this.state.scheduledDay === "" ||
-								this.state.scheduledTime === ""
+								this.state.schedule === ""
 									?
 								<Button className="text-center" block color="danger" disabled>All fields are required</Button>
 									:

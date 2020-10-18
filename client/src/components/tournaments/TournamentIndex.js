@@ -7,6 +7,7 @@ import { InProgress, ResultsPopover } from './buttons';
 import { getTournaments, deleteTournament } from '../../actions/tournamentActions';
 import TournamentRules from './rulesets';
 import DeleteModal from '../delete/DeleteModal';
+import moment from 'moment';
 
 class TournamentIndex extends Component {
 	constructor(props) {
@@ -32,19 +33,26 @@ class TournamentIndex extends Component {
 		const { tournaments } = this.props.tournament;
 		const { isAuthenticated, user } = this.props.auth;
 
-		return tournaments.map(({ _id, title, type, hostedBy, status }) => {
+		return tournaments.map(({ _id, title, description, type, hostedBy, schedule, status }) => {
 			return (
 				<Jumbotron key={_id} className={type.toLowerCase().replace(/\s+/g, '')}>
-					<h1 className="mb-5 text-center">
+					<h1 className="mb-4 text-center">
 						{ title }
-						<p style={{fontSize: '0.6em'}} className="text-muted">Hosted by: { hostedBy }</p>
 					</h1>
 
-					<h4>
-						<TournamentRules key={_id} type={type} />
-					</h4>
+					<h3>
+						{ description }
+					</h3>
 
 					<hr className="my-4"/>
+
+					<h5>
+						Ruleset: { type }
+					</h5>
+
+					<h5 className="mb-4">
+						On { moment(schedule).format("dddd, MMMM Do YYYY, h:mm a") }
+					</h5>
 
 					{
 						isAuthenticated && user.username === hostedBy ?
