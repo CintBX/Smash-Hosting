@@ -66,9 +66,14 @@ class TournamentIndex extends Component {
 									title={"Delete Tournament"} 
 									onClick={() => this.onDelete(_id)} 
 								/>
-							</Fragment> 
-						:
-						null
+
+								<Link to={`/tournaments/edit/${_id}`} className="remove-underline">
+									<Button color="info" outline className="mb-3 mr-2 edit-delete float-right">
+										Edit
+									</Button>
+								</Link>
+							</Fragment>
+						: null
 					}
 					
 					<Link 
