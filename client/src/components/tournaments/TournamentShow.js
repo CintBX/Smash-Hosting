@@ -34,8 +34,8 @@ class TournamentShow extends Component {
 	};
 
 	onStartTournament(tourneyId, tourneyParticipants) {
+		this.props.addRound(tourneyId, tourneyParticipants);
 		this.props.closeTournament(tourneyId);
-		this.props.addRound(tourneyParticipants);
 		this.setState({
 			redirectToStart: true
 		});
