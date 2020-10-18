@@ -35,36 +35,36 @@ body {
  * Tournament Index
  */
 .singleelimination {
-	border: 10px solid #CDC4A4;
-	border-radius: 15px;
-	background-color: #2C5F2D;
-	color: #CDC4A4;
-	text-shadow: 0.2px 0.2px 1.5px;
-	box-shadow: inset 0 0 10px #CDC4A4;
-}
-.doubleelimination {
-	border: 10px solid #6AA8AA;
-	border-radius: 15px;
+	border: 5px solid #6AA8AA;
+	border-radius: 10px;
 	background-color: #F0F0F0;
 	color: #6AA8AA;
 	text-shadow: 0.2px 0.2px 1.5px;
-	box-shadow: inset 0 0 10px #6AA8AA;
+	box-shadow: 0 0 10px #6AA8AA;
+}
+.doubleelimination {
+	border: 5px solid #CDC4A4;
+	border-radius: 10px;
+	background-color: #2C5F2D;
+	color: #CDC4A4;
+	text-shadow: 0.2px 0.2px 1.5px;
+	box-shadow: 0 0 10px #CDC4A4;
 }
 .roundrobin {
-	border: 10px solid #D34932;
-	border-radius: 15px;
+	border: 5px solid #D34932;
+	border-radius: 10px;
 	background-color: #3F0C03;
 	color: #D34932;
 	text-shadow: 0.2px 0.2px 1.5px;
-	box-shadow: inset 0 0 10px #D34932;
+	box-shadow: 0 0 10px #D34932;
 }
 .pools {
-	border: 10px solid #0063B2FF;
-	border-radius: 15px;
+	border: 5px solid #0063B2FF;
+	border-radius: 10px;
 	background-color: #9CC3D5FF;
 	color: #0063B2FF;
 	text-shadow: 0.2px 0.2px 1.5px;
-	box-shadow: inset 0 0 10px #0063B2FF;
+	box-shadow: 0 0 10px #0063B2FF;
 }
 .enter-btn {
 	font-size: 1.3em;
