@@ -9,9 +9,8 @@ import {
 } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { showTournament, editTournament } from '../../actions/tournamentActions';
-import { Link } from 'react-router-dom';
-
+import { showTournament, editTournament, getTournaments } from '../../actions/tournamentActions';
+import { Link, Redirect } from 'react-router-dom';
 
 class EditTournament extends Component {
 	constructor(props) {
@@ -23,19 +22,23 @@ class EditTournament extends Component {
 			title: '',
 			description: '',
 			type: '',
-			schedule: ''
+      schedule: '',
+      redirectToHome: false
 		};
   };
   
   componentDidMount() {
 		const id = this.props.match.params.id;
-		this.props.showTournament(id);
-	};
+    this.props.showTournament(id);
+    if(this.state.redirectToHome) {
+      this.setState({ redirectToHome: false });
+    };
+  };
 
 	static propTypes = {
-		isAuthenticated: PropTypes.bool,
-		user: PropTypes.object,
-		editTournament: PropTypes.func.isRequired,
+    showTournament: PropTypes.func.isRequired,
+    editTournament: PropTypes.func.isRequired,
+    getTournaments: PropTypes.func.isRequired
 	};
 
 	onChange(e) {
@@ -45,15 +48,7 @@ class EditTournament extends Component {
 	};
 
 	onSubmit(e) {
-		e.preventDefault();
-
-		// const editedTournament = {
-		// 	title: this.state.title,
-		// 	description: this.state.description,
-		// 	type: this.state.type,
-		// 	schedule: this.state.schedule
-    // };
-    
+    e.preventDefault();
     const { showTournament } = this.props.tournament;
 
     showTournament.title = this.state.title;
@@ -67,13 +62,16 @@ class EditTournament extends Component {
 			title: '',
 			description: '',
 			type: '',
-			schedule: ''
-		});
+      schedule: '',
+      redirectToHome: true
+    });
 	};
 
 	render() {
+    const redirectToHome = this.state.redirectToHome;
 		return (
 			<div>
+        { redirectToHome ? <Redirect to="/" /> : null }
         <Form onSubmit={this.onSubmit} style={{color:"lightgrey"}} className="text-center">
           <h1>Edit Tournament</h1>
 
@@ -139,7 +137,6 @@ class EditTournament extends Component {
             </Col>
           </FormGroup>
           
-          <br/>
           <Button block color="primary">Update Tournament</Button>
         </Form>
         <br /><Link to="/">Back to Tournaments main page</Link>
@@ -149,9 +146,7 @@ class EditTournament extends Component {
 };
 
 const mapStateToProps = state => ({
-	tournament: state.tournament,
-	isAuthenticated: state.auth.isAuthenticated,
-	user: state.auth.user,
+	tournament: state.tournament
 });
 
-export default connect(mapStateToProps, { showTournament, editTournament })(EditTournament);
+export default connect(mapStateToProps, { showTournament, editTournament, getTournaments })(EditTournament);
