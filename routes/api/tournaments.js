@@ -62,7 +62,7 @@ router.post('/new', authorize, (req, res) => {
 // @route 	POST /tournaments/edit/:id
 // @descrip	EDIT/UPDATE
 // @access Private
-router.post('/edit/:id', (req, res) => {		// add authorize after postman testing
+router.post('/edit/:id', (req, res) => {
 	const { title, description, type, schedule } = req.body;
 
 	Tournament.findById(req.params.id)

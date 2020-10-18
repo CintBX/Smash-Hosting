@@ -3,6 +3,8 @@ import {
 	SHOW_TOURNAMENT, 
 	ADD_TOURNAMENT,
 	ADD_TOURNAMENT_FAIL,
+	EDIT_TOURNAMENT,
+	EDIT_TOURNAMENT_FAIL,
 	DELETE_TOURNAMENT, 
 	TOURNAMENTS_LOADING, 
 	TOURNAMENT_LOADING,
@@ -47,6 +49,12 @@ export default function(state = initialState, action) {
 				...state,
 				tournaments: state.tournaments.filter(tournament => tournament._id !== action.payload)
 			};
+
+		case EDIT_TOURNAMENT:
+			return {
+				...state,
+				...state.tournaments.find(tournament => tournament._id === action.payload._id)
+			}
 			
 		case TOURNAMENTS_LOADING:
 		case TOURNAMENT_LOADING:
@@ -74,6 +82,7 @@ export default function(state = initialState, action) {
 			}
 
 		case ADD_TOURNAMENT_FAIL:
+		case EDIT_TOURNAMENT_FAIL:
 		case TOURNAMENT_SIGN_UP_FAIL:
 		case TOURNAMENT_STATUS_FAILED:
 		case ADD_ROUND_FAILED:
