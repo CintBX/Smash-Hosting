@@ -24,6 +24,7 @@ class NewTournament extends Component {
 		this.state = {
 			modal: false,
 			title: '',
+			description: '',
 			type: '',
 			scheduledDay: '',
 			scheduledTime: ''
@@ -53,6 +54,7 @@ class NewTournament extends Component {
 
 		const newTournament = {
 			title: this.state.title,
+			description: this.state.description,
 			type: this.state.type,
 			scheduledDay: this.state.scheduledDay,
 			scheduledTime: this.state.scheduledTime,
@@ -65,6 +67,7 @@ class NewTournament extends Component {
 
 		this.setState({
 			title: '',
+			description: '',
 			type: '',
 			scheduledDay: '',
 			scheduledTime: ''
@@ -119,6 +122,17 @@ class NewTournament extends Component {
 									<option>Round Robin</option>
 									<option>Pools</option>
 								</Input>
+							</FormGroup>
+
+							<FormGroup>
+								<Label for="description">Write a description (optional)</Label>
+								<Input
+									type="textarea"
+									name="description"
+									id="description"
+									className="mb-4"
+									onChange={this.onChange}
+								/>
 							</FormGroup>
 
 							<FormGroup>
