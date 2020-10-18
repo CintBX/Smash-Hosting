@@ -11,7 +11,7 @@ const Tournament = require('../../models/Tournament');
 // @access	Public
 router.get('/', (req, res) => {
 	Tournament.find()
-		.sort({ date: -1 })															// -1 is descending order; 1 is ascending order
+		.sort({ createdAt: -1 })															// -1 is descending order; 1 is ascending order
 		.then(tournaments => res.json(tournaments))
 		.catch(err => console.log(err));
 });
