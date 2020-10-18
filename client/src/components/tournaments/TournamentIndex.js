@@ -69,7 +69,7 @@ class TournamentIndex extends Component {
 
 								<Link to={`/tournaments/edit/${_id}`} className="remove-underline">
 									<Button color="info" outline className="mb-3 mr-2 edit-delete float-right">
-										Edit
+										Edit Details
 									</Button>
 								</Link>
 							</Fragment>
