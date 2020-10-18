@@ -31,10 +31,11 @@ router.get('/:id', (req, res) => {
 // @descrip NEW/CREATE
 // @access 	Private
 router.post('/new', authorize, (req, res) => {
-	const { title, type, scheduledDay, scheduledTime, hostedBy } = req.body
+	const { title, description, type, scheduledDay, scheduledTime, hostedBy } = req.body
 
 	const newTournament = new Tournament({
 		title: title,
+		description: description,
 		type: type,
 		scheduledDay: scheduledDay,
 		scheduledTime: scheduledTime,
@@ -46,6 +47,7 @@ router.post('/new', authorize, (req, res) => {
 			tournament: {
 				id: tournament.id,
 				title: tournament.title,
+				description: tournament.description,
 				type: tournament.type,
 				scheduledDay: tournament.scheduledDay,
 				scheduledTime: tournament.scheduledTime,
