@@ -35,7 +35,6 @@ export default class App extends Component{
               <Col sm="7" md="7" lg="7" xl="7">
                 <Switch>
                   <Route path="/tournaments/edit/:id" component={EditTournament} />
-                  <Route path="/tournaments/:id/start" component={TournamentStart} />
                   <Route exact path="/tournaments/:id" component={TournamentShow} />
                   <Route exact path="/tournaments" render={ () => <Redirect to="/" /> } />
                   <Route path="/player/:id" component={PlayerProfile} />
@@ -46,6 +45,7 @@ export default class App extends Component{
                 </Switch>
               </Col>
             </Row>
+            <Route path="/tournaments/:id/start" component={TournamentStart} />
           </Container>
         </Router>
       </Provider>
