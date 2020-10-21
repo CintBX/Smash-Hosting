@@ -1,8 +1,8 @@
-// 8 Players -------------------------------------------------------- NEEDS ORDER OF GAMES, AND LETTERS >> NUMBERS
+// 8 Players --------------------------------------------------------
 const game = {
   id: 1,
   scheduled: null,
-  name: "Finals",
+  name: "7",
   sides: {
     home: {
       score: { score: 0 },
@@ -10,7 +10,7 @@ const game = {
         sourceGame: {
           id: 2,
           scheduled: null,
-          name: "B1",
+          name: "5",
           sides: {
             home: {
               score: { score: 0 },
@@ -18,14 +18,14 @@ const game = {
                 sourceGame: {
                   id: 3,
                   scheduled: null,
-                  name: "A1",
+                  name: "1",
                   sides: {
                     home: {
                       score: { score: 0 },
                       seed: {
                         sourceGame: null,
                         rank: 1,
-                        displayName: "Seed 0"
+                        displayName: "Seed"
                       }
                     },
                     visitor: {
@@ -33,13 +33,13 @@ const game = {
                       seed: {
                         sourceGame: null,
                         rank: 2,
-                        displayName: "Seed 1"
+                        displayName: "Seed"
                       }
                     }
                   }
                 },
                 rank: 1,
-                displayName: "Winner of A1"
+                displayName: ""
               }
             },
             visitor: {
@@ -48,14 +48,14 @@ const game = {
                 sourceGame: {
                   id: 3,
                   scheduled: null,
-                  name: "A2",
+                  name: "2",
                   sides: {
                     home: {
                       score: { score: 0 },
                       seed: {
                         sourceGame: null,
                         rank: 3,
-                        displayName: "Seed 2"
+                        displayName: "Seed"
                       }
                     },
                     visitor: {
@@ -63,19 +63,19 @@ const game = {
                       seed: {
                         sourceGame: null,
                         rank: 4,
-                        displayName: "Seed 3"
+                        displayName: "Seed"
                       }
                     }
                   }
                 },
                 rank: 1,
-                displayName: "Winner of A2"
+                displayName: ""
               }
             }
           }
         },
         rank: 1,
-        displayName: "Winner of B1"
+        displayName: ""
       }
     },
     visitor: {
@@ -84,7 +84,7 @@ const game = {
         sourceGame: {
           id: 2,
           scheduled: null,
-          name: "B2",
+          name: "6",
           sides: {
             home: {
               score: { score: 0 },
@@ -92,14 +92,14 @@ const game = {
                 sourceGame: {
                   id: 3,
                   scheduled: null,
-                  name: "A3",
+                  name: "3",
                   sides: {
                     home: {
                       score: { score: 0 },
                       seed: {
                         sourceGame: null,
                         rank: 7,
-                        displayName: "Seed 4"
+                        displayName: "Seed"
                       }
                     },
                     visitor: {
@@ -107,13 +107,13 @@ const game = {
                       seed: {
                         sourceGame: null,
                         rank: 7,
-                        displayName: "Seed 5"
+                        displayName: "Seed"
                       }
                     }
                   },
                 },
                 rank: 1,
-                displayName: "Winner of A3"
+                displayName: ""
               }
             },
             visitor: {
@@ -122,14 +122,14 @@ const game = {
                 sourceGame: {
                   id: 3,
                   scheduled: null,
-                  name: "A4",
+                  name: "4",
                   sides: {
                     home: {
                       score: { score: 0 },
                       seed: {
                         sourceGame: null,
                         rank: 7,
-                        displayName: "Seed 6"
+                        displayName: "Seed"
                       }
                     },
                     visitor: {
@@ -137,30 +137,30 @@ const game = {
                       seed: {
                         sourceGame: null,
                         rank: 8,
-                        displayName: "Seed 7"
+                        displayName: "Seed"
                       }
                     }
                   },
                 },
                 rank: 1,
-                displayName: "Winner of A4"
+                displayName: ""
               }
             }
           }
         },
         rank: 1,
-        displayName: "Winner of B2"
+        displayName: ""
       }
     }
   }
 }
 
 
-// 9 Players -------------------------------------------------------- NEEDS ORDER OF GAMES, AND LETTERS >> NUMBERS
+// 9 Players --------------------------------------------------------
 const game = {
   id: 1,
   scheduled: null,
-  name: "Finals",
+  name: "8",
   sides: {
     home: {
       score: { score: 0 },
@@ -168,7 +168,7 @@ const game = {
         sourceGame: {
           id: 2,
           scheduled: null,
-          name: "C1",
+          name: "6",
           sides: {
             home: {
               score: { score: 0 },
@@ -176,22 +176,30 @@ const game = {
                 sourceGame: {
                   id: 3,
                   scheduled: null,
-                  name: "B1",
+                  name: "5",
                   sides: {
                     home: {
+                      score: { score: 0 },
+                      seed: {
+                        sourceGame: null,
+                        rank: 7,
+                        displayName: "Seed"
+                      }
+                    },
+                    visitor: {
                       score: { score: 0 },
                       seed: {
                         sourceGame: {
                           id: 4,
                           scheduled: null,
-                          name: "A1",
+                          name: "1",
                           sides: {
                             home: {
                               score: { score: 0 },
                               seed: {
                                 sourceGame: null,
                                 rank: 1,
-                                displayName: "Seed 0"
+                                displayName: "Seed"
                               }
                             },
                             visitor: {
@@ -199,27 +207,19 @@ const game = {
                               seed: {
                                 sourceGame: null,
                                 rank: 1,
-                                displayName: "Seed 1"
+                                displayName: "Seed"
                               }
                             }
                           }
                         },
                         rank: 1,
-                        displayName: "Winner of A1"
-                      }
-                    },
-                    visitor: {
-                      score: { score: 0 },
-                      seed: {
-                        sourceGame: null,
-                        rank: 2,
-                        displayName: "Seed 2"
+                        displayName: ""
                       }
                     }
                   }
                 },
                 rank: 1,
-                displayName: "Winner of B1"
+                displayName: ""
               }
             },
             visitor: {
@@ -228,14 +228,14 @@ const game = {
                 sourceGame: {
                   id: 3,
                   scheduled: null,
-                  name: "B2",
+                  name: "2",
                   sides: {
                     home: {
                       score: { score: 0 },
                       seed: {
                         sourceGame: null,
                         rank: 3,
-                        displayName: "Seed 3"
+                        displayName: "Seed"
                       }
                     },
                     visitor: {
@@ -243,19 +243,19 @@ const game = {
                       seed: {
                         sourceGame: null,
                         rank: 4,
-                        displayName: "Seed 4"
+                        displayName: "Seed"
                       }
                     }
                   }
                 },
                 rank: 1,
-                displayName: "Winner of B2"
+                displayName: ""
               }
             }
           }
         },
         rank: 1,
-        displayName: "Winner of C1"
+        displayName: ""
       }
     },
     visitor: {
@@ -264,7 +264,7 @@ const game = {
         sourceGame: {
           id: 2,
           scheduled: null,
-          name: "C2",
+          name: "7",
           sides: {
             home: {
               score: { score: 0 },
@@ -272,14 +272,14 @@ const game = {
                 sourceGame: {
                   id: 3,
                   scheduled: null,
-                  name: "B3",
+                  name: "3",
                   sides: {
                     home: {
                       score: { score: 0 },
                       seed: {
                         sourceGame: null,
                         rank: 7,
-                        displayName: "Seed 5"
+                        displayName: "Seed"
                       }
                     },
                     visitor: {
@@ -287,13 +287,13 @@ const game = {
                       seed: {
                         sourceGame: null,
                         rank: 7,
-                        displayName: "Seed 6"
+                        displayName: "Seed"
                       }
                     }
                   },
                 },
                 rank: 1,
-                displayName: "Winner of B3"
+                displayName: ""
               }
             },
             visitor: {
@@ -302,14 +302,14 @@ const game = {
                 sourceGame: {
                   id: 3,
                   scheduled: null,
-                  name: "B4",
+                  name: "4",
                   sides: {
                     home: {
                       score: { score: 0 },
                       seed: {
                         sourceGame: null,
                         rank: 7,
-                        displayName: "Seed 7"
+                        displayName: "Seed"
                       }
                     },
                     visitor: {
@@ -317,30 +317,30 @@ const game = {
                       seed: {
                         sourceGame: null,
                         rank: 8,
-                        displayName: "Seed 8"
+                        displayName: "Seed"
                       }
                     }
                   },
                 },
                 rank: 1,
-                displayName: "Winner of B4"
+                displayName: ""
               }
             }
           }
         },
         rank: 1,
-        displayName: "Winner of C2"
+        displayName: ""
       }
     }
   }
 }
 
 
-// 10 Players -------------------------------------------------------- NEEDS ORDER OF GAMES, AND LETTERS >> NUMBERS
+// 10 Players --------------------------------------------------------
 const game = {
   id: 1,
   scheduled: null,
-  name: "Finals",
+  name: "9",
   sides: {
     home: {
       score: { score: 0 },
@@ -348,7 +348,7 @@ const game = {
         sourceGame: {
           id: 2,
           scheduled: null,
-          name: "C1",
+          name: "7",
           sides: {
             home: {
               score: { score: 0 },
@@ -356,14 +356,14 @@ const game = {
                 sourceGame: {
                   id: 3,
                   scheduled: null,
-                  name: "B1",
+                  name: "5",
                   sides: {
                     home: {
                       score: { score: 0 },
                       seed: {
                         sourceGame: null,
                         rank: 1,
-                        displayName: "Seed 4"
+                        displayName: "Seed"
                       }
                     },
                     visitor: {
@@ -372,14 +372,14 @@ const game = {
                         sourceGame: {
                           id: 4,
                           scheduled: null,
-                          name: "A1",
+                          name: "1",
                           sides: {
                             home: {
                               score: { score: 0 },
                               seed: {
                                 sourceGame: null,
                                 rank: 1,
-                                displayName: "Seed 0"
+                                displayName: "Seed"
                               }
                             },
                             visitor: {
@@ -387,19 +387,19 @@ const game = {
                               seed: {
                                 sourceGame: null,
                                 rank: 1,
-                                displayName: "Seed 1"
+                                displayName: "Seed"
                               }
                             }
                           }
                         },
                         rank: 1,
-                        displayName: "Winner of A1"
+                        displayName: ""
                       }
                     }
                   }
                 },
                 rank: 1,
-                displayName: "Winner of B1"
+                displayName: ""
               }
             },
             visitor: {
@@ -408,14 +408,14 @@ const game = {
                 sourceGame: {
                   id: 3,
                   scheduled: null,
-                  name: "B2",
+                  name: "3",
                   sides: {
                     home: {
                       score: { score: 0 },
                       seed: {
                         sourceGame: null,
                         rank: 7,
-                        displayName: "Seed 5"
+                        displayName: "Seed"
                       }
                     },
                     visitor: {
@@ -423,19 +423,19 @@ const game = {
                       seed: {
                         sourceGame: null,
                         rank: 8,
-                        displayName: "Seed 6"
+                        displayName: "Seed"
                       }
                     }
                   }
                 },
                 rank: 1,
-                displayName: "Winner of B2"
+                displayName: ""
               }
             }
           }
         },
         rank: 1,
-        displayName: "Winner of C1"
+        displayName: ""
       }
     },
     visitor: {
@@ -444,7 +444,7 @@ const game = {
         sourceGame: {
           id: 2,
           scheduled: null,
-          name: "C2",
+          name: "8",
           sides: {
             home: {
               score: { score: 0 },
@@ -452,14 +452,14 @@ const game = {
                 sourceGame: {
                   id: 3,
                   scheduled: null,
-                  name: "B3",
+                  name: "6",
                   sides: {
                     home: {
                       score: { score: 0 },
                       seed: {
                         sourceGame: null,
                         rank: 7,
-                        displayName: "Seed 7"
+                        displayName: "Seed"
                       }
                     },
                     visitor: {
@@ -468,14 +468,14 @@ const game = {
                         sourceGame: {
                           id: 4,
                           scheduled: null,
-                          name: "A2",
+                          name: "2",
                           sides: {
                             home: {
                               score: { score: 0 },
                               seed: {
                                 sourceGame: null,
                                 rank: 1,
-                                displayName: "Seed 2"
+                                displayName: "Seed"
                               }
                             },
                             visitor: {
@@ -483,19 +483,19 @@ const game = {
                               seed: {
                                 sourceGame: null,
                                 rank: 1,
-                                displayName: "Seed 3"
+                                displayName: "Seed"
                               }
                             }
                           }
                         },
                         rank: 1,
-                        displayName: "Winner of A2"
+                        displayName: ""
                       }
                     }
                   },
                 },
                 rank: 1,
-                displayName: "Winner of B3"
+                displayName: ""
               }
             },
             visitor: {
@@ -504,14 +504,14 @@ const game = {
                 sourceGame: {
                   id: 3,
                   scheduled: null,
-                  name: "B4",
+                  name: "4",
                   sides: {
                     home: {
                       score: { score: 0 },
                       seed: {
                         sourceGame: null,
                         rank: 7,
-                        displayName: "Seed 8"
+                        displayName: "Seed"
                       }
                     },
                     visitor: {
@@ -519,23 +519,24 @@ const game = {
                       seed: {
                         sourceGame: null,
                         rank: 8,
-                        displayName: "Seed 9"
+                        displayName: "Seed"
                       }
                     }
                   },
                 },
                 rank: 1,
-                displayName: "Winner of B4"
+                displayName: ""
               }
             }
           }
         },
         rank: 1,
-        displayName: "Winner of C2"
+        displayName: ""
       }
     }
   }
 }
+
 
 // 11 Players --------------------------------------------------------
 const game = {
@@ -594,13 +595,13 @@ const game = {
                           }
                         },
                         rank: 1,
-                        displayName: "Winner of 1"
+                        displayName: ""
                       }
                     }
                   }
                 },
                 rank: 1,
-                displayName: "Winner of 5"
+                displayName: ""
               }
             },
             visitor: {
@@ -630,13 +631,13 @@ const game = {
                   }
                 },
                 rank: 1,
-                displayName: "Winner of 4"
+                displayName: ""
               }
             }
           }
         },
         rank: 1,
-        displayName: "Winner of 8"
+        displayName: ""
       }
     },
     visitor: {
@@ -690,13 +691,13 @@ const game = {
                           }
                         },
                         rank: 1,
-                        displayName: "Winner of 2"
+                        displayName: ""
                       }
                     }
                   },
                 },
                 rank: 1,
-                displayName: "Winner of 6"
+                displayName: ""
               }
             },
             visitor: {
@@ -742,27 +743,542 @@ const game = {
                           }
                         },
                         rank: 1,
-                        displayName: "Winner of 3"
+                        displayName: ""
                       }
                     }
                   },
                 },
                 rank: 1,
-                displayName: "Winner of 7"
+                displayName: ""
               }
             }
           }
         },
         rank: 1,
-        displayName: "Winner of 9"
+        displayName: ""
       }
     }
   }
 }
 
 
-// 12 Players
-// 13 Players
-// 14 Players
-// 15 Players
-// 16 Players
+// 12 Players --------------------------------------------------------
+const game = {
+  id: 1,
+  scheduled: null,
+  name: "11",
+  sides: {
+    home: {
+      score: { score: 0 },
+      seed: {
+        sourceGame: {
+          id: 2,
+          scheduled: null,
+          name: "9",
+          sides: {
+            home: {
+              score: { score: 0 },
+              seed: {
+                sourceGame: {
+                  id: 3,
+                  scheduled: null,
+                  name: "5",
+                  sides: {
+                    home: {
+                      score: { score: 0 },
+                      seed: {
+                        sourceGame: null,
+                        rank: 1,
+                        displayName: "Seed"
+                      }
+                    },
+                    visitor: {
+                      score: { score: 0 },
+                      seed: {
+                        sourceGame: {
+                          id: 4,
+                          scheduled: null,
+                          name: "1",
+                          sides: {
+                            home: {
+                              score: { score: 0 },
+                              seed: {
+                                sourceGame: null,
+                                rank: 1,
+                                displayName: "Seed"
+                              }
+                            },
+                            visitor: {
+                              score: { score: 0 },
+                              seed: {
+                                sourceGame: null,
+                                rank: 1,
+                                displayName: "Seed"
+                              }
+                            }
+                          }
+                        },
+                        rank: 1,
+                        displayName: ""
+                      }
+                    }
+                  }
+                },
+                rank: 1,
+                displayName: ""
+              }
+            },
+            visitor: {
+              score: { score: 0 },
+              seed: {
+                sourceGame: {
+                  id: 3,
+                  scheduled: null,
+                  name: "6",
+                  sides: {
+                    home: {
+                      score: { score: 0 },
+                      seed: {
+                        sourceGame: null,
+                        rank: 7,
+                        displayName: "Seed"
+                      }
+                    },
+                    visitor: {
+                      score: { score: 0 },
+                      seed: {
+                        sourceGame: {
+                          id: 4,
+                          scheduled: null,
+                          name: "2",
+                          sides: {
+                            home: {
+                              score: { score: 0 },
+                              seed: {
+                                sourceGame: null,
+                                rank: 7,
+                                displayName: "Seed"
+                              }
+                            },
+                            visitor: {
+                              score: { score: 0 },
+                              seed: {
+                                sourceGame: null,
+                                rank: 8,
+                                displayName: "Seed"
+                              }
+                            }
+                          }
+                        },
+                        rank: 1,
+                        displayName: ""
+                      }
+                    }
+                  }
+                },
+                rank: 1,
+                displayName: ""
+              }
+            }
+          }
+        },
+        rank: 1,
+        displayName: ""
+      }
+    },
+    visitor: {
+      score: { score: 0 },
+      seed: {
+        sourceGame: {
+          id: 2,
+          scheduled: null,
+          name: "10",
+          sides: {
+            home: {
+              score: { score: 0 },
+              seed: {
+                sourceGame: {
+                  id: 3,
+                  scheduled: null,
+                  name: "7",
+                  sides: {
+                    home: {
+                      score: { score: 0 },
+                      seed: {
+                        sourceGame: null,
+                        rank: 7,
+                        displayName: "Seed"
+                      }
+                    },
+                    visitor: {
+                      score: { score: 0 },
+                      seed: {
+                        sourceGame: {
+                          id: 4,
+                          scheduled: null,
+                          name: "3",
+                          sides: {
+                            home: {
+                              score: { score: 0 },
+                              seed: {
+                                sourceGame: null,
+                                rank: 1,
+                                displayName: "Seed"
+                              }
+                            },
+                            visitor: {
+                              score: { score: 0 },
+                              seed: {
+                                sourceGame: null,
+                                rank: 1,
+                                displayName: "Seed"
+                              }
+                            }
+                          }
+                        },
+                        rank: 1,
+                        displayName: ""
+                      }
+                    }
+                  },
+                },
+                rank: 1,
+                displayName: ""
+              }
+            },
+            visitor: {
+              score: { score: 0 },
+              seed: {
+                sourceGame: {
+                  id: 3,
+                  scheduled: null,
+                  name: "8",
+                  sides: {
+                    home: {
+                      score: { score: 0 },
+                      seed: {
+                        sourceGame: null,
+                        rank: 7,
+                        displayName: "Seed"
+                      }
+                    },
+                    visitor: {
+                      score: { score: 0 },
+                      seed: {
+                        sourceGame: {
+                          id: 4,
+                          scheduled: null,
+                          name: "4",
+                          sides: {
+                            home: {
+                              score: { score: 0 },
+                              seed: {
+                                sourceGame: null,
+                                rank: 7,
+                                displayName: "Seed"
+                              }
+                            },
+                            visitor: {
+                              score: { score: 0 },
+                              seed: {
+                                sourceGame: null,
+                                rank: 8,
+                                displayName: "Seed"
+                              }
+                            }
+                          }
+                        },
+                        rank: 1,
+                        displayName: ""
+                      }
+                    }
+                  },
+                },
+                rank: 1,
+                displayName: ""
+              }
+            }
+          }
+        },
+        rank: 1,
+        displayName: ""
+      }
+    }
+  }
+}
+
+
+// 13 Players --------------------------------------------------------
+const game = {
+  id: 1,
+  scheduled: null,
+  name: "12",
+  sides: {
+    home: {
+      score: { score: 0 },
+      seed: {
+        sourceGame: {
+          id: 2,
+          scheduled: null,
+          name: "10",
+          sides: {
+            home: {
+              score: { score: 0 },
+              seed: {
+                sourceGame: {
+                  id: 3,
+                  scheduled: null,
+                  name: "6",
+                  sides: {
+                    home: {
+                      score: { score: 0 },
+                      seed: {
+                        sourceGame: null,
+                        rank: 1,
+                        displayName: "Seed"
+                      }
+                    },
+                    visitor: {
+                      score: { score: 0 },
+                      seed: {
+                        sourceGame: {
+                          id: 4,
+                          scheduled: null,
+                          name: "1",
+                          sides: {
+                            home: {
+                              score: { score: 0 },
+                              seed: {
+                                sourceGame: null,
+                                rank: 1,
+                                displayName: "Seed"
+                              }
+                            },
+                            visitor: {
+                              score: { score: 0 },
+                              seed: {
+                                sourceGame: null,
+                                rank: 1,
+                                displayName: "Seed"
+                              }
+                            }
+                          }
+                        },
+                        rank: 1,
+                        displayName: ""
+                      }
+                    }
+                  }
+                },
+                rank: 1,
+                displayName: ""
+              }
+            },
+            visitor: {
+              score: { score: 0 },
+              seed: {
+                sourceGame: {
+                  id: 3,
+                  scheduled: null,
+                  name: "7",
+                  sides: {
+                    home: {
+                      score: { score: 0 },
+                      seed: {
+                        sourceGame: {
+                          id: 4,
+                          scheduled: null,
+                          name: "2",
+                          sides: {
+                            home: {
+                              score: { score: 0 },
+                              seed: {
+                                sourceGame: null,
+                                rank: 7,
+                                displayName: "Seed"
+                              }
+                            },
+                            visitor: {
+                              score: { score: 0 },
+                              seed: {
+                                sourceGame: null,
+                                rank: 8,
+                                displayName: "Seed"
+                              }
+                            }
+                          }
+                        },
+                        rank: 1,
+                        displayName: ""
+                      }
+                    },
+                    visitor: {
+                      score: { score: 0 },
+                      seed: {
+                        sourceGame: {
+                          id: 4,
+                          scheduled: null,
+                          name: "3",
+                          sides: {
+                            home: {
+                              score: { score: 0 },
+                              seed: {
+                                sourceGame: null,
+                                rank: 7,
+                                displayName: "Seed"
+                              }
+                            },
+                            visitor: {
+                              score: { score: 0 },
+                              seed: {
+                                sourceGame: null,
+                                rank: 8,
+                                displayName: "Seed"
+                              }
+                            }
+                          }
+                        },
+                        rank: 1,
+                        displayName: ""
+                      }
+                    }
+                  }
+                },
+                rank: 1,
+                displayName: ""
+              }
+            }
+          }
+        },
+        rank: 1,
+        displayName: ""
+      }
+    },
+    visitor: {
+      score: { score: 0 },
+      seed: {
+        sourceGame: {
+          id: 2,
+          scheduled: null,
+          name: "11",
+          sides: {
+            home: {
+              score: { score: 0 },
+              seed: {
+                sourceGame: {
+                  id: 3,
+                  scheduled: null,
+                  name: "8",
+                  sides: {
+                    home: {
+                      score: { score: 0 },
+                      seed: {
+                        sourceGame: null,
+                        rank: 7,
+                        displayName: "Seed"
+                      }
+                    },
+                    visitor: {
+                      score: { score: 0 },
+                      seed: {
+                        sourceGame: {
+                          id: 4,
+                          scheduled: null,
+                          name: "4",
+                          sides: {
+                            home: {
+                              score: { score: 0 },
+                              seed: {
+                                sourceGame: null,
+                                rank: 1,
+                                displayName: "Seed"
+                              }
+                            },
+                            visitor: {
+                              score: { score: 0 },
+                              seed: {
+                                sourceGame: null,
+                                rank: 1,
+                                displayName: "Seed"
+                              }
+                            }
+                          }
+                        },
+                        rank: 1,
+                        displayName: ""
+                      }
+                    }
+                  },
+                },
+                rank: 1,
+                displayName: ""
+              }
+            },
+            visitor: {
+              score: { score: 0 },
+              seed: {
+                sourceGame: {
+                  id: 3,
+                  scheduled: null,
+                  name: "9",
+                  sides: {
+                    home: {
+                      score: { score: 0 },
+                      seed: {
+                        sourceGame: null,
+                        rank: 7,
+                        displayName: "Seed"
+                      }
+                    },
+                    visitor: {
+                      score: { score: 0 },
+                      seed: {
+                        sourceGame: {
+                          id: 4,
+                          scheduled: null,
+                          name: "5",
+                          sides: {
+                            home: {
+                              score: { score: 0 },
+                              seed: {
+                                sourceGame: null,
+                                rank: 7,
+                                displayName: "Seed"
+                              }
+                            },
+                            visitor: {
+                              score: { score: 0 },
+                              seed: {
+                                sourceGame: null,
+                                rank: 8,
+                                displayName: "Seed"
+                              }
+                            }
+                          }
+                        },
+                        rank: 1,
+                        displayName: ""
+                      }
+                    }
+                  },
+                },
+                rank: 1,
+                displayName: ""
+              }
+            }
+          }
+        },
+        rank: 1,
+        displayName: ""
+      }
+    }
+  }
+}
+
+
+// 14 Players --------------------------------------------------------
+
+
+
+// 15 Players --------------------------------------------------------
+// 16 Players --------------------------------------------------------
