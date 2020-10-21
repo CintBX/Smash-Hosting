@@ -44,8 +44,8 @@ export default class App extends Component{
                   <Route exact path="/" component={TournamentIndex} />
                 </Switch>
               </Col>
+              <Route path="/tournaments/:id/start" component={TournamentStart} />
             </Row>
-            <Route path="/tournaments/:id/start" component={TournamentStart} />
           </Container>
         </Router>
       </Provider>
