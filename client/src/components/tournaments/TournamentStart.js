@@ -19,17 +19,18 @@ class TournamentStartPage extends Component {
   };
 
   render() {
-    const { _id, title, hostedBy, participants } = this.props.tournament.showTournament;
+    const { _id, title, participants } = this.props.tournament.showTournament;
 
-    let usernames = []
+    let usernames = [];
     participants && participants.forEach(participant => {
       usernames.push(participant.username);
     });
+    const bracketSize = usernames.length;
 
     return (
-      <div style={{color:"lightgrey"}}>
+      <div style={{color:"lightgrey", backgroundColor: "#333333"}}>
         <h1 className="text-center">{ title }</h1>
-        <BracketGenerator key={_id} size={20} />
+        <BracketGenerator key={_id} size={bracketSize} styles={{color: "white"}} />
       </div>
     );
   };
