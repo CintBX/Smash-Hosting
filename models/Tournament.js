@@ -1,3 +1,5 @@
+import Bracket from './Bracket';
+
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
@@ -35,9 +37,10 @@ const TournamentSchema = new Schema({
 		type: Array,
 		required: false
 	},
-	rounds: {
-		type: Array,
-		required: false
+	bracket: {
+		players: Array,
+		rounds: Array,
+		champion: String
 	}
 });
 
