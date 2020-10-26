@@ -1,28 +1,15 @@
 import uuid from 'uuid';
 
 class Match {
-  constructor(
-    playerOne,
-    playerTwo,
-    winner = null
-  ) {
+  constructor(playerOne, playerTwo, round) {
     this.id = uuid();
     this.playerOne = playerOne;
     this.playerTwo = playerTwo;
-    this.winner = winner;
+    this.round = round;
     this.scoreOne = 0;
     this.scoreTwo = 0;
-    this.round = 0;
+    this.winner = null;
     this.finals = false;
-    this.bestOf = "";
-  };
-
-  static get playerOne() {
-    return this.playerOne || "Team One";
-  };
-
-  static get playerTwo() {
-    return this.playerTwo || "Player Two";
   };
 
   setWinner(player) {
@@ -37,9 +24,9 @@ class Match {
     };
   };
 
-  getWinner() {
-    return `Winner: ${this.winner}!`
-  };
+  setFinals() {
+    this.finals = true;
+  }
 };
 
 export default Match;
