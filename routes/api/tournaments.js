@@ -138,9 +138,14 @@ router.post('/:id/bracket-players', (req, res) => {
 		.then(tournament => {
 			if(!tournament) res.status(404).json({ msg: "Cannot find this tournament" });
 			else {
-				const { players } = tournament.bracket;
 				const { participants } = req.body;
-				players.push(shuffleParticipants(participants));
+				const shuffledPlayers = shuffleParticipants(participants);
+				const { players } = tournament.bracket;
+				
+				shuffledPlayers.forEach(player => {
+					players.push(player);
+				});
+				
 				return tournament.save();
 			};
 		})
