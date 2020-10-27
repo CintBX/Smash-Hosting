@@ -52,7 +52,7 @@ router.post('/new', authorize, (req, res) => {
 				hostedBy: tournament.hostedBy,
 				status: tournament.status,
 				participants: tournament.participants,
-				rounds: tournament.rounds
+				bracket: tournament.bracket
 			}
 		}))
 		.catch(err => res.status(400).json({ msg: `${err}` }));
@@ -118,10 +118,10 @@ router.post('/:id/close', (req, res) => {
 });
 
 
-// @route TOURNAMENT ROUNDS /tournaments/:id/rounds
-// @descrip Push participants into rounds
+// @route TOURNAMENT BRACKET /tournaments/:id/bracket-players
+// @descrip Push participants into bracket.players
 // @access Private
-router.post('/:id/rounds', (req, res) => {
+router.post('/:id/bracket-players', (req, res) => {
 	const shuffleParticipants = array => {
 		let currentIndex = array.length, temporaryValue, randomIndex;	
 		while(0 !== currentIndex) {
@@ -138,7 +138,9 @@ router.post('/:id/rounds', (req, res) => {
 		.then(tournament => {
 			if(!tournament) res.status(404).json({ msg: "Cannot find this tournament" });
 			else {
-				tournament.rounds.push(shuffleParticipants(req.body.participants));
+				const { players } = tournament.bracket;
+				const { participants } = req.body;
+				players.push(shuffleParticipants(participants));
 				return tournament.save();
 			};
 		})
