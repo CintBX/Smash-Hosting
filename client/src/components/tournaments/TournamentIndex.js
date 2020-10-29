@@ -76,7 +76,7 @@ class TournamentIndex extends Component {
 					}
 					
 					<Link 
-						to={ status === "Open" ? `/tournaments/${_id}` : `/tournaments/${_id}/start` } 
+						to={ `/tournaments/${_id}` } 
 						className="remove-underline"
 					>
 						<Button color="secondary" outline block className="mt-2">
