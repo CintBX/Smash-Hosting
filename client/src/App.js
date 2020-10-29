@@ -9,7 +9,6 @@ import NavigationBar from './components/layout/NavigationBar';
 import ProfileSidebar from './components/layout/ProfileSidebar';
 import TournamentIndex from './components/tournaments/TournamentIndex';
 import TournamentShow from './components/tournaments/TournamentShow';
-import TournamentStart from './components/tournaments/TournamentStart';
 import EditTournament from './components/tournaments/EditTournament';
 import PlayerProfile from './components/players/PlayerProfile';
 import PlayerDirectory from './components/players/PlayerDirectory';
@@ -44,7 +43,6 @@ export default class App extends Component{
                   <Route exact path="/" component={TournamentIndex} />
                 </Switch>
               </Col>
-              <Route path="/tournaments/:id/start" component={TournamentStart} />
             </Row>
           </Container>
         </Router>

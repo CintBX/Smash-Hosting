@@ -12,13 +12,13 @@ import {
 	TOURNAMENT_SIGN_UP_FAIL,
 	TOURNAMENT_STATUS_UPDATE,
 	TOURNAMENT_STATUS_FAILED,
-	ADD_ROUND_OF_PLAYERS,
-	ADD_ROUND_FAILED
+	SHUFFLE_PARTICIPANTS,
+	SHUFFLE_FAILED
 } from '../actions/types';
 
 const initialState = {
 	tournaments: [],
-	showTournament: "",
+	showTournament: {},
 	loading: false,
 };
 
@@ -34,7 +34,7 @@ export default function(state = initialState, action) {
 		case SHOW_TOURNAMENT:
 			return {
 				...state,
-				showTournament: state.tournaments.find(tournament => tournament._id === action.payload),
+				showTournament: action.payload,
 				loading: false
 			};
 			
@@ -75,17 +75,17 @@ export default function(state = initialState, action) {
 				...state.showTournament.status = action.payload
 			};
 
-		case ADD_ROUND_OF_PLAYERS:
+		case SHUFFLE_PARTICIPANTS:
 			return {
 				...state,
-				...state.showTournament.rounds.push(action.payload)
+				showtournaments: state.showTournament.bracket.players = action.payload
 			}
 
 		case ADD_TOURNAMENT_FAIL:
 		case EDIT_TOURNAMENT_FAIL:
 		case TOURNAMENT_SIGN_UP_FAIL:
 		case TOURNAMENT_STATUS_FAILED:
-		case ADD_ROUND_FAILED:
+		case SHUFFLE_FAILED:
 			return {
 				...state,
 			}
