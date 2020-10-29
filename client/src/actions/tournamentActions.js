@@ -12,8 +12,8 @@ import {
 	TOURNAMENT_SIGN_UP_FAIL,
 	TOURNAMENT_STATUS_UPDATE,
 	TOURNAMENT_STATUS_FAILED,
-	ADD_ROUND_OF_PLAYERS,
-	ADD_ROUND_FAILED,
+	SHUFFLE_PARTICIPANTS,
+	SHUFFLE_FAILED
 } from './types';
 import axios from 'axios';
 import { tokenConfig } from './authActions';
@@ -79,13 +79,13 @@ export const editTournament = ({ _id, title, description, type, schedule }) => d
 };
 
 
-export const showTournament = id => dispatch => {
+export const showTournament = _id => dispatch => {
 	dispatch(singleTourneyLoading());	
 	axios
-		.get(`/tournaments/${id}`)
-		.then(() => dispatch({
+		.get(`/tournaments/${_id}`)
+		.then(res => dispatch({
 			type: SHOW_TOURNAMENT,
-			payload: id
+			payload: res.data
 		}))
 		.catch(err => dispatch(returnErrors(err.response.data, err.response.status)));
 };
@@ -139,7 +139,7 @@ export const closeTournament = (_id, status = "Closed") => dispatch => {
 };
 
 
-export const addRound = (_id, participants) => dispatch => {
+export const shuffleParticipants = (_id, participants) => dispatch => {
 	const config = {
 		headers: {
 			"Content-Type": "application/json"
@@ -148,15 +148,15 @@ export const addRound = (_id, participants) => dispatch => {
 	const body = JSON.stringify({ participants });
 
 	axios
-		.post(`/tournaments/${_id}/rounds`, body, config)
+		.post(`/tournaments/${_id}/shuffle-players`, body, config)
 		.then(() => dispatch({
-			type: ADD_ROUND_OF_PLAYERS,
+			type: SHUFFLE_PARTICIPANTS,
 			payload: participants
 		}))
 		.catch(err => {
 			dispatch(returnErrors(err.response.data, err.response.status));
 			dispatch({
-				type: ADD_ROUND_FAILED
+				type: SHUFFLE_FAILED
 			});
 		});
 };
