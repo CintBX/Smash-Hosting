@@ -23,7 +23,7 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
 	Tournament.findById(req.params.id)
 		.then(tournament => res.json(tournament))
-		.catch(err => res.status(404).json({ msg: "Tournament not found" }));
+		.catch(err => res.json(err));
 });
 
 
@@ -139,12 +139,15 @@ router.post('/:id/shuffle-players', (req, res) => {
 			if(!tournament) res.status(404).json({ msg: "Cannot find this tournament" });
 			else {
 				const { participants } = req.body;
-				const shuffledParticipants = shuffleParticipants(participants);
+				const { players } = tournament.bracket;
+				const shuffledPlayers = shuffleParticipants(participants);
+				
+				if(players.length !== participants.length) {
+					shuffledPlayers.forEach(player => {
+						players.push(player)
+					});
+				};
 
-				// participants = [];
-				shuffledParticipants.forEach(participant => {
-					participants.push(participant);
-				});
 				return tournament.save();
 			};
 		})
