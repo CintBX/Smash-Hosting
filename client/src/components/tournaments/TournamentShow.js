@@ -16,6 +16,7 @@ class TournamentShow extends Component {
 		super(props);
 		this.onSignUp = this.onSignUp.bind(this);
 		this.onStartTournament = this.onStartTournament.bind(this);
+		this.onShuffleParticipants = this.onShuffleParticipants.bind(this);
 	};
 
 	componentDidMount() {
@@ -32,8 +33,33 @@ class TournamentShow extends Component {
 		this.props.addParticipant(tournamentId, user);
 	};
 
-	onStartTournament(tourneyId, tourneyParticipants) {
-		this.props.shuffleParticipants(tourneyId, tourneyParticipants);
+	onShuffleParticipants(array) {
+		let currentIndex = array.length, temporaryValue, randomIndex;	
+		while(0 !== currentIndex) {
+			randomIndex = Math.floor(Math.random() * currentIndex);
+			currentIndex -= 1;	
+			temporaryValue = array[currentIndex];
+			array[currentIndex] = array[randomIndex];
+			array[randomIndex] = temporaryValue;
+		}	
+		return array;
+	};
+	
+	onStartTournament(tourneyId) {
+		const { participants } = this.props.tournament.showTournament;
+
+		// Randomize participants
+		let reorderedParticipants = [];
+		const shuffledParticipants = this.onShuffleParticipants(participants);
+
+		shuffledParticipants.forEach(participant => {
+			reorderedParticipants.push(participant);
+		});
+
+		// Send new participants list to backend
+		this.props.shuffleParticipants(tourneyId, reorderedParticipants);
+		
+		// Status === Closed
 		this.props.closeTournament(tourneyId);
 	};
 

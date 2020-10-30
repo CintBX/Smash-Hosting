@@ -78,7 +78,7 @@ export const SignUpPage = ({ tournament, auth, onSignUp, onStartTournament }) =>
 				<div>
 					<StartTournament
 						participants={participants}
-						onClick={() => onStartTournament(_id, participants)}
+						onClick={() => onStartTournament(_id)}
 					/>
 				</div> :
 				null
