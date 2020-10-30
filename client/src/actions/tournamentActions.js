@@ -124,6 +124,8 @@ export const addParticipant = (_id, user) => dispatch => {
 
 
 export const closeTournament = (_id, status = "Closed") => dispatch => {
+	dispatch(singleTourneyLoading());
+	
 	const config = {
 		headers: {
 			"Content-Type": "application/json"
