@@ -36,8 +36,9 @@ const TournamentSchema = new Schema({
 		required: false
 	},
 	bracket: {
-		matches: Array,
-		champion: String
+		players: {type: Array},
+		matches: {type: Array},
+		champion: {type: String, default: "pending"}
 	}
 });
 

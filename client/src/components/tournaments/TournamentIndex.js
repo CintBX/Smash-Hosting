@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Jumbotron, Button } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { InProgress, ResultsPopover } from './buttons';
+import { InProgress, ResultsPopover } from './resources/buttons';
 import { getTournaments, deleteTournament } from '../../actions/tournamentActions';
 import DeleteModal from '../delete/DeleteModal';
 import moment from 'moment';
