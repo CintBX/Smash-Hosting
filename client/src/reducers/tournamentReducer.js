@@ -41,7 +41,7 @@ export default function(state = initialState, action) {
 		case ADD_TOURNAMENT:
 			return {
 				...state,
-				tournaments: [action.payload, ...state.tournaments]
+				tournaments: [...state.tournaments, action.payload]
 			};
 			
 		case DELETE_TOURNAMENT:
