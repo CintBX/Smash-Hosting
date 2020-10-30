@@ -43,20 +43,20 @@ body {
 	box-shadow: 0 0 10px #6AA8AA;
 }
 .doubleelimination {
-	border: 5px solid #CDC4A4;
-	border-radius: 10px;
-	background-color: #2C5F2D;
-	color: #CDC4A4;
-	text-shadow: 0.2px 0.2px 1.5px;
-	box-shadow: 0 0 10px #CDC4A4;
-}
-.roundrobin {
 	border: 5px solid #D34932;
 	border-radius: 10px;
 	background-color: #3F0C03;
 	color: #D34932;
 	text-shadow: 0.2px 0.2px 1.5px;
 	box-shadow: 0 0 10px #D34932;
+}
+.roundrobin {
+	border: 5px solid #CDC4A4;
+	border-radius: 10px;
+	background-color: #2C5F2D;
+	color: #CDC4A4;
+	text-shadow: 0.2px 0.2px 1.5px;
+	box-shadow: 0 0 10px #CDC4A4;
 }
 .pools {
 	border: 5px solid #0063B2FF;
