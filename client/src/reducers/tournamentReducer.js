@@ -72,7 +72,7 @@ export default function(state = initialState, action) {
 		case SHUFFLE_PARTICIPANTS:
 			return {
 				...state,
-				showTournament: state.showTournament.bracket.players = action.payload
+				...state.showTournament.bracket.players.push(action.payload)
 			}
 
 		case EDIT_TOURNAMENT:
