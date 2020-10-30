@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
 	Tournament.find()
 		.sort({ createdAt: -1 })															// -1 is descending order; 1 is ascending order
 		.then(tournaments => res.json(tournaments))
-		.catch(err => console.log(err));
+		.catch(err => console.log(`Tournaments Index error: ${err}`));
 });
 
 
@@ -23,7 +23,7 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
 	Tournament.findById(req.params.id)
 		.then(tournament => res.json(tournament))
-		.catch(err => res.json(err));
+		.catch(err => console.log(`Show Tournament error: ${err}`));
 });
 
 
@@ -101,6 +101,28 @@ router.post('/:id', (req, res) => {
 });
 
 
+// @route TOURNAMENT BRACKET /tournaments/:id/bracket-players
+// @descrip Push randomized participants into bracket.players
+// @access Private
+router.post('/:id/shuffle-players', (req, res) => {
+	Tournament.findByIdAndUpdate(req.params.id)
+		.then(tournament => {
+			if(!tournament) res.status(404).json({ msg: "Cannot find this tournament" });
+			else {
+				const { participants } = req.body;
+				const { players } = tournament.bracket;
+
+				if(players.length !== participants.length) {
+					participants.forEach(p => players.push(p));
+				};
+				return tournament.save();
+			};
+		})
+		.then(savedTournament => res.json(savedTournament))
+		.catch(err => res.json(err));
+});
+
+
 // @route 	CLOSE TOURNAMENT /tournaments/:id/close
 // @descrip	Start tournament by changing Status to Closed
 // @access	Private
@@ -118,42 +140,18 @@ router.post('/:id/close', (req, res) => {
 });
 
 
-// @route TOURNAMENT BRACKET /tournaments/:id/bracket-players
-// @descrip Push participants into bracket.players
-// @access Private
-router.post('/:id/shuffle-players', (req, res) => {
-	const shuffleParticipants = array => {
-		let currentIndex = array.length, temporaryValue, randomIndex;	
-		while(0 !== currentIndex) {
-			randomIndex = Math.floor(Math.random() * currentIndex);
-			currentIndex -= 1;	
-			temporaryValue = array[currentIndex];
-			array[currentIndex] = array[randomIndex];
-			array[randomIndex] = temporaryValue;
-		}	
-		return array;
-	};
+// // @route  	FIRST ROUND /tournaments/:id/first-round
+// // @descrip	POST and organize bracket.players to bracket.matches
+// // @access	Private
+// router.post('/:id/first-round', (req, res) => {
+// 	Tournament.findByIdAndUpdate(req.params.id)
+// 		.then(tournament => {
+// 			const { players } = req.body;
 
-	Tournament.findByIdAndUpdate(req.params.id)
-		.then(tournament => {
-			if(!tournament) res.status(404).json({ msg: "Cannot find this tournament" });
-			else {
-				const { participants } = req.body;
-				const { players } = tournament.bracket;
-				const shuffledPlayers = shuffleParticipants(participants);
-				
-				if(players.length !== participants.length) {
-					shuffledPlayers.forEach(player => {
-						players.push(player)
-					});
-				};
+// 		})
+// });
 
-				return tournament.save();
-			};
-		})
-		.then(savedTournament => res.json(savedTournament))
-		.catch(err => res.json(err));
-});
+// @route		NEXT ROUNDS /tournaments/:id/next-round
 
 
 // @route		DELETE /tournaments/:id
