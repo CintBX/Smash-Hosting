@@ -76,6 +76,13 @@ export const editTournament = ({ _id, title, description, type, schedule }) => d
 				type: EDIT_TOURNAMENT_FAIL
 			});
 		});
+
+	axios
+		.get('/tournaments')
+		.then(res => dispatch({
+			type: GET_TOURNAMENTS,
+			payload: res.data
+		}));
 };
 
 
