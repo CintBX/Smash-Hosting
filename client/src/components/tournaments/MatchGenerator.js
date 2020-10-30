@@ -34,7 +34,11 @@ class MatchGenerator extends Component {
       // case 10:
       // case 9:
       case 8:
-        // const playerPairs = this.setPlayersIntoPairs(players);
+        return (
+          <div>
+            <h1>Match Generator for {this.props.bracketSize} players</h1>
+          </div>
+        )
 
       default:
         return <div>No matches available</div>
