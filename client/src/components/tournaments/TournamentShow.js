@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SignUpPage, StartBracket, Results } from './tournament';
+import { SignUpPage, StartBracket, Results } from './TournamentScreens';
 import {
 	showTournament,
 	addParticipant,
@@ -9,7 +9,6 @@ import {
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Spinner } from 'reactstrap';
-import { Redirect } from 'react-router-dom';
 
 
 class TournamentShow extends Component {
@@ -39,16 +38,16 @@ class TournamentShow extends Component {
 	};
 
 	render() {
+		console.log(this.props.tournament)
 		const loading = this.props.tournament.loading || !this.props.tournament.showTournament;
 		if(loading) {
 			return <Spinner color="light" /> 
 		} else {
-			const { status } = this.props.tournament.showTournament;
-			if(status === "Complete") {
+			if(this.props.tournament.showTournament.status === "Complete") {
 				return (
 					<Results />
 				);
-			} else if(status === "Closed") {
+			} else if(this.props.tournament.showTournament.status === "Closed") {
 				return (
 					<StartBracket
 						tournament={this.props.tournament.showTournament}
