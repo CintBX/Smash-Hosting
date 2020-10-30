@@ -49,12 +49,6 @@ export default function(state = initialState, action) {
 				...state,
 				tournaments: state.tournaments.filter(tournament => tournament._id !== action.payload)
 			};
-
-		case EDIT_TOURNAMENT:
-			return {
-				...state,
-				...state.tournaments.find(tournament => tournament._id === action.payload._id)
-			}
 			
 		case TOURNAMENTS_LOADING:
 		case TOURNAMENT_LOADING:
@@ -78,9 +72,10 @@ export default function(state = initialState, action) {
 		case SHUFFLE_PARTICIPANTS:
 			return {
 				...state,
-				showtournaments: state.showTournament.bracket.players = action.payload
+				showTournament: state.showTournament.bracket.players = action.payload
 			}
 
+		case EDIT_TOURNAMENT:
 		case ADD_TOURNAMENT_FAIL:
 		case EDIT_TOURNAMENT_FAIL:
 		case TOURNAMENT_SIGN_UP_FAIL:
