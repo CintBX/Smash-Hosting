@@ -18,9 +18,8 @@ class Game extends Component {
   render() {
     return (
       <div>
-        <h1>Matches, bracket</h1>
-        {/* <MatchGenerator bracketSize={this.props.bracketSize} />
-        <BracketGenerator bracketSize={this.props.bracketSize} /> */}
+        {/* <MatchGenerator bracketSize={this.props.bracketSize} /> */}
+        <BracketGenerator bracketSize={this.props.bracketSize} />
       </div>
     );
   };
