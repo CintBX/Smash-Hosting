@@ -59,20 +59,33 @@ export default function(state = initialState, action) {
 
 		case USER_JOINS_TOURNAMENT:
       return {
-        ...state,
-				...state.showTournament.participants.push(action.payload)
+				...state,
+				showTournament: {
+					...state.showTournament,
+					participants: [...state.showTournament.participants, action.payload]
+				}
       };
 
     case TOURNAMENT_STATUS_UPDATE:
 			return {
 				...state,
-				...state.showTournament.status = action.payload
+				showTournament: {
+					...state.showTournament,
+					status: action.payload
+				},
+				loading: false
 			};
 
 		case SHUFFLE_PARTICIPANTS:
 			return {
 				...state,
-				...state.showTournament.bracket.players.push(action.payload)
+				showTournament: {
+					...state.showTournament,
+					bracket: {
+						...state.showTournament.bracket,
+						players: [...state.showTournament.bracket.players, ...action.payload]
+					}
+				}
 			}
 
 		case EDIT_TOURNAMENT:
