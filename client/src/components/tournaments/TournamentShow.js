@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SignUpPage, StartBracket, Results } from './TournamentScreens';
+import { SignUpPage, HostUI, StartBracket, Results } from './TournamentScreens';
 import {
 	showTournament,
 	addParticipant,
@@ -49,9 +49,14 @@ class TournamentShow extends Component {
 				);
 			} else if(this.props.tournament.showTournament.status === "Closed") {
 				return (
-					<StartBracket
-						tournament={this.props.tournament.showTournament}
-					/>
+					<div>
+						<HostUI
+							tournament={this.props.tournament.showTournament}
+						/>
+						<StartBracket
+							tournament={this.props.tournament.showTournament}
+						/>
+					</div>
 				);
 			} else {
 				return (
