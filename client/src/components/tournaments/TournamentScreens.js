@@ -4,6 +4,7 @@ import { TournamentSignUp, StartTournament } from './resources/buttons';
 import { TournamentRules } from './resources/rulesets';
 import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import Game from './Game';
 
 // Status === "Open"
 export const SignUpPage = ({ tournament, auth, onSignUp, onStartTournament }) => {
@@ -113,6 +114,7 @@ export const StartBracket = ({ tournament }) => {
       <h1>{ title }</h1>
       <h4>By { hostedBy }</h4>
       <h4>{participants && participants.length}-player bracket</h4>
+			<Game bracketSize={participants && participants.length} />
       <br /><Link to="/">Back to Tournaments main page</Link>
     </div>
   );
