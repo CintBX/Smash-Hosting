@@ -64,7 +64,6 @@ class TournamentShow extends Component {
 	};
 
 	render() {
-		console.log(this.props.tournament)
 		const loading = this.props.tournament.loading || !this.props.tournament.showTournament;
 		if(loading) {
 			return <Spinner color="light" /> 
