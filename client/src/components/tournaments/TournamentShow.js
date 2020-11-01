@@ -17,6 +17,8 @@ class TournamentShow extends Component {
 		this.onSignUp = this.onSignUp.bind(this);
 		this.onStartTournament = this.onStartTournament.bind(this);
 		this.onShuffleParticipants = this.onShuffleParticipants.bind(this);
+		// this.onSetPlayersIntoPairs = this.onSetPlayersIntoPairs.bind(this);
+		// this.onConfig8 = this.onConfig8.bind(this);
 	};
 
 	componentDidMount() {
@@ -63,6 +65,28 @@ class TournamentShow extends Component {
 		this.props.closeTournament(tourneyId);
 	};
 
+	// onSetPlayersIntoPairs(players) {
+  //   let pairs = [];
+  //   for(var i = 0; i < players.length; i += 2) {
+  //     if(players[i+1] !== undefined) {
+  //       pairs.push([players[i], players[i+1]]);
+  //     } else {
+  //       pairs.push([players[i]]);
+  //     }
+  //   };
+  //   return pairs;
+	// };
+	
+	// onConfig8() {
+	// 	const { players } = this.props.tournament.showTournament.bracket;
+	// 	let array = [];
+		
+  //   const pairedPlayers = this.onSetPlayersIntoPairs(players);
+  //   pairedPlayers.forEach(pair => array.push(pair));
+		
+	// 	return array;
+  // };
+
 	render() {
 		const loading = this.props.tournament.loading || !this.props.tournament.showTournament;
 		if(loading) {
@@ -76,7 +100,7 @@ class TournamentShow extends Component {
 				return (
 					<div>
 						<HostUI
-							tournament={this.props.tournament.showTournament}
+							players={this.props.tournament.showTournament.bracket.players}
 						/>
 						<StartBracket
 							tournament={this.props.tournament.showTournament}

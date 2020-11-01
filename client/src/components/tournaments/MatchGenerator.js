@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import Match from './resources/match';
+import { Button } from 'reactstrap';
 
 class MatchGenerator extends Component {
   constructor(props) {
     super(props);
+    console.log(props.players);
     this.setPlayersIntoPairs = this.setPlayersIntoPairs.bind(this);
+    this.config8 = this.config8.bind(this);
   };
 
   setPlayersIntoPairs(players) {
@@ -17,9 +20,20 @@ class MatchGenerator extends Component {
       }
     };
     return pairs;
+	};
+	
+	config8() {
+		const { players } = this.props.tournament.showTournament.bracket;
+		let array = [];
+		
+    const pairedPlayers = this.onSetPlayersIntoPairs(players);
+    pairedPlayers.forEach(pair => array.push(pair));
+		
+		return array;
   };
 
   render() {
+    // const { currentRound } = this.state;
     switch(this.props.bracketSize) {
       // case 20:
       // case 19:
@@ -34,9 +48,17 @@ class MatchGenerator extends Component {
       // case 10:
       // case 9:
       case 8:
+        const { players } = this.props;
+        const pairs = this.setPlayersIntoPairs(players);
+        console.log(pairs);
         return (
-          <div>
+          <div style={{color:"lightgrey"}}>
             <h1>Match Generator for {this.props.bracketSize} players</h1>
+            {
+              players && players.map(player => (
+                <p key={player._id}>{player.username}</p>
+              ))
+            }
           </div>
         )
 
