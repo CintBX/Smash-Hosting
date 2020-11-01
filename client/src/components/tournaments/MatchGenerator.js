@@ -50,13 +50,19 @@ class MatchGenerator extends Component {
       case 8:
         const { players } = this.props;
         const pairs = this.setPlayersIntoPairs(players);
-        console.log(pairs);
         return (
           <div style={{color:"lightgrey"}}>
             <h1>Match Generator for {this.props.bracketSize} players</h1>
             {
               players && players.map(player => (
                 <p key={player._id}>{player.username}</p>
+              ))
+            }
+            {
+              pairs && pairs.map(pair => (
+                <ul>
+                  <li key={pair[0]._id}>{pair[0].username} vs {pair[1].username}</li>
+                </ul>
               ))
             }
           </div>
