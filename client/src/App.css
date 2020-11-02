@@ -133,16 +133,8 @@ body {
 
 
 /* 
- * Start Tournament Modal Bracket
+ * Start Tournament
  */
-.bracket img {
-	position: absolute;
-	left: 0px;
-	top: 0px;
-	z-index: 1;
-}
-
-.bracket-entry {
-	z-index: 2;
-	position: relative;
+.match-card {
+	font-size: 1.5em;
 }

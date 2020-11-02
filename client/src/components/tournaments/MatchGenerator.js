@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 import Match from './resources/match';
-import { Button } from 'reactstrap';
+import { 
+  Card,
+  Button,
+  CardImg,
+  CardTitle,
+  CardText,
+  CardDeck,
+  CardBody
+} from 'reactstrap';
 
 class MatchGenerator extends Component {
   constructor(props) {
@@ -52,17 +60,35 @@ class MatchGenerator extends Component {
         const pairs = this.setPlayersIntoPairs(players);
         return (
           <div style={{color:"lightgrey"}}>
+            {/* Later, replace this with `Round ${round}` matches */}
             <h1>Match Generator for {this.props.bracketSize} players</h1>
-            {
-              players && players.map(player => (
-                <p key={player._id}>{player.username}</p>
-              ))
-            }
+
+            {/* Will render the pairs JUST FOR each consecutive round */}
             {
               pairs && pairs.map(pair => (
-                <ul>
-                  <li key={pair[0]._id}>{pair[0].username} vs {pair[1].username}</li>
-                </ul>
+                <div>
+                    Round #
+                  <CardDeck className="text-center match-card">
+                    <Card body style={{backgroundColor:"lightgrey", color:"black"}}>
+                      <CardImg>{/* DirectoryImage here */}</CardImg>                        
+                      <CardBody>
+                        <CardTitle>Virtuoso</CardTitle>
+                        <CardText>- 0 +</CardText>
+                        <Button color="danger">Winner</Button>
+                      </CardBody>
+                    </Card>
+                    <Card body style={{backgroundColor:"lightgrey", color:"black"}}>
+                      <CardImg>{/* DirectoryImage here */}</CardImg>                
+                      <CardBody>
+                        <CardTitle>Virtuoso</CardTitle>
+                        <CardText>- 0 +</CardText>
+                        <Button color="danger match-card-btn">Winner</Button>
+                      </CardBody>
+                    </Card>
+                  </CardDeck>
+                  <br/>
+                  <br/>
+                </div>
               ))
             }
           </div>
@@ -75,3 +101,32 @@ class MatchGenerator extends Component {
 };
 
 export default MatchGenerator;
+
+/*
+<Card body outline color="danger" className="match-card">
+  Each one: Name, Score, Win button
+  <CardTitle className="match-card-title">
+    <span className="float-left match-card-player">{pair[0].username}</span> 
+    <span className="float-right match-card-player">{pair[1].username}</span>
+  </CardTitle>
+
+    Depending on BO3/Bo5, incrementor will max at 2 or 3, and
+    decrementor will min at 0
+
+  <CardText>
+    <span className="float-left match-card-score">- 0 +</span>
+    <span className="float-right match-card-score">- 0 +</span>
+  </CardText>
+
+    I was wrong. THIS is User.matchWins.  The incrementor is for rounds per match.
+
+    One button each player
+    each will have a function(user) that will be take that user as a param
+    Sent to backend for matchWins update, and update bracket.matches/rounds
+
+  <CardBody>
+    <Button className="float-left match-card-btn" color="danger">Winner</Button>
+    <Button className="float-right match-card-btn" color="danger">Winner</Button>
+  </CardBody>
+</Card>
+*/
