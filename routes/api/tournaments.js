@@ -97,11 +97,28 @@ router.post('/:id', (req, res) => {
 			return tournament.save();
 		})
 		.then(savedTournament => res.json(savedTournament))
-		.catch(err => res.json(err));
+		.catch(err => res.json(`User Sign Up error: ${err}`));
 });
 
 
-// @route TOURNAMENT BRACKET /tournaments/:id/bracket-players
+// @route 	CLOSE TOURNAMENT /tournaments/:id/close
+// @descrip	Start tournament by changing Status to Closed
+// @access	Private
+router.post('/:id/close', (req, res) => {
+	Tournament.findById(req.params.id)
+		.then(tournament => {
+			if(!tournament) res.status(404).json({ msg: "Cannot find this tournament" });
+			else {
+				tournament.status = req.body.status;
+				return tournament.save()
+			};
+		})
+		.then(savedTournament => res.json(savedTournament))
+		.catch(err => res.json(`Close Tournament error: ${err}`));
+});
+
+
+// @route TOURNAMENT BRACKET PLAYERS /tournaments/:id/bracket-players
 // @descrip Push randomized participants into bracket.players
 // @access Private
 router.post('/:id/shuffle-players', (req, res) => {
@@ -119,39 +136,26 @@ router.post('/:id/shuffle-players', (req, res) => {
 			};
 		})
 		.then(savedTournament => res.json(savedTournament))
-		.catch(err => res.json(err));
+		.catch(err => res.json(`Shuffle Players error: ${err}`));
 });
 
 
-// @route 	CLOSE TOURNAMENT /tournaments/:id/close
-// @descrip	Start tournament by changing Status to Closed
+// @route  	FIRST ROUND /tournaments/:id/first-round
+// @descrip	POST and organize bracket.players to bracket.matches
 // @access	Private
-router.post('/:id/close', (req, res) => {
-	Tournament.findById(req.params.id)
+router.post('/:id/add-round', (req, res) => {
+	Tournament.findByIdAndUpdate(req.params.id)
 		.then(tournament => {
 			if(!tournament) res.status(404).json({ msg: "Cannot find this tournament" });
 			else {
-				tournament.status = req.body.status;
-				return tournament.save()
-			};
+				const { rounds } = tournament.bracket;
+				rounds.push(req.body.round);
+				return tournament.save();
+			}
 		})
 		.then(savedTournament => res.json(savedTournament))
-		.catch(err => res.json(err));
+		.catch(err => res.json(`First Round error: ${err}`));
 });
-
-
-// // @route  	FIRST ROUND /tournaments/:id/first-round
-// // @descrip	POST and organize bracket.players to bracket.matches
-// // @access	Private
-// router.post('/:id/first-round', (req, res) => {
-// 	Tournament.findByIdAndUpdate(req.params.id)
-// 		.then(tournament => {
-// 			const { players } = req.body;
-
-// 		})
-// });
-
-// @route		NEXT ROUNDS /tournaments/:id/next-round
 
 
 // @route		DELETE /tournaments/:id
