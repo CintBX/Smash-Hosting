@@ -65,28 +65,6 @@ class TournamentShow extends Component {
 		this.props.closeTournament(tourneyId);
 	};
 
-	// onSetPlayersIntoPairs(players) {
-  //   let pairs = [];
-  //   for(var i = 0; i < players.length; i += 2) {
-  //     if(players[i+1] !== undefined) {
-  //       pairs.push([players[i], players[i+1]]);
-  //     } else {
-  //       pairs.push([players[i]]);
-  //     }
-  //   };
-  //   return pairs;
-	// };
-	
-	// onConfig8() {
-	// 	const { players } = this.props.tournament.showTournament.bracket;
-	// 	let array = [];
-		
-  //   const pairedPlayers = this.onSetPlayersIntoPairs(players);
-  //   pairedPlayers.forEach(pair => array.push(pair));
-		
-	// 	return array;
-  // };
-
 	render() {
 		const loading = this.props.tournament.loading || !this.props.tournament.showTournament;
 		if(loading) {
