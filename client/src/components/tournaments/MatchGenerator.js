@@ -9,6 +9,7 @@ import {
   CardDeck,
   CardBody
 } from 'reactstrap';
+import DirectoryImage from './../players/DirectoryImage';
 
 class MatchGenerator extends Component {
   constructor(props) {
@@ -68,26 +69,22 @@ class MatchGenerator extends Component {
               pairs && pairs.map(pair => (
                 <div>
                     Round #
-                  <CardDeck className="text-center match-card">
-                    <Card body style={{backgroundColor:"lightgrey", color:"black"}}>
-                      <CardImg>{/* DirectoryImage here */}</CardImg>                        
+                  <CardDeck className="text-center match-card mb-5">
+                    <Card body style={{backgroundColor:"#56A8CBFF", color:"#DA291CFF"}}>
                       <CardBody>
-                        <CardTitle>Virtuoso</CardTitle>
+                        <CardTitle>{pair[0].username}</CardTitle>
                         <CardText>- 0 +</CardText>
                         <Button color="danger">Winner</Button>
                       </CardBody>
                     </Card>
-                    <Card body style={{backgroundColor:"lightgrey", color:"black"}}>
-                      <CardImg>{/* DirectoryImage here */}</CardImg>                
+                    <Card body style={{backgroundColor:"#56A8CBFF", color:"#DA291CFF"}}>
                       <CardBody>
-                        <CardTitle>Virtuoso</CardTitle>
+                        <CardTitle>{pair[1].username}</CardTitle>
                         <CardText>- 0 +</CardText>
                         <Button color="danger match-card-btn">Winner</Button>
                       </CardBody>
                     </Card>
                   </CardDeck>
-                  <br/>
-                  <br/>
                 </div>
               ))
             }
