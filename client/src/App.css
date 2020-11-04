@@ -138,6 +138,10 @@ body {
 .match-card {
 	font-size: 1.7em;
 	font-weight: 600;
+	padding: 25px;
+	background-image: url(../src/img/vs.jpg);
+	background-size: cover;
+	background-position: center;
 }
 .score-btn-icon {
 	color: #DA291CFF;
