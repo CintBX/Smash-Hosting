@@ -39,5 +39,9 @@ export const TOURNAMENT_STATUS_FAILED = 'TOURNAMENT_STATUS_FAILED';
 export const SHUFFLE_PARTICIPANTS = 'SHUFFLE_PARTICIPANTS';
 export const SHUFFLE_FAILED = 'SHUFFLE_FAILED';
 
+// Bracket Functionality
+export const ADD_ROUND = 'ADD_ROUND';
+export const ADD_ROUND_FAILED = 'ADD_ROUND_FAILED';
+
 // Admin action
 export const DELETE_A_USER = 'DELETE_A_USER';
