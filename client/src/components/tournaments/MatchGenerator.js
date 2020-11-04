@@ -46,14 +46,13 @@ class MatchGenerator extends Component {
       // case 10:
       // case 9:
       case 8:
-        const { matches, finals } = this.props;
+        const { round, matches, finals } = this.props;
         const pairs = this.setPlayersIntoPairs(matches);
+        
         return (
           <div style={{color:"lightgrey"}}>
-            {/* Later, replace this with `Round ${round}` matches */}
-            <h1>Match Generator for {this.props.bracketSize} players</h1>
+            <h1  className="text-center mb-4">Round { round }</h1>
 
-            {/* Will render the pairs JUST FOR each consecutive round */}
             {
               pairs && pairs.map(pair => (
                 <Card className="text-center match-card mb-5" style={{backgroundColor:"#56A8CBFF", color:"#DA291CFF"}}>
@@ -76,7 +75,7 @@ class MatchGenerator extends Component {
                         />
                       </CardText>
                     </Col>
-                    
+
                     <Col xs="6" sm="6" md="6" lg="6" xl="6">
                       <CardBody>
                         {" " + pair[1].username}
