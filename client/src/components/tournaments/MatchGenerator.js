@@ -11,6 +11,7 @@ import {
 } from 'reactstrap';
 import DirectoryImage from './../players/DirectoryImage';
 import ScoreKeeper from './resources/scorekeeper';
+import ConfirmModal from '../ConfirmModal';
 
 class MatchGenerator extends Component {
   constructor(props) {
@@ -62,14 +63,24 @@ class MatchGenerator extends Component {
                       <CardBody>
                         <CardTitle>{pair[0].username}</CardTitle>
                         <ScoreKeeper finals={finals} />
-                        <Button color="danger">Winner</Button>
+                        <ConfirmModal
+                          page={"Match Card"}
+                          title={"Match Winner"}
+                          body={`${pair[0].username} won this match?`}
+                          onClick={() => console.log("Winner set")}
+                        />
                       </CardBody>
                     </Card>
                     <Card body style={{backgroundColor:"#56A8CBFF", color:"#DA291CFF"}}>
                       <CardBody>
                         <CardTitle>{pair[1].username}</CardTitle>
                         <ScoreKeeper finals={finals} />
-                        <Button color="danger match-card-btn">Winner</Button>
+                        <ConfirmModal
+                          page={"Match Card"}
+                          title={"Match Winner"}
+                          body={`${pair[1].username} won this match?`}
+                          onClick={() => console.log("Winner set")}
+                        />
                       </CardBody>
                     </Card>
                   </CardDeck>
