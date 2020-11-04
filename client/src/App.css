@@ -139,3 +139,9 @@ body {
 	font-size: 1.7em;
 	font-weight: 600;
 }
+.score-btn-icon {
+	color: #DA291CFF;
+}
+.score-btn-icon:hover {
+	cursor: pointer;
+}

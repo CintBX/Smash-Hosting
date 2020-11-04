@@ -10,6 +10,7 @@ import {
   CardBody
 } from 'reactstrap';
 import DirectoryImage from './../players/DirectoryImage';
+import ScoreKeeper from './resources/scorekeeper';
 
 class MatchGenerator extends Component {
   constructor(props) {
@@ -45,8 +46,8 @@ class MatchGenerator extends Component {
       // case 10:
       // case 9:
       case 8:
-        const { players } = this.props;
-        const pairs = this.setPlayersIntoPairs(players);
+        const { matches, finals } = this.props;
+        const pairs = this.setPlayersIntoPairs(matches);
         return (
           <div style={{color:"lightgrey"}}>
             {/* Later, replace this with `Round ${round}` matches */}
@@ -56,19 +57,18 @@ class MatchGenerator extends Component {
             {
               pairs && pairs.map(pair => (
                 <div>
-                    Round #
                   <CardDeck className="text-center match-card mb-5">
                     <Card body style={{backgroundColor:"#56A8CBFF", color:"#DA291CFF"}}>
                       <CardBody>
                         <CardTitle>{pair[0].username}</CardTitle>
-                        <CardText>- 0 +</CardText>
+                        <ScoreKeeper finals={finals} />
                         <Button color="danger">Winner</Button>
                       </CardBody>
                     </Card>
                     <Card body style={{backgroundColor:"#56A8CBFF", color:"#DA291CFF"}}>
                       <CardBody>
                         <CardTitle>{pair[1].username}</CardTitle>
-                        <CardText>- 0 +</CardText>
+                        <ScoreKeeper finals={finals} />
                         <Button color="danger match-card-btn">Winner</Button>
                       </CardBody>
                     </Card>

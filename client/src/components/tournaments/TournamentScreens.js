@@ -95,12 +95,13 @@ export const SignUpPage = ({ tournament, auth, onSignUp, onStartTournament }) =>
 export const HostUI = ({ bracket }) => {
 	const players = bracket.players;
 	const n = bracket.rounds && bracket.rounds.length
-	const rounds = bracket.rounds[n - 1];
+	const round = bracket.rounds[n - 1]; // renders latest round (latest === current)
 	return (
 		<div style={{color:"lightgrey"}}>
 			<MatchGenerator
 				bracketSize={players && players.length}
-				players={rounds.matches}
+				matches={round.matches}
+				finals={round.finals}
 			/>
 		</div>
 	);
