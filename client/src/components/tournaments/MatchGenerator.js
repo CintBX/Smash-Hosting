@@ -14,7 +14,6 @@ import DirectoryImage from './../players/DirectoryImage';
 class MatchGenerator extends Component {
   constructor(props) {
     super(props);
-    console.log(props.players);
     this.setPlayersIntoPairs = this.setPlayersIntoPairs.bind(this);
   };
 

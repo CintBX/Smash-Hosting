@@ -4,7 +4,8 @@ import {
 	showTournament,
 	addParticipant,
 	closeTournament,
-	shuffleParticipants
+	shuffleParticipants,
+	addRound
 } from '../../actions/tournamentActions';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -17,8 +18,9 @@ class TournamentShow extends Component {
 		this.onSignUp = this.onSignUp.bind(this);
 		this.onStartTournament = this.onStartTournament.bind(this);
 		this.onShuffleParticipants = this.onShuffleParticipants.bind(this);
-		// this.onSetPlayersIntoPairs = this.onSetPlayersIntoPairs.bind(this);
-		// this.onConfig8 = this.onConfig8.bind(this);
+		this.state = {
+			round: 1
+		};
 	};
 
 	componentDidMount() {
@@ -47,22 +49,29 @@ class TournamentShow extends Component {
 		return array;
 	};
 	
-	onStartTournament(tourneyId) {
+	onStartTournament(tourneyId) { // may just be for 8/16/32
 		const { participants } = this.props.tournament.showTournament;
 
-		// Randomize participants
+		// Randomize participants && Send to bracket.players
 		let reorderedParticipants = [];
 		const shuffledParticipants = this.onShuffleParticipants(participants);
-
 		shuffledParticipants.forEach(participant => {
 			reorderedParticipants.push(participant);
 		});
-
-		// Send new participants list to backend
 		this.props.shuffleParticipants(tourneyId, reorderedParticipants);
-		
+
+		// Create first round based on player count
+		const round = {};
+		round["round"] = this.state.round;
+		round["matches"] = reorderedParticipants;
+		round["finals"] = false;
+		this.props.addRound(tourneyId, round);
+		// console.log(round);
+
 		// Status === Closed
 		this.props.closeTournament(tourneyId);
+
+		// Afterwards you'd setState({round: round++, round+=1 or round+1})
 	};
 
 	render() {
@@ -105,5 +114,5 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps, 
-	{ showTournament, addParticipant, closeTournament, shuffleParticipants }
+	{ showTournament, addParticipant, closeTournament, shuffleParticipants, addRound }
 )(TournamentShow);

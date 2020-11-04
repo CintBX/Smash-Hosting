@@ -97,7 +97,7 @@ export default function(state = initialState, action) {
 					...state.showTournament,
 					bracket: {
 						...state.showTournament.bracket,
-						rounds: [...state.showTournament.bracket.rounds, ...action.payload]
+						rounds: [...state.showTournament.bracket.rounds, action.payload]
 					}
 				}
 			}
