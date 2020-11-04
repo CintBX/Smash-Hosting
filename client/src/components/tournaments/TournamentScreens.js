@@ -100,6 +100,7 @@ export const HostUI = ({ bracket }) => {
 		<div style={{color:"lightgrey"}}>
 			<MatchGenerator
 				bracketSize={players && players.length}
+				round={round.round}
 				matches={round.matches}
 				finals={round.finals}
 			/>
