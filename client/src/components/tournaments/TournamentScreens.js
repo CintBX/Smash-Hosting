@@ -92,12 +92,15 @@ export const SignUpPage = ({ tournament, auth, onSignUp, onStartTournament }) =>
 
 
 // Status === "Closed"
-export const HostUI = ({ players }) => {
+export const HostUI = ({ bracket }) => {
+	const players = bracket.players;
+	const n = bracket.rounds && bracket.rounds.length
+	const rounds = bracket.rounds[n - 1];
 	return (
 		<div style={{color:"lightgrey"}}>
 			<MatchGenerator
 				bracketSize={players && players.length}
-				players={players}
+				players={rounds.matches}
 			/>
 		</div>
 	);
