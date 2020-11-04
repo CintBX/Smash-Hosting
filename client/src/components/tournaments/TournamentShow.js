@@ -66,7 +66,6 @@ class TournamentShow extends Component {
 		round["matches"] = reorderedParticipants;
 		round["finals"] = false;
 		this.props.addRound(tourneyId, round);
-		// console.log(round);
 
 		// Status === Closed
 		this.props.closeTournament(tourneyId);
