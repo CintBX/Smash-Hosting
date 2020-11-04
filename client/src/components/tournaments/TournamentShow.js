@@ -87,7 +87,7 @@ class TournamentShow extends Component {
 				return (
 					<div>
 						<HostUI
-							players={this.props.tournament.showTournament.bracket.players}
+							bracket={this.props.tournament.showTournament.bracket}
 						/>
 						<StartBracket
 							tournament={this.props.tournament.showTournament}
