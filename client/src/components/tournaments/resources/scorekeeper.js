@@ -47,7 +47,7 @@ class ScoreKeeper extends Component {
   render() {
     return (
       <Fragment>
-        <span style={{color:"black"}}>
+        <span style={{color:"lightgrey"}}>
           <BsFileArrowDown className="mx-3 score-btn-icon" onClick={this.decrement} />
           { this.state.counter }
           <BsFileArrowUp className="mx-3 score-btn-icon" onClick={this.increment} />

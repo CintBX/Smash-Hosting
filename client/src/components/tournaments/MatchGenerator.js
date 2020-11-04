@@ -56,39 +56,47 @@ class MatchGenerator extends Component {
             {/* Will render the pairs JUST FOR each consecutive round */}
             {
               pairs && pairs.map(pair => (
-                <div>
-                  <Card className="text-center match-card mb-5" style={{backgroundColor:"#56A8CBFF", color:"#DA291CFF"}}>
-                    <CardTitle className="mt-3">
-                      <span className="mx-5">{pair[0].username + " "}</span>
-                      {/* <span style={{color:"black", fontWeight:"400"}}>VS</span> */}
-                      <span className="mx-5">{" " + pair[1].username}</span>
-                    </CardTitle>
-                    <CardBody>
+                <Card className="text-center match-card mb-5" style={{backgroundColor:"#56A8CBFF", color:"#DA291CFF"}}>
+                  <Row>
+                    <Col xs="6" sm="6" md="6" lg="6" xl="6">
+                      <CardBody>
+                        {pair[0].username + " "}
+                      </CardBody>
+
                       <CardText>
-                        <span className="mx-4"><ScoreKeeper finals={finals} /></span>
-                        <span className="mx-4"><ScoreKeeper finals={finals} /></span>
+                        <ScoreKeeper finals={finals} />
                       </CardText>
+
                       <CardText>
-                        <span className="mx-4">
-                          <ConfirmModal
-                            page={"Match Card"}
-                            title={"Match Winner"}
-                            body={`${pair[0].username} won this match?`}
-                            onClick={() => console.log("Winner set")}
-                          />
-                        </span>
-                        <span className="mx-4">
-                          <ConfirmModal
-                            page={"Match Card"}
-                            title={"Match Winner"}
-                            body={`${pair[0].username} won this match?`}
-                            onClick={() => console.log("Winner set")}
-                          />
-                        </span>
+                        <ConfirmModal
+                          page={"Match Card"}
+                          title={"Match Winner"}
+                          body={`${pair[0].username} won this match?`}
+                          onClick={() => console.log("Winner set")}
+                        />
                       </CardText>
-                    </CardBody>
-                  </Card>
-                </div>
+                    </Col>
+                    
+                    <Col xs="6" sm="6" md="6" lg="6" xl="6">
+                      <CardBody>
+                        {" " + pair[1].username}
+                      </CardBody>
+
+                      <CardText>
+                        <ScoreKeeper finals={finals} />
+                      </CardText>
+
+                      <CardText>
+                        <ConfirmModal
+                          page={"Match Card"}
+                          title={"Match Winner"}
+                          body={`${pair[1].username} won this match?`}
+                          onClick={() => console.log("Winner set")}
+                        />
+                      </CardText>
+                    </Col>
+                  </Row>
+                </Card>
               ))
             }
           </div>
