@@ -13,7 +13,9 @@ import {
 	TOURNAMENT_STATUS_UPDATE,
 	TOURNAMENT_STATUS_FAILED,
 	SHUFFLE_PARTICIPANTS,
-	SHUFFLE_FAILED
+	SHUFFLE_FAILED,
+	ADD_ROUND,
+	ADD_ROUND_FAILED
 } from './types';
 import axios from 'axios';
 import { tokenConfig } from './authActions';
@@ -166,6 +168,29 @@ export const shuffleParticipants = (_id, participants) => dispatch => {
 			dispatch(returnErrors(err.response.data, err.response.status));
 			dispatch({
 				type: SHUFFLE_FAILED
+			});
+		});
+};
+
+
+export const addRound = (_id, round) => dispatch => {
+	const config = {
+		headers: {
+			"Content-Type": "application/json"
+		}
+	};
+	const body = JSON.stringify({ round })
+
+	axios
+		.post(`/tournaments/${_id}/add-round`, body, config)
+		.then(() => dispatch({
+			type: ADD_ROUND,
+			payload: round
+		}))
+		.catch(err => {
+			dispatch(returnErrors(err.response.data, err.response.status));
+			dispatch({
+				type: ADD_ROUND_FAILED
 			});
 		});
 };

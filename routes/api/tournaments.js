@@ -118,7 +118,7 @@ router.post('/:id/close', (req, res) => {
 });
 
 
-// @route TOURNAMENT BRACKET PLAYERS /tournaments/:id/bracket-players
+// @route SHUFFLE PARTICIPANTS INTO  BRACKET /tournaments/:id/bracket-players
 // @descrip Push randomized participants into bracket.players
 // @access Private
 router.post('/:id/shuffle-players', (req, res) => {
@@ -148,7 +148,7 @@ router.post('/:id/add-round', (req, res) => {
 		.then(tournament => {
 			if(!tournament) res.status(404).json({ msg: "Cannot find this tournament" });
 			else {
-				const { rounds } = tournament.bracket;
+				let { rounds } = tournament.bracket;
 				rounds.push(req.body.round);
 				return tournament.save();
 			}

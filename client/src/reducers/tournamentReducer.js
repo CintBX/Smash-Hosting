@@ -13,7 +13,9 @@ import {
 	TOURNAMENT_STATUS_UPDATE,
 	TOURNAMENT_STATUS_FAILED,
 	SHUFFLE_PARTICIPANTS,
-	SHUFFLE_FAILED
+	SHUFFLE_FAILED,
+	ADD_ROUND,
+	ADD_ROUND_FAILED
 } from '../actions/types';
 
 const initialState = {
@@ -88,12 +90,25 @@ export default function(state = initialState, action) {
 				}
 			}
 
+		case ADD_ROUND:
+			return {
+				...state,
+				showTournament: {
+					...state.showTournament,
+					bracket: {
+						...state.showTournament.bracket,
+						rounds: [...state.showTournament.bracket.rounds, ...action.payload]
+					}
+				}
+			}
+
 		case EDIT_TOURNAMENT:
 		case ADD_TOURNAMENT_FAIL:
 		case EDIT_TOURNAMENT_FAIL:
 		case TOURNAMENT_SIGN_UP_FAIL:
 		case TOURNAMENT_STATUS_FAILED:
 		case SHUFFLE_FAILED:
+		case ADD_ROUND_FAILED:
 			return {
 				...state,
 			}
