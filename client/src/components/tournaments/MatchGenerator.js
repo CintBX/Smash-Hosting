@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 import Match from './resources/match';
 import { 
   Card,
-  Button,
-  CardImg,
   CardTitle,
   CardText,
-  CardDeck,
-  CardBody
+  CardBody,
+  Row,
+  Col
 } from 'reactstrap';
 import DirectoryImage from './../players/DirectoryImage';
 import ScoreKeeper from './resources/scorekeeper';
@@ -58,32 +57,37 @@ class MatchGenerator extends Component {
             {
               pairs && pairs.map(pair => (
                 <div>
-                  <CardDeck className="text-center match-card mb-5">
-                    <Card body style={{backgroundColor:"#56A8CBFF", color:"#DA291CFF"}}>
-                      <CardBody>
-                        <CardTitle>{pair[0].username}</CardTitle>
-                        <ScoreKeeper finals={finals} />
-                        <ConfirmModal
-                          page={"Match Card"}
-                          title={"Match Winner"}
-                          body={`${pair[0].username} won this match?`}
-                          onClick={() => console.log("Winner set")}
-                        />
-                      </CardBody>
-                    </Card>
-                    <Card body style={{backgroundColor:"#56A8CBFF", color:"#DA291CFF"}}>
-                      <CardBody>
-                        <CardTitle>{pair[1].username}</CardTitle>
-                        <ScoreKeeper finals={finals} />
-                        <ConfirmModal
-                          page={"Match Card"}
-                          title={"Match Winner"}
-                          body={`${pair[1].username} won this match?`}
-                          onClick={() => console.log("Winner set")}
-                        />
-                      </CardBody>
-                    </Card>
-                  </CardDeck>
+                  <Card className="text-center match-card mb-5" style={{backgroundColor:"#56A8CBFF", color:"#DA291CFF"}}>
+                    <CardTitle className="mt-3">
+                      <span className="mx-5">{pair[0].username + " "}</span>
+                      {/* <span style={{color:"black", fontWeight:"400"}}>VS</span> */}
+                      <span className="mx-5">{" " + pair[1].username}</span>
+                    </CardTitle>
+                    <CardBody>
+                      <CardText>
+                        <span className="mx-4"><ScoreKeeper finals={finals} /></span>
+                        <span className="mx-4"><ScoreKeeper finals={finals} /></span>
+                      </CardText>
+                      <CardText>
+                        <span className="mx-4">
+                          <ConfirmModal
+                            page={"Match Card"}
+                            title={"Match Winner"}
+                            body={`${pair[0].username} won this match?`}
+                            onClick={() => console.log("Winner set")}
+                          />
+                        </span>
+                        <span className="mx-4">
+                          <ConfirmModal
+                            page={"Match Card"}
+                            title={"Match Winner"}
+                            body={`${pair[0].username} won this match?`}
+                            onClick={() => console.log("Winner set")}
+                          />
+                        </span>
+                      </CardText>
+                    </CardBody>
+                  </Card>
                 </div>
               ))
             }

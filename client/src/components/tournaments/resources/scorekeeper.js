@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import {
   BsFileArrowDown,
   BsFileArrowUp,
@@ -46,11 +46,13 @@ class ScoreKeeper extends Component {
 
   render() {
     return (
-      <div className="my-3" style={{color:"black"}}>
-        <BsFileArrowDown className="mx-3 score-btn-icon" onClick={this.decrement} />
-        { this.state.counter }
-        <BsFileArrowUp className="mx-3 score-btn-icon" onClick={this.increment} />
-      </div>
+      <Fragment>
+        <span style={{color:"black"}}>
+          <BsFileArrowDown className="mx-3 score-btn-icon" onClick={this.decrement} />
+          { this.state.counter }
+          <BsFileArrowUp className="mx-3 score-btn-icon" onClick={this.increment} />
+        </span>
+      </Fragment>
     );
   };
 };
