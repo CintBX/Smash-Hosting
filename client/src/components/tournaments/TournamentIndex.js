@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { InProgress, ResultsPopover } from './resources/buttons';
 import { getTournaments, deleteTournament } from '../../actions/tournamentActions';
-import DeleteModal from '../delete/DeleteModal';
+import ConfirmModal from '../ConfirmModal';
 import moment from 'moment';
 
 class TournamentIndex extends Component {
@@ -60,10 +60,11 @@ class TournamentIndex extends Component {
 					{
 						isAuthenticated && user.username === hostedBy ?
 							<Fragment>
-								<DeleteModal 
-									page={"Tournament Index"} 
-									title={"Delete Tournament"} 
-									onClick={() => this.onDelete(_id)} 
+								<ConfirmModal 
+									page={"Tournament Index"}
+									title={"Delete Tournament"}
+									body={"Are you sure?"}
+									onClick={() => this.onDelete(_id)}
 								/>
 
 								<Link to={`/tournaments/edit/${_id}`} className="remove-underline">
