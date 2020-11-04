@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { BsFillTrashFill } from 'react-icons/bs';
 
-export default class DeleteModal extends Component {
+class ConfirmModal extends Component {
   constructor(props) {
     super(props);
     this.toggle = this.toggle.bind(this);
@@ -23,20 +23,44 @@ export default class DeleteModal extends Component {
         { 
           this.props.page === "Player Profile" ? 
           // <BsFillTrashFill className="delete-icon" color="yellow" size="0.5em" onClick={this.toggle} /> :
-          <Button outline color="warning" onClick={this.toggle}>
+          <Button
+            outline
+            color="warning"
+            onClick={this.toggle}
+          >
             Delete Account
           </Button> :
           null 
         }
         {
           this.props.page === "Player Directory" ?
-          <BsFillTrashFill className="delete-icon" color="yellow" size="1.2em" onClick={this.toggle} /> :
+          <BsFillTrashFill
+            className="delete-icon"
+            color="yellow"
+            size="1.2em"
+            onClick={this.toggle} 
+          /> :
           null
         }
         {
           this.props.page === "Tournament Index" ?
-          <Button	outline color="warning"	className="mb-3 mr-2 edit-delete float-right"	onClick={this.toggle}>
+          <Button
+            outline
+            color="warning"
+            className="mb-3 mr-2 edit-delete float-right"
+            onClick={this.toggle}
+          >
             Delete Tournament
+          </Button> :
+          null
+        }
+        {
+          this.props.page === "Match Card" ?
+          <Button
+            color="danger"
+            onClick={this.toggle}
+          >
+            Set Winner
           </Button> :
           null
         }
@@ -47,7 +71,7 @@ export default class DeleteModal extends Component {
           </ModalHeader>
 
           <ModalBody>
-            Are you sure?
+            {this.props.body}
           </ModalBody>
 
           <ModalFooter>
@@ -61,3 +85,5 @@ export default class DeleteModal extends Component {
     );
   };
 };
+
+export default ConfirmModal;
