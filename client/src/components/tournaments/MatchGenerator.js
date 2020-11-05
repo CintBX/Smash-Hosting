@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
-import Match from './resources/match';
 import { 
   Card,
-  CardTitle,
   CardText,
   CardBody,
   Row,
   Col
 } from 'reactstrap';
-import DirectoryImage from './../players/DirectoryImage';
 import ScoreKeeper from './resources/scorekeeper';
 import ConfirmModal from '../ConfirmModal';
 
@@ -46,7 +43,7 @@ class MatchGenerator extends Component {
       // case 10:
       // case 9:
       case 8:
-        const { round, matches, finals } = this.props;
+        const { round, matches, finals, updateMatchWin } = this.props;
         const pairs = this.setPlayersIntoPairs(matches);
         
         return (
@@ -55,7 +52,7 @@ class MatchGenerator extends Component {
 
             {
               pairs && pairs.map(pair => (
-                <Card className="text-center match-card mb-5" style={{backgroundColor:"#56A8CBFF", color:"#DA291CFF"}}>
+                <Card className="text-center match-card mb-5">
                   <Row>
                     <Col xs="6" sm="6" md="6" lg="6" xl="6">
                       <CardBody>
@@ -71,7 +68,7 @@ class MatchGenerator extends Component {
                           page={"Match Card"}
                           title={"Match Winner"}
                           body={`${pair[0].username} won this match?`}
-                          onClick={() => console.log("Winner set")}
+                          onClick={() => updateMatchWin(pair[0])}
                         />
                       </CardText>
                     </Col>
@@ -90,7 +87,7 @@ class MatchGenerator extends Component {
                           page={"Match Card"}
                           title={"Match Winner"}
                           body={`${pair[1].username} won this match?`}
-                          onClick={() => console.log("Winner set")}
+                          onClick={() => updateMatchWin(pair[1])}
                         />
                       </CardText>
                     </Col>

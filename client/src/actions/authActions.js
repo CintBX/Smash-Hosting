@@ -15,14 +15,14 @@ import { returnErrors } from './errorActions';
 
 
 // User updates or edits their main/secondary/friendCode
-export const updateUserDetails = ({ _id, main, secondary, friendCode }) => dispatch => {
+export const updateUserDetails = ({ _id, main, secondary, friendCode, matchWins }) => dispatch => {
 	const config = {
 		headers: {
 			"Content-Type": "application/json"
 		}
 	};
 
-	const body = JSON.stringify({ main, secondary, friendCode });
+	const body = JSON.stringify({ main, secondary, friendCode, matchWins });
 
 	axios.post(`/users/user/${_id}`, body, config)
 		.then(res => dispatch({
