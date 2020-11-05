@@ -131,7 +131,7 @@ router.get('/user/:id', (req, res) => {
 
 
 // @route   POST /users/user/:id
-// @descrip EDIT/UPDATE a user's details
+// @descrip EDIT/UPDATE a user's details, including matchWins
 // @access  Private
 router.post('/user/:id', (req, res) => {
 	User.findById(req.params.id, (err, user) => {
@@ -142,6 +142,7 @@ router.post('/user/:id', (req, res) => {
 			if(req.body.main) user.main = req.body.main;
 			if(req.body.secondary) user.secondary = req.body.secondary;
 			if(req.body.friendCode) user.friendCode = req.body.friendCode;
+			if(req.body.matchWins) user.matchWins = user.matchWins + 1;
 		}
 		user.save()
 			.then(() => res.json(user))

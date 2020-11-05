@@ -7,6 +7,7 @@ import {
 	shuffleParticipants,
 	addRound
 } from '../../actions/tournamentActions';
+import { updateUserDetails } from '../../actions/authActions';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Spinner } from 'reactstrap';
@@ -18,6 +19,7 @@ class TournamentShow extends Component {
 		this.onSignUp = this.onSignUp.bind(this);
 		this.onStartTournament = this.onStartTournament.bind(this);
 		this.onShuffleParticipants = this.onShuffleParticipants.bind(this);
+		this.updateMatchWin = this.updateMatchWin.bind(this);
 		this.state = {
 			round: 1
 		};
@@ -73,6 +75,11 @@ class TournamentShow extends Component {
 		// Afterwards you'd setState({round: round++, round+=1 or round+1})
 	};
 
+	updateMatchWin(user) {
+		user.matchWins = 1;
+		this.props.updateUserDetails(user);
+	};
+
 	render() {
 		const loading = this.props.tournament.loading || !this.props.tournament.showTournament;
 		if(loading) {
@@ -87,6 +94,7 @@ class TournamentShow extends Component {
 					<div>
 						<HostUI
 							bracket={this.props.tournament.showTournament.bracket}
+							updateMatchWin={this.updateMatchWin}
 						/>
 						<StartBracket
 							tournament={this.props.tournament.showTournament}
@@ -113,5 +121,11 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps, 
-	{ showTournament, addParticipant, closeTournament, shuffleParticipants, addRound }
-)(TournamentShow);
+	{
+		showTournament,
+		addParticipant,
+		closeTournament,
+		shuffleParticipants,
+		addRound,
+		updateUserDetails
+	})(TournamentShow);
