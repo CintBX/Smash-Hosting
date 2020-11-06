@@ -43,7 +43,7 @@ class MatchGenerator extends Component {
       // case 10:
       // case 9:
       case 8:
-        const { round, matches, finals, updateMatchWin } = this.props;
+        const { round, matches, finals, onUpdateMatchWin } = this.props;
         const pairs = this.setPlayersIntoPairs(matches);
         
         return (
@@ -68,7 +68,7 @@ class MatchGenerator extends Component {
                           page={"Match Card"}
                           title={"Match Winner"}
                           body={`${pair[0].username} won this match?`}
-                          onClick={() => updateMatchWin(pair[0])}
+                          onClick={() => onUpdateMatchWin(pair[0])}
                         />
                       </CardText>
                     </Col>
@@ -87,7 +87,7 @@ class MatchGenerator extends Component {
                           page={"Match Card"}
                           title={"Match Winner"}
                           body={`${pair[1].username} won this match?`}
-                          onClick={() => updateMatchWin(pair[1])}
+                          onClick={() => onUpdateMatchWin(pair[1])}
                         />
                       </CardText>
                     </Col>

@@ -15,7 +15,9 @@ import {
 	SHUFFLE_PARTICIPANTS,
 	SHUFFLE_FAILED,
 	ADD_ROUND,
-	ADD_ROUND_FAILED
+	ADD_ROUND_FAILED,
+	MATCHWINS_UPDATE,
+	MATCHWINS_UPDATE_FAILED
 } from '../actions/types';
 
 const initialState = {
@@ -102,6 +104,8 @@ export default function(state = initialState, action) {
 				}
 			}
 
+		case MATCHWINS_UPDATE:
+		case MATCHWINS_UPDATE_FAILED:
 		case EDIT_TOURNAMENT:
 		case ADD_TOURNAMENT_FAIL:
 		case EDIT_TOURNAMENT_FAIL:
