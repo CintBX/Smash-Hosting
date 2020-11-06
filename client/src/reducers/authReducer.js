@@ -8,6 +8,7 @@ import {
 	REGISTER_SUCCESS,
 	REGISTER_FAIL,
 	UPDATE_SUCCESS,
+	UPDATE_DETAILS_FAILED,
 	DELETE_ACCOUNT
 } from '../actions/types';
 
@@ -66,6 +67,11 @@ export default function(state = initialState, action) {
 				isAuthenticated: false,
 				user: delete action.payload
 			};
+
+		case UPDATE_DETAILS_FAILED:
+			return {
+				...state
+			}
 
 		default:
 			return state;
