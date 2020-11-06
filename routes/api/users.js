@@ -133,6 +133,24 @@ router.get('/user/:id', (req, res) => {
 // @route   POST /users/user/:id
 // @descrip EDIT/UPDATE a user's details, including matchWins
 // @access  Private
+// router.post('/user/:id', (req, res) => {
+// 	const { main, secondary, friendCode, matchWins } = req.body;
+
+// 	User.findById(req.params.id)
+// 		.then(user => {
+// 			if(!user) {
+// 				return res.status(404).json({ msg: "User not found" });
+// 			} else {
+// 				if(main) user.main = main;
+// 				if(secondary) user.secondary = secondary;
+// 				if(friendCode) user.friendCode = friendCode;
+// 				if(matchWins) user.matchWins = matchWins;
+// 			}
+// 			return user.save();
+// 		})
+// 		.then(savedUser => res.json(savedUser))
+// 		.catch(err => res.json(err));
+// });
 router.post('/user/:id', (req, res) => {
 	User.findById(req.params.id, (err, user) => {
 		// Check if User exists
