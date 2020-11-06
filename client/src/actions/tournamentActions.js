@@ -15,7 +15,9 @@ import {
 	SHUFFLE_PARTICIPANTS,
 	SHUFFLE_FAILED,
 	ADD_ROUND,
-	ADD_ROUND_FAILED
+	ADD_ROUND_FAILED,
+	MATCHWINS_UPDATE,
+	MATCHWINS_UPDATE_FAILED
 } from './types';
 import axios from 'axios';
 import { tokenConfig } from './authActions';
@@ -192,6 +194,29 @@ export const addRound = (_id, round) => dispatch => {
 			dispatch({
 				type: ADD_ROUND_FAILED
 			});
+		});
+};
+
+
+export const updateMatchWins = ({ _id, matchWins }) => dispatch => {
+	const config = {
+		headers: {
+			"Content-Type": "application/json"
+		}
+	};
+
+	const body = JSON.stringify({ matchWins });
+
+	axios.post(`/users/user/${_id}`, body, config)
+		.then(res => dispatch({
+			type: MATCHWINS_UPDATE,
+			payload: res.data
+		}))
+		.catch(err => {
+			dispatch(returnErrors(err.response.data, err.response.status));
+			dispatch({
+				type: MATCHWINS_UPDATE_FAILED
+			})
 		});
 };
 

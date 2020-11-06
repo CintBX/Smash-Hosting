@@ -43,6 +43,8 @@ export const SHUFFLE_FAILED = 'SHUFFLE_FAILED';
 // Bracket Functionality
 export const ADD_ROUND = 'ADD_ROUND';
 export const ADD_ROUND_FAILED = 'ADD_ROUND_FAILED';
+export const MATCHWINS_UPDATE = 'MATCHWINS_UPDATE';
+export const MATCHWINS_UPDATE_FAILED = 'MATCHWINS_UPDATE_FAILED';
 
 // Admin action
 export const DELETE_A_USER = 'DELETE_A_USER';
