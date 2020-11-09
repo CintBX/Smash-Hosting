@@ -8,6 +8,7 @@ import {
 } from 'reactstrap';
 import ScoreKeeper from './resources/scorekeeper';
 import ConfirmModal from '../ConfirmModal';
+import MatchCards from './resources/matchcards';
 
 class MatchGenerator extends Component {
   constructor(props) {
@@ -28,7 +29,16 @@ class MatchGenerator extends Component {
 	};
 
   render() {
-    // const { currentRound } = this.state;
+    const { // props passed from TournamentScreens
+      round, 
+      matches, 
+      finals, 
+      onSetWinner,
+      winners
+    } = this.props;
+
+    const pairs = this.setPlayersIntoPairs(matches); // MatchGen method logic
+
     switch(this.props.bracketSize) {
       // case 20:
       // case 19:
@@ -43,59 +53,14 @@ class MatchGenerator extends Component {
       // case 10:
       // case 9:
       case 8:
-        const { round, matches, finals, onUpdateMatchWin } = this.props;
-        const pairs = this.setPlayersIntoPairs(matches);
-        
         return (
-          <div style={{color:"lightgrey"}}>
-            <h1  className="text-center mb-4">Round { round }</h1>
-
-            {
-              pairs && pairs.map(pair => (
-                <Card className="text-center match-card mb-5">
-                  <Row>
-                    <Col xs="6" sm="6" md="6" lg="6" xl="6">
-                      <CardBody>
-                        {pair[0].username + " "}
-                      </CardBody>
-
-                      <CardText>
-                        <ScoreKeeper finals={finals} />
-                      </CardText>
-
-                      <CardText>
-                        <ConfirmModal
-                          page={"Match Card"}
-                          title={"Match Winner"}
-                          body={`${pair[0].username} won this match?`}
-                          onClick={() => onUpdateMatchWin(pair[0])}
-                        />
-                      </CardText>
-                    </Col>
-
-                    <Col xs="6" sm="6" md="6" lg="6" xl="6">
-                      <CardBody>
-                        {" " + pair[1].username}
-                      </CardBody>
-
-                      <CardText>
-                        <ScoreKeeper finals={finals} />
-                      </CardText>
-
-                      <CardText>
-                        <ConfirmModal
-                          page={"Match Card"}
-                          title={"Match Winner"}
-                          body={`${pair[1].username} won this match?`}
-                          onClick={() => onUpdateMatchWin(pair[1])}
-                        />
-                      </CardText>
-                    </Col>
-                  </Row>
-                </Card>
-              ))
-            }
-          </div>
+          <MatchCards
+            round={round}
+            finals={finals}
+            onSetWinner={onSetWinner}
+            pairs={pairs}
+            winners={winners}
+          />
         )
 
       default:

@@ -59,6 +59,8 @@ class ConfirmModal extends Component {
           <Button
             color="danger"
             onClick={this.toggle}
+            disabled={this.props.disabled}
+            // !this.props.disabled ? disabled : null
           >
             Set Winner
           </Button> :
