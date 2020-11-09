@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { 
+  Button,
   Card,
   CardText,
   CardBody,
@@ -34,7 +35,8 @@ class MatchGenerator extends Component {
       matches, 
       finals, 
       onSetWinner,
-      winners
+      winners,
+      onSetNextRound
     } = this.props;
 
     const pairs = this.setPlayersIntoPairs(matches); // MatchGen method logic
@@ -54,13 +56,37 @@ class MatchGenerator extends Component {
       // case 9:
       case 8:
         return (
-          <MatchCards
-            round={round}
-            finals={finals}
-            onSetWinner={onSetWinner}
-            pairs={pairs}
-            winners={winners}
-          />
+          <Fragment>
+            <MatchCards
+              round={round}
+              finals={finals}
+              onSetWinner={onSetWinner}
+              pairs={pairs}
+              winners={winners}
+            />
+
+            <div style={{color: "lightgrey"}}>
+              <h3>
+                Round Winners
+                <span style={{fontSize:"0.8em"}}> (refresh if incorrect)</span>
+              </h3>
+              <ul>
+                {
+                  winners && winners.map(winner => (
+                    <li>{winner.username}</li>
+                  ))
+                }
+              </ul>
+            </div>
+
+            <Button 
+              block 
+              color="primary"
+              onClick={onSetNextRound}
+            >
+              Proceed to the Next Round
+            </Button>
+          </Fragment>
         )
 
       default:

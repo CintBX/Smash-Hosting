@@ -4,7 +4,8 @@ import {
   CardText,
   CardBody,
   Row,
-  Col
+  Col,
+  Button
 } from 'reactstrap';
 import ScoreKeeper from './scorekeeper';
 import ConfirmModal from '../../ConfirmModal';
@@ -25,7 +26,7 @@ class MatchCards extends Component {
       finals, 
       onSetWinner, 
       pairs,
-      winners
+      // winners
     } = this.props;
 
     return (
@@ -51,7 +52,9 @@ class MatchCards extends Component {
                       title={"Match Winner"}
                       body={`${pair[0].username} won this match?`}
                       onClick={() => onSetWinner(pair[0])}
-                      disabled={winners.some(array => array.username === pair[0].username)}
+                      // disabled={
+                      //   winners.some(array => array.username === pair[0].username || pair[1].username)
+                      // }
                     />
                   </CardText>
                 </Col>
@@ -71,7 +74,9 @@ class MatchCards extends Component {
                       title={"Match Winner"}
                       body={`${pair[1].username} won this match?`}
                       onClick={() => onSetWinner(pair[1])}
-                      disabled={winners.some(array => array.username === pair[0].username)}
+                      // disabled={
+                      //   winners.some(array => array.username === pair[1].username || pair[0].username)
+                      // }
                     />
                   </CardText>
                 </Col>

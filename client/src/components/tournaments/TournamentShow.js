@@ -20,6 +20,7 @@ class TournamentShow extends Component {
 		this.onStartTournament = this.onStartTournament.bind(this);
 		this.onShuffleParticipants = this.onShuffleParticipants.bind(this);
 		this.onSetWinner = this.onSetWinner.bind(this);
+		this.onSetNextRound = this.onSetNextRound.bind(this);
 		this.state = {
 			round: 1,
 			winners: []
@@ -87,9 +88,27 @@ class TournamentShow extends Component {
 		});
 	};
 
-	// disable button (component-side, based on winners array)
-				// pass this.state.winners as a prop
-	// For onSetNextRound, triggered by FormSubmit btn, this.setState({round+1}), push winners[]
+	onSetNextRound() {
+		// Raise round number by 1
+		this.setState({
+			round: this.state.round + 1
+		});
+
+		// Create new Round object to pass to backend
+		const { rounds } = this.props.tournament.showTournament.bracket;
+		const n = rounds && rounds.length;
+		const previousRound = rounds[n-1];
+
+		const round = {};
+		round["round"] = previousRound.round + 1;
+		round["matches"] = this.state.winners;
+		round["finals"] = this.state.winners.length !== 2 ? false : true;
+		this.props.addRound(this.props.tournament.showTournament._id, round);
+
+		this.setState({
+			winners: []
+		})
+	}
 
 	render() {
 		const loading = this.props.tournament.loading || !this.props.tournament.showTournament;
@@ -107,7 +126,9 @@ class TournamentShow extends Component {
 							bracket={this.props.tournament.showTournament.bracket}
 							onSetWinner={this.onSetWinner}
 							winners={this.state.winners}
+							onSetNextRound={this.onSetNextRound}
 						/>
+						<br/>
 						<StartBracket
 							tournament={this.props.tournament.showTournament}
 						/>

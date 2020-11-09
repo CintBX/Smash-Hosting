@@ -92,7 +92,7 @@ export const SignUpPage = ({ tournament, auth, onSignUp, onStartTournament }) =>
 
 
 // Status === "Closed"
-export const HostUI = ({ bracket, onSetWinner, winners }) => {
+export const HostUI = ({ bracket, onSetWinner, winners, onSetNextRound }) => {
 	const players = bracket.players;
 	const n = bracket.rounds && bracket.rounds.length
 	const round = bracket.rounds[n - 1]; // renders latest round (latest === current)
@@ -105,6 +105,7 @@ export const HostUI = ({ bracket, onSetWinner, winners }) => {
 				finals={round.finals}
 				onSetWinner={onSetWinner}
 				winners={winners}
+				onSetNextRound={onSetNextRound}
 			/>
 		</div>
 	);
