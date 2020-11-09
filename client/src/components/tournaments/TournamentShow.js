@@ -19,9 +19,10 @@ class TournamentShow extends Component {
 		this.onSignUp = this.onSignUp.bind(this);
 		this.onStartTournament = this.onStartTournament.bind(this);
 		this.onShuffleParticipants = this.onShuffleParticipants.bind(this);
-		this.onUpdateMatchWin = this.onUpdateMatchWin.bind(this);
+		this.onSetWinner = this.onSetWinner.bind(this);
 		this.state = {
-			round: 1
+			round: 1,
+			winners: []
 		};
 	};
 
@@ -75,10 +76,20 @@ class TournamentShow extends Component {
 		// Afterwards you'd setState({round: round++, round+=1 or round+1})
 	};
 
-	onUpdateMatchWin(user) {
+	onSetWinner(user) {
+		// set user matchWins+1
 		user.matchWins = 1;
 		this.props.updateMatchWins(user);
+
+		// push players into winners
+		this.setState({
+			winners: [...this.state.winners, user]
+		});
 	};
+
+	// disable button (component-side, based on winners array)
+				// pass this.state.winners as a prop
+	// For onSetNextRound, triggered by FormSubmit btn, this.setState({round+1}), push winners[]
 
 	render() {
 		const loading = this.props.tournament.loading || !this.props.tournament.showTournament;
@@ -94,7 +105,8 @@ class TournamentShow extends Component {
 					<div>
 						<HostUI
 							bracket={this.props.tournament.showTournament.bracket}
-							onUpdateMatchWin={this.onUpdateMatchWin}
+							onSetWinner={this.onSetWinner}
+							winners={this.state.winners}
 						/>
 						<StartBracket
 							tournament={this.props.tournament.showTournament}
