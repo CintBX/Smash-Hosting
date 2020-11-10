@@ -17,7 +17,9 @@ import {
 	ADD_ROUND,
 	ADD_ROUND_FAILED,
 	MATCHWINS_UPDATE,
-	MATCHWINS_UPDATE_FAILED
+	MATCHWINS_UPDATE_FAILED,
+	SET_CHAMPION,
+	SET_CHAMPION_FAILED
 } from './types';
 import axios from 'axios';
 import { tokenConfig } from './authActions';
@@ -217,6 +219,54 @@ export const updateMatchWins = ({ _id, matchWins }) => dispatch => {
 			dispatch({
 				type: MATCHWINS_UPDATE_FAILED
 			})
+		});
+};
+
+
+export const setChampion = (id, user) => dispatch => {
+	const config = {
+		headers: {
+			"Content-Type": "application/json"
+		}
+	};
+
+	const body = JSON.stringify({ user });
+
+	axios.post(`/tournaments/${id}/set-champ`, body, config)
+		.then(res => dispatch({
+			type: SET_CHAMPION,
+			payload: res.data
+		}))
+		.catch(err => {
+			dispatch(returnErrors(err.response.data, err.response.status));
+			dispatch({
+				type: SET_CHAMPION_FAILED
+			});
+		});
+};
+
+
+export const completeTournament = (_id, status = "Complete") => dispatch => {
+	dispatch(singleTourneyLoading());
+	
+	const config = {
+		headers: {
+			"Content-Type": "application/json"
+		}
+	};
+	const body = JSON.stringify({ status });
+
+	axios
+		.post(`/tournaments/${_id}/complete`, body, config)
+		.then(() => dispatch({
+			type: TOURNAMENT_STATUS_UPDATE,
+			payload: status
+		}))
+		.catch(err => {
+			dispatch(returnErrors(err.response.data, err.response.status));
+			dispatch({
+				type: TOURNAMENT_STATUS_FAILED
+			});
 		});
 };
 

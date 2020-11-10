@@ -6,7 +6,9 @@ import {
 	closeTournament,
 	shuffleParticipants,
 	addRound,
-	updateMatchWins
+	updateMatchWins,
+	setChampion,
+	completeTournament
 } from '../../actions/tournamentActions';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -89,26 +91,29 @@ class TournamentShow extends Component {
 	};
 
 	onSetNextRound() {
-		// Raise round number by 1
-		this.setState({
-			round: this.state.round + 1
-		});
-
-		// Create new Round object to pass to backend
+		// Grab bindings
 		const { rounds } = this.props.tournament.showTournament.bracket;
 		const n = rounds && rounds.length;
 		const previousRound = rounds[n-1];
 
-		const round = {};
-		round["round"] = previousRound.round + 1;
-		round["matches"] = this.state.winners;
-		round["finals"] = this.state.winners.length !== 2 ? false : true;
-		this.props.addRound(this.props.tournament.showTournament._id, round);
+		if(previousRound.finals) {
+			// If finals, no new rounds object.  Select player from state.winners and set champion
+			let tournamentChampion;
+			this.state.winners.map(winner => tournamentChampion = winner);
+			this.props.setChampion(this.props.tournament.showTournament._id, tournamentChampion);
+			this.props.completeTournament(this.props.tournament.showTournament._id);
+		} else {
+			const round = {};
+			round["round"] = previousRound.round + 1;
+			round["matches"] = this.state.winners;
+			round["finals"] = this.state.winners.length !== 2 ? false : true;
+			this.props.addRound(this.props.tournament.showTournament._id, round);
+		};
 
 		this.setState({
 			winners: []
-		})
-	}
+		});
+	};
 
 	render() {
 		const loading = this.props.tournament.loading || !this.props.tournament.showTournament;
@@ -160,5 +165,7 @@ export default connect(mapStateToProps,
 		closeTournament,
 		shuffleParticipants,
 		addRound,
-		updateMatchWins
+		updateMatchWins,
+		setChampion,
+		completeTournament
 	})(TournamentShow);

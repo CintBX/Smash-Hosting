@@ -158,6 +158,41 @@ router.post('/:id/add-round', (req, res) => {
 });
 
 
+// @route	SET CHAMPION /tournaments/:id/set-champ
+// @descrip	POST finals winner to tournament.bracket.champion
+// @access 	Private
+router.post('/:id/set-champ', (req, res) => {
+	Tournament.findByIdAndUpdate(req.params.id)
+		.then(tournament => {
+			if(!tournament) res.status(404).json({ msg: "Cannot find this tournament" });
+			else {
+				let { champion } = tournament.bracket;
+				if(champion.length === 0) champion.push(req.body);
+				return tournament.save();
+			};
+		})
+		.then(savedTournament => res.json(savedTournament))
+		.catch(err => res.json(`Set Champion error: ${err}`));
+});
+
+
+// @route 	COMPLETE TOURNAMENT /tournaments/:id/complete
+// @descrip	End tournament by changing Status to Complete
+// @access	Private
+router.post('/:id/complete', (req, res) => {
+	Tournament.findById(req.params.id)
+		.then(tournament => {
+			if(!tournament) res.status(404).json({ msg: "Cannot find this tournament" });
+			else {
+				tournament.status = req.body.status;
+				return tournament.save()
+			};
+		})
+		.then(savedTournament => res.json(savedTournament))
+		.catch(err => res.json(`Complete Tournament error: ${err}`));
+});
+
+
 // @route		DELETE /tournaments/:id
 // @descrip DELETE
 // @access  Private
