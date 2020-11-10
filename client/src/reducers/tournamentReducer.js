@@ -17,7 +17,9 @@ import {
 	ADD_ROUND,
 	ADD_ROUND_FAILED,
 	MATCHWINS_UPDATE,
-	MATCHWINS_UPDATE_FAILED
+	MATCHWINS_UPDATE_FAILED,
+	SET_CHAMPION,
+	SET_CHAMPION_FAILED
 } from '../actions/types';
 
 const initialState = {
@@ -90,7 +92,7 @@ export default function(state = initialState, action) {
 						players: [...state.showTournament.bracket.players, ...action.payload]
 					}
 				}
-			}
+			};
 
 		case ADD_ROUND:
 			return {
@@ -102,8 +104,21 @@ export default function(state = initialState, action) {
 						rounds: [...state.showTournament.bracket.rounds, action.payload]
 					}
 				}
-			}
+			};
 
+		case SET_CHAMPION:
+			return {
+				...state,
+				showTournament: {
+					...state.showTournament,
+					bracket: {
+						...state.showTournament.bracket,
+						champion: [...state.showTournament.bracket.champion, action.payload]
+					}
+				}
+			};
+			
+		case SET_CHAMPION_FAILED:
 		case MATCHWINS_UPDATE:
 		case MATCHWINS_UPDATE_FAILED:
 		case EDIT_TOURNAMENT:
@@ -115,7 +130,7 @@ export default function(state = initialState, action) {
 		case ADD_ROUND_FAILED:
 			return {
 				...state,
-			}
+			};
 
 		default:
 			return state;

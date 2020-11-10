@@ -36,9 +36,9 @@ const TournamentSchema = new Schema({
 		required: false
 	},
 	bracket: {
-		players: {type: Array}, // Array of randomized players to create rounds objects
-		rounds: {type: Array}, // [{round, matches, finals}]
-		champion: {type: String, default: "pending"}, // set champ at end
+		players: {type: Array},
+		rounds: {type: Array},
+		champion: {type: Array}
 	}
 });
 
