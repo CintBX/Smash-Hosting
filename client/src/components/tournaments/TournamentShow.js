@@ -91,18 +91,19 @@ class TournamentShow extends Component {
 	};
 
 	onSetNextRound() {
-		// Grab bindings
+		// Bindings and previous/current Round
 		const { rounds } = this.props.tournament.showTournament.bracket;
 		const n = rounds && rounds.length;
 		const previousRound = rounds[n-1];
 
 		if(previousRound.finals) {
-			// If finals, no new rounds object.  Select player from state.winners and set champion
+			// Select final user from winners[], set as Champion and Complete tournament
 			let tournamentChampion;
 			this.state.winners.map(winner => tournamentChampion = winner);
 			this.props.setChampion(this.props.tournament.showTournament._id, tournamentChampion);
 			this.props.completeTournament(this.props.tournament.showTournament._id);
 		} else {
+			// Create new round object and push to tournament.bracket.rounds
 			const round = {};
 			round["round"] = previousRound.round + 1;
 			round["matches"] = this.state.winners;
@@ -110,6 +111,7 @@ class TournamentShow extends Component {
 			this.props.addRound(this.props.tournament.showTournament._id, round);
 		};
 
+		// Clear state winners
 		this.setState({
 			winners: []
 		});
