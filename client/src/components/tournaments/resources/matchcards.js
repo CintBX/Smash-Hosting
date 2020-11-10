@@ -13,11 +13,6 @@ import ConfirmModal from '../../ConfirmModal';
 class MatchCards extends Component {
   constructor(props) {
     super(props);
-    console.log(props.winners)
-  };
-
-  componentDidUpdate() {
-    console.log(this.props.winners);
   };
 
   render() {
