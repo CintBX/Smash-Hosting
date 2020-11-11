@@ -112,13 +112,16 @@ export const HostUI = ({ bracket, onSetWinner, winners, onSetNextRound }) => {
 };
 
 export const StartBracket = ({ tournament }) => {
-	const { title, hostedBy, participants } = tournament;
+	const { title, hostedBy, participants, bracket } = tournament;
   return (
     <div className="text-center" style={{color:"lightgrey", backgroundColor: "#333333"}}>
       <h1>{ title }</h1>
       <h4>By { hostedBy }</h4>
       <h4>{participants && participants.length}-player bracket</h4>
-			<BracketGenerator bracketSize={participants && participants.length} />
+			<BracketGenerator
+				bracketSize={participants && participants.length}
+				rounds={bracket.rounds}
+			/>
       <br /><Link to="/">Back to Tournaments main page</Link>
     </div>
   );
