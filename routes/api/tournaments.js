@@ -167,7 +167,7 @@ router.post('/:id/set-champ', (req, res) => {
 			if(!tournament) res.status(404).json({ msg: "Cannot find this tournament" });
 			else {
 				let { champion } = tournament.bracket;
-				if(champion.length === 0) champion.push(req.body);
+				if(champion.length === 0) champion.push(req.body.user);
 				return tournament.save();
 			};
 		})
