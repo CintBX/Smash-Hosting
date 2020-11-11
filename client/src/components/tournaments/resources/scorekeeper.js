@@ -16,17 +16,15 @@ class ScoreKeeper extends Component {
 
   increment(e) {
     if(this.props.finals) {
-      if(this.state.counter === 3) {
-        return null;
-      } else {
+      if(this.state.counter === 3) return null;
+      else {
         this.setState({
           counter: this.state.counter + 1
         });
       };
     } else {
-      if(this.state.counter === 2) {
-        return null
-      } else {
+      if(this.state.counter === 2) return null;
+      else {
         this.setState({
           counter: this.state.counter + 1
         });
