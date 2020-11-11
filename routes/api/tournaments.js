@@ -140,7 +140,7 @@ router.post('/:id/shuffle-players', (req, res) => {
 });
 
 
-// @route  	FIRST ROUND /tournaments/:id/first-round
+// @route  	CREATE TOURNAMENT ROUND /tournaments/:id/first-round
 // @descrip	POST and organize bracket.players to bracket.matches
 // @access	Private
 router.post('/:id/add-round', (req, res) => {
