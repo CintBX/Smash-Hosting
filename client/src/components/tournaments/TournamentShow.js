@@ -79,8 +79,6 @@ class TournamentShow extends Component {
 
 		// Status === Closed
 		this.props.closeTournament(tourneyId);
-
-		// Afterwards you'd setState({round: round++, round+=1 or round+1})
 	};
 
 	onSetWinner(user) {
