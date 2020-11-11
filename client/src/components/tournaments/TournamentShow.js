@@ -21,6 +21,7 @@ class TournamentShow extends Component {
 		this.onSignUp = this.onSignUp.bind(this);
 		this.onStartTournament = this.onStartTournament.bind(this);
 		this.onShuffleParticipants = this.onShuffleParticipants.bind(this);
+		this.onSetPlayersIntoPairs = this.onSetPlayersIntoPairs.bind(this);
 		this.onSetWinner = this.onSetWinner.bind(this);
 		this.onSetNextRound = this.onSetNextRound.bind(this);
 		this.state = {
@@ -57,6 +58,18 @@ class TournamentShow extends Component {
 			array[randomIndex] = temporaryValue;
 		}	
 		return array;
+	};
+
+	onSetPlayersIntoPairs(players) {
+    let pairs = [];
+    for(var i = 0; i < players.length; i += 2) {
+      if(players[i+1] !== undefined) {
+        pairs.push([players[i], players[i+1]]);
+      } else {
+        pairs.push([players[i]]);
+      }
+    };
+    return pairs;
 	};
 	
 	onStartTournament(tourneyId) { // may just be for 8/16/32
@@ -96,9 +109,9 @@ class TournamentShow extends Component {
 		// Bindings and previous/current Round
 		const { rounds } = this.props.tournament.showTournament.bracket;
 		const n = rounds && rounds.length;
-		const previousRound = rounds[n-1];
+		const currentRound = rounds[n-1];
 
-		if(previousRound.finals) {
+		if(currentRound.finals) {
 			// Select final user from winners[], set as Champion and Complete tournament
 			let tournamentChampion;
 			this.state.winners.map(winner => tournamentChampion = winner);
@@ -107,7 +120,7 @@ class TournamentShow extends Component {
 		} else {
 			// Create new round object and push to tournament.bracket.rounds
 			const round = {};
-			round["round"] = previousRound.round + 1;
+			round["round"] = currentRound.round + 1;
 			round["matches"] = this.state.winners;
 			round["finals"] = this.state.winners.length !== 2 ? false : true;
 			this.props.addRound(this.props.tournament.showTournament._id, round);
@@ -131,12 +144,13 @@ class TournamentShow extends Component {
 			} else if(this.props.tournament.showTournament.status === "Closed") {
 				return (
 					<div>
-						<HostUI
+						{/* <HostUI
 							bracket={this.props.tournament.showTournament.bracket}
 							onSetWinner={this.onSetWinner}
 							winners={this.state.winners}
 							onSetNextRound={this.onSetNextRound}
-						/>
+							onSetPlayersIntoPairs={this.onSetPlayersIntoPairs}
+						/> */}
 						<br/>
 						<StartBracket
 							tournament={this.props.tournament.showTournament}

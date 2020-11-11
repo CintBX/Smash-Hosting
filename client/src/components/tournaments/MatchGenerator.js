@@ -14,32 +14,20 @@ import MatchCards from './resources/matchcards';
 class MatchGenerator extends Component {
   constructor(props) {
     super(props);
-    this.setPlayersIntoPairs = this.setPlayersIntoPairs.bind(this);
   };
 
-  setPlayersIntoPairs(players) {
-    let pairs = [];
-    for(var i = 0; i < players.length; i += 2) {
-      if(players[i+1] !== undefined) {
-        pairs.push([players[i], players[i+1]]);
-      } else {
-        pairs.push([players[i]]);
-      }
-    };
-    return pairs;
-	};
-
   render() {
-    const { // props passed from TournamentScreens
-      round, 
-      matches, 
-      finals, 
+    const {
+      round,   //currentRound.round#
+      matches, //currentRound.matches[]
+      finals,  //currentRound.finals?
       onSetWinner,
       winners,
-      onSetNextRound
+      onSetNextRound,
+      onSetPlayersIntoPairs
     } = this.props;
 
-    const pairs = this.setPlayersIntoPairs(matches); // MatchGen method logic
+    const pairs = onSetPlayersIntoPairs(matches);
 
     switch(this.props.bracketSize) {
       // case 20:
