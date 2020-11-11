@@ -34,6 +34,10 @@ class TournamentShow extends Component {
 		this.props.showTournament(id);
 	};
 
+	componentDidUpdate() {
+		console.log(this.state.winners)
+	}
+
 	static propTypes = {
 		tournament: PropTypes.object.isRequired,
 		auth: PropTypes.object.isRequired
