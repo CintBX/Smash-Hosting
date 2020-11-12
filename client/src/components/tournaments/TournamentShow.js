@@ -161,7 +161,9 @@ class TournamentShow extends Component {
 		} else {
 			if(this.props.tournament.showTournament.status === "Complete") {
 				return (
-					<Results />
+					<Results 
+						tournament={this.props.tournament.showTournament}
+					/>
 				);
 			} else if(this.props.tournament.showTournament.status === "Closed") {
 				return (

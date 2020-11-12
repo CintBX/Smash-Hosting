@@ -137,10 +137,16 @@ export const StartBracket = ({ tournament }) => {
 
 
 // Status === "Complete"
-export const Results = () => {
+export const Results = ({ tournament }) => {
+	const { participants, bracket } = tournament;
   return (
     <div style={{color:"lightgrey"}}>
       <h1>Tournament Results</h1>
+			<BracketGenerator
+				bracketSize={participants && participants.length}
+				rounds={bracket.rounds}
+				players={bracket.players}
+			/>
 			<br /><Link to="/">Back to Tournaments main page</Link>
     </div>
   );
