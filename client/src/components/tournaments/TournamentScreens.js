@@ -128,6 +128,7 @@ export const StartBracket = ({ tournament }) => {
 			<BracketGenerator
 				bracketSize={participants && participants.length}
 				rounds={bracket.rounds}
+				players={bracket.players}
 			/>
       <br /><Link to="/">Back to Tournaments main page</Link>
     </div>
