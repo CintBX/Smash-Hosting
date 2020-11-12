@@ -5,6 +5,7 @@ import { Bracket } from 'react-tournament-bracket';
 class BracketGenerator extends Component {
   constructor(props) {
     super(props);
+    console.log(props.players);
   };
 
   render() {
