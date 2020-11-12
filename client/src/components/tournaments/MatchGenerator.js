@@ -41,7 +41,42 @@ class MatchGenerator extends Component {
       // case 12:
       // case 11:
       // case 10:
-      // case 9:
+      case 9:
+        // I get it, I can't handle this here.  I need to pass it down from TournamentShow
+        return (
+          <Fragment>
+            <MatchCards
+              round={round}
+              finals={finals}
+              onSetWinner={onSetWinner}
+              pairs={pairs}
+              winners={winners}
+            />
+
+            <div style={{color: "lightgrey"}}>
+              <h3>
+                Round Winners
+                <span style={{fontSize:"0.8em"}}> (refresh if incorrect)</span>
+              </h3>
+              <ul>
+                {
+                  winners && winners.map(winner => (
+                    <li>{winner.username}</li>
+                  ))
+                }
+              </ul>
+            </div>
+
+            <Button 
+              block 
+              color="primary"
+              onClick={onSetNextRound}
+            >
+              Proceed to the Next Round
+            </Button>
+          </Fragment>
+        );
+
       case 8:
         return (
           <Fragment>
@@ -75,10 +110,10 @@ class MatchGenerator extends Component {
               Proceed to the Next Round
             </Button>
           </Fragment>
-        )
+        );
 
       default:
-        return <div>No matches available</div>
+        return <div>No matches available</div>;
     };
   };
 };

@@ -36,7 +36,7 @@ class TournamentShow extends Component {
 	};
 
 	componentDidUpdate() {
-		console.log(this.state.winners)
+		console.log(`Winners array: ${this.state.winners}`)
 	}
 
 	static propTypes = {
@@ -86,8 +86,13 @@ class TournamentShow extends Component {
 		// Create first round based on player count
 		const round = {};
 		round["round"] = this.state.round;
-		round["matches"] = reorderedParticipants;
+		if(participants && participants.length === 9) {
+			round["matches"] = [reorderedParticipants[0], reorderedParticipants[1]];
+		} else {
+			round["matches"] = reorderedParticipants;
+		};
 		round["finals"] = false;
+
 		this.props.addRound(tourneyId, round);
 
 		// Status === Closed
@@ -110,6 +115,7 @@ class TournamentShow extends Component {
 		const { rounds } = this.props.tournament.showTournament.bracket;
 		const n = rounds && rounds.length;
 		const currentRound = rounds[n-1];
+		const { showTournament } = this.props.tournament;
 
 		if(currentRound.finals) {
 			// Select final user from winners[], set as Champion and Complete tournament
@@ -121,9 +127,25 @@ class TournamentShow extends Component {
 			// Create new round object and push to tournament.bracket.rounds
 			const round = {};
 			round["round"] = currentRound.round + 1;
-			round["matches"] = this.state.winners;
+
+			if(
+				(showTournament.participants && showTournament.participants.length === 9)
+				&& currentRound.round === 1
+			) {
+				let round2Matches = [];
+				showTournament.bracket.players && showTournament.bracket.players.forEach(player => {
+					round2Matches.push(player);
+				});
+				round2Matches.shift();
+				round2Matches.shift();
+				round2Matches.splice(1, 0, this.state.winners[0]);
+				round["matches"] = round2Matches;
+			} else {
+				round["matches"] = this.state.winners;
+			};
+
 			round["finals"] = this.state.winners.length !== 2 ? false : true;
-			this.props.addRound(this.props.tournament.showTournament._id, round);
+			this.props.addRound(showTournament._id, round);
 		};
 
 		// Clear state winners
@@ -144,13 +166,13 @@ class TournamentShow extends Component {
 			} else if(this.props.tournament.showTournament.status === "Closed") {
 				return (
 					<div>
-						{/* <HostUI
+						<HostUI
 							bracket={this.props.tournament.showTournament.bracket}
 							onSetWinner={this.onSetWinner}
 							winners={this.state.winners}
 							onSetNextRound={this.onSetNextRound}
 							onSetPlayersIntoPairs={this.onSetPlayersIntoPairs}
-						/> */}
+						/>
 						<br/>
 						<StartBracket
 							tournament={this.props.tournament.showTournament}
