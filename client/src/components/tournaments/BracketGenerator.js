@@ -3509,7 +3509,7 @@ class BracketGenerator extends Component {
                         sourceGame: {
                           id: 3,
                           scheduled: "Best of 3",
-                          name: "5",
+                          name: "2",
                           sides: {
                             home: {
                               score: { score: 0 },
@@ -3561,7 +3561,7 @@ class BracketGenerator extends Component {
                         sourceGame: {
                           id: 3,
                           scheduled: "Best of 3",
-                          name: "2",
+                          name: "3",
                           sides: {
                             home: {
                               score: { score: 0 },
@@ -3605,7 +3605,7 @@ class BracketGenerator extends Component {
                         sourceGame: {
                           id: 3,
                           scheduled: "Best of 3",
-                          name: "3",
+                          name: "4",
                           sides: {
                             home: {
                               score: { score: 0 },
@@ -3635,7 +3635,7 @@ class BracketGenerator extends Component {
                         sourceGame: {
                           id: 3,
                           scheduled: "Best of 3",
-                          name: "4",
+                          name: "5",
                           sides: {
                             home: {
                               score: { score: 0 },
