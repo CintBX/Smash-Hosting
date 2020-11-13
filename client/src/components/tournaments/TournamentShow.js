@@ -19,7 +19,8 @@ class TournamentShow extends Component {
 	constructor(props) {
 		super(props);
 		this.onSignUp = this.onSignUp.bind(this);
-		this.onStartTournament = this.onStartTournament.bind(this);
+		this.onStartTournamentStandard = this.onStartTournamentStandard.bind(this);
+		this.onStartTournament9 = this.onStartTournament9.bind(this);
 		this.onShuffleParticipants = this.onShuffleParticipants.bind(this);
 		this.onSetPlayersIntoPairs = this.onSetPlayersIntoPairs.bind(this);
 		this.onSetWinner = this.onSetWinner.bind(this);
@@ -72,7 +73,7 @@ class TournamentShow extends Component {
     return pairs;
 	};
 	
-	onStartTournament(tourneyId) { // may just be for 8/16/32
+	onStartTournamentStandard(tourneyId) { // 8/16/32 player bracket
 		const { participants } = this.props.tournament.showTournament;
 
 		// Randomize participants && Send to bracket.players
@@ -83,14 +84,33 @@ class TournamentShow extends Component {
 		});
 		this.props.shuffleParticipants(tourneyId, reorderedParticipants);
 
-		// Create first round based on player count
+		// Create first round
 		const round = {};
 		round["round"] = this.state.round;
-		if(participants && participants.length === 9) {
-			round["matches"] = [reorderedParticipants[0], reorderedParticipants[1]];
-		} else {
-			round["matches"] = reorderedParticipants;
-		};
+		round["matches"] = reorderedParticipants;
+		round["finals"] = false;
+
+		this.props.addRound(tourneyId, round);
+
+		// Status === Closed
+		this.props.closeTournament(tourneyId);
+	};
+
+	onStartTournament9(tourneyId) { // 9 player bracket
+		const { participants } = this.props.tournament.showTournament;
+
+		// Randomize participants && Send to bracket.players
+		let reorderedParticipants = [];
+		const shuffledParticipants = this.onShuffleParticipants(participants);
+		shuffledParticipants.forEach(participant => {
+			reorderedParticipants.push(participant);
+		});
+		this.props.shuffleParticipants(tourneyId, reorderedParticipants);
+
+		// Create first round
+		const round = {};
+		round["round"] = this.state.round;
+		round["matches"] = [reorderedParticipants[0], reorderedParticipants[1]];
 		round["finals"] = false;
 
 		this.props.addRound(tourneyId, round);
@@ -155,7 +175,9 @@ class TournamentShow extends Component {
 	};
 
 	render() {
+		const { participants } = this.props.tournament.showTournament;
 		const loading = this.props.tournament.loading || !this.props.tournament.showTournament;
+
 		if(loading) {
 			return <Spinner color="light" /> 
 		} else {
@@ -182,15 +204,28 @@ class TournamentShow extends Component {
 					</div>
 				);
 			} else {
-				return (
-					<SignUpPage
-						tournament={this.props.tournament.showTournament}
-						auth={this.props.auth}
-						onSignUp={this.onSignUp}
-						onStartTournament={this.onStartTournament}
-					/>
-				);
-			}
+				switch(participants && participants.length) {
+					case 9:
+						return (
+							<SignUpPage
+								tournament={this.props.tournament.showTournament}
+								auth={this.props.auth}
+								onSignUp={this.onSignUp}
+								onStartTournament={this.onStartTournament9}
+							/>
+						);
+
+					default:
+						return (
+							<SignUpPage
+								tournament={this.props.tournament.showTournament}
+								auth={this.props.auth}
+								onSignUp={this.onSignUp}
+								onStartTournament={this.onStartTournamentStandard}
+							/>
+						);
+				};
+			};
 		};
 	};
 };
