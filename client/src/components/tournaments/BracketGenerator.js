@@ -889,14 +889,14 @@ class BracketGenerator extends Component {
                                 sourceGame: {
                                   id: 4,
                                   scheduled: "Best of 3",
-                                  name: "9",
+                                  name: "3",
                                   sides: {
                                     home: {
                                       score: { score: 0 },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
-                                        displayName: "Seed"
+                                        displayName: round2 ? round2[0].username : players[4].username
                                       }
                                     },
                                     visitor: {
@@ -912,7 +912,7 @@ class BracketGenerator extends Component {
                                               seed: {
                                                 sourceGame: null,
                                                 rank: 2,
-                                                displayName: "Seed"
+                                                displayName: players[0].username
                                               }
                                             },
                                             visitor: {
@@ -920,19 +920,19 @@ class BracketGenerator extends Component {
                                               seed: {
                                                 sourceGame: null,
                                                 rank: 2,
-                                                displayName: "Seed"
+                                                displayName: players[1].username
                                               }
                                             }
                                           }
                                         },
                                         rank: 1,
-                                        displayName: ""
+                                        displayName: round2 ? round2[1].username : ""
                                       }
                                     }
                                   }
                                 },
                                 rank: 1,
-                                displayName: ""
+                                displayName: round3 ? round3[0].username : ""
                               }
                             },
                             visitor: {
@@ -941,14 +941,14 @@ class BracketGenerator extends Component {
                                 sourceGame: {
                                   id: 4,
                                   scheduled: "Best of 3",
-                                  name: "3",
+                                  name: "4",
                                   sides: {
                                     home: {
                                       score: { score: 0 },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
-                                        displayName: "Seed"
+                                        displayName: round2 ? round2[2].username : players[5].username
                                       }
                                     },
                                     visitor: {
@@ -956,19 +956,19 @@ class BracketGenerator extends Component {
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
-                                        displayName: "Seed"
+                                        displayName: round2 ? round2[3].username : players[6].username
                                       }
                                     }
                                   }
                                 },
                                 rank: 1,
-                                displayName: ""
+                                displayName: round3 ? round3[1].username : ""
                               }
                             }
                           }
                         },
                         rank: 1,
-                        displayName: ""
+                        displayName: round4 ? round4[0].username : ""
                       }
                     },
                     visitor: {
@@ -985,14 +985,14 @@ class BracketGenerator extends Component {
                                 sourceGame: {
                                   id: 4,
                                   scheduled: "Best of 3",
-                                  name: "4",
+                                  name: "5",
                                   sides: {
                                     home: {
                                       score: { score: 0 },
                                       seed: {
                                         sourceGame: null,
                                         rank: 7,
-                                        displayName: "Seed"
+                                        displayName: round2 ? round2[4].username : players[7].username
                                       }
                                     },
                                     visitor: {
@@ -1000,13 +1000,13 @@ class BracketGenerator extends Component {
                                       seed: {
                                         sourceGame: null,
                                         rank: 8,
-                                        displayName: "Seed"
+                                        displayName: round2 ? round2[5].username : players[8].username
                                       }
                                     }
                                   }
                                 },
                                 rank: 1,
-                                displayName: ""
+                                displayName: round3 ? round3[2].username : ""
                               }
                             },
                             visitor: {
@@ -1015,14 +1015,14 @@ class BracketGenerator extends Component {
                                 sourceGame: {
                                   id: 4,
                                   scheduled: "Best of 3",
-                                  name: "5",
+                                  name: "6",
                                   sides: {
                                     home: {
                                       score: { score: 0 },
                                       seed: {
                                         sourceGame: null,
                                         rank: 7,
-                                        displayName: "Seed"
+                                        displayName: round2 ? round2[6].username : players[9].username
                                       }
                                     },
                                     visitor: {
@@ -1030,25 +1030,25 @@ class BracketGenerator extends Component {
                                       seed: {
                                         sourceGame: null,
                                         rank: 8,
-                                        displayName: "Seed"
+                                        displayName: round2 ? round2[7].username : players[10].username
                                       }
                                     }
                                   }
                                 },
                                 rank: 1,
-                                displayName: ""
+                                displayName: round3 ? round3[3].username : ""
                               }
                             }
                           }
                         },
                         rank: 1,
-                        displayName: ""
+                        displayName: round4 ? round4[1].username : ""
                       }
                     }
                   }
                 },
                 rank: 1,
-                displayName: ""
+                displayName: round5 ? round5[0].username : ""
               }
             },
             visitor: {
@@ -1073,14 +1073,14 @@ class BracketGenerator extends Component {
                                 sourceGame: {
                                   id: 4,
                                   scheduled: "Best of 3",
-                                  name: "10",
+                                  name: "7",
                                   sides: {
                                     home: {
                                       score: { score: 0 },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
-                                        displayName: "Seed"
+                                        displayName: round2 ? round2[8].username : players[11].username
                                       }
                                     },
                                     visitor: {
@@ -1096,7 +1096,7 @@ class BracketGenerator extends Component {
                                               seed: {
                                                 sourceGame: null,
                                                 rank: 1,
-                                                displayName: "Seed"
+                                                displayName: players[2].username
                                               }
                                             },
                                             visitor: {
@@ -1104,19 +1104,19 @@ class BracketGenerator extends Component {
                                               seed: {
                                                 sourceGame: null,
                                                 rank: 1,
-                                                displayName: "Seed"
+                                                displayName: players[3].username
                                               }
                                             }
                                           }
                                         },
                                         rank: 1,
-                                        displayName: ""
+                                        displayName: round2 ? round2[9].username : ""
                                       }
                                     }
                                   }
                                 },
                                 rank: 1,
-                                displayName: ""
+                                displayName: round3 ? round3[4].username : ""
                               }
                             },
                             visitor: {
@@ -1125,14 +1125,14 @@ class BracketGenerator extends Component {
                                 sourceGame: {
                                   id: 4,
                                   scheduled: "Best of 3",
-                                  name: "6",
+                                  name: "8",
                                   sides: {
                                     home: {
                                       score: { score: 0 },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
-                                        displayName: "Seed"
+                                        displayName: round2 ? round2[10].username : players[12].username
                                       }
                                     },
                                     visitor: {
@@ -1140,19 +1140,19 @@ class BracketGenerator extends Component {
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
-                                        displayName: "Seed"
+                                        displayName: round2 ? round2[11].username : players[13].username
                                       }
                                     }
                                   }
                                 },
                                 rank: 1,
-                                displayName: ""
+                                displayName: round3 ? round3[5].username : ""
                               }
                             }
                           },
                         },
                         rank: 1,
-                        displayName: ""
+                        displayName: round4 ? round4[2].username : ""
                       }
                     },
                     visitor: {
@@ -1169,14 +1169,14 @@ class BracketGenerator extends Component {
                                 sourceGame: {
                                   id: 4,
                                   scheduled: "Best of 3",
-                                  name: "7",
+                                  name: "9",
                                   sides: {
                                     home: {
                                       score: { score: 0 },
                                       seed: {
                                         sourceGame: null,
                                         rank: 7,
-                                        displayName: "Seed"
+                                        displayName: round2 ? round2[12].username : players[14].username
                                       }
                                     },
                                     visitor: {
@@ -1184,13 +1184,13 @@ class BracketGenerator extends Component {
                                       seed: {
                                         sourceGame: null,
                                         rank: 8,
-                                        displayName: "Seed"
+                                        displayName: round2 ? round2[13].username : players[15].username
                                       }
                                     }
                                   }
                                 },
                                 rank: 1,
-                                displayName: ""
+                                displayName: round3 ? round3[6].username : ""
                               }
                             },
                             visitor: {
@@ -1199,14 +1199,14 @@ class BracketGenerator extends Component {
                                 sourceGame: {
                                   id: 4,
                                   scheduled: "Best of 3",
-                                  name: "8",
+                                  name: "10",
                                   sides: {
                                     home: {
                                       score: { score: 0 },
                                       seed: {
                                         sourceGame: null,
                                         rank: 7,
-                                        displayName: "Seed"
+                                        displayName: round2 ? round2[14].username : players[16].username
                                       }
                                     },
                                     visitor: {
@@ -1214,25 +1214,25 @@ class BracketGenerator extends Component {
                                       seed: {
                                         sourceGame: null,
                                         rank: 8,
-                                        displayName: "Seed"
+                                        displayName: round2 ? round2[15].username : players[17].username
                                       }
                                     }
                                   }
                                 },
                                 rank: 1,
-                                displayName: ""
+                                displayName: round3 ? round3[7].username : ""
                               }
                             }
                           },
                         },
                         rank: 1,
-                        displayName: ""
+                        displayName: round4 ? round4[3].username : ""
                       }
                     }
                   }
                 },
                 rank: 1,
-                displayName: ""
+                displayName: round5 ? round5[1].username : ""
               }
             }
           }

@@ -30,7 +30,7 @@ class TournamentShow extends Component {
 		// Start Tournament functions for various bracket sizes
 		this.onStartTournamentStandard = this.onStartTournamentStandard.bind(this); // 8, 16, 32
 		this.onStartTournament9and17 = this.onStartTournament9and17.bind(this);
-		this.onStartTournament10 = this.onStartTournament10.bind(this);
+		this.onStartTournament10and18 = this.onStartTournament10and18.bind(this);
 		this.onStartTournament11 = this.onStartTournament11.bind(this);
 		this.onStartTournament12 = this.onStartTournament12.bind(this);
 		this.onStartTournament13 = this.onStartTournament13.bind(this);
@@ -40,7 +40,7 @@ class TournamentShow extends Component {
 		// Next Round functions for various bracket sizes
 		this.onSetNextRoundStandard = this.onSetNextRoundStandard.bind(this); // 8, 16, 32
 		this.onSetNextRound9and17 = this.onSetNextRound9and17.bind(this);
-		this.onSetNextRound10 = this.onSetNextRound10.bind(this);
+		this.onSetNextRound10and18 = this.onSetNextRound10and18.bind(this);
 		this.onSetNextRound11 = this.onSetNextRound11.bind(this);
 		this.onSetNextRound12 = this.onSetNextRound12.bind(this);
 		this.onSetNextRound13 = this.onSetNextRound13.bind(this);
@@ -131,7 +131,7 @@ class TournamentShow extends Component {
 		this.props.closeTournament(tourneyId);
 	};
 
-	onStartTournament10(tourneyId) { // 10 player bracket
+	onStartTournament10and18(tourneyId) { // 10/18 player bracket
 		const { participants } = this.props.tournament.showTournament;
 		// Randomize participants && Send to bracket.players
 		let reorderedParticipants = [];
@@ -383,7 +383,7 @@ class TournamentShow extends Component {
 		});
 	};
 
-	onSetNextRound10() { // 10 player bracket
+	onSetNextRound10and18() { // 10/18 player bracket
 		// Bindings and previous/current Round
 		const { rounds } = this.props.tournament.showTournament.bracket;
 		const n = rounds && rounds.length;
@@ -410,14 +410,23 @@ class TournamentShow extends Component {
 				round2Matches.shift();
 				round2Matches.shift();
 				round2Matches.shift();
-				round2Matches.splice(1, 0, this.state.winners[0]);
-				round2Matches.splice(5, 0, this.state.winners[1]);
+				if(showTournament.participants && showTournament.participants.length === 10) {
+					round2Matches.splice(1, 0, this.state.winners[0]);
+					round2Matches.splice(5, 0, this.state.winners[1]);
+				} else if(showTournament.participants && showTournament.participants.length === 18) {
+					round2Matches.splice(1, 0, this.state.winners[0]);
+					round2Matches.splice(9, 0, this.state.winners[1]);
+				}
 				round["matches"] = round2Matches;
 			} else {
 				round["matches"] = this.state.winners;
 			};
 
-			round["finals"] = currentRound.round === 3 ? true : false;
+			if(showTournament.participants && showTournament.participants.length === 10) {
+				round["finals"] = currentRound.round === 3 ? true : false;	
+			} else if(showTournament.participants && showTournament.participants.length === 18) {
+				round["finals"] = currentRound.round === 4 ? true : false;
+			}
 			this.props.addRound(showTournament._id, round);
 		};
 		// Clear state winners
@@ -781,14 +790,15 @@ class TournamentShow extends Component {
 								/>
 							</div>
 						);
-					case 10: 
+					case 10:
+					case 18:
 						return (
 							<div>
 								<HostUI
 									bracket={this.props.tournament.showTournament.bracket}
 									onSetWinner={this.onSetWinner}
 									winners={this.state.winners}
-									onSetNextRound={this.onSetNextRound10}
+									onSetNextRound={this.onSetNextRound10and18}
 									onSetPlayersIntoPairs={this.onSetPlayersIntoPairs}
 								/>
 								<br/>
@@ -879,12 +889,13 @@ class TournamentShow extends Component {
 							/>
 						);
 					case 10:
+					case 18:
 						return (
 							<SignUpPage
 								tournament={this.props.tournament.showTournament}
 								auth={this.props.auth}
 								onSignUp={this.onSignUp}
-								onStartTournament={this.onStartTournament10}
+								onStartTournament={this.onStartTournament10and18}
 							/>
 						);
 					case 9:
