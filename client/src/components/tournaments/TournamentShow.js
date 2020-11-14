@@ -31,7 +31,7 @@ class TournamentShow extends Component {
 		this.onStartTournamentStandard = this.onStartTournamentStandard.bind(this); // 8, 16, 32
 		this.onStartTournament9and17 = this.onStartTournament9and17.bind(this);
 		this.onStartTournament10and18 = this.onStartTournament10and18.bind(this);
-		this.onStartTournament11 = this.onStartTournament11.bind(this);
+		this.onStartTournament11and19 = this.onStartTournament11and19.bind(this);
 		this.onStartTournament12 = this.onStartTournament12.bind(this);
 		this.onStartTournament13 = this.onStartTournament13.bind(this);
 		this.onStartTournament14 = this.onStartTournament14.bind(this);
@@ -41,7 +41,7 @@ class TournamentShow extends Component {
 		this.onSetNextRoundStandard = this.onSetNextRoundStandard.bind(this); // 8, 16, 32
 		this.onSetNextRound9and17 = this.onSetNextRound9and17.bind(this);
 		this.onSetNextRound10and18 = this.onSetNextRound10and18.bind(this);
-		this.onSetNextRound11 = this.onSetNextRound11.bind(this);
+		this.onSetNextRound11and19 = this.onSetNextRound11and19.bind(this);
 		this.onSetNextRound12 = this.onSetNextRound12.bind(this);
 		this.onSetNextRound13 = this.onSetNextRound13.bind(this);
 		this.onSetNextRound14 = this.onSetNextRound14.bind(this);
@@ -155,7 +155,7 @@ class TournamentShow extends Component {
 		this.props.closeTournament(tourneyId);
 	};
 
-	onStartTournament11(tourneyId) { // 11 player bracket
+	onStartTournament11and19(tourneyId) { // 11/19 player bracket
 		const { participants } = this.props.tournament.showTournament;
 		// Randomize participants && Send to bracket.players
 		let reorderedParticipants = [];
@@ -435,7 +435,7 @@ class TournamentShow extends Component {
 		});
 	};
 
-	onSetNextRound11() { // 11 player bracket
+	onSetNextRound11and19() { // 11/19 player bracket
 		// Bindings and previous/current Round
 		const { rounds } = this.props.tournament.showTournament.bracket;
 		const n = rounds && rounds.length;
@@ -464,15 +464,26 @@ class TournamentShow extends Component {
 				round2Matches.shift();
 				round2Matches.shift();
 				round2Matches.shift();
-				round2Matches.splice(1, 0, this.state.winners[0]);
-				round2Matches.splice(5, 0, this.state.winners[1]);
-				round2Matches.splice(7, 0, this.state.winners[2]);
+				if(showTournament.participants && showTournament.participants.length === 11) {
+					round2Matches.splice(1, 0, this.state.winners[0]);
+					round2Matches.splice(5, 0, this.state.winners[1]);
+					round2Matches.splice(7, 0, this.state.winners[2]);
+				} else if(showTournament.participants && showTournament.participants.length === 19) {
+					round2Matches.splice(1, 0, this.state.winners[0]);
+					round2Matches.splice(5, 0, this.state.winners[1]);
+					round2Matches.splice(9, 0, this.state.winners[2]);
+				}
 				round["matches"] = round2Matches;
 			} else {
 				round["matches"] = this.state.winners;
 			};
 
-			round["finals"] = currentRound.round === 3 ? true : false;
+			if(showTournament.participants && showTournament.participants.length === 11) {
+				round["finals"] = currentRound.round === 3 ? true : false;	
+			} else if(showTournament.participants && showTournament.participants.length === 19) {
+				round["finals"] = currentRound.round === 4 ? true : false;
+			}
+
 			this.props.addRound(showTournament._id, round);
 		};
 		// Clear state winners
@@ -775,13 +786,14 @@ class TournamentShow extends Component {
 							</div>
 						);					
 					case 11:
+					case 19:
 						return (
 							<div>
 								<HostUI
 									bracket={this.props.tournament.showTournament.bracket}
 									onSetWinner={this.onSetWinner}
 									winners={this.state.winners}
-									onSetNextRound={this.onSetNextRound11}
+									onSetNextRound={this.onSetNextRound11and19}
 									onSetPlayersIntoPairs={this.onSetPlayersIntoPairs}
 								/>
 								<br/>
@@ -880,12 +892,13 @@ class TournamentShow extends Component {
 							/>
 						);
 					case 11:
+					case 19:
 						return (
 							<SignUpPage
 								tournament={this.props.tournament.showTournament}
 								auth={this.props.auth}
 								onSignUp={this.onSignUp}
-								onStartTournament={this.onStartTournament11}
+								onStartTournament={this.onStartTournament11and19}
 							/>
 						);
 					case 10:
