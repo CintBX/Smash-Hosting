@@ -1634,7 +1634,7 @@ class BracketGenerator extends Component {
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
-                                        displayName: "Seed"
+                                        displayName: round1[0].username
                                       }
                                     },
                                     visitor: {
@@ -1642,13 +1642,13 @@ class BracketGenerator extends Component {
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
-                                        displayName: "Seed"
+                                        displayName: round1[1].username
                                       }
                                     }
                                   }
                                 },
                                 rank: 1,
-                                displayName: "Seed"
+                                displayName: round2 ? round2[0].username : ""
                               }
                             },
                             visitor: {
@@ -1664,7 +1664,7 @@ class BracketGenerator extends Component {
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
-                                        displayName: "Seed"
+                                        displayName: round1[2].username
                                       }
                                     },
                                     visitor: {
@@ -1672,19 +1672,19 @@ class BracketGenerator extends Component {
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
-                                        displayName: "Seed"
+                                        displayName: round1[3].username
                                       }
                                     }
                                   }
                                 },
                                 rank: 1,
-                                displayName: "Seed"
+                                displayName: round2 ? round2[1].username : ""
                               }
                             }
                           }
                         },
                         rank: 1,
-                        displayName: "Seed"
+                        displayName: round3 ? round3[0].username : ""
                       }
                     },
                     visitor: {
@@ -1708,7 +1708,7 @@ class BracketGenerator extends Component {
                                       seed: {
                                         sourceGame: null,
                                         rank: 7,
-                                        displayName: "Seed"
+                                        displayName: round1[4].username
                                       }
                                     },
                                     visitor: {
@@ -1716,13 +1716,13 @@ class BracketGenerator extends Component {
                                       seed: {
                                         sourceGame: null,
                                         rank: 8,
-                                        displayName: "Seed"
+                                        displayName: round1[5].username
                                       }
                                     }
                                   }
                                 },
                                 rank: 1,
-                                displayName: "Seed"
+                                displayName: round2 ? round2[2].username : ""
                               }
                             },
                             visitor: {
@@ -1738,7 +1738,7 @@ class BracketGenerator extends Component {
                                       seed: {
                                         sourceGame: null,
                                         rank: 7,
-                                        displayName: "Seed"
+                                        displayName: round1[6].username
                                       }
                                     },
                                     visitor: {
@@ -1746,25 +1746,25 @@ class BracketGenerator extends Component {
                                       seed: {
                                         sourceGame: null,
                                         rank: 8,
-                                        displayName: "Seed"
+                                        displayName: round1[7].username
                                       }
                                     }
                                   }
                                 },
                                 rank: 1,
-                                displayName: "Seed"
+                                displayName: round2 ? round2[3].username : ""
                               }
                             }
                           }
                         },
                         rank: 1,
-                        displayName: "Seed"
+                        displayName: round3 ? round3[1].username : ""
                       }
                     }
                   }
                 },
                 rank: 1,
-                displayName: "Seed"
+                displayName: round4 ? round4[0].username : ""
               }
             },
             visitor: {
@@ -1796,7 +1796,7 @@ class BracketGenerator extends Component {
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
-                                        displayName: "Seed"
+                                        displayName: round1[8].username
                                       }
                                     },
                                     visitor: {
@@ -1804,13 +1804,13 @@ class BracketGenerator extends Component {
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
-                                        displayName: "Seed"
+                                        displayName: round1[9].username
                                       }
                                     }
                                   }
                                 },
                                 rank: 1,
-                                displayName: "Seed"
+                                displayName: round2 ? round2[4].username : ""
                               }
                             },
                             visitor: {
@@ -1826,7 +1826,7 @@ class BracketGenerator extends Component {
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
-                                        displayName: "Seed"
+                                        displayName: round1[10].username
                                       }
                                     },
                                     visitor: {
@@ -1834,19 +1834,19 @@ class BracketGenerator extends Component {
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
-                                        displayName: "Seed"
+                                        displayName: round1[11].username
                                       }
                                     }
                                   }
                                 },
                                 rank: 1,
-                                displayName: "Seed"
+                                displayName: round2 ? round2[5].username : ""
                               }
                             }
                           },
                         },
                         rank: 1,
-                        displayName: "Seed"
+                        displayName: round3 ? round3[2].username : ""
                       }
                     },
                     visitor: {
@@ -1870,7 +1870,7 @@ class BracketGenerator extends Component {
                                       seed: {
                                         sourceGame: null,
                                         rank: 7,
-                                        displayName: "Seed"
+                                        displayName: round1[12].username
                                       }
                                     },
                                     visitor: {
@@ -1878,13 +1878,13 @@ class BracketGenerator extends Component {
                                       seed: {
                                         sourceGame: null,
                                         rank: 8,
-                                        displayName: "Seed"
+                                        displayName: round1[13].username
                                       }
                                     }
                                   }
                                 },
                                 rank: 1,
-                                displayName: "Seed"
+                                displayName: round2 ? round2[6].username : ""
                               }
                             },
                             visitor: {
@@ -1900,7 +1900,7 @@ class BracketGenerator extends Component {
                                       seed: {
                                         sourceGame: null,
                                         rank: 7,
-                                        displayName: "Seed"
+                                        displayName: round1[14].username
                                       }
                                     },
                                     visitor: {
@@ -1908,25 +1908,25 @@ class BracketGenerator extends Component {
                                       seed: {
                                         sourceGame: null,
                                         rank: 8,
-                                        displayName: "Seed"
+                                        displayName: round1[15].username
                                       }
                                     }
                                   }
                                 },
                                 rank: 1,
-                                displayName: "Seed"
+                                displayName: round2 ? round2[7].username : ""
                               }
                             }
                           },
                         },
                         rank: 1,
-                        displayName: "Seed"
+                        displayName: round3 ? round3[3].username : ""
                       }
                     }
                   }
                 },
                 rank: 1,
-                displayName: "Seed"
+                displayName: round4 ? round4[1].username : ""
               }
             }
           }
