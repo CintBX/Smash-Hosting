@@ -28,8 +28,8 @@ class TournamentShow extends Component {
 		};
 
 		// Start Tournament functions for various bracket sizes
-		this.onStartTournamentStandard = this.onStartTournamentStandard.bind(this);
-		this.onStartTournament9 = this.onStartTournament9.bind(this);
+		this.onStartTournamentStandard = this.onStartTournamentStandard.bind(this); // 8, 16, 32
+		this.onStartTournament9and17 = this.onStartTournament9and17.bind(this);
 		this.onStartTournament10 = this.onStartTournament10.bind(this);
 		this.onStartTournament11 = this.onStartTournament11.bind(this);
 		this.onStartTournament12 = this.onStartTournament12.bind(this);
@@ -38,8 +38,8 @@ class TournamentShow extends Component {
 		this.onStartTournament15 = this.onStartTournament15.bind(this);
 
 		// Next Round functions for various bracket sizes
-		this.onSetNextRoundStandard = this.onSetNextRoundStandard.bind(this);
-		this.onSetNextRound9 = this.onSetNextRound9.bind(this);
+		this.onSetNextRoundStandard = this.onSetNextRoundStandard.bind(this); // 8, 16, 32
+		this.onSetNextRound9and17 = this.onSetNextRound9and17.bind(this);
 		this.onSetNextRound10 = this.onSetNextRound10.bind(this);
 		this.onSetNextRound11 = this.onSetNextRound11.bind(this);
 		this.onSetNextRound12 = this.onSetNextRound12.bind(this);
@@ -109,7 +109,7 @@ class TournamentShow extends Component {
 		this.props.closeTournament(tourneyId);
 	};
 
-	onStartTournament9(tourneyId) { // 9 player bracket
+	onStartTournament9and17(tourneyId) { // 9/17 player bracket
 		const { participants } = this.props.tournament.showTournament;
 		// Randomize participants && Send to bracket.players
 		let reorderedParticipants = [];
@@ -121,7 +121,10 @@ class TournamentShow extends Component {
 		// Create first round
 		const round = {};
 		round["round"] = this.state.round;
-		round["matches"] = [reorderedParticipants[0], reorderedParticipants[1]];
+		round["matches"] = [
+			reorderedParticipants[0],
+			reorderedParticipants[1]
+		];
 		round["finals"] = false;
 		this.props.addRound(tourneyId, round);
 		// Status === Closed
@@ -340,7 +343,7 @@ class TournamentShow extends Component {
 		});
 	};
 
-	onSetNextRound9() { // 9 player bracket
+	onSetNextRound9and17() { // 9/17 player bracket
 		// Bindings and previous/current Round
 		const { rounds } = this.props.tournament.showTournament.bracket;
 		const n = rounds && rounds.length;
@@ -795,13 +798,14 @@ class TournamentShow extends Component {
 							</div>
 						);
 					case 9:
+					case 17:
 						return (
 							<div>
 								<HostUI
 									bracket={this.props.tournament.showTournament.bracket}
 									onSetWinner={this.onSetWinner}
 									winners={this.state.winners}
-									onSetNextRound={this.onSetNextRound9}
+									onSetNextRound={this.onSetNextRound9and17}
 									onSetPlayersIntoPairs={this.onSetPlayersIntoPairs}
 								/>
 								<br/>
@@ -884,12 +888,13 @@ class TournamentShow extends Component {
 							/>
 						);
 					case 9:
+					case 17:
 						return (
 							<SignUpPage
 								tournament={this.props.tournament.showTournament}
 								auth={this.props.auth}
 								onSignUp={this.onSignUp}
-								onStartTournament={this.onStartTournament9}
+								onStartTournament={this.onStartTournament9and17}
 							/>
 						);
 					default: // Standard
