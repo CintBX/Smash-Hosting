@@ -7,7 +7,6 @@ import {
   Row,
   Col
 } from 'reactstrap';
-import ScoreKeeper from './resources/scorekeeper';
 import ConfirmModal from '../ConfirmModal';
 import MatchCards from './resources/matchcards';
 
