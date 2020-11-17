@@ -19,7 +19,9 @@ import {
 	MATCHWINS_UPDATE,
 	MATCHWINS_UPDATE_FAILED,
 	SET_CHAMPION,
-	SET_CHAMPION_FAILED
+	SET_CHAMPION_FAILED,
+	ADD_SCORE,
+	ADD_SCORE_FAILED
 } from '../actions/types';
 
 const initialState = {
@@ -94,6 +96,18 @@ export default function(state = initialState, action) {
 				}
 			};
 
+		case ADD_SCORE:
+			return {
+				...state,
+				showTournament: {
+					...state.showTournament,
+					bracket: {
+						...state.showTournament.bracket,
+						scores: [...state.showTournament.bracket.scores, action.payload]
+					}
+				}
+			}
+
 		case ADD_ROUND:
 			return {
 				...state,
@@ -118,6 +132,8 @@ export default function(state = initialState, action) {
 				}
 			};
 			
+		case ADD_SCORE_FAILED:
+		case ADD_ROUND_FAILED:
 		case SET_CHAMPION_FAILED:
 		case MATCHWINS_UPDATE:
 		case MATCHWINS_UPDATE_FAILED:

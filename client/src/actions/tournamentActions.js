@@ -19,7 +19,9 @@ import {
 	MATCHWINS_UPDATE,
 	MATCHWINS_UPDATE_FAILED,
 	SET_CHAMPION,
-	SET_CHAMPION_FAILED
+	SET_CHAMPION_FAILED,
+	ADD_SCORE,
+	ADD_SCORE_FAILED
 } from './types';
 import axios from 'axios';
 import { tokenConfig } from './authActions';
@@ -177,6 +179,29 @@ export const shuffleParticipants = (_id, participants) => dispatch => {
 };
 
 
+export const addScore = (id, scores) => dispatch => {
+	const config = {
+		headers: {
+			"Content-Type": "application/json"
+		}
+	};
+
+	const body = JSON.stringify({ scores });
+
+	axios.post(`/tournaments/${id}/add-score`, body, config)
+		.then(() => dispatch({
+			type: ADD_SCORE,
+			payload: scores
+		}))
+		.catch(err => {
+			dispatch(returnErrors(err.response.data, err.response.status));
+			dispatch({
+				type: ADD_SCORE_FAILED
+			});
+		});
+};
+
+
 export const addRound = (_id, round) => dispatch => {
 	const config = {
 		headers: {
@@ -218,7 +243,7 @@ export const updateMatchWins = ({ _id, matchWins }) => dispatch => {
 			dispatch(returnErrors(err.response.data, err.response.status));
 			dispatch({
 				type: MATCHWINS_UPDATE_FAILED
-			})
+			});
 		});
 };
 
