@@ -41,6 +41,8 @@ export const SHUFFLE_PARTICIPANTS = 'SHUFFLE_PARTICIPANTS';
 export const SHUFFLE_FAILED = 'SHUFFLE_FAILED';
 export const SET_CHAMPION = 'SET_CHAMPION';
 export const SET_CHAMPION_FAILED = 'SET_CHAMPION_FAILED';
+export const ADD_SCORE = 'ADD_SCORE';
+export const ADD_SCORE_FAILED = 'ADD_SCORE_FAILED';
 
 // Bracket Functionality
 export const ADD_ROUND = 'ADD_ROUND';

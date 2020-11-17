@@ -38,7 +38,8 @@ const TournamentSchema = new Schema({
 	bracket: {
 		players: {type: Array},
 		rounds: {type: Array},
-		champion: {type: Array}
+		champion: {type: Array},
+		scores: {type: Array}
 	}
 });
 
