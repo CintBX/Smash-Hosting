@@ -140,6 +140,24 @@ router.post('/:id/shuffle-players', (req, res) => {
 });
 
 
+// @route	UPDATE SCORES /tournaments/:id/add-score
+// @descrip POST and send array of scores to LATEST bracket.rounds' scores[]
+// @access Private
+router.post('/:id/add-score', (req, res) => {
+	Tournament.findByIdAndUpdate(req.params.id)
+		.then(tournament => {
+			if(!tournament) res.status(404).json({ msg: "Cannot find this tournament" });
+			else {
+				const { scores } = tournament.bracket;
+				scores.push(req.body.scores);
+				return tournament.save();
+			};
+		})
+		.then(savedTournament => res.json(savedTournament))
+		.catch(err => res.json(`Add Score error: ${err}`));
+});
+
+
 // @route  	CREATE TOURNAMENT ROUND /tournaments/:id/first-round
 // @descrip	POST and organize bracket.players to bracket.matches
 // @access	Private
@@ -151,10 +169,10 @@ router.post('/:id/add-round', (req, res) => {
 				let { rounds } = tournament.bracket;
 				rounds.push(req.body.round);
 				return tournament.save();
-			}
+			};
 		})
 		.then(savedTournament => res.json(savedTournament))
-		.catch(err => res.json(`First Round error: ${err}`));
+		.catch(err => res.json(`Add Round error: ${err}`));
 });
 
 
