@@ -5,6 +5,7 @@ import {
 	addParticipant,
 	closeTournament,
 	shuffleParticipants,
+	addScore,
 	addRound,
 	updateMatchWins,
 	setChampion,
@@ -22,9 +23,13 @@ class TournamentShow extends Component {
 		this.onShuffleParticipants = this.onShuffleParticipants.bind(this);
 		this.onSetPlayersIntoPairs = this.onSetPlayersIntoPairs.bind(this);
 		this.onSetWinner = this.onSetWinner.bind(this);
+		this.onSetScoreOne = this.onSetScoreOne.bind(this);
+    this.onSetScoreTwo = this.onSetScoreTwo.bind(this);
 		this.state = {
 			round: 1,
-			winners: []
+			winners: [],
+			scoreOne: 0,
+			scoreTwo: 0,
 		};
 
 		// Start Tournament functions for various bracket sizes
@@ -54,8 +59,9 @@ class TournamentShow extends Component {
 	};
 
 	componentDidUpdate() {
-		console.log(`Winners array: ${this.state.winners}`)
-	}
+		console.log("State");
+		console.log(this.state);
+	};
 
 	static propTypes = {
 		tournament: PropTypes.object.isRequired,
@@ -103,6 +109,7 @@ class TournamentShow extends Component {
 		const round = {};
 		round["round"] = this.state.round;
 		round["matches"] = reorderedParticipants;
+		round["scores"] = [];
 		round["finals"] = false;
 		this.props.addRound(tourneyId, round);
 		// Status === Closed
@@ -305,6 +312,18 @@ class TournamentShow extends Component {
 		this.props.closeTournament(tourneyId);
 	};
 
+	onSetScoreOne(score) {
+		this.setState({
+			scoreOne: score
+		});
+	};
+
+	onSetScoreTwo(score) {
+		this.setState({
+			scoreTwo: score
+		});
+	};
+
 	onSetWinner(user) {
 		// set user matchWins+1
 		user.matchWins = 1;
@@ -312,8 +331,23 @@ class TournamentShow extends Component {
 
 		// push players into winners
 		this.setState({
-			winners: [...this.state.winners, user]
+			winners: [...this.state.winners, user],
 		});
+
+		// Select current round and push [scores] into round.scores[]
+		const { _id } = this.props.tournament.showTournament;
+		const { rounds } = this.props.tournament.showTournament.bracket;
+		const n = rounds && rounds.length;
+		const currentRound = rounds[n-1];
+
+		const scores = [this.state.scoreOne, this.state.scoreTwo];
+		this.props.addScore(_id, currentRound.round, scores);
+
+		// Reset score state inbetween SetWinners
+		this.setState({
+			scoreOne: 0,
+			scoreTwo: 0
+		})
 	};
 
 	onSetNextRoundStandard() { // 8/16/32 player bracket
@@ -741,6 +775,8 @@ class TournamentShow extends Component {
 								<HostUI
 									bracket={this.props.tournament.showTournament.bracket}
 									onSetWinner={this.onSetWinner}
+									onSetScoreOne={this.onSetScoreOne}
+									onSetScoreTwo={this.onSetScoreTwo}
 									winners={this.state.winners}
 									onSetNextRound={this.onSetNextRound15}
 									onSetPlayersIntoPairs={this.onSetPlayersIntoPairs}
@@ -757,6 +793,8 @@ class TournamentShow extends Component {
 								<HostUI
 									bracket={this.props.tournament.showTournament.bracket}
 									onSetWinner={this.onSetWinner}
+									onSetScoreOne={this.onSetScoreOne}
+									onSetScoreTwo={this.onSetScoreTwo}
 									winners={this.state.winners}
 									onSetNextRound={this.onSetNextRound14}
 									onSetPlayersIntoPairs={this.onSetPlayersIntoPairs}
@@ -773,6 +811,8 @@ class TournamentShow extends Component {
 								<HostUI
 									bracket={this.props.tournament.showTournament.bracket}
 									onSetWinner={this.onSetWinner}
+									onSetScoreOne={this.onSetScoreOne}
+									onSetScoreTwo={this.onSetScoreTwo}
 									winners={this.state.winners}
 									onSetNextRound={this.onSetNextRound13}
 									onSetPlayersIntoPairs={this.onSetPlayersIntoPairs}
@@ -790,6 +830,8 @@ class TournamentShow extends Component {
 								<HostUI
 									bracket={this.props.tournament.showTournament.bracket}
 									onSetWinner={this.onSetWinner}
+									onSetScoreOne={this.onSetScoreOne}
+									onSetScoreTwo={this.onSetScoreTwo}
 									winners={this.state.winners}
 									onSetNextRound={this.onSetNextRound12and20}
 									onSetPlayersIntoPairs={this.onSetPlayersIntoPairs}
@@ -807,6 +849,8 @@ class TournamentShow extends Component {
 								<HostUI
 									bracket={this.props.tournament.showTournament.bracket}
 									onSetWinner={this.onSetWinner}
+									onSetScoreOne={this.onSetScoreOne}
+									onSetScoreTwo={this.onSetScoreTwo}
 									winners={this.state.winners}
 									onSetNextRound={this.onSetNextRound11and19}
 									onSetPlayersIntoPairs={this.onSetPlayersIntoPairs}
@@ -824,6 +868,8 @@ class TournamentShow extends Component {
 								<HostUI
 									bracket={this.props.tournament.showTournament.bracket}
 									onSetWinner={this.onSetWinner}
+									onSetScoreOne={this.onSetScoreOne}
+									onSetScoreTwo={this.onSetScoreTwo}
 									winners={this.state.winners}
 									onSetNextRound={this.onSetNextRound10and18}
 									onSetPlayersIntoPairs={this.onSetPlayersIntoPairs}
@@ -841,6 +887,8 @@ class TournamentShow extends Component {
 								<HostUI
 									bracket={this.props.tournament.showTournament.bracket}
 									onSetWinner={this.onSetWinner}
+									onSetScoreOne={this.onSetScoreOne}
+									onSetScoreTwo={this.onSetScoreTwo}
 									winners={this.state.winners}
 									onSetNextRound={this.onSetNextRound9and17}
 									onSetPlayersIntoPairs={this.onSetPlayersIntoPairs}
@@ -857,6 +905,8 @@ class TournamentShow extends Component {
 								<HostUI
 									bracket={this.props.tournament.showTournament.bracket}
 									onSetWinner={this.onSetWinner}
+									onSetScoreOne={this.onSetScoreOne}
+									onSetScoreTwo={this.onSetScoreTwo}
 									winners={this.state.winners}
 									onSetNextRound={this.onSetNextRoundStandard}
 									onSetPlayersIntoPairs={this.onSetPlayersIntoPairs}
@@ -963,6 +1013,7 @@ export default connect(mapStateToProps,
 		addParticipant,
 		closeTournament,
 		shuffleParticipants,
+		addScore,
 		addRound,
 		updateMatchWins,
 		setChampion,
