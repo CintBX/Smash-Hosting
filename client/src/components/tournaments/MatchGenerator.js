@@ -21,6 +21,8 @@ class MatchGenerator extends Component {
       matches,
       finals,
       onSetWinner,
+      onSetScoreOne,
+      onSetScoreTwo,
       winners,
       onSetNextRound,
       onSetPlayersIntoPairs
@@ -34,6 +36,8 @@ class MatchGenerator extends Component {
           round={round}
           finals={finals}
           onSetWinner={onSetWinner}
+          onSetScoreOne={onSetScoreOne}
+          onSetScoreTwo={onSetScoreTwo}
           pairs={pairs}
           winners={winners}
         />
