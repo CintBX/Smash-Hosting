@@ -370,7 +370,7 @@ class TournamentShow extends Component {
 			round["finals"] = this.state.winners.length !== 2 ? false : true;
 			this.props.addRound(showTournament._id, round);
 		};
-		// Clear state winners
+		// Clear state
 		this.setState({
 			winners: [],
 			scores: [],
@@ -385,6 +385,12 @@ class TournamentShow extends Component {
 		const n = rounds && rounds.length;
 		const currentRound = rounds[n-1];
 		const { showTournament } = this.props.tournament;
+
+		// Create new scores object and push to tournament.bracket.scores
+		const scores = {};
+		scores["round"] = currentRound.round;
+		scores["scores"] = this.state.scores;
+		this.props.addScore(showTournament._id, scores);
 
 		if(currentRound.finals) {
 			// Select final user from winners[], set as Champion and Complete tournament
@@ -413,9 +419,12 @@ class TournamentShow extends Component {
 			round["finals"] = this.state.winners.length !== 2 ? false : true;
 			this.props.addRound(showTournament._id, round);
 		};
-		// Clear state winners
+		// Clear state
 		this.setState({
-			winners: []
+			winners: [],
+			scores: [],
+			scoreOne: 0,
+			scoreTwo: 0
 		});
 	};
 
@@ -425,6 +434,12 @@ class TournamentShow extends Component {
 		const n = rounds && rounds.length;
 		const currentRound = rounds[n-1];
 		const { showTournament } = this.props.tournament;
+
+		// Create new scores object and push to tournament.bracket.scores
+		const scores = {};
+		scores["round"] = currentRound.round;
+		scores["scores"] = this.state.scores;
+		this.props.addScore(showTournament._id, scores);
 
 		if(currentRound.finals) {
 			// Select final user from winners[], set as Champion and Complete tournament
@@ -465,9 +480,12 @@ class TournamentShow extends Component {
 			}
 			this.props.addRound(showTournament._id, round);
 		};
-		// Clear state winners
+		// Clear state
 		this.setState({
-			winners: []
+			winners: [],
+			scores: [],
+			scoreOne: 0,
+			scoreTwo: 0
 		});
 	};
 
@@ -477,6 +495,12 @@ class TournamentShow extends Component {
 		const n = rounds && rounds.length;
 		const currentRound = rounds[n-1];
 		const { showTournament } = this.props.tournament;
+
+		// Create new scores object and push to tournament.bracket.scores
+		const scores = {};
+		scores["round"] = currentRound.round;
+		scores["scores"] = this.state.scores;
+		this.props.addScore(showTournament._id, scores);
 
 		if(currentRound.finals) {
 			// Select final user from winners[], set as Champion and Complete tournament
@@ -522,9 +546,12 @@ class TournamentShow extends Component {
 
 			this.props.addRound(showTournament._id, round);
 		};
-		// Clear state winners
+		// Clear state
 		this.setState({
-			winners: []
+			winners: [],
+			scores: [],
+			scoreOne: 0,
+			scoreTwo: 0
 		});
 	};
 
@@ -534,6 +561,12 @@ class TournamentShow extends Component {
 		const n = rounds && rounds.length;
 		const currentRound = rounds[n-1];
 		const { showTournament } = this.props.tournament;
+
+		// Create new scores object and push to tournament.bracket.scores
+		const scores = {};
+		scores["round"] = currentRound.round;
+		scores["scores"] = this.state.scores;
+		this.props.addScore(showTournament._id, scores);
 
 		if(currentRound.finals) {
 			// Select final user from winners[], set as Champion and Complete tournament
@@ -585,9 +618,12 @@ class TournamentShow extends Component {
 
 			this.props.addRound(showTournament._id, round);
 		};
-		// Clear state winners
+		// Clear state
 		this.setState({
-			winners: []
+			winners: [],
+			scores: [],
+			scoreOne: 0,
+			scoreTwo: 0
 		});
 	};
 
@@ -597,6 +633,12 @@ class TournamentShow extends Component {
 		const n = rounds && rounds.length;
 		const currentRound = rounds[n-1];
 		const { showTournament } = this.props.tournament;
+
+		// Create new scores object and push to tournament.bracket.scores
+		const scores = {};
+		scores["round"] = currentRound.round;
+		scores["scores"] = this.state.scores;
+		this.props.addScore(showTournament._id, scores);
 
 		if(currentRound.finals) {
 			// Select final user from winners[], set as Champion and Complete tournament
@@ -637,9 +679,12 @@ class TournamentShow extends Component {
 			round["finals"] = currentRound.round === 3 ? true : false;
 			this.props.addRound(showTournament._id, round);
 		};
-		// Clear state winners
+		// Clear state
 		this.setState({
-			winners: []
+			winners: [],
+			scores: [],
+			scoreOne: 0,
+			scoreTwo: 0
 		});
 	};
 
@@ -649,6 +694,12 @@ class TournamentShow extends Component {
 		const n = rounds && rounds.length;
 		const currentRound = rounds[n-1];
 		const { showTournament } = this.props.tournament;
+
+		// Create new scores object and push to tournament.bracket.scores
+		const scores = {};
+		scores["round"] = currentRound.round;
+		scores["scores"] = this.state.scores;
+		this.props.addScore(showTournament._id, scores);
 
 		if(currentRound.finals) {
 			// Select final user from winners[], set as Champion and Complete tournament
@@ -692,9 +743,12 @@ class TournamentShow extends Component {
 			round["finals"] = currentRound.round === 3 ? true : false;
 			this.props.addRound(showTournament._id, round);
 		};
-		// Clear state winners
+		// Clear state
 		this.setState({
-			winners: []
+			winners: [],
+			scores: [],
+			scoreOne: 0,
+			scoreTwo: 0
 		});
 	};
 
@@ -704,6 +758,12 @@ class TournamentShow extends Component {
 		const n = rounds && rounds.length;
 		const currentRound = rounds[n-1];
 		const { showTournament } = this.props.tournament;
+
+		// Create new scores object and push to tournament.bracket.scores
+		const scores = {};
+		scores["round"] = currentRound.round;
+		scores["scores"] = this.state.scores;
+		this.props.addScore(showTournament._id, scores);
 
 		if(currentRound.finals) {
 			// Select final user from winners[], set as Champion and Complete tournament
@@ -750,9 +810,12 @@ class TournamentShow extends Component {
 			round["finals"] = currentRound.round === 3 ? true : false;
 			this.props.addRound(showTournament._id, round);
 		};
-		// Clear state winners
+		// Clear state
 		this.setState({
-			winners: []
+			winners: [],
+			scores: [],
+			scoreOne: 0,
+			scoreTwo: 0
 		});
 	};
 
