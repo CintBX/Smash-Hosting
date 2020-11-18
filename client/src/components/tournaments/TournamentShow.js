@@ -28,8 +28,9 @@ class TournamentShow extends Component {
 		this.state = {
 			round: 1,
 			winners: [],
+			scores: [],
 			scoreOne: 0,
-			scoreTwo: 0,
+			scoreTwo: 0
 		};
 
 		// Start Tournament functions for various bracket sizes
@@ -109,7 +110,6 @@ class TournamentShow extends Component {
 		const round = {};
 		round["round"] = this.state.round;
 		round["matches"] = reorderedParticipants;
-		round["scores"] = [];
 		round["finals"] = false;
 		this.props.addRound(tourneyId, round);
 		// Status === Closed
@@ -325,29 +325,22 @@ class TournamentShow extends Component {
 	};
 
 	onSetWinner(user) {
-		// set user matchWins+1
-		user.matchWins = 1;
-		this.props.updateMatchWins(user);
+		const { scoreOne, scoreTwo } = this.state;
 
 		// push players into winners
 		this.setState({
 			winners: [...this.state.winners, user],
+			scores: [...this.state.scores, scoreOne, scoreTwo]
 		});
 
-		// Select current round and push [scores] into round.scores[]
-		const { _id } = this.props.tournament.showTournament;
-		const { rounds } = this.props.tournament.showTournament.bracket;
-		const n = rounds && rounds.length;
-		const currentRound = rounds[n-1];
+		// set user matchWins+1					// <~<~<~< REFACTOR THIS: This is meant to be refreshable
+		user.matchWins = 1;
+		this.props.updateMatchWins(user);
 
-		const scores = [this.state.scoreOne, this.state.scoreTwo];
-		this.props.addScore(_id, currentRound.round, scores);
-
-		// Reset score state inbetween SetWinners
 		this.setState({
 			scoreOne: 0,
 			scoreTwo: 0
-		})
+		});
 	};
 
 	onSetNextRoundStandard() { // 8/16/32 player bracket
@@ -356,6 +349,12 @@ class TournamentShow extends Component {
 		const n = rounds && rounds.length;
 		const currentRound = rounds[n-1];
 		const { showTournament } = this.props.tournament;
+
+		// Create new scores object and push to tournament.bracket.scores
+		const scores = {};
+		scores["round"] = currentRound.round;
+		scores["scores"] = this.state.scores;
+		this.props.addScore(showTournament._id, scores);
 
 		if(currentRound.finals) {
 			// Select final user from winners[], set as Champion and Complete tournament
@@ -373,7 +372,10 @@ class TournamentShow extends Component {
 		};
 		// Clear state winners
 		this.setState({
-			winners: []
+			winners: [],
+			scores: [],
+			scoreOne: 0,
+			scoreTwo: 0
 		});
 	};
 

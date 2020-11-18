@@ -95,6 +95,8 @@ export const SignUpPage = ({ tournament, auth, onSignUp, onStartTournament }) =>
 export const HostUI = ({
 		bracket,
 		onSetWinner,
+		onSetScoreOne,
+		onSetScoreTwo,
 		winners,
 		onSetNextRound,
 		onSetPlayersIntoPairs
@@ -110,6 +112,8 @@ export const HostUI = ({
 				matches={round.matches}
 				finals={round.finals}
 				onSetWinner={onSetWinner}
+				onSetScoreOne={onSetScoreOne}
+				onSetScoreTwo={onSetScoreTwo}
 				winners={winners}
 				onSetNextRound={onSetNextRound}
 				onSetPlayersIntoPairs={onSetPlayersIntoPairs}
