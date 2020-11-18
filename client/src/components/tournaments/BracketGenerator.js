@@ -65,7 +65,9 @@ class BracketGenerator extends Component {
           name: "19",
           sides: {
             home: {
-              score: { score: 0 },
+              score: {
+                score: round5Scores ? round5Scores[0] : 0
+              },
               seed: {
                 sourceGame: {
                   id: 2,
@@ -73,7 +75,9 @@ class BracketGenerator extends Component {
                   name: "17",
                   sides: {
                     home: {
-                      score: { score: 0 },
+                      score: {
+                        score: round4Scores ? round4Scores[0] : 0
+                      },
                       seed: {
                         sourceGame: {
                           id: 3,
@@ -81,7 +85,9 @@ class BracketGenerator extends Component {
                           name: "13",
                           sides: {
                             home: {
-                              score: { score: 0 },
+                              score: {
+                                score: round3Scores ? round3Scores[0] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -89,7 +95,9 @@ class BracketGenerator extends Component {
                                   name: "5",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[0] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -97,7 +105,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[1] : 0
+                                      },
                                       seed: {
                                         sourceGame: {
                                           id: 5,
@@ -105,7 +115,9 @@ class BracketGenerator extends Component {
                                           name: "1",
                                           sides: {
                                             home: {
-                                              score: { score: 0 },
+                                              score: {
+                                                score: round1Scores ? round1Scores[0] : 0
+                                              },
                                               seed: {
                                                 sourceGame: null,
                                                 rank: 2,
@@ -113,7 +125,9 @@ class BracketGenerator extends Component {
                                               }
                                             },
                                             visitor: {
-                                              score: { score: 0 },
+                                              score: {
+                                                score: round1Scores ? round1Scores[1] : 0
+                                              },
                                               seed: {
                                                 sourceGame: null,
                                                 rank: 2,
@@ -133,7 +147,9 @@ class BracketGenerator extends Component {
                               }
                             },
                             visitor: {
-                              score: { score: 0 },
+                              score: {
+                                score: round3Scores ? round3Scores[1] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -141,7 +157,9 @@ class BracketGenerator extends Component {
                                   name: "6",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[2] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -149,7 +167,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[3] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -169,7 +189,9 @@ class BracketGenerator extends Component {
                       }
                     },
                     visitor: {
-                      score: { score: 0 },
+                      score: {
+                        score: round4Scores ? round4Scores[1] : 0
+                      },
                       seed: {
                         sourceGame: {
                           id: 3,
@@ -177,7 +199,9 @@ class BracketGenerator extends Component {
                           name: "14",
                           sides: {
                             home: {
-                              score: { score: 0 },
+                              score: {
+                                score: round3Scores ? round3Scores[2] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -185,7 +209,9 @@ class BracketGenerator extends Component {
                                   name: "7",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[4] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 7,
@@ -193,7 +219,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[5] : 0
+                                      },
                                       seed: {
                                         sourceGame: {
                                           id: 5,
@@ -201,7 +229,9 @@ class BracketGenerator extends Component {
                                           name: "2",
                                           sides: {
                                             home: {
-                                              score: { score: 0 },
+                                              score: {
+                                                score: round1Scores ? round1Scores[2] : 0
+                                              },
                                               seed: {
                                                 sourceGame: null,
                                                 rank: 2,
@@ -209,7 +239,9 @@ class BracketGenerator extends Component {
                                               }
                                             },
                                             visitor: {
-                                              score: { score: 0 },
+                                              score: {
+                                                score: round1Scores ? round1Scores[3] : 0
+                                              },
                                               seed: {
                                                 sourceGame: null,
                                                 rank: 2,
@@ -229,7 +261,9 @@ class BracketGenerator extends Component {
                               }
                             },
                             visitor: {
-                              score: { score: 0 },
+                              score: {
+                                score: round3Scores ? round3Scores[3] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -237,7 +271,9 @@ class BracketGenerator extends Component {
                                   name: "8",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[6] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 7,
@@ -245,7 +281,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[7] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 8,
@@ -271,7 +309,9 @@ class BracketGenerator extends Component {
               }
             },
             visitor: {
-              score: { score: 0 },
+              score: {
+                score: round5Scores ? round5Scores[1] : 0
+              },
               seed: {
                 sourceGame: {
                   id: 2,
@@ -279,7 +319,9 @@ class BracketGenerator extends Component {
                   name: "18",
                   sides: {
                     home: {
-                      score: { score: 0 },
+                      score: {
+                        score: round4Scores ? round4Scores[2] : 0
+                      },
                       seed: {
                         sourceGame: {
                           id: 3,
@@ -287,7 +329,9 @@ class BracketGenerator extends Component {
                           name: "15",
                           sides: {
                             home: {
-                              score: { score: 0 },
+                              score: {
+                                score: round3Scores ? round3Scores[4] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -295,7 +339,9 @@ class BracketGenerator extends Component {
                                   name: "9",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[8] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -303,7 +349,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[9] : 0
+                                      },
                                       seed: {
                                         sourceGame: {
                                           id: 5,
@@ -311,7 +359,9 @@ class BracketGenerator extends Component {
                                           name: "3",
                                           sides: {
                                             home: {
-                                              score: { score: 0 },
+                                              score: {
+                                                score: round1Scores ? round1Scores[4] : 0
+                                              },
                                               seed: {
                                                 sourceGame: null,
                                                 rank: 1,
@@ -319,7 +369,9 @@ class BracketGenerator extends Component {
                                               }
                                             },
                                             visitor: {
-                                              score: { score: 0 },
+                                              score: {
+                                                score: round1Scores ? round1Scores[5] : 0
+                                              },
                                               seed: {
                                                 sourceGame: null,
                                                 rank: 1,
@@ -339,7 +391,9 @@ class BracketGenerator extends Component {
                               }
                             },
                             visitor: {
-                              score: { score: 0 },
+                              score: {
+                                score: round3Scores ? round3Scores[5] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -347,7 +401,9 @@ class BracketGenerator extends Component {
                                   name: "10",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[10] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -355,7 +411,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[11] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -375,7 +433,9 @@ class BracketGenerator extends Component {
                       }
                     },
                     visitor: {
-                      score: { score: 0 },
+                      score: {
+                        score: round4Scores ? round4Scores[3] : 0
+                      },
                       seed: {
                         sourceGame: {
                           id: 3,
@@ -383,7 +443,9 @@ class BracketGenerator extends Component {
                           name: "16",
                           sides: {
                             home: {
-                              score: { score: 0 },
+                              score: {
+                                score: round3Scores ? round3Scores[6] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -391,7 +453,9 @@ class BracketGenerator extends Component {
                                   name: "11",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[12] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 7,
@@ -399,7 +463,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[13] : 0
+                                      },
                                       seed: {
                                         sourceGame: {
                                           id: 5,
@@ -407,7 +473,9 @@ class BracketGenerator extends Component {
                                           name: "4",
                                           sides: {
                                             home: {
-                                              score: { score: 0 },
+                                              score: {
+                                                score: round1Scores ? round1Scores[6] : 0
+                                              },
                                               seed: {
                                                 sourceGame: null,
                                                 rank: 2,
@@ -415,7 +483,9 @@ class BracketGenerator extends Component {
                                               }
                                             },
                                             visitor: {
-                                              score: { score: 0 },
+                                              score: {
+                                                score: round1Scores ? round1Scores[7] : 0
+                                              },
                                               seed: {
                                                 sourceGame: null,
                                                 rank: 2,
@@ -435,7 +505,9 @@ class BracketGenerator extends Component {
                               }
                             },
                             visitor: {
-                              score: { score: 0 },
+                              score: {
+                                score: round3Scores ? round3Scores[7] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -443,7 +515,9 @@ class BracketGenerator extends Component {
                                   name: "12",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[14] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 7,
@@ -451,7 +525,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[15] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 8,
@@ -489,7 +565,9 @@ class BracketGenerator extends Component {
           name: "18",
           sides: {
             home: {
-              score: { score: 0 },
+              score: {
+                score: round5Scores ? round5Scores[0] : 0
+              },
               seed: {
                 sourceGame: {
                   id: 2,
@@ -497,7 +575,9 @@ class BracketGenerator extends Component {
                   name: "16",
                   sides: {
                     home: {
-                      score: { score: 0 },
+                      score: {
+                        score: round4Scores ? round4Scores[0] : 0
+                      },
                       seed: {
                         sourceGame: {
                           id: 3,
@@ -505,7 +585,9 @@ class BracketGenerator extends Component {
                           name: "12",
                           sides: {
                             home: {
-                              score: { score: 0 },
+                              score: {
+                                score: round3Scores ? round3Scores[0] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -513,7 +595,9 @@ class BracketGenerator extends Component {
                                   name: "4",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[0] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -521,7 +605,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[1] : 0
+                                      },
                                       seed: {
                                         sourceGame: {
                                           id: 5,
@@ -529,7 +615,9 @@ class BracketGenerator extends Component {
                                           name: "1",
                                           sides: {
                                             home: {
-                                              score: { score: 0 },
+                                              score: {
+                                                score: round1Scores ? round1Scores[0] : 0
+                                              },
                                               seed: {
                                                 sourceGame: null,
                                                 rank: 2,
@@ -537,7 +625,9 @@ class BracketGenerator extends Component {
                                               }
                                             },
                                             visitor: {
-                                              score: { score: 0 },
+                                              score: {
+                                                score: round1Scores ? round1Scores[1] : 0
+                                              },
                                               seed: {
                                                 sourceGame: null,
                                                 rank: 2,
@@ -557,7 +647,9 @@ class BracketGenerator extends Component {
                               }
                             },
                             visitor: {
-                              score: { score: 0 },
+                              score: {
+                                score: round3Scores ? round3Scores[1] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -565,7 +657,9 @@ class BracketGenerator extends Component {
                                   name: "5",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[2] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -573,7 +667,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[3] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -593,7 +689,9 @@ class BracketGenerator extends Component {
                       }
                     },
                     visitor: {
-                      score: { score: 0 },
+                      score: {
+                        score: round4Scores ? round4Scores[1] : 0
+                      },
                       seed: {
                         sourceGame: {
                           id: 3,
@@ -601,7 +699,9 @@ class BracketGenerator extends Component {
                           name: "13",
                           sides: {
                             home: {
-                              score: { score: 0 },
+                              score: {
+                                score: round3Scores ? round3Scores[2] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -609,7 +709,9 @@ class BracketGenerator extends Component {
                                   name: "6",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[4] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 7,
@@ -617,7 +719,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[5] : 0
+                                      },
                                       seed: {
                                         sourceGame: {
                                           id: 5,
@@ -625,7 +729,9 @@ class BracketGenerator extends Component {
                                           name: "2",
                                           sides: {
                                             home: {
-                                              score: { score: 0 },
+                                              score: {
+                                                score: round1Scores ? round1Scores[2] : 0
+                                              },
                                               seed: {
                                                 sourceGame: null,
                                                 rank: 2,
@@ -633,7 +739,9 @@ class BracketGenerator extends Component {
                                               }
                                             },
                                             visitor: {
-                                              score: { score: 0 },
+                                              score: {
+                                                score: round1Scores ? round1Scores[3] : 0
+                                              },
                                               seed: {
                                                 sourceGame: null,
                                                 rank: 2,
@@ -653,7 +761,9 @@ class BracketGenerator extends Component {
                               }
                             },
                             visitor: {
-                              score: { score: 0 },
+                              score: {
+                                score: round3Scores ? round3Scores[3] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -661,7 +771,9 @@ class BracketGenerator extends Component {
                                   name: "7",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[6] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 7,
@@ -669,7 +781,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[7] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 8,
@@ -695,7 +809,9 @@ class BracketGenerator extends Component {
               }
             },
             visitor: {
-              score: { score: 0 },
+              score: {
+                score: round5Scores ? round5Scores[1] : 0
+              },
               seed: {
                 sourceGame: {
                   id: 2,
@@ -703,7 +819,9 @@ class BracketGenerator extends Component {
                   name: "17",
                   sides: {
                     home: {
-                      score: { score: 0 },
+                      score: {
+                        score: round4Scores ? round4Scores[2] : 0
+                      },
                       seed: {
                         sourceGame: {
                           id: 3,
@@ -711,7 +829,9 @@ class BracketGenerator extends Component {
                           name: "14",
                           sides: {
                             home: {
-                              score: { score: 0 },
+                              score: {
+                                score: round3Scores ? round3Scores[4] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -719,7 +839,9 @@ class BracketGenerator extends Component {
                                   name: "8",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[8] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -727,7 +849,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[9] : 0
+                                      },
                                       seed: {
                                         sourceGame: {
                                           id: 5,
@@ -735,7 +859,9 @@ class BracketGenerator extends Component {
                                           name: "3",
                                           sides: {
                                             home: {
-                                              score: { score: 0 },
+                                              score: {
+                                                score: round1Scores ? round1Scores[4] : 0
+                                              },
                                               seed: {
                                                 sourceGame: null,
                                                 rank: 1,
@@ -743,7 +869,9 @@ class BracketGenerator extends Component {
                                               }
                                             },
                                             visitor: {
-                                              score: { score: 0 },
+                                              score: {
+                                                score: round1Scores ? round1Scores[5] : 0
+                                              },
                                               seed: {
                                                 sourceGame: null,
                                                 rank: 1,
@@ -763,7 +891,9 @@ class BracketGenerator extends Component {
                               }
                             },
                             visitor: {
-                              score: { score: 0 },
+                              score: {
+                                score: round3Scores ? round3Scores[5] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -771,7 +901,9 @@ class BracketGenerator extends Component {
                                   name: "9",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[10] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -779,7 +911,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[11] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -799,7 +933,9 @@ class BracketGenerator extends Component {
                       }
                     },
                     visitor: {
-                      score: { score: 0 },
+                      score: {
+                        score: round4Scores ? round4Scores[3] : 0
+                      },
                       seed: {
                         sourceGame: {
                           id: 3,
@@ -807,7 +943,9 @@ class BracketGenerator extends Component {
                           name: "15",
                           sides: {
                             home: {
-                              score: { score: 0 },
+                              score: {
+                                score: round3Scores ? round3Scores[6] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -815,7 +953,9 @@ class BracketGenerator extends Component {
                                   name: "10",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[12] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 7,
@@ -823,7 +963,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[13] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 8,
@@ -837,7 +979,9 @@ class BracketGenerator extends Component {
                               }
                             },
                             visitor: {
-                              score: { score: 0 },
+                              score: {
+                                score: round3Scores ? round3Scores[7] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -845,7 +989,9 @@ class BracketGenerator extends Component {
                                   name: "11",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[14] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 7,
@@ -853,7 +999,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[15] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 8,
@@ -891,7 +1039,9 @@ class BracketGenerator extends Component {
           name: "17",
           sides: {
             home: {
-              score: { score: 0 },
+              score: {
+                score: round5Scores ? round5Scores[0] : 0
+              },
               seed: {
                 sourceGame: {
                   id: 2,
@@ -899,7 +1049,9 @@ class BracketGenerator extends Component {
                   name: "15",
                   sides: {
                     home: {
-                      score: { score: 0 },
+                      score: {
+                        score: round4Scores ? round4Scores[0] : 0
+                      },
                       seed: {
                         sourceGame: {
                           id: 3,
@@ -907,7 +1059,9 @@ class BracketGenerator extends Component {
                           name: "11",
                           sides: {
                             home: {
-                              score: { score: 0 },
+                              score: {
+                                score: round3Scores ? round3Scores[0] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -915,7 +1069,9 @@ class BracketGenerator extends Component {
                                   name: "3",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[0] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -923,7 +1079,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[1] : 0
+                                      },
                                       seed: {
                                         sourceGame: {
                                           id: 5,
@@ -931,7 +1089,9 @@ class BracketGenerator extends Component {
                                           name: "1",
                                           sides: {
                                             home: {
-                                              score: { score: 0 },
+                                              score: {
+                                                score: round1Scores ? round1Scores[0] : 0
+                                              },
                                               seed: {
                                                 sourceGame: null,
                                                 rank: 2,
@@ -939,7 +1099,9 @@ class BracketGenerator extends Component {
                                               }
                                             },
                                             visitor: {
-                                              score: { score: 0 },
+                                              score: {
+                                                score: round1Scores ? round1Scores[1] : 0
+                                              },
                                               seed: {
                                                 sourceGame: null,
                                                 rank: 2,
@@ -959,7 +1121,9 @@ class BracketGenerator extends Component {
                               }
                             },
                             visitor: {
-                              score: { score: 0 },
+                              score: {
+                                score: round3Scores ? round3Scores[1] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -967,7 +1131,9 @@ class BracketGenerator extends Component {
                                   name: "4",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[2] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -975,7 +1141,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[3] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -995,7 +1163,9 @@ class BracketGenerator extends Component {
                       }
                     },
                     visitor: {
-                      score: { score: 0 },
+                      score: {
+                        score: round4Scores ? round4Scores[1] : 0
+                      },
                       seed: {
                         sourceGame: {
                           id: 3,
@@ -1003,7 +1173,9 @@ class BracketGenerator extends Component {
                           name: "12",
                           sides: {
                             home: {
-                              score: { score: 0 },
+                              score: {
+                                score: round3Scores ? round3Scores[2] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -1011,7 +1183,9 @@ class BracketGenerator extends Component {
                                   name: "5",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[4] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 7,
@@ -1019,7 +1193,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[5] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 8,
@@ -1033,7 +1209,9 @@ class BracketGenerator extends Component {
                               }
                             },
                             visitor: {
-                              score: { score: 0 },
+                              score: {
+                                score: round3Scores ? round3Scores[3] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -1041,7 +1219,9 @@ class BracketGenerator extends Component {
                                   name: "6",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[6] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 7,
@@ -1049,7 +1229,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                       score: round2Scores ? round2Scores[7] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 8,
@@ -1075,7 +1257,9 @@ class BracketGenerator extends Component {
               }
             },
             visitor: {
-              score: { score: 0 },
+              score: {
+                score: round5Scores ? round5Scores[1] : 0
+              },
               seed: {
                 sourceGame: {
                   id: 2,
@@ -1083,7 +1267,9 @@ class BracketGenerator extends Component {
                   name: "16",
                   sides: {
                     home: {
-                      score: { score: 0 },
+                      score: {
+                        score: round4Scores ? round4Scores[2] : 0
+                      },
                       seed: {
                         sourceGame: {
                           id: 3,
@@ -1091,7 +1277,9 @@ class BracketGenerator extends Component {
                           name: "13",
                           sides: {
                             home: {
-                              score: { score: 0 },
+                              score: {
+                                score: round3Scores ? round3Scores[4] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -1099,7 +1287,9 @@ class BracketGenerator extends Component {
                                   name: "7",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[8] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -1107,7 +1297,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[9] : 0
+                                      },
                                       seed: {
                                         sourceGame: {
                                           id: 5,
@@ -1115,7 +1307,9 @@ class BracketGenerator extends Component {
                                           name: "2",
                                           sides: {
                                             home: {
-                                              score: { score: 0 },
+                                              score: {
+                                                score: round1Scores ? round1Scores[2] : 0
+                                              },
                                               seed: {
                                                 sourceGame: null,
                                                 rank: 1,
@@ -1123,7 +1317,9 @@ class BracketGenerator extends Component {
                                               }
                                             },
                                             visitor: {
-                                              score: { score: 0 },
+                                              score: {
+                                                score: round1Scores ? round1Scores[3] : 0
+                                              },
                                               seed: {
                                                 sourceGame: null,
                                                 rank: 1,
@@ -1143,7 +1339,9 @@ class BracketGenerator extends Component {
                               }
                             },
                             visitor: {
-                              score: { score: 0 },
+                              score: {
+                                score: round3Scores ? round3Scores[5] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -1151,7 +1349,9 @@ class BracketGenerator extends Component {
                                   name: "8",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[10] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -1159,7 +1359,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[11] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -1179,7 +1381,9 @@ class BracketGenerator extends Component {
                       }
                     },
                     visitor: {
-                      score: { score: 0 },
+                      score: {
+                        score: round4Scores ? round4Scores[3] : 0
+                      },
                       seed: {
                         sourceGame: {
                           id: 3,
@@ -1187,7 +1391,9 @@ class BracketGenerator extends Component {
                           name: "14",
                           sides: {
                             home: {
-                              score: { score: 0 },
+                              score: {
+                                score: round3Scores ? round3Scores[6] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -1195,7 +1401,9 @@ class BracketGenerator extends Component {
                                   name: "9",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[12] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 7,
@@ -1203,7 +1411,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[13] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 8,
@@ -1217,7 +1427,9 @@ class BracketGenerator extends Component {
                               }
                             },
                             visitor: {
-                              score: { score: 0 },
+                              score: {
+                                score: round3Scores ? round3Scores[7] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -1225,7 +1437,9 @@ class BracketGenerator extends Component {
                                   name: "10",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[14] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 7,
@@ -1233,7 +1447,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[15] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 8,
@@ -1271,7 +1487,9 @@ class BracketGenerator extends Component {
           name: "16",
           sides: {
             home: {
-              score: { score: 0 },
+              score: {
+                score: round5Scores ? round5Scores[0] : 0
+              },
               seed: {
                 sourceGame: {
                   id: 2,
@@ -1279,7 +1497,9 @@ class BracketGenerator extends Component {
                   name: "14",
                   sides: {
                     home: {
-                      score: { score: 0 },
+                      score: {
+                        score: round4Scores ? round4Scores[0] : 0
+                      },
                       seed: {
                         sourceGame: {
                           id: 3,
@@ -1287,7 +1507,9 @@ class BracketGenerator extends Component {
                           name: "10",
                           sides: {
                             home: {
-                              score: { score: 0 },
+                              score: {
+                                score: round3Scores ? round3Scores[0] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -1295,7 +1517,9 @@ class BracketGenerator extends Component {
                                   name: "2",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[0] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -1303,7 +1527,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[1] : 0
+                                      },
                                       seed: {
                                         sourceGame: {
                                           id: 5,
@@ -1311,7 +1537,9 @@ class BracketGenerator extends Component {
                                           name: "1",
                                           sides: {
                                             home: {
-                                              score: { score: 0 },
+                                              score: {
+                                                score: round1Scores ? round1Scores[0] : 0
+                                              },
                                               seed: {
                                                 sourceGame: null,
                                                 rank: 2,
@@ -1319,7 +1547,9 @@ class BracketGenerator extends Component {
                                               }
                                             },
                                             visitor: {
-                                              score: { score: 0 },
+                                              score: {
+                                                score: round1Scores ? round1Scores[1] : 0
+                                              },
                                               seed: {
                                                 sourceGame: null,
                                                 rank: 2,
@@ -1339,7 +1569,9 @@ class BracketGenerator extends Component {
                               }
                             },
                             visitor: {
-                              score: { score: 0 },
+                              score: {
+                                score: round3Scores ? round3Scores[1] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -1347,7 +1579,9 @@ class BracketGenerator extends Component {
                                   name: "3",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[2] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -1355,7 +1589,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[3] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -1375,7 +1611,9 @@ class BracketGenerator extends Component {
                       }
                     },
                     visitor: {
-                      score: { score: 0 },
+                      score: {
+                        score: round4Scores ? round4Scores[1] : 0
+                      },
                       seed: {
                         sourceGame: {
                           id: 3,
@@ -1383,7 +1621,9 @@ class BracketGenerator extends Component {
                           name: "11",
                           sides: {
                             home: {
-                              score: { score: 0 },
+                              score: {
+                                score: round3Scores ? round3Scores[2] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -1391,7 +1631,9 @@ class BracketGenerator extends Component {
                                   name: "4",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[4] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 7,
@@ -1399,7 +1641,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[5] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 8,
@@ -1413,7 +1657,9 @@ class BracketGenerator extends Component {
                               }
                             },
                             visitor: {
-                              score: { score: 0 },
+                              score: {
+                                score: round3Scores ? round3Scores[3] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -1421,7 +1667,9 @@ class BracketGenerator extends Component {
                                   name: "5",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[6] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 7,
@@ -1429,7 +1677,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[7] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 8,
@@ -1455,7 +1705,9 @@ class BracketGenerator extends Component {
               }
             },
             visitor: {
-              score: { score: 0 },
+              score: {
+                score: round5Scores ? round5Scores[1] : 0
+              },
               seed: {
                 sourceGame: {
                   id: 2,
@@ -1463,7 +1715,9 @@ class BracketGenerator extends Component {
                   name: "15",
                   sides: {
                     home: {
-                      score: { score: 0 },
+                      score: {
+                        score: round4Scores ? round4Scores[2] : 0
+                      },
                       seed: {
                         sourceGame: {
                           id: 3,
@@ -1471,7 +1725,9 @@ class BracketGenerator extends Component {
                           name: "12",
                           sides: {
                             home: {
-                              score: { score: 0 },
+                              score: {
+                                score: round3Scores ? round3Scores[4] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -1479,7 +1735,9 @@ class BracketGenerator extends Component {
                                   name: "6",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[8] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -1487,7 +1745,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[9] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -1501,7 +1761,9 @@ class BracketGenerator extends Component {
                               }
                             },
                             visitor: {
-                              score: { score: 0 },
+                              score: {
+                                score: round3Scores ? round3Scores[5] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -1509,7 +1771,9 @@ class BracketGenerator extends Component {
                                   name: "7",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[10] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -1517,7 +1781,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[11] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -1537,7 +1803,9 @@ class BracketGenerator extends Component {
                       }
                     },
                     visitor: {
-                      score: { score: 0 },
+                      score: {
+                        score: round4Scores ? round4Scores[3] : 0
+                      },
                       seed: {
                         sourceGame: {
                           id: 3,
@@ -1545,7 +1813,9 @@ class BracketGenerator extends Component {
                           name: "13",
                           sides: {
                             home: {
-                              score: { score: 0 },
+                              score: {
+                                score: round3Scores ? round3Scores[6] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -1553,7 +1823,9 @@ class BracketGenerator extends Component {
                                   name: "8",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[12] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 7,
@@ -1561,7 +1833,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[13] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 8,
@@ -1575,7 +1849,9 @@ class BracketGenerator extends Component {
                               }
                             },
                             visitor: {
-                              score: { score: 0 },
+                              score: {
+                                score: round3Scores ? round3Scores[7] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -1583,7 +1859,9 @@ class BracketGenerator extends Component {
                                   name: "9",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[14] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 7,
@@ -1591,7 +1869,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round2Scores ? round2Scores[15] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 8,
@@ -1629,7 +1909,9 @@ class BracketGenerator extends Component {
           name: "15",
           sides: {
             home: {
-              score: { score: 0 },
+              score: {
+                score: round4Scores ? round4Scores[0] : 0
+              },
               seed: {
                 sourceGame: {
                   id: 2,
@@ -1637,7 +1919,9 @@ class BracketGenerator extends Component {
                   name: "13",
                   sides: {
                     home: {
-                      score: { score: 0 },
+                      score: {
+                        score: round3Scores ? round3Scores[0] : 0
+                      },
                       seed: {
                         sourceGame: {
                           id: 3,
@@ -1645,7 +1929,9 @@ class BracketGenerator extends Component {
                           name: "9",
                           sides: {
                             home: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[0] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -1653,7 +1939,9 @@ class BracketGenerator extends Component {
                                   name: "1",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[0] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -1661,7 +1949,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[1] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -1675,7 +1965,9 @@ class BracketGenerator extends Component {
                               }
                             },
                             visitor: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[1] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -1683,7 +1975,9 @@ class BracketGenerator extends Component {
                                   name: "2",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[2] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -1691,7 +1985,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[3] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -1711,7 +2007,9 @@ class BracketGenerator extends Component {
                       }
                     },
                     visitor: {
-                      score: { score: 0 },
+                      score: {
+                        score: round3Scores ? round3Scores[1] : 0
+                      },
                       seed: {
                         sourceGame: {
                           id: 3,
@@ -1719,7 +2017,9 @@ class BracketGenerator extends Component {
                           name: "10",
                           sides: {
                             home: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[2] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -1727,7 +2027,9 @@ class BracketGenerator extends Component {
                                   name: "3",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[4] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 7,
@@ -1735,7 +2037,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[5] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 8,
@@ -1749,7 +2053,9 @@ class BracketGenerator extends Component {
                               }
                             },
                             visitor: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[3] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -1757,7 +2063,9 @@ class BracketGenerator extends Component {
                                   name: "4",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[6] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 7,
@@ -1765,7 +2073,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[7] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 8,
@@ -1791,7 +2101,9 @@ class BracketGenerator extends Component {
               }
             },
             visitor: {
-              score: { score: 0 },
+              score: {
+                score: round4Scores ? round4Scores[1] : 0
+              },
               seed: {
                 sourceGame: {
                   id: 2,
@@ -1799,7 +2111,9 @@ class BracketGenerator extends Component {
                   name: "14",
                   sides: {
                     home: {
-                      score: { score: 0 },
+                      score: {
+                        score: round3Scores ? round3Scores[2] : 0
+                      },
                       seed: {
                         sourceGame: {
                           id: 3,
@@ -1807,7 +2121,9 @@ class BracketGenerator extends Component {
                           name: "11",
                           sides: {
                             home: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[4] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -1815,7 +2131,9 @@ class BracketGenerator extends Component {
                                   name: "5",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[8] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -1823,7 +2141,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[9] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -1837,7 +2157,9 @@ class BracketGenerator extends Component {
                               }
                             },
                             visitor: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[5] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -1845,7 +2167,9 @@ class BracketGenerator extends Component {
                                   name: "6",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[10] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -1853,7 +2177,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[11] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -1873,7 +2199,9 @@ class BracketGenerator extends Component {
                       }
                     },
                     visitor: {
-                      score: { score: 0 },
+                      score: {
+                        score: round3Scores ? round3Scores[3] : 0
+                      },
                       seed: {
                         sourceGame: {
                           id: 3,
@@ -1881,7 +2209,9 @@ class BracketGenerator extends Component {
                           name: "12",
                           sides: {
                             home: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[6] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -1889,7 +2219,9 @@ class BracketGenerator extends Component {
                                   name: "7",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[12] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 7,
@@ -1897,7 +2229,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[13] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 8,
@@ -1911,7 +2245,9 @@ class BracketGenerator extends Component {
                               }
                             },
                             visitor: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[7] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -1919,7 +2255,9 @@ class BracketGenerator extends Component {
                                   name: "8",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[14] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 7,
@@ -1927,7 +2265,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[15] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 8,
@@ -1965,7 +2305,9 @@ class BracketGenerator extends Component {
           name: "14",
           sides: {
             home: {
-              score: { score: 0 },
+              score: {
+                score: round4Scores ? round4Scores[0] : 0
+              },
               seed: {
                 sourceGame: {
                   id: 2,
@@ -1973,7 +2315,9 @@ class BracketGenerator extends Component {
                   name: "12",
                   sides: {
                     home: {
-                      score: { score: 0 },
+                      score: {
+                        score: round3Scores ? round3Scores[0] : 0
+                      },
                       seed: {
                         sourceGame: {
                           id: 3,
@@ -1981,7 +2325,9 @@ class BracketGenerator extends Component {
                           name: "8",
                           sides: {
                             home: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[0] : 0
+                              },
                               seed: {
                                 sourceGame: null,
                                 rank: 1,
@@ -1989,7 +2335,9 @@ class BracketGenerator extends Component {
                               }
                             },
                             visitor: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[1] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -1997,7 +2345,9 @@ class BracketGenerator extends Component {
                                   name: "1",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[0] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -2005,7 +2355,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[1] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -2025,7 +2377,9 @@ class BracketGenerator extends Component {
                       }
                     },
                     visitor: {
-                      score: { score: 0 },
+                      score: {
+                        score: round3Scores ? round3Scores[1] : 0
+                      },
                       seed: {
                         sourceGame: {
                           id: 3,
@@ -2033,7 +2387,9 @@ class BracketGenerator extends Component {
                           name: "9",
                           sides: {
                             home: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[2] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -2041,7 +2397,9 @@ class BracketGenerator extends Component {
                                   name: "2",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[2] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 7,
@@ -2049,7 +2407,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[3] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 8,
@@ -2063,7 +2423,9 @@ class BracketGenerator extends Component {
                               }
                             },
                             visitor: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[3] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -2071,7 +2433,9 @@ class BracketGenerator extends Component {
                                   name: "3",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[4] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 7,
@@ -2079,7 +2443,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score:  round1Scores ? round1Scores[5] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 8,
@@ -2105,7 +2471,9 @@ class BracketGenerator extends Component {
               }
             },
             visitor: {
-              score: { score: 0 },
+              score: {
+                score: round4Scores ? round4Scores[1] : 0
+              },
               seed: {
                 sourceGame: {
                   id: 2,
@@ -2113,7 +2481,9 @@ class BracketGenerator extends Component {
                   name: "13",
                   sides: {
                     home: {
-                      score: { score: 0 },
+                      score: {
+                        score: round3Scores ? round3Scores[2] : 0
+                      },
                       seed: {
                         sourceGame: {
                           id: 3,
@@ -2121,7 +2491,9 @@ class BracketGenerator extends Component {
                           name: "10",
                           sides: {
                             home: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[4] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -2129,7 +2501,9 @@ class BracketGenerator extends Component {
                                   name: "4",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[6] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -2137,7 +2511,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[7] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -2151,7 +2527,9 @@ class BracketGenerator extends Component {
                               }
                             },
                             visitor: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[5] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -2159,7 +2537,9 @@ class BracketGenerator extends Component {
                                   name: "5",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[8] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -2167,7 +2547,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[9] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -2187,7 +2569,9 @@ class BracketGenerator extends Component {
                       }
                     },
                     visitor: {
-                      score: { score: 0 },
+                      score: {
+                        score: round3Scores ? round3Scores[3] : 0
+                      },
                       seed: {
                         sourceGame: {
                           id: 3,
@@ -2195,7 +2579,9 @@ class BracketGenerator extends Component {
                           name: "11",
                           sides: {
                             home: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[6] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -2203,7 +2589,9 @@ class BracketGenerator extends Component {
                                   name: "6",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[10] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 7,
@@ -2211,7 +2599,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[11] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 8,
@@ -2225,7 +2615,9 @@ class BracketGenerator extends Component {
                               }
                             },
                             visitor: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[7] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -2233,7 +2625,9 @@ class BracketGenerator extends Component {
                                   name: "7",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[12] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 7,
@@ -2241,7 +2635,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[13] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 8,
@@ -2279,7 +2675,9 @@ class BracketGenerator extends Component {
           name: "13",
           sides: {
             home: {
-              score: { score: 0 },
+              score: {
+                score: round4Scores ? round4Scores[0] : 0
+              },
               seed: {
                 sourceGame: {
                   id: 2,
@@ -2287,7 +2685,9 @@ class BracketGenerator extends Component {
                   name: "11",
                   sides: {
                     home: {
-                      score: { score: 0 },
+                      score: {
+                        score: round3Scores ? round3Scores[0] : 0
+                      },
                       seed: {
                         sourceGame: {
                           id: 3,
@@ -2295,7 +2695,9 @@ class BracketGenerator extends Component {
                           name: "7",
                           sides: {
                             home: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[0] : 0
+                              },
                               seed: {
                                 sourceGame: null,
                                 rank: 1,
@@ -2303,7 +2705,9 @@ class BracketGenerator extends Component {
                               }
                             },
                             visitor: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[1] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -2311,7 +2715,9 @@ class BracketGenerator extends Component {
                                   name: "1",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[0] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -2319,7 +2725,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[1] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -2339,7 +2747,9 @@ class BracketGenerator extends Component {
                       }
                     },
                     visitor: {
-                      score: { score: 0 },
+                      score: {
+                        score: round3Scores ? round3Scores[1] : 0
+                      },
                       seed: {
                         sourceGame: {
                           id: 3,
@@ -2347,7 +2757,9 @@ class BracketGenerator extends Component {
                           name: "8",
                           sides: {
                             home: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[2] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -2355,7 +2767,9 @@ class BracketGenerator extends Component {
                                   name: "2",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[2] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 7,
@@ -2363,7 +2777,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[3] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 8,
@@ -2377,7 +2793,9 @@ class BracketGenerator extends Component {
                               }
                             },
                             visitor: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[3] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -2385,7 +2803,9 @@ class BracketGenerator extends Component {
                                   name: "3",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[4] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 7,
@@ -2393,7 +2813,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[5] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 8,
@@ -2419,7 +2841,9 @@ class BracketGenerator extends Component {
               }
             },
             visitor: {
-              score: { score: 0 },
+              score: {
+                score: round4Scores ? round4Scores[1] : 0
+              },
               seed: {
                 sourceGame: {
                   id: 2,
@@ -2427,7 +2851,9 @@ class BracketGenerator extends Component {
                   name: "12",
                   sides: {
                     home: {
-                      score: { score: 0 },
+                      score: {
+                        score: round3Scores ? round3Scores[2] : 0
+                      },
                       seed: {
                         sourceGame: {
                           id: 3,
@@ -2435,7 +2861,9 @@ class BracketGenerator extends Component {
                           name: "9",
                           sides: {
                             home: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[4] : 0
+                              },
                               seed: {
                                 sourceGame: null,
                                 rank: 7,
@@ -2443,7 +2871,9 @@ class BracketGenerator extends Component {
                               }
                             },
                             visitor: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[5] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -2451,7 +2881,9 @@ class BracketGenerator extends Component {
                                   name: "4",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[6] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -2459,7 +2891,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[7] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -2479,7 +2913,9 @@ class BracketGenerator extends Component {
                       }
                     },
                     visitor: {
-                      score: { score: 0 },
+                      score: {
+                        score: round3Scores ? round3Scores[3] : 0
+                      },
                       seed: {
                         sourceGame: {
                           id: 3,
@@ -2487,7 +2923,9 @@ class BracketGenerator extends Component {
                           name: "10",
                           sides: {
                             home: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[6] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -2495,7 +2933,9 @@ class BracketGenerator extends Component {
                                   name: "5",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[8] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 7,
@@ -2503,7 +2943,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[9] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 8,
@@ -2517,7 +2959,9 @@ class BracketGenerator extends Component {
                               }
                             },
                             visitor: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[7] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -2525,7 +2969,9 @@ class BracketGenerator extends Component {
                                   name: "6",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[10] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 7,
@@ -2533,7 +2979,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[11] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 8,
@@ -2571,7 +3019,9 @@ class BracketGenerator extends Component {
           name: "12",
           sides: {
             home: {
-              score: { score: 0 },
+              score: {
+                score: round4Scores ? round4Scores[0] : 0
+              },
               seed: {
                 sourceGame: {
                   id: 2,
@@ -2579,7 +3029,9 @@ class BracketGenerator extends Component {
                   name: "10",
                   sides: {
                     home: {
-                      score: { score: 0 },
+                      score: {
+                        score: round3Scores ? round3Scores[0] : 0
+                      },
                       seed: {
                         sourceGame: {
                           id: 3,
@@ -2587,7 +3039,9 @@ class BracketGenerator extends Component {
                           name: "6",
                           sides: {
                             home: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[0] : 0
+                              },
                               seed: {
                                 sourceGame: null,
                                 rank: 1,
@@ -2595,7 +3049,9 @@ class BracketGenerator extends Component {
                               }
                             },
                             visitor: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[1] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -2603,7 +3059,9 @@ class BracketGenerator extends Component {
                                   name: "1",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[0] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -2611,7 +3069,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[1] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -2631,7 +3091,9 @@ class BracketGenerator extends Component {
                       }
                     },
                     visitor: {
-                      score: { score: 0 },
+                      score: {
+                        score: round3Scores ? round3Scores[1] : 0
+                      },
                       seed: {
                         sourceGame: {
                           id: 3,
@@ -2639,7 +3101,9 @@ class BracketGenerator extends Component {
                           name: "7",
                           sides: {
                             home: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[2] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -2647,7 +3111,9 @@ class BracketGenerator extends Component {
                                   name: "2",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[2] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 7,
@@ -2655,7 +3121,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[3] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 8,
@@ -2669,7 +3137,9 @@ class BracketGenerator extends Component {
                               }
                             },
                             visitor: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[3] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -2677,7 +3147,9 @@ class BracketGenerator extends Component {
                                   name: "3",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[4] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 7,
@@ -2685,7 +3157,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[5] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 8,
@@ -2711,7 +3185,9 @@ class BracketGenerator extends Component {
               }
             },
             visitor: {
-              score: { score: 0 },
+              score: {
+                score: round4Scores ? round4Scores[1] : 0
+              },
               seed: {
                 sourceGame: {
                   id: 2,
@@ -2719,7 +3195,9 @@ class BracketGenerator extends Component {
                   name: "11",
                   sides: {
                     home: {
-                      score: { score: 0 },
+                      score: {
+                        score: round3Scores ? round3Scores[2] : 0
+                      },
                       seed: {
                         sourceGame: {
                           id: 3,
@@ -2727,7 +3205,9 @@ class BracketGenerator extends Component {
                           name: "8",
                           sides: {
                             home: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[4] : 0
+                              },
                               seed: {
                                 sourceGame: null,
                                 rank: 7,
@@ -2735,7 +3215,9 @@ class BracketGenerator extends Component {
                               }
                             },
                             visitor: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[5] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -2743,7 +3225,9 @@ class BracketGenerator extends Component {
                                   name: "4",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[6] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -2751,7 +3235,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[7] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -2771,7 +3257,9 @@ class BracketGenerator extends Component {
                       }
                     },
                     visitor: {
-                      score: { score: 0 },
+                      score: {
+                        score: round3Scores ? round3Scores[3] : 0
+                      },
                       seed: {
                         sourceGame: {
                           id: 3,
@@ -2779,7 +3267,9 @@ class BracketGenerator extends Component {
                           name: "9",
                           sides: {
                             home: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[6] : 0
+                              },
                               seed: {
                                 sourceGame: null,
                                 rank: 7,
@@ -2787,7 +3277,9 @@ class BracketGenerator extends Component {
                               }
                             },
                             visitor: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[7] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -2795,7 +3287,9 @@ class BracketGenerator extends Component {
                                   name: "5",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[8] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 7,
@@ -2803,7 +3297,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[9] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 8,
@@ -2841,7 +3337,9 @@ class BracketGenerator extends Component {
           name: "11",
           sides: {
             home: {
-              score: { score: 0 },
+              score: {
+                score: round4Scores ? round4Scores[0] : 0
+              },
               seed: {
                 sourceGame: {
                   id: 2,
@@ -2849,7 +3347,9 @@ class BracketGenerator extends Component {
                   name: "9",
                   sides: {
                     home: {
-                      score: { score: 0 },
+                      score: {
+                        score: round3Scores ? round3Scores[0] : 0
+                      },
                       seed: {
                         sourceGame: {
                           id: 3,
@@ -2857,7 +3357,9 @@ class BracketGenerator extends Component {
                           name: "5",
                           sides: {
                             home: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[0] : 0
+                              },
                               seed: {
                                 sourceGame: null,
                                 rank: 1,
@@ -2865,7 +3367,9 @@ class BracketGenerator extends Component {
                               }
                             },
                             visitor: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[1] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -2873,7 +3377,9 @@ class BracketGenerator extends Component {
                                   name: "1",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[0] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -2881,7 +3387,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[1] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -2901,7 +3409,9 @@ class BracketGenerator extends Component {
                       }
                     },
                     visitor: {
-                      score: { score: 0 },
+                      score: {
+                        score: round3Scores ? round3Scores[1] : 0
+                      },
                       seed: {
                         sourceGame: {
                           id: 3,
@@ -2909,7 +3419,9 @@ class BracketGenerator extends Component {
                           name: "6",
                           sides: {
                             home: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[2] : 0
+                              },
                               seed: {
                                 sourceGame: null,
                                 rank: 7,
@@ -2917,7 +3429,9 @@ class BracketGenerator extends Component {
                               }
                             },
                             visitor: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[3] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -2925,7 +3439,9 @@ class BracketGenerator extends Component {
                                   name: "2",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[2] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 7,
@@ -2933,7 +3449,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[3] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 8,
@@ -2959,7 +3477,9 @@ class BracketGenerator extends Component {
               }
             },
             visitor: {
-              score: { score: 0 },
+              score: {
+                score: round4Scores ? round4Scores[1] : 0
+              },
               seed: {
                 sourceGame: {
                   id: 2,
@@ -2967,7 +3487,9 @@ class BracketGenerator extends Component {
                   name: "10",
                   sides: {
                     home: {
-                      score: { score: 0 },
+                      score: {
+                        score: round3Scores ? round3Scores[2] : 0
+                      },
                       seed: {
                         sourceGame: {
                           id: 3,
@@ -2975,7 +3497,9 @@ class BracketGenerator extends Component {
                           name: "7",
                           sides: {
                             home: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[4] : 0
+                              },
                               seed: {
                                 sourceGame: null,
                                 rank: 7,
@@ -2983,7 +3507,9 @@ class BracketGenerator extends Component {
                               }
                             },
                             visitor: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[5] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -2991,7 +3517,9 @@ class BracketGenerator extends Component {
                                   name: "3",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[4] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -2999,7 +3527,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[5] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -3019,7 +3549,9 @@ class BracketGenerator extends Component {
                       }
                     },
                     visitor: {
-                      score: { score: 0 },
+                      score: {
+                        score: round3Scores ? round3Scores[3] : 0
+                      },
                       seed: {
                         sourceGame: {
                           id: 3,
@@ -3027,7 +3559,9 @@ class BracketGenerator extends Component {
                           name: "8",
                           sides: {
                             home: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[6] : 0
+                              },
                               seed: {
                                 sourceGame: null,
                                 rank: 7,
@@ -3035,7 +3569,9 @@ class BracketGenerator extends Component {
                               }
                             },
                             visitor: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[7] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -3043,7 +3579,9 @@ class BracketGenerator extends Component {
                                   name: "4",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[6] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 7,
@@ -3051,7 +3589,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[7] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 8,
@@ -3089,7 +3629,9 @@ class BracketGenerator extends Component {
           name: "10",
           sides: {
             home: {
-              score: { score: 0 },
+              score: {
+                score: round4Scores ? round4Scores[0] : 0
+              },
               seed: {
                 sourceGame: {
                   id: 2,
@@ -3097,7 +3639,9 @@ class BracketGenerator extends Component {
                   name: "8",
                   sides: {
                     home: {
-                      score: { score: 0 },
+                      score: {
+                        score: round3Scores ? round3Scores[0] : 0
+                      },
                       seed: {
                         sourceGame: {
                           id: 3,
@@ -3105,7 +3649,9 @@ class BracketGenerator extends Component {
                           name: "4",
                           sides: {
                             home: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[0] : 0
+                              },
                               seed: {
                                 sourceGame: null,
                                 rank: 1,
@@ -3113,7 +3659,9 @@ class BracketGenerator extends Component {
                               }
                             },
                             visitor: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[1] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -3121,7 +3669,9 @@ class BracketGenerator extends Component {
                                   name: "1",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[0] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -3129,7 +3679,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[1] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -3149,7 +3701,9 @@ class BracketGenerator extends Component {
                       }
                     },
                     visitor: {
-                      score: { score: 0 },
+                      score: {
+                        score: round3Scores ? round3Scores[1] : 0
+                      },
                       seed: {
                         sourceGame: {
                           id: 3,
@@ -3157,7 +3711,9 @@ class BracketGenerator extends Component {
                           name: "5",
                           sides: {
                             home: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[2] : 0
+                              },
                               seed: {
                                 sourceGame: null,
                                 rank: 7,
@@ -3165,7 +3721,9 @@ class BracketGenerator extends Component {
                               }
                             },
                             visitor: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[3] : 0
+                              },
                               seed: {
                                 sourceGame: null,
                                 rank: 8,
@@ -3185,7 +3743,9 @@ class BracketGenerator extends Component {
               }
             },
             visitor: {
-              score: { score: 0 },
+              score: {
+                score: round4Scores ? round4Scores[1] : 0
+              },
               seed: {
                 sourceGame: {
                   id: 2,
@@ -3193,7 +3753,9 @@ class BracketGenerator extends Component {
                   name: "9",
                   sides: {
                     home: {
-                      score: { score: 0 },
+                      score: {
+                        score: round3Scores ? round3Scores[2] : 0
+                      },
                       seed: {
                         sourceGame: {
                           id: 3,
@@ -3201,7 +3763,9 @@ class BracketGenerator extends Component {
                           name: "6",
                           sides: {
                             home: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[4] : 0
+                              },
                               seed: {
                                 sourceGame: null,
                                 rank: 7,
@@ -3209,7 +3773,9 @@ class BracketGenerator extends Component {
                               }
                             },
                             visitor: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[5] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -3217,7 +3783,9 @@ class BracketGenerator extends Component {
                                   name: "2",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[2] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -3225,7 +3793,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[3] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -3245,7 +3815,9 @@ class BracketGenerator extends Component {
                       }
                     },
                     visitor: {
-                      score: { score: 0 },
+                      score: {
+                        score: round3Scores ? round3Scores[3] : 0
+                      },
                       seed: {
                         sourceGame: {
                           id: 3,
@@ -3253,7 +3825,9 @@ class BracketGenerator extends Component {
                           name: "7",
                           sides: {
                             home: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[6] : 0
+                              },
                               seed: {
                                 sourceGame: null,
                                 rank: 7,
@@ -3261,7 +3835,9 @@ class BracketGenerator extends Component {
                               }
                             },
                             visitor: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[7] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -3269,7 +3845,9 @@ class BracketGenerator extends Component {
                                   name: "3",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[4] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 7,
@@ -3277,7 +3855,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[5] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 8,
@@ -3315,7 +3895,9 @@ class BracketGenerator extends Component {
           name: "9",
           sides: {
             home: {
-              score: { score: 0 },
+              score: {
+                score: round4Scores ? round4Scores[0] : 0
+              },
               seed: {
                 sourceGame: {
                   id: 2,
@@ -3323,7 +3905,9 @@ class BracketGenerator extends Component {
                   name: "7",
                   sides: {
                     home: {
-                      score: { score: 0 },
+                      score: {
+                        score: round3Scores ? round3Scores[0] : 0
+                      },
                       seed: {
                         sourceGame: {
                           id: 3,
@@ -3331,7 +3915,9 @@ class BracketGenerator extends Component {
                           name: "3",
                           sides: {
                             home: {
-                              score: { score: 0 },
+                              score: {
+                                score:  round2Scores ? round2Scores[0] : 0
+                              },
                               seed: {
                                 sourceGame: null,
                                 rank: 1,
@@ -3339,7 +3925,9 @@ class BracketGenerator extends Component {
                               }
                             },
                             visitor: {
-                              score: { score: 0 },
+                              score: {
+                                score:  round2Scores ? round2Scores[1] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -3347,7 +3935,9 @@ class BracketGenerator extends Component {
                                   name: "1",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[0] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -3355,7 +3945,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[1] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -3375,7 +3967,9 @@ class BracketGenerator extends Component {
                       }
                     },
                     visitor: {
-                      score: { score: 0 },
+                      score: {
+                        score: round3Scores ? round3Scores[1] : 0
+                      },
                       seed: {
                         sourceGame: {
                           id: 3,
@@ -3383,7 +3977,9 @@ class BracketGenerator extends Component {
                           name: "4",
                           sides: {
                             home: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[2] : 0
+                              },
                               seed: {
                                 sourceGame: null,
                                 rank: 7,
@@ -3391,7 +3987,9 @@ class BracketGenerator extends Component {
                               }
                             },
                             visitor: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[3] : 0
+                              },
                               seed: {
                                 sourceGame: null,
                                 rank: 8,
@@ -3411,7 +4009,9 @@ class BracketGenerator extends Component {
               }
             },
             visitor: {
-              score: { score: 0 },
+              score: {
+                score: round4Scores ? round4Scores[1] : 0
+              },
               seed: {
                 sourceGame: {
                   id: 2,
@@ -3419,7 +4019,9 @@ class BracketGenerator extends Component {
                   name: "8",
                   sides: {
                     home: {
-                      score: { score: 0 },
+                      score: {
+                        score: round3Scores ? round3Scores[2] : 0
+                      },
                       seed: {
                         sourceGame: {
                           id: 3,
@@ -3427,7 +4029,9 @@ class BracketGenerator extends Component {
                           name: "5",
                           sides: {
                             home: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[4] : 0
+                              },
                               seed: {
                                 sourceGame: null,
                                 rank: 7,
@@ -3435,7 +4039,9 @@ class BracketGenerator extends Component {
                               }
                             },
                             visitor: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[5] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -3443,7 +4049,9 @@ class BracketGenerator extends Component {
                                   name: "2",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[2] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -3451,7 +4059,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[3] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -3471,7 +4081,9 @@ class BracketGenerator extends Component {
                       }
                     },
                     visitor: {
-                      score: { score: 0 },
+                      score: {
+                        score: round3Scores ? round3Scores[3] : 0
+                      },
                       seed: {
                         sourceGame: {
                           id: 3,
@@ -3479,7 +4091,9 @@ class BracketGenerator extends Component {
                           name: "6",
                           sides: {
                             home: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[6] : 0
+                              },
                               seed: {
                                 sourceGame: null,
                                 rank: 7,
@@ -3487,7 +4101,9 @@ class BracketGenerator extends Component {
                               }
                             },
                             visitor: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[7] : 0
+                              },
                               seed: {
                                 sourceGame: null,
                                 rank: 8,
@@ -3519,7 +4135,9 @@ class BracketGenerator extends Component {
           name: "8",
           sides: {
             home: {
-              score: { score: 0 },
+              score: {
+                score: round4Scores ? round4Scores[0] : 0
+              },
               seed: {
                 sourceGame: {
                   id: 2,
@@ -3527,7 +4145,9 @@ class BracketGenerator extends Component {
                   name: "6",
                   sides: {
                     home: {
-                      score: { score: 0 },
+                      score: {
+                        score: round3Scores ? round3Scores[0] : 0
+                      },
                       seed: {
                         sourceGame: {
                           id: 3,
@@ -3535,7 +4155,9 @@ class BracketGenerator extends Component {
                           name: "2",
                           sides: {
                             home: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[0] : 0
+                              },
                               seed: {
                                 sourceGame: null,
                                 rank: 7,
@@ -3543,7 +4165,9 @@ class BracketGenerator extends Component {
                               }
                             },
                             visitor: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[1] : 0
+                              },
                               seed: {
                                 sourceGame: {
                                   id: 4,
@@ -3551,7 +4175,9 @@ class BracketGenerator extends Component {
                                   name: "1",
                                   sides: {
                                     home: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[0] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -3559,7 +4185,9 @@ class BracketGenerator extends Component {
                                       }
                                     },
                                     visitor: {
-                                      score: { score: 0 },
+                                      score: {
+                                        score: round1Scores ? round1Scores[1] : 0
+                                      },
                                       seed: {
                                         sourceGame: null,
                                         rank: 1,
@@ -3579,7 +4207,9 @@ class BracketGenerator extends Component {
                       }
                     },
                     visitor: {
-                      score: { score: 0 },
+                      score: {
+                        score: round3Scores ? round3Scores[1] : 0
+                      },
                       seed: {
                         sourceGame: {
                           id: 3,
@@ -3587,7 +4217,9 @@ class BracketGenerator extends Component {
                           name: "3",
                           sides: {
                             home: {
-                              score: { score: 0 },
+                              score: { 
+                                score: round2Scores ? round2Scores[2] : 0
+                              },
                               seed: {
                                 sourceGame: null,
                                 rank: 3,
@@ -3595,7 +4227,9 @@ class BracketGenerator extends Component {
                               }
                             },
                             visitor: {
-                              score: { score: 0 },
+                              score: { 
+                                score: round2Scores ? round2Scores[3] : 0
+                              },
                               seed: {
                                 sourceGame: null,
                                 rank: 4,
@@ -3615,7 +4249,9 @@ class BracketGenerator extends Component {
               }
             },
             visitor: {
-              score: { score: 0 },
+              score: {
+                score: round4Scores ? round4Scores[1] : 0
+              },
               seed: {
                 sourceGame: {
                   id: 2,
@@ -3623,7 +4259,9 @@ class BracketGenerator extends Component {
                   name: "7",
                   sides: {
                     home: {
-                      score: { score: 0 },
+                      score: {
+                        score: round3Scores ? round3Scores[2] : 0
+                      },
                       seed: {
                         sourceGame: {
                           id: 3,
@@ -3631,7 +4269,9 @@ class BracketGenerator extends Component {
                           name: "4",
                           sides: {
                             home: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[4] : 0
+                              },
                               seed: {
                                 sourceGame: null,
                                 rank: 7,
@@ -3639,7 +4279,9 @@ class BracketGenerator extends Component {
                               }
                             },
                             visitor: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[5] : 0
+                              },
                               seed: {
                                 sourceGame: null,
                                 rank: 7,
@@ -3653,7 +4295,9 @@ class BracketGenerator extends Component {
                       }
                     },
                     visitor: {
-                      score: { score: 0 },
+                      score: {
+                        score: round3Scores ? round3Scores[3] : 0
+                      },
                       seed: {
                         sourceGame: {
                           id: 3,
@@ -3661,7 +4305,9 @@ class BracketGenerator extends Component {
                           name: "5",
                           sides: {
                             home: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[6] : 0
+                              },
                               seed: {
                                 sourceGame: null,
                                 rank: 7,
@@ -3669,7 +4315,9 @@ class BracketGenerator extends Component {
                               }
                             },
                             visitor: {
-                              score: { score: 0 },
+                              score: {
+                                score: round2Scores ? round2Scores[7] : 0
+                              },
                               seed: {
                                 sourceGame: null,
                                 rank: 8,
