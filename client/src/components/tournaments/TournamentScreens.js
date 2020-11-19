@@ -135,16 +135,22 @@ export const HostUI = ({
 export const StartBracket = ({ tournament }) => {
 	const { title, hostedBy, participants, bracket } = tournament;
   return (
-    <div className="text-center" style={{color:"lightgrey", backgroundColor: "#333333"}}>
+		<div 
+			className="text-center"
+			style={{color:"lightgrey"}}
+		>
       <h1>{ title }</h1>
       <h4>By { hostedBy }</h4>
       <h4>{participants && participants.length}-player bracket</h4>
-			<BracketGenerator
-				bracketSize={participants && participants.length}
-				players={bracket.players}
-				rounds={bracket.rounds}
-				scores={bracket.scores}
-			/>
+			
+			<div>
+				<BracketGenerator
+					bracketSize={participants && participants.length}
+					players={bracket.players}
+					rounds={bracket.rounds}
+					scores={bracket.scores}
+				/>
+			</div>
       <br /><Link to="/">Back to Tournaments main page</Link>
     </div>
   );
@@ -308,18 +314,24 @@ export const Results = ({ tournament }) => {
 				</Link>
 			</p>
 
-			<div className="text-center" style={{color:"lightgrey", backgroundColor: "#333333"}}>
+			<div
+				className="text-center"
+				style={{color:"lightgrey"}}
+			>
 				<h1>{ title }</h1>
 				<h4>By { hostedBy }</h4>
 				<h4>{participants && participants.length}-player bracket</h4>
-				<BracketGenerator
-					bracketSize={participants && participants.length}
-					rounds={bracket.rounds}
-					players={bracket.players}
-					scores={bracket.scores}
-				/>
+
+				<div>
+					<BracketGenerator
+						bracketSize={participants && participants.length}
+						rounds={bracket.rounds}
+						players={bracket.players}
+						scores={bracket.scores}
+					/>
+				</div>
+				<br /><Link to="/">Back to Tournaments main page</Link>
 			</div>
-			<br /><Link to="/">Back to Tournaments main page</Link>
     </div>
   );
 };
