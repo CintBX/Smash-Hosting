@@ -32,7 +32,7 @@ class TournamentIndex extends Component {
 		const { tournaments } = this.props.tournament;
 		const { isAuthenticated, user } = this.props.auth;
 
-		return tournaments.map(({ _id, title, description, type, hostedBy, schedule, status }) => {
+		return tournaments.map(({ _id, title, description, type, hostedBy, schedule, status, bracket }) => {
 			return (
 				<Jumbotron key={_id} className={type.toLowerCase().replace(/\s+/g, '')}>
 					<h1 className="mb-4 text-center">
@@ -86,7 +86,7 @@ class TournamentIndex extends Component {
 					</Link>
 					
 					{ status === "Closed" ? <InProgress /> : null }
-					{ status === "Complete" ? <ResultsPopover /> : null }
+					{ status === "Complete" ? <ResultsPopover bracket={bracket} /> : null }
 				</Jumbotron>
 			);
 		});
