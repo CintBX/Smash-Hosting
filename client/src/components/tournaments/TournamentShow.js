@@ -333,10 +333,6 @@ class TournamentShow extends Component {
 			scores: [...this.state.scores, scoreOne, scoreTwo]
 		});
 
-		// set user matchWins+1					// <~<~<~< REFACTOR THIS: This is meant to be refreshable
-		user.matchWins = 1;
-		this.props.updateMatchWins(user);
-
 		this.setState({
 			scoreOne: 0,
 			scoreTwo: 0
@@ -349,6 +345,13 @@ class TournamentShow extends Component {
 		const n = rounds && rounds.length;
 		const currentRound = rounds[n-1];
 		const { showTournament } = this.props.tournament;
+
+		// Update matchWins for each player inside this.state.winners
+		showTournament.bracket.players.map(player => {
+			if(this.state.winners.some(winner => winner._id === player._id)) {
+				this.props.updateMatchWins(player);
+			};
+		});
 
 		// Create new scores object and push to tournament.bracket.scores
 		const scores = {};
@@ -385,6 +388,13 @@ class TournamentShow extends Component {
 		const n = rounds && rounds.length;
 		const currentRound = rounds[n-1];
 		const { showTournament } = this.props.tournament;
+
+		// Update matchWins for each player inside this.state.winners
+		showTournament.bracket.players.map(player => {
+			if(this.state.winners.some(winner => winner._id === player._id)) {
+				this.props.updateMatchWins(player);
+			};
+		});
 
 		// Create new scores object and push to tournament.bracket.scores
 		const scores = {};
@@ -434,6 +444,13 @@ class TournamentShow extends Component {
 		const n = rounds && rounds.length;
 		const currentRound = rounds[n-1];
 		const { showTournament } = this.props.tournament;
+
+		// Update matchWins for each player inside this.state.winners
+		showTournament.bracket.players.map(player => {
+			if(this.state.winners.some(winner => winner._id === player._id)) {
+				this.props.updateMatchWins(player);
+			};
+		});
 
 		// Create new scores object and push to tournament.bracket.scores
 		const scores = {};
@@ -495,6 +512,13 @@ class TournamentShow extends Component {
 		const n = rounds && rounds.length;
 		const currentRound = rounds[n-1];
 		const { showTournament } = this.props.tournament;
+
+		// Update matchWins for each player inside this.state.winners
+		showTournament.bracket.players.map(player => {
+			if(this.state.winners.some(winner => winner._id === player._id)) {
+				this.props.updateMatchWins(player);
+			};
+		});
 
 		// Create new scores object and push to tournament.bracket.scores
 		const scores = {};
@@ -561,6 +585,13 @@ class TournamentShow extends Component {
 		const n = rounds && rounds.length;
 		const currentRound = rounds[n-1];
 		const { showTournament } = this.props.tournament;
+
+		// Update matchWins for each player inside this.state.winners
+		showTournament.bracket.players.map(player => {
+			if(this.state.winners.some(winner => winner._id === player._id)) {
+				this.props.updateMatchWins(player);
+			};
+		});
 
 		// Create new scores object and push to tournament.bracket.scores
 		const scores = {};
@@ -634,6 +665,13 @@ class TournamentShow extends Component {
 		const currentRound = rounds[n-1];
 		const { showTournament } = this.props.tournament;
 
+		// Update matchWins for each player inside this.state.winners
+		showTournament.bracket.players.map(player => {
+			if(this.state.winners.some(winner => winner._id === player._id)) {
+				this.props.updateMatchWins(player);
+			};
+		});
+
 		// Create new scores object and push to tournament.bracket.scores
 		const scores = {};
 		scores["round"] = currentRound.round;
@@ -694,6 +732,13 @@ class TournamentShow extends Component {
 		const n = rounds && rounds.length;
 		const currentRound = rounds[n-1];
 		const { showTournament } = this.props.tournament;
+
+		// Update matchWins for each player inside this.state.winners
+		showTournament.bracket.players.map(player => {
+			if(this.state.winners.some(winner => winner._id === player._id)) {
+				this.props.updateMatchWins(player);
+			};
+		});
 
 		// Create new scores object and push to tournament.bracket.scores
 		const scores = {};
@@ -758,6 +803,13 @@ class TournamentShow extends Component {
 		const n = rounds && rounds.length;
 		const currentRound = rounds[n-1];
 		const { showTournament } = this.props.tournament;
+
+		// Update matchWins for each player inside this.state.winners
+		showTournament.bracket.players.map(player => {
+			if(this.state.winners.some(winner => winner._id === player._id)) {
+				this.props.updateMatchWins(player);
+			};
+		});
 
 		// Create new scores object and push to tournament.bracket.scores
 		const scores = {};
