@@ -21,7 +21,9 @@ import {
 	SET_CHAMPION,
 	SET_CHAMPION_FAILED,
 	ADD_SCORE,
-	ADD_SCORE_FAILED
+	ADD_SCORE_FAILED,
+	TOURNAMENTS_PLAYED_UPDATE,
+	TOURNAMENTS_PLAYED_UPDATE_FAILED
 } from './types';
 import axios from 'axios';
 import { tokenConfig } from './authActions';
@@ -246,6 +248,33 @@ export const updateMatchWins = ({ _id, matchWins }) => dispatch => {
 			});
 		});
 };
+
+
+// update tournamentsPlayed
+export const updateTournamentsPlayed = ({ _id, tournamentsPlayed }) => dispatch => {
+	const config = {
+		headers: {
+			"Content-Type": "application/json"
+		}
+	};
+
+	const body = JSON.stringify({ tournamentsPlayed });
+
+	axios.post(`/users/user/${_id}`, body, config)
+		.then(res => dispatch({
+			type: TOURNAMENTS_PLAYED_UPDATE,
+			payload: res.data
+		}))
+		.catch(err => {
+			dispatch(returnErrors(err.response.data, err.response.status));
+			dispatch({
+				type: TOURNAMENTS_PLAYED_UPDATE_FAILED
+			});
+		});
+};
+
+
+// updated tournamentWins
 
 
 export const setChampion = (id, user) => dispatch => {

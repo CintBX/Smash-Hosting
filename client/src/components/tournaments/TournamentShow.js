@@ -8,6 +8,7 @@ import {
 	addScore,
 	addRound,
 	updateMatchWins,
+	updateTournamentsPlayed,
 	setChampion,
 	completeTournament
 } from '../../actions/tournamentActions';
@@ -99,6 +100,11 @@ class TournamentShow extends Component {
 	
 	onStartTournamentStandard(tourneyId) { // 8/16/32 player bracket
 		const { participants } = this.props.tournament.showTournament;
+		// Update each participants `tournamentsPlayed` property
+		participants.forEach(participant => {
+			participant.tournamentsPlayed = 1
+			this.props.updateTournamentsPlayed(participant);
+		});
 		// Randomize participants && Send to bracket.players
 		let reorderedParticipants = [];
 		const shuffledParticipants = this.onShuffleParticipants(participants);
@@ -118,6 +124,11 @@ class TournamentShow extends Component {
 
 	onStartTournament9and17(tourneyId) { // 9/17 player bracket
 		const { participants } = this.props.tournament.showTournament;
+		// Update each participants `tournamentsPlayed` property
+		participants.forEach(participant => {
+			participant.tournamentsPlayed = 1
+			this.props.updateTournamentsPlayed(participant);
+		});
 		// Randomize participants && Send to bracket.players
 		let reorderedParticipants = [];
 		const shuffledParticipants = this.onShuffleParticipants(participants);
@@ -140,6 +151,11 @@ class TournamentShow extends Component {
 
 	onStartTournament10and18(tourneyId) { // 10/18 player bracket
 		const { participants } = this.props.tournament.showTournament;
+		// Update each participants `tournamentsPlayed` property
+		participants.forEach(participant => {
+			participant.tournamentsPlayed = 1
+			this.props.updateTournamentsPlayed(participant);
+		});
 		// Randomize participants && Send to bracket.players
 		let reorderedParticipants = [];
 		const shuffledParticipants = this.onShuffleParticipants(participants);
@@ -164,6 +180,11 @@ class TournamentShow extends Component {
 
 	onStartTournament11and19(tourneyId) { // 11/19 player bracket
 		const { participants } = this.props.tournament.showTournament;
+		// Update each participants `tournamentsPlayed` property
+		participants.forEach(participant => {
+			participant.tournamentsPlayed = 1
+			this.props.updateTournamentsPlayed(participant);
+		});
 		// Randomize participants && Send to bracket.players
 		let reorderedParticipants = [];
 		const shuffledParticipants = this.onShuffleParticipants(participants);
@@ -190,6 +211,11 @@ class TournamentShow extends Component {
 
 	onStartTournament12and20(tourneyId) { // 12/20 player bracket
 		const { participants } = this.props.tournament.showTournament;
+		// Update each participants `tournamentsPlayed` property
+		participants.forEach(participant => {
+			participant.tournamentsPlayed = 1
+			this.props.updateTournamentsPlayed(participant);
+		});
 		// Randomize participants && Send to bracket.players
 		let reorderedParticipants = [];
 		const shuffledParticipants = this.onShuffleParticipants(participants);
@@ -218,6 +244,11 @@ class TournamentShow extends Component {
 
 	onStartTournament13(tourneyId) { // 13 player bracket
 		const { participants } = this.props.tournament.showTournament;
+		// Update each participants `tournamentsPlayed` property
+		participants.forEach(participant => {
+			participant.tournamentsPlayed = 1
+			this.props.updateTournamentsPlayed(participant);
+		});
 		// Randomize participants && Send to bracket.players
 		let reorderedParticipants = [];
 		const shuffledParticipants = this.onShuffleParticipants(participants);
@@ -248,6 +279,11 @@ class TournamentShow extends Component {
 
 	onStartTournament14(tourneyId) { // 14 player bracket
 		const { participants } = this.props.tournament.showTournament;
+		// Update each participants `tournamentsPlayed` property
+		participants.forEach(participant => {
+			participant.tournamentsPlayed = 1
+			this.props.updateTournamentsPlayed(participant);
+		});
 		// Randomize participants && Send to bracket.players
 		let reorderedParticipants = [];
 		const shuffledParticipants = this.onShuffleParticipants(participants);
@@ -280,6 +316,11 @@ class TournamentShow extends Component {
 
 	onStartTournament15(tourneyId) { // 15 player bracket
 		const { participants } = this.props.tournament.showTournament;
+		// Update each participants `tournamentsPlayed` property
+		participants.forEach(participant => {
+			participant.tournamentsPlayed = 1
+			this.props.updateTournamentsPlayed(participant);
+		});
 		// Randomize participants && Send to bracket.players
 		let reorderedParticipants = [];
 		const shuffledParticipants = this.onShuffleParticipants(participants);
@@ -349,6 +390,7 @@ class TournamentShow extends Component {
 		// Update matchWins for each player inside this.state.winners
 		showTournament.bracket.players.map(player => {
 			if(this.state.winners.some(winner => winner._id === player._id)) {
+				player.matchWins = 1;
 				this.props.updateMatchWins(player);
 			};
 		});
@@ -392,6 +434,7 @@ class TournamentShow extends Component {
 		// Update matchWins for each player inside this.state.winners
 		showTournament.bracket.players.map(player => {
 			if(this.state.winners.some(winner => winner._id === player._id)) {
+				player.matchWins = 1;
 				this.props.updateMatchWins(player);
 			};
 		});
@@ -448,6 +491,7 @@ class TournamentShow extends Component {
 		// Update matchWins for each player inside this.state.winners
 		showTournament.bracket.players.map(player => {
 			if(this.state.winners.some(winner => winner._id === player._id)) {
+				player.matchWins = 1;
 				this.props.updateMatchWins(player);
 			};
 		});
@@ -516,6 +560,7 @@ class TournamentShow extends Component {
 		// Update matchWins for each player inside this.state.winners
 		showTournament.bracket.players.map(player => {
 			if(this.state.winners.some(winner => winner._id === player._id)) {
+				player.matchWins = 1;
 				this.props.updateMatchWins(player);
 			};
 		});
@@ -589,6 +634,7 @@ class TournamentShow extends Component {
 		// Update matchWins for each player inside this.state.winners
 		showTournament.bracket.players.map(player => {
 			if(this.state.winners.some(winner => winner._id === player._id)) {
+				player.matchWins = 1;
 				this.props.updateMatchWins(player);
 			};
 		});
@@ -668,6 +714,7 @@ class TournamentShow extends Component {
 		// Update matchWins for each player inside this.state.winners
 		showTournament.bracket.players.map(player => {
 			if(this.state.winners.some(winner => winner._id === player._id)) {
+				player.matchWins = 1;
 				this.props.updateMatchWins(player);
 			};
 		});
@@ -736,6 +783,7 @@ class TournamentShow extends Component {
 		// Update matchWins for each player inside this.state.winners
 		showTournament.bracket.players.map(player => {
 			if(this.state.winners.some(winner => winner._id === player._id)) {
+				player.matchWins = 1;
 				this.props.updateMatchWins(player);
 			};
 		});
@@ -807,6 +855,7 @@ class TournamentShow extends Component {
 		// Update matchWins for each player inside this.state.winners
 		showTournament.bracket.players.map(player => {
 			if(this.state.winners.some(winner => winner._id === player._id)) {
+				player.matchWins = 1;
 				this.props.updateMatchWins(player);
 			};
 		});
@@ -1133,6 +1182,7 @@ export default connect(mapStateToProps,
 		addScore,
 		addRound,
 		updateMatchWins,
+		updateTournamentsPlayed,
 		setChampion,
 		completeTournament
 	})(TournamentShow);

@@ -143,24 +143,6 @@ router.get('/user/:id', (req, res) => {
 // @route   POST /users/user/:id
 // @descrip EDIT/UPDATE a user's details, including matchWins
 // @access  Private
-// router.post('/user/:id', (req, res) => {
-// 	const { main, secondary, friendCode, matchWins } = req.body;
-
-// 	User.findById(req.params.id)
-// 		.then(user => {
-// 			if(!user) {
-// 				return res.status(404).json({ msg: "User not found" });
-// 			} else {
-// 				if(main) user.main = main;
-// 				if(secondary) user.secondary = secondary;
-// 				if(friendCode) user.friendCode = friendCode;
-// 				if(matchWins) user.matchWins = matchWins;
-// 			}
-// 			return user.save();
-// 		})
-// 		.then(savedUser => res.json(savedUser))
-// 		.catch(err => res.json(err));
-// });
 router.post('/user/:id', (req, res) => {
 	User.findById(req.params.id, (err, user) => {
 		// Check if User exists
@@ -170,7 +152,9 @@ router.post('/user/:id', (req, res) => {
 			if(req.body.main) user.main = req.body.main;
 			if(req.body.secondary) user.secondary = req.body.secondary;
 			if(req.body.friendCode) user.friendCode = req.body.friendCode;
+			if(req.body.tournamentsPlayed) user.tournamentsPlayed = user.tournamentsPlayed + 1;
 			if(req.body.matchWins) user.matchWins = user.matchWins + 1;
+			if(req.body.tournamentWins) user.tournamentWins = user.tournamentWins + 1;
 		}
 		user.save()
 			.then(() => res.json(user))
