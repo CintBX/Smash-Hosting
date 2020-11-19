@@ -149,3 +149,11 @@ body {
 .score-btn-icon:hover {
 	cursor: pointer;
 }
+
+
+/*
+ * Tournament Results
+ */
+.results-font {
+	font-family: 'Merriweather Sans', sans-serif;
+}
