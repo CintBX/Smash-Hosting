@@ -9,6 +9,7 @@ import {
 	addRound,
 	updateMatchWins,
 	updateTournamentsPlayed,
+	updateTournamentWins,
 	setChampion,
 	completeTournament
 } from '../../actions/tournamentActions';
@@ -405,6 +406,8 @@ class TournamentShow extends Component {
 			// Select final user from winners[], set as Champion and Complete tournament
 			let tournamentChampion;
 			this.state.winners.map(winner => tournamentChampion = winner);
+			tournamentChampion.tournamentWins = 1
+			this.props.updateTournamentWins(tournamentChampion);
 			this.props.setChampion(this.props.tournament.showTournament._id, tournamentChampion);
 			this.props.completeTournament(this.props.tournament.showTournament._id);
 		} else {
@@ -449,6 +452,8 @@ class TournamentShow extends Component {
 			// Select final user from winners[], set as Champion and Complete tournament
 			let tournamentChampion;
 			this.state.winners.map(winner => tournamentChampion = winner);
+			tournamentChampion.tournamentWins = 1
+			this.props.updateTournamentWins(tournamentChampion);
 			this.props.setChampion(this.props.tournament.showTournament._id, tournamentChampion);
 			this.props.completeTournament(this.props.tournament.showTournament._id);
 		} else {
@@ -506,6 +511,8 @@ class TournamentShow extends Component {
 			// Select final user from winners[], set as Champion and Complete tournament
 			let tournamentChampion;
 			this.state.winners.map(winner => tournamentChampion = winner);
+			tournamentChampion.tournamentWins = 1
+			this.props.updateTournamentWins(tournamentChampion);
 			this.props.setChampion(this.props.tournament.showTournament._id, tournamentChampion);
 			this.props.completeTournament(this.props.tournament.showTournament._id);
 		} else {
@@ -575,6 +582,8 @@ class TournamentShow extends Component {
 			// Select final user from winners[], set as Champion and Complete tournament
 			let tournamentChampion;
 			this.state.winners.map(winner => tournamentChampion = winner);
+			tournamentChampion.tournamentWins = 1
+			this.props.updateTournamentWins(tournamentChampion);
 			this.props.setChampion(this.props.tournament.showTournament._id, tournamentChampion);
 			this.props.completeTournament(this.props.tournament.showTournament._id);
 		} else {
@@ -649,6 +658,8 @@ class TournamentShow extends Component {
 			// Select final user from winners[], set as Champion and Complete tournament
 			let tournamentChampion;
 			this.state.winners.map(winner => tournamentChampion = winner);
+			tournamentChampion.tournamentWins = 1
+			this.props.updateTournamentWins(tournamentChampion);
 			this.props.setChampion(this.props.tournament.showTournament._id, tournamentChampion);
 			this.props.completeTournament(this.props.tournament.showTournament._id);
 		} else {
@@ -729,6 +740,8 @@ class TournamentShow extends Component {
 			// Select final user from winners[], set as Champion and Complete tournament
 			let tournamentChampion;
 			this.state.winners.map(winner => tournamentChampion = winner);
+			tournamentChampion.tournamentWins = 1
+			this.props.updateTournamentWins(tournamentChampion);
 			this.props.setChampion(this.props.tournament.showTournament._id, tournamentChampion);
 			this.props.completeTournament(this.props.tournament.showTournament._id);
 		} else {
@@ -798,6 +811,8 @@ class TournamentShow extends Component {
 			// Select final user from winners[], set as Champion and Complete tournament
 			let tournamentChampion;
 			this.state.winners.map(winner => tournamentChampion = winner);
+			tournamentChampion.tournamentWins = 1
+			this.props.updateTournamentWins(tournamentChampion);
 			this.props.setChampion(this.props.tournament.showTournament._id, tournamentChampion);
 			this.props.completeTournament(this.props.tournament.showTournament._id);
 		} else {
@@ -870,6 +885,8 @@ class TournamentShow extends Component {
 			// Select final user from winners[], set as Champion and Complete tournament
 			let tournamentChampion;
 			this.state.winners.map(winner => tournamentChampion = winner);
+			tournamentChampion.tournamentWins = 1
+			this.props.updateTournamentWins(tournamentChampion);
 			this.props.setChampion(this.props.tournament.showTournament._id, tournamentChampion);
 			this.props.completeTournament(this.props.tournament.showTournament._id);
 		} else {
@@ -1183,6 +1200,7 @@ export default connect(mapStateToProps,
 		addRound,
 		updateMatchWins,
 		updateTournamentsPlayed,
+		updateTournamentWins,
 		setChampion,
 		completeTournament
 	})(TournamentShow);

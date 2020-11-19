@@ -18,12 +18,14 @@ import {
 	ADD_ROUND_FAILED,
 	MATCHWINS_UPDATE,
 	MATCHWINS_UPDATE_FAILED,
+	TOURNAMENTS_PLAYED_UPDATE,
+	TOURNAMENTS_PLAYED_UPDATE_FAILED,
+	TOURNAMENT_WIN_UPDATE,
+	TOURNAMENT_WIN_UPDATE_FAILED,
 	SET_CHAMPION,
 	SET_CHAMPION_FAILED,
 	ADD_SCORE,
-	ADD_SCORE_FAILED,
-	TOURNAMENTS_PLAYED_UPDATE,
-	TOURNAMENTS_PLAYED_UPDATE_FAILED
+	ADD_SCORE_FAILED
 } from './types';
 import axios from 'axios';
 import { tokenConfig } from './authActions';
@@ -227,30 +229,6 @@ export const addRound = (_id, round) => dispatch => {
 };
 
 
-export const updateMatchWins = ({ _id, matchWins }) => dispatch => {
-	const config = {
-		headers: {
-			"Content-Type": "application/json"
-		}
-	};
-
-	const body = JSON.stringify({ matchWins });
-
-	axios.post(`/users/user/${_id}`, body, config)
-		.then(res => dispatch({
-			type: MATCHWINS_UPDATE,
-			payload: res.data
-		}))
-		.catch(err => {
-			dispatch(returnErrors(err.response.data, err.response.status));
-			dispatch({
-				type: MATCHWINS_UPDATE_FAILED
-			});
-		});
-};
-
-
-// update tournamentsPlayed
 export const updateTournamentsPlayed = ({ _id, tournamentsPlayed }) => dispatch => {
 	const config = {
 		headers: {
@@ -274,7 +252,50 @@ export const updateTournamentsPlayed = ({ _id, tournamentsPlayed }) => dispatch 
 };
 
 
-// updated tournamentWins
+export const updateMatchWins = ({ _id, matchWins }) => dispatch => {
+	const config = {
+		headers: {
+			"Content-Type": "application/json"
+		}
+	};
+
+	const body = JSON.stringify({ matchWins });
+
+	axios.post(`/users/user/${_id}`, body, config)
+		.then(res => dispatch({
+			type: MATCHWINS_UPDATE,
+			payload: res.data
+		}))
+		.catch(err => {
+			dispatch(returnErrors(err.response.data, err.response.status));
+			dispatch({
+				type: MATCHWINS_UPDATE_FAILED
+			});
+		});
+};
+
+
+export const updateTournamentWins = ({ _id, tournamentWins }) => dispatch => {
+	const config = {
+		headers: {
+			"Content-Type": "application/json"
+		}
+	};
+	
+	const body = JSON.stringify({ tournamentWins });
+
+	axios.post(`/users/user/${_id}`, body, config)
+		.then(res => dispatch({
+			type: TOURNAMENT_WIN_UPDATE,
+			payload: res.data
+		}))
+		.catch(err => {
+			dispatch(returnErrors(err.response.data, err.response.status));
+			dispatch({
+				type: TOURNAMENT_WIN_UPDATE_FAILED
+			});
+		});
+};
 
 
 export const setChampion = (id, user) => dispatch => {
