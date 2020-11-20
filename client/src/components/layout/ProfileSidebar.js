@@ -37,8 +37,15 @@ class ProfileSidebar extends Component {
 
 	render() {
 		const { user, isAuthenticated } = this.props;
+		const { showTournament } = this.props.tournament;
 		return (
-			<div>
+			<div
+				className={
+					showTournament.status && showTournament.status !== "Open" ?
+					"hide-sidebar"
+					: null
+				}
+			>
 				<Card className="mb-4" style={{ border:'none' }}>
 
 					{
@@ -82,7 +89,8 @@ class ProfileSidebar extends Component {
 
 const mapStateToProps = state => ({
 	isAuthenticated: state.auth.isAuthenticated,
-	user: state.auth.user
+	user: state.auth.user,
+	tournament: state.tournament
 });
 
 export default connect(mapStateToProps, null)(ProfileSidebar);
