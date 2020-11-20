@@ -109,25 +109,35 @@ export const HostUI = ({
 		onSetScoreTwo,
 		winners,
 		onSetNextRound,
-		onSetPlayersIntoPairs
+		onSetPlayersIntoPairs,
+		tournament,
+		auth
 	}) => {
 	const players = bracket.players;
 	const n = bracket.rounds && bracket.rounds.length
 	const round = bracket.rounds[n - 1]; // renders latest round (latest === current)
+
+	const { hostedBy } = tournament;
+	const { isAuthenticated, user } = auth;
+
 	return (
 		<div style={{color:"lightgrey"}}>
-			<MatchGenerator
-				bracketSize={players && players.length}
-				round={round.round}
-				matches={round.matches}
-				finals={round.finals}
-				onSetWinner={onSetWinner}
-				onSetScoreOne={onSetScoreOne}
-				onSetScoreTwo={onSetScoreTwo}
-				winners={winners}
-				onSetNextRound={onSetNextRound}
-				onSetPlayersIntoPairs={onSetPlayersIntoPairs}
-			/>
+			{
+				isAuthenticated && user.username === hostedBy ?
+				<MatchGenerator
+					bracketSize={players && players.length}
+					round={round.round}
+					matches={round.matches}
+					finals={round.finals}
+					onSetWinner={onSetWinner}
+					onSetScoreOne={onSetScoreOne}
+					onSetScoreTwo={onSetScoreTwo}
+					winners={winners}
+					onSetNextRound={onSetNextRound}
+					onSetPlayersIntoPairs={onSetPlayersIntoPairs}
+				/>
+				: null
+			}
 		</div>
 	);
 };
