@@ -157,36 +157,33 @@ body {
 /*
  * Bracket && UI Position
 */
-/* @media only screen and (min-width: 895px) {
-	.bracket-position {
-		position: relative
-	}
-} */
+.bracket-margin {
+	margin-top: 200px;
+};
+/* 5-round tournaments */
 @media only screen and (min-width: 990px) {
-  .bracket-position {
+  .bracket-position-5 {
 		position: relative;
-		/* width: 100%; */
 		right: 85%;
 	}
 }
 @media only screen and (min-width: 1040px) {
-	.bracket-position {
+	.bracket-position-5 {
 		position: relative;
-		/* width: 100%; */
 		right: 90%;
 	}
 }
 @media only screen and (min-width: 1070px) {
-	.bracket-position {
+	.bracket-position-5 {
 		position: relative;
-		width: 100%;
 		right: 95%;
 	}
 }
 @media only screen and (min-width: 1150px) {
-	.bracket-position {
+	.bracket-position-5 {
 		position: relative;
-		width: 100%;
 		right: 100%;
 	}
 }
+/* 4-round tournaments */
+/* 3-round tournaments */

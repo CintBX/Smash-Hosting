@@ -117,7 +117,7 @@ export const HostUI = ({
 	const n = bracket.rounds && bracket.rounds.length
 	const round = bracket.rounds[n - 1]; // renders latest round (latest === current)
 
-	const { hostedBy } = tournament;
+	const { _id, title, type, schedule, hostedBy, status } = tournament;
 	const { isAuthenticated, user } = auth;
 
 	return (
@@ -136,7 +136,37 @@ export const HostUI = ({
 					onSetNextRound={onSetNextRound}
 					onSetPlayersIntoPairs={onSetPlayersIntoPairs}
 				/>
-				: null
+				: 
+				<div style={{color: "lightgrey"}}>
+					<h1 className="text-center">
+						{ title }
+					</h1>
+
+					<h1 className="text-center" style={{fontSize:'1.2em'}}>Hosted by { hostedBy }</h1>
+
+					<hr style={{backgroundColor:"lightgrey"}} />
+
+					<h4>
+						Ruleset: { type }
+					</h4>
+
+					<h4>
+						<TournamentRules key={_id} type={ type } />
+					</h4>
+
+					<br/>
+
+					<h4>
+						Begins { moment(schedule).format("dddd, MMMM Do YYYY") }
+						<p>{ moment(schedule).format("h:mm a") }</p>
+					</h4>
+					
+					<br />
+
+					<p className="text-center" style={{color: "#56A8CBFF", fontSize: "2em"}}>
+						~ Registration { status } ~
+					</p>
+				</div>
 			}
 		</div>
 	);
@@ -144,22 +174,25 @@ export const HostUI = ({
 
 export const StartBracket = ({ tournament }) => {
 	const { title, hostedBy, participants, bracket } = tournament;
+	const firstRoundLength = bracket && bracket.rounds[0].matches.length;
   return (
-		<div className="bracket-position">
-			<div className="text-center" style={{color:"lightgrey"}}>
-      <h1>{ title }</h1>
-      <h4>By { hostedBy }</h4>
-      <h4>{participants && participants.length}-player bracket</h4>
-			
-			<BracketGenerator
-				bracketSize={participants && participants.length}
-				players={bracket.players}
-				rounds={bracket.rounds}
-				scores={bracket.scores}
-			/>
-			<br /><Link to="/">Back to Tournaments main page</Link>
+		<div className={firstRoundLength === 2 ? "bracket-margin" : null}>
+			<div className="bracket-position-5">
+				<div className="text-center" style={{color:"lightgrey"}}>
+				<h1>{ title }</h1>
+				<h4>By { hostedBy }</h4>
+				<h4>{participants && participants.length}-player bracket</h4>
+				
+				<BracketGenerator
+					bracketSize={participants && participants.length}
+					players={bracket.players}
+					rounds={bracket.rounds}
+					scores={bracket.scores}
+				/>
+				<br /><Link to="/">Back to Tournaments main page</Link>
+				</div>
 			</div>
-    </div>
+		</div>
   );
 };
 
