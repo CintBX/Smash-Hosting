@@ -935,6 +935,8 @@ class TournamentShow extends Component {
 	render() {
 		const { participants } = this.props.tournament.showTournament;
 		const loading = this.props.tournament.loading || !this.props.tournament.showTournament;
+		const { hostedBy } = this.props.tournament.showTournament;
+		const { isAuthenticated, user } = this.props.auth;
 
 		if(loading) {
 			return <Spinner color="light" /> 
@@ -950,15 +952,19 @@ class TournamentShow extends Component {
 					case 15:
 						return (
 							<div>
-								<HostUI
-									bracket={this.props.tournament.showTournament.bracket}
-									onSetWinner={this.onSetWinner}
-									onSetScoreOne={this.onSetScoreOne}
-									onSetScoreTwo={this.onSetScoreTwo}
-									winners={this.state.winners}
-									onSetNextRound={this.onSetNextRound15}
-									onSetPlayersIntoPairs={this.onSetPlayersIntoPairs}
-								/>
+								{
+									isAuthenticated && user.username === hostedBy ?
+									<HostUI
+										bracket={this.props.tournament.showTournament.bracket}
+										onSetWinner={this.onSetWinner}
+										onSetScoreOne={this.onSetScoreOne}
+										onSetScoreTwo={this.onSetScoreTwo}
+										winners={this.state.winners}
+										onSetNextRound={this.onSetNextRound15}
+										onSetPlayersIntoPairs={this.onSetPlayersIntoPairs}
+									/>
+									: null
+								}
 								<br/>
 								<StartBracket
 									tournament={this.props.tournament.showTournament}
@@ -968,15 +974,19 @@ class TournamentShow extends Component {
 					case 14:
 						return (
 							<div>
-								<HostUI
-									bracket={this.props.tournament.showTournament.bracket}
-									onSetWinner={this.onSetWinner}
-									onSetScoreOne={this.onSetScoreOne}
-									onSetScoreTwo={this.onSetScoreTwo}
-									winners={this.state.winners}
-									onSetNextRound={this.onSetNextRound14}
-									onSetPlayersIntoPairs={this.onSetPlayersIntoPairs}
-								/>
+								{
+									isAuthenticated && user.username === hostedBy ?
+									<HostUI
+										bracket={this.props.tournament.showTournament.bracket}
+										onSetWinner={this.onSetWinner}
+										onSetScoreOne={this.onSetScoreOne}
+										onSetScoreTwo={this.onSetScoreTwo}
+										winners={this.state.winners}
+										onSetNextRound={this.onSetNextRound14}
+										onSetPlayersIntoPairs={this.onSetPlayersIntoPairs}
+									/>
+									: null
+								}
 								<br/>
 								<StartBracket
 									tournament={this.props.tournament.showTournament}
@@ -986,15 +996,19 @@ class TournamentShow extends Component {
 					case 13:
 						return (
 							<div>
-								<HostUI
-									bracket={this.props.tournament.showTournament.bracket}
-									onSetWinner={this.onSetWinner}
-									onSetScoreOne={this.onSetScoreOne}
-									onSetScoreTwo={this.onSetScoreTwo}
-									winners={this.state.winners}
-									onSetNextRound={this.onSetNextRound13}
-									onSetPlayersIntoPairs={this.onSetPlayersIntoPairs}
-								/>
+								{
+									isAuthenticated && user.username === hostedBy ?
+									<HostUI
+										bracket={this.props.tournament.showTournament.bracket}
+										onSetWinner={this.onSetWinner}
+										onSetScoreOne={this.onSetScoreOne}
+										onSetScoreTwo={this.onSetScoreTwo}
+										winners={this.state.winners}
+										onSetNextRound={this.onSetNextRound13}
+										onSetPlayersIntoPairs={this.onSetPlayersIntoPairs}
+									/>
+									: null
+								}
 								<br/>
 								<StartBracket
 									tournament={this.props.tournament.showTournament}
@@ -1005,15 +1019,19 @@ class TournamentShow extends Component {
 					case 20:
 						return (
 							<div>
-								<HostUI
-									bracket={this.props.tournament.showTournament.bracket}
-									onSetWinner={this.onSetWinner}
-									onSetScoreOne={this.onSetScoreOne}
-									onSetScoreTwo={this.onSetScoreTwo}
-									winners={this.state.winners}
-									onSetNextRound={this.onSetNextRound12and20}
-									onSetPlayersIntoPairs={this.onSetPlayersIntoPairs}
-								/>
+								{
+									isAuthenticated && user.username === hostedBy ?
+									<HostUI
+										bracket={this.props.tournament.showTournament.bracket}
+										onSetWinner={this.onSetWinner}
+										onSetScoreOne={this.onSetScoreOne}
+										onSetScoreTwo={this.onSetScoreTwo}
+										winners={this.state.winners}
+										onSetNextRound={this.onSetNextRound12and20}
+										onSetPlayersIntoPairs={this.onSetPlayersIntoPairs}
+									/>
+									: null
+								}
 								<br/>
 								<StartBracket
 									tournament={this.props.tournament.showTournament}
@@ -1024,15 +1042,19 @@ class TournamentShow extends Component {
 					case 19:
 						return (
 							<div>
-								<HostUI
-									bracket={this.props.tournament.showTournament.bracket}
-									onSetWinner={this.onSetWinner}
-									onSetScoreOne={this.onSetScoreOne}
-									onSetScoreTwo={this.onSetScoreTwo}
-									winners={this.state.winners}
-									onSetNextRound={this.onSetNextRound11and19}
-									onSetPlayersIntoPairs={this.onSetPlayersIntoPairs}
-								/>
+								{
+									isAuthenticated && user.username === hostedBy ?
+									<HostUI
+										bracket={this.props.tournament.showTournament.bracket}
+										onSetWinner={this.onSetWinner}
+										onSetScoreOne={this.onSetScoreOne}
+										onSetScoreTwo={this.onSetScoreTwo}
+										winners={this.state.winners}
+										onSetNextRound={this.onSetNextRound11and19}
+										onSetPlayersIntoPairs={this.onSetPlayersIntoPairs}
+									/>
+									: null
+								}
 								<br/>
 								<StartBracket
 									tournament={this.props.tournament.showTournament}
@@ -1043,15 +1065,19 @@ class TournamentShow extends Component {
 					case 18:
 						return (
 							<div>
-								<HostUI
-									bracket={this.props.tournament.showTournament.bracket}
-									onSetWinner={this.onSetWinner}
-									onSetScoreOne={this.onSetScoreOne}
-									onSetScoreTwo={this.onSetScoreTwo}
-									winners={this.state.winners}
-									onSetNextRound={this.onSetNextRound10and18}
-									onSetPlayersIntoPairs={this.onSetPlayersIntoPairs}
-								/>
+								{
+									isAuthenticated && user.username === hostedBy ?
+									<HostUI
+										bracket={this.props.tournament.showTournament.bracket}
+										onSetWinner={this.onSetWinner}
+										onSetScoreOne={this.onSetScoreOne}
+										onSetScoreTwo={this.onSetScoreTwo}
+										winners={this.state.winners}
+										onSetNextRound={this.onSetNextRound10and18}
+										onSetPlayersIntoPairs={this.onSetPlayersIntoPairs}
+									/>
+									: null
+								}
 								<br/>
 								<StartBracket
 									tournament={this.props.tournament.showTournament}
@@ -1062,15 +1088,19 @@ class TournamentShow extends Component {
 					case 17:
 						return (
 							<div>
-								<HostUI
-									bracket={this.props.tournament.showTournament.bracket}
-									onSetWinner={this.onSetWinner}
-									onSetScoreOne={this.onSetScoreOne}
-									onSetScoreTwo={this.onSetScoreTwo}
-									winners={this.state.winners}
-									onSetNextRound={this.onSetNextRound9and17}
-									onSetPlayersIntoPairs={this.onSetPlayersIntoPairs}
-								/>
+								{
+									isAuthenticated && user.username === hostedBy ?
+									<HostUI
+										bracket={this.props.tournament.showTournament.bracket}
+										onSetWinner={this.onSetWinner}
+										onSetScoreOne={this.onSetScoreOne}
+										onSetScoreTwo={this.onSetScoreTwo}
+										winners={this.state.winners}
+										onSetNextRound={this.onSetNextRound9and17}
+										onSetPlayersIntoPairs={this.onSetPlayersIntoPairs}
+									/>
+									: null
+								}
 								<br/>
 								<StartBracket
 									tournament={this.props.tournament.showTournament}
@@ -1080,15 +1110,19 @@ class TournamentShow extends Component {
 					default: // Standard
 						return (
 							<div>
-								<HostUI
-									bracket={this.props.tournament.showTournament.bracket}
-									onSetWinner={this.onSetWinner}
-									onSetScoreOne={this.onSetScoreOne}
-									onSetScoreTwo={this.onSetScoreTwo}
-									winners={this.state.winners}
-									onSetNextRound={this.onSetNextRoundStandard}
-									onSetPlayersIntoPairs={this.onSetPlayersIntoPairs}
-								/>
+								{
+									isAuthenticated && user.username === hostedBy ?
+									<HostUI
+										bracket={this.props.tournament.showTournament.bracket}
+										onSetWinner={this.onSetWinner}
+										onSetScoreOne={this.onSetScoreOne}
+										onSetScoreTwo={this.onSetScoreTwo}
+										winners={this.state.winners}
+										onSetNextRound={this.onSetNextRoundStandard}
+										onSetPlayersIntoPairs={this.onSetPlayersIntoPairs}
+									/>
+									: null
+								}
 								<br/>
 								<StartBracket
 									tournament={this.props.tournament.showTournament}
