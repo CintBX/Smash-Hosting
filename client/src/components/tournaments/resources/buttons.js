@@ -9,7 +9,7 @@ import {
 } from 'reactstrap';
 
 export const TournamentSignUp = props => {
-	if (props.participants.find(participant => participant._id === props.userId)) {
+	if (props.participants && props.participants.find(participant => participant._id === props.userId)) {
 		return (
 			<Button 
 				className="confirm-btn" 
@@ -72,7 +72,11 @@ export const InProgress = () => {
 	);
 };
 
-export const ResultsPopover = () => {
+export const ResultsPopover = ({ bracket }) => {
+	const { rounds, champion } = bracket;
+	const n = rounds && rounds.length;
+	const finalRound = rounds[n-1].matches;
+
 	return (
 		<Fragment>
 			<Button 
@@ -82,11 +86,17 @@ export const ResultsPopover = () => {
 				className="mt-3"
 				block
 			>
-				Tournament Complete. View Results.
+				View Results
 			</Button>
+
 			<UncontrolledPopover trigger="focus" placement="bottom" target="results">
-				<PopoverBody><b>Finals: </b> Cin <i>(Samus)</i> vs Vagalume <i>(Pit)</i></PopoverBody>
-				<PopoverHeader><b>WINNER: </b> Cin</PopoverHeader>
+				<PopoverBody className="text-center">
+					<b>Finals: </b> 
+					{finalRound[0].username} <i>({finalRound[0].main}) </i>
+					vs 
+					{" " + finalRound[1].username} <i>({finalRound[1].main})</i>
+				</PopoverBody>
+				<PopoverHeader className="text-center"><b>WINNER: </b> {champion[0].username}</PopoverHeader>
 			</UncontrolledPopover>
 		</Fragment>
 	);

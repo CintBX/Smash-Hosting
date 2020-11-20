@@ -23,9 +23,9 @@ export const showPlayer = id => dispatch => {
 	dispatch(onePlayerLoading());
 	axios
 		.get(`/users/user/${id}`)
-		.then(() => dispatch({
+		.then(res => dispatch({
 			type: SHOW_PLAYER,
-			payload: id
+			payload: res.data
 		}))
 		.catch(err => dispatch(returnErrors(err.response.data, err.response.status)));
 };

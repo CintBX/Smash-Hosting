@@ -5,7 +5,7 @@ import { Media } from 'reactstrap';
 import { getPlayers, deleteThisPlayer } from '../../actions/playerActions';
 import { Link } from 'react-router-dom';
 import DirectoryImage from './DirectoryImage';
-import DeleteModal from '../delete/DeleteModal';
+import ConfirmModal from '../ConfirmModal';
 
 class PlayerDirectory extends Component {
 	constructor(props) {
@@ -59,9 +59,10 @@ class PlayerDirectory extends Component {
 							<div>
 								{
 									isAuthenticated && user.role === "admin" ?
-									<DeleteModal
+									<ConfirmModal
 										page={"Player Directory"} 
-										title={`Delete ${username}'s account`} 
+										title={`Delete ${username}'s account`}
+										body={"Are you sure?"}
 										onClick={() => this.onDeletePlayer(_id)} 
 									/> :
 									null

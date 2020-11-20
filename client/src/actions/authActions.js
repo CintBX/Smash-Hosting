@@ -8,6 +8,7 @@ import {
 	REGISTER_SUCCESS,
 	REGISTER_FAIL,
 	UPDATE_SUCCESS,
+	UPDATE_DETAILS_FAILED,
 	DELETE_ACCOUNT
 } from './types';
 import axios from 'axios';
@@ -31,6 +32,9 @@ export const updateUserDetails = ({ _id, main, secondary, friendCode }) => dispa
 		}))
 		.catch(err => {
 			dispatch(returnErrors(err.response.data, err.response.status));
+			dispatch({
+				type: UPDATE_DETAILS_FAILED
+			})
 		});
 };
 
