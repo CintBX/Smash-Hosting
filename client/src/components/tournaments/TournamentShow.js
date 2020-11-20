@@ -964,6 +964,7 @@ class TournamentShow extends Component {
 								<br/>
 								<StartBracket
 									tournament={this.props.tournament.showTournament}
+									auth={this.props.auth}
 								/>
 							</div>
 						);
@@ -984,6 +985,7 @@ class TournamentShow extends Component {
 								<br/>
 								<StartBracket
 									tournament={this.props.tournament.showTournament}
+									auth={this.props.auth}
 								/>
 							</div>
 						);
@@ -1004,6 +1006,7 @@ class TournamentShow extends Component {
 								<br/>
 								<StartBracket
 									tournament={this.props.tournament.showTournament}
+									auth={this.props.auth}
 								/>
 							</div>
 						);
@@ -1025,6 +1028,7 @@ class TournamentShow extends Component {
 								<br/>
 								<StartBracket
 									tournament={this.props.tournament.showTournament}
+									auth={this.props.auth}
 								/>
 							</div>
 						);					
@@ -1046,6 +1050,7 @@ class TournamentShow extends Component {
 								<br/>
 								<StartBracket
 									tournament={this.props.tournament.showTournament}
+									auth={this.props.auth}
 								/>
 							</div>
 						);
@@ -1067,6 +1072,7 @@ class TournamentShow extends Component {
 								<br/>
 								<StartBracket
 									tournament={this.props.tournament.showTournament}
+									auth={this.props.auth}
 								/>
 							</div>
 						);
@@ -1088,6 +1094,7 @@ class TournamentShow extends Component {
 								<br/>
 								<StartBracket
 									tournament={this.props.tournament.showTournament}
+									auth={this.props.auth}
 								/>
 							</div>
 						);
@@ -1108,6 +1115,7 @@ class TournamentShow extends Component {
 								<br/>
 								<StartBracket
 									tournament={this.props.tournament.showTournament}
+									auth={this.props.auth}
 								/>
 							</div>
 						);

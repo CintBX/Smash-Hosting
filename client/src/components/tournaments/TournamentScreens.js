@@ -117,11 +117,19 @@ export const HostUI = ({
 	const n = bracket.rounds && bracket.rounds.length
 	const round = bracket.rounds[n - 1]; // renders latest round (latest === current)
 
-	const { _id, title, type, schedule, hostedBy, status } = tournament;
+	const { _id, title, type, schedule, hostedBy, status, participants } = tournament;
 	const { isAuthenticated, user } = auth;
 
 	return (
-		<div className="my-5" style={{color:"lightgrey"}}>
+		<div style={{color:"lightgrey"}}>
+			<h1 className="text-center">
+				{ title }
+			</h1>
+
+			<h1 className="text-center" style={{fontSize:'1.2em'}}>Hosted by { hostedBy }</h1>
+
+			<hr style={{backgroundColor:"lightgrey"}} />
+
 			{
 				isAuthenticated && user.username === hostedBy ?
 				<MatchGenerator
@@ -138,14 +146,6 @@ export const HostUI = ({
 				/>
 				: 
 				<div style={{color: "lightgrey"}}>
-					<h1 className="text-center">
-						{ title }
-					</h1>
-
-					<h1 className="text-center" style={{fontSize:'1.2em'}}>Hosted by { hostedBy }</h1>
-
-					<hr style={{backgroundColor:"lightgrey"}} />
-
 					<h4>
 						Ruleset: { type }
 					</h4>
@@ -166,21 +166,65 @@ export const HostUI = ({
 					<p className="text-center" style={{color: "#56A8CBFF", fontSize: "2em"}}>
 						~ Registration { status } ~
 					</p>
+
+					<h4 className="text-left mt-5">
+						{
+							participants && participants.length === 1 ?
+							`${participants && participants.length} Registered Fighter` :
+							`${participants && participants.length} Registered Fighters`
+						}
+					</h4>
+
+					<ul>
+						{
+							participants && participants.map(participant => (
+								<li key={participant._id} className="text-left" style={{fontSize: "1.1em"}}>
+									{participant.username}
+								</li>
+							))
+						}
+					</ul>
 				</div>
 			}
 		</div>
 	);
 };
 
-export const StartBracket = ({ tournament }) => {
-	const { title, hostedBy, participants, bracket } = tournament;
-	const firstRoundLength = bracket && bracket.rounds[0].matches.length;
-  return (
-		<div className={firstRoundLength === 2 ? "bracket-margin" : null}>
+export const BracketWrapper = props => {
+	if(props.bracketSize >= 17) {
+		return (
 			<div className="bracket-position-5">
-				<div className="text-center" style={{color:"lightgrey"}}>
-				<h1>{ title }</h1>
-				<h4>By { hostedBy }</h4>
+				{props.children}
+			</div>
+		);
+	} else if(props.bracketSize >= 9) {
+		return (
+			<div className="bracket-position-4">
+				{props.children}
+			</div>
+		);
+	} else {
+		return (
+			<div className="bracket-position-3">
+				{props.children}
+			</div>
+		);
+	};
+};
+
+export const StartBracket = ({ tournament, auth }) => {
+	const { hostedBy, participants, bracket } = tournament;
+	const { isAuthenticated, user } = auth;
+	const firstRoundLength = bracket.rounds[0].matches.length;
+	const bracketLength = participants && participants.length;
+  return (
+		<div className={
+			firstRoundLength === 2 && (isAuthenticated && user.username === hostedBy) ? 
+			"bracket-margin"
+			: null
+		}>
+			<BracketWrapper bracketSize={bracketLength}>
+				<div className="text-right" style={{color:"lightgrey"}}>
 				<h4>{participants && participants.length}-player bracket</h4>
 				
 				<BracketGenerator
@@ -191,7 +235,7 @@ export const StartBracket = ({ tournament }) => {
 				/>
 				<br /><Link to="/">Back to Tournaments main page</Link>
 				</div>
-			</div>
+			</BracketWrapper>
 		</div>
   );
 };
@@ -232,146 +276,152 @@ export const Results = ({ tournament }) => {
 		};
 	});
 
-  return (
-    <div style={{color:"lightgrey"}}>
-      <h1 className="text-center">
-				{ title }
-			</h1>
+	if(winner) {
+		return (
+			<div style={{color:"lightgrey"}}>
+				<h1 className="text-center">
+					{ title }
+				</h1>
+	
+				<hr style={{backgroundColor:"lightgrey"}} />
 
-			<hr style={{backgroundColor:"lightgrey"}} />
-
-			<h4>
-				Rules: { type }
-			</h4>
-
-			<h4>
-				<TournamentRules key={_id} type={ type } />
-			</h4>
-
-			<br/>
-
-			<div>
-				<Card
-					className="text-center"
-					style={{ fontSize:"2.8em", color:"#DA291CFF", backgroundColor:"#56A8CBFF" }}
-				>
-					<CardBody>
-						<CardTitle className="results-font">
-							<img src={logo} width="50" height="50" alt="Smash Brothers Logo" />
-								<span className="mx-5">1st Place</span>
-							<img src={logo} width="50" height="50" alt="Smash Brothers Logo" />
-						</CardTitle>
-					</CardBody>
-					<WinnerImage main={ winner.main } />
-					<CardBody>
-						<CardText>
-							{ winner.username }
-						</CardText>
-						<Link to={`/player/${winner._id}`} className="remove-underline">
-							<Button style={{fontSize:"0.5em"}} block outline color="danger">
-								View Profile
-							</Button>
-						</Link>
-					</CardBody>
-				</Card>
-			</div>
-
-			<br/>
-
-			<p className="text-center results-font" style={{color: "#56A8CBFF", fontSize: "1.9em"}}>
-				~ 2nd Place Winner ~
-			</p>
-			<p>
-				<Link to={`/player/${secondPlaceWinner._id}`} className="remove-underline">
-					<Media className="media-element media-hover">
-						<Media left>
-							<DirectoryImage key={secondPlaceWinner._id} main={secondPlaceWinner.main} />
-						</Media>
-						<Media body>
-							<Media heading className="ml-3">
-								<b>{ secondPlaceWinner.username }</b>
-							</Media>
-							<i style={{fontSize:"0.9rem"}}>
-								{
-									secondPlaceWinner.main && secondPlaceWinner.secondary ?
-									<Media className="ml-3">{ secondPlaceWinner.main + ", " + secondPlaceWinner.secondary }</Media> :
-									<Media className="ml-3">{ secondPlaceWinner.main || secondPlaceWinner.secondary || null }</Media>
-								}
-								<Media className="ml-3">{ secondPlaceWinner.friendCode }</Media>
-							</i>
-						</Media>
-					</Media>
-				</Link>
-			</p>
-
-
-			<p className="text-center results-font" style={{color: "#56A8CBFF", fontSize: "1.9em"}}>
-				~ 3rd Place Semi-Finalists ~
-			</p>
-			<p>
-				<Link to={`/player/${thirdPlaceWinners[0]._id}`} className="remove-underline">
-					<Media className="media-element media-hover">
-						<Media left>
-							<DirectoryImage key={thirdPlaceWinners[0]._id} main={thirdPlaceWinners[0].main} />
-						</Media>
-						<Media body>
-							<Media heading className="ml-3">
-								<b>{ thirdPlaceWinners[0].username }</b>
-							</Media>
-							<i style={{fontSize:"0.9rem"}}>
-								{
-									thirdPlaceWinners[0].main && thirdPlaceWinners[0].secondary ?
-									<Media className="ml-3">{ thirdPlaceWinners[0].main + ", " + thirdPlaceWinners[0].secondary }</Media> :
-									<Media className="ml-3">{ thirdPlaceWinners[0].main || thirdPlaceWinners[0].secondary || null }</Media>
-								}
-								<Media className="ml-3">{ thirdPlaceWinners[0].friendCode }</Media>
-							</i>
-						</Media>
-					</Media>
-				</Link>
-			</p>
-
-			<p>
-				<Link to={`/player/${thirdPlaceWinners[1]._id}`} className="remove-underline">
-					<Media className="media-element media-hover">
-						<Media left>
-							<DirectoryImage key={thirdPlaceWinners[1]._id} main={thirdPlaceWinners[1].main} />
-						</Media>
-						<Media body>
-							<Media heading className="ml-3">
-								<b>{ thirdPlaceWinners[1].username }</b>
-							</Media>
-							<i style={{fontSize:"0.9rem"}}>
-								{
-									thirdPlaceWinners[1].main && thirdPlaceWinners[1].secondary ?
-									<Media className="ml-3">{ thirdPlaceWinners[1].main + ", " + thirdPlaceWinners[1].secondary }</Media> :
-									<Media className="ml-3">{ thirdPlaceWinners[1].main || thirdPlaceWinners[1].secondary || null }</Media>
-								}
-								<Media className="ml-3">{ thirdPlaceWinners[1].friendCode }</Media>
-							</i>
-						</Media>
-					</Media>
-				</Link>
-			</p>
-
-			<div
-				className="text-center"
-				style={{color:"lightgrey"}}
-			>
-				<h1>{ title }</h1>
-				<h4>By { hostedBy }</h4>
-				<h4>{participants && participants.length}-player bracket</h4>
-
+				<h4>
+					Hosted by { hostedBy }
+				</h4>
+	
+				<h4>
+					{ type }
+				</h4>
+	
+				<h4>
+					<TournamentRules key={_id} type={ type } />
+				</h4>
+	
+				<br/>
+	
 				<div>
-					<BracketGenerator
-						bracketSize={participants && participants.length}
-						rounds={bracket.rounds}
-						players={bracket.players}
-						scores={bracket.scores}
-					/>
+					<Card
+						className="text-center"
+						style={{ fontSize:"2.8em", color:"#DA291CFF", backgroundColor:"#56A8CBFF" }}
+					>
+						<CardBody>
+							<CardTitle className="results-font">
+								<img src={logo} width="50" height="50" alt="Smash Brothers Logo" />
+									<span className="mx-5">1st Place</span>
+								<img src={logo} width="50" height="50" alt="Smash Brothers Logo" />
+							</CardTitle>
+						</CardBody>
+						<WinnerImage main={ winner.main } />
+						<CardBody>
+							<CardText>
+								{ winner.username }
+							</CardText>
+							<Link to={`/player/${winner._id}`} className="remove-underline">
+								<Button style={{fontSize:"0.5em"}} block outline color="danger">
+									View Profile
+								</Button>
+							</Link>
+						</CardBody>
+					</Card>
 				</div>
-				<br /><Link to="/">Back to Tournaments main page</Link>
+	
+				<br/>
+	
+				<p className="text-center results-font" style={{color: "#56A8CBFF", fontSize: "1.9em"}}>
+					~ 2nd Place Winner ~
+				</p>
+				<p>
+					<Link to={`/player/${secondPlaceWinner._id}`} className="remove-underline">
+						<Media className="media-element media-hover">
+							<Media left>
+								<DirectoryImage key={secondPlaceWinner._id} main={secondPlaceWinner.main} />
+							</Media>
+							<Media body>
+								<Media heading className="ml-3">
+									<b>{ secondPlaceWinner.username }</b>
+								</Media>
+								<i style={{fontSize:"0.9rem"}}>
+									{
+										secondPlaceWinner.main && secondPlaceWinner.secondary ?
+										<Media className="ml-3">{ secondPlaceWinner.main + ", " + secondPlaceWinner.secondary }</Media> :
+										<Media className="ml-3">{ secondPlaceWinner.main || secondPlaceWinner.secondary || null }</Media>
+									}
+									<Media className="ml-3">{ secondPlaceWinner.friendCode }</Media>
+								</i>
+							</Media>
+						</Media>
+					</Link>
+				</p>
+	
+	
+				<p className="text-center results-font" style={{color: "#56A8CBFF", fontSize: "1.9em"}}>
+					~ 3rd Place Semi-Finalists ~
+				</p>
+				<p>
+					<Link to={`/player/${thirdPlaceWinners[0]._id}`} className="remove-underline">
+						<Media className="media-element media-hover">
+							<Media left>
+								<DirectoryImage key={thirdPlaceWinners[0]._id} main={thirdPlaceWinners[0].main} />
+							</Media>
+							<Media body>
+								<Media heading className="ml-3">
+									<b>{ thirdPlaceWinners[0].username }</b>
+								</Media>
+								<i style={{fontSize:"0.9rem"}}>
+									{
+										thirdPlaceWinners[0].main && thirdPlaceWinners[0].secondary ?
+										<Media className="ml-3">{ thirdPlaceWinners[0].main + ", " + thirdPlaceWinners[0].secondary }</Media> :
+										<Media className="ml-3">{ thirdPlaceWinners[0].main || thirdPlaceWinners[0].secondary || null }</Media>
+									}
+									<Media className="ml-3">{ thirdPlaceWinners[0].friendCode }</Media>
+								</i>
+							</Media>
+						</Media>
+					</Link>
+				</p>
+	
+				<p>
+					<Link to={`/player/${thirdPlaceWinners[1]._id}`} className="remove-underline">
+						<Media className="media-element media-hover">
+							<Media left>
+								<DirectoryImage key={thirdPlaceWinners[1]._id} main={thirdPlaceWinners[1].main} />
+							</Media>
+							<Media body>
+								<Media heading className="ml-3">
+									<b>{ thirdPlaceWinners[1].username }</b>
+								</Media>
+								<i style={{fontSize:"0.9rem"}}>
+									{
+										thirdPlaceWinners[1].main && thirdPlaceWinners[1].secondary ?
+										<Media className="ml-3">{ thirdPlaceWinners[1].main + ", " + thirdPlaceWinners[1].secondary }</Media> :
+										<Media className="ml-3">{ thirdPlaceWinners[1].main || thirdPlaceWinners[1].secondary || null }</Media>
+									}
+									<Media className="ml-3">{ thirdPlaceWinners[1].friendCode }</Media>
+								</i>
+							</Media>
+						</Media>
+					</Link>
+				</p>
+	
+				<br />
+
+				<div
+					className="text-right"
+					style={{color:"lightgrey"}}
+				>
+					<BracketWrapper bracketSize={participants && participants.length}>
+					<h2>{participants && participants.length}-player bracket</h2>
+	
+						<BracketGenerator
+							bracketSize={participants && participants.length}
+							rounds={bracket.rounds}
+							players={bracket.players}
+							scores={bracket.scores}
+						/>
+					</BracketWrapper>
+					<br /><Link to="/">Back to Tournaments main page</Link>
+				</div>
 			</div>
-    </div>
-  );
+		);
+	}
 };
