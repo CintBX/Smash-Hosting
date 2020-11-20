@@ -48,11 +48,16 @@ router.post('/register', (req, res) => {
 								res.json({
 									token,
 									user: {
-										id: user.id,
+										_id: user.id,
 										username: user.username,
+										role: user.role,
 										friendCode: user.friendCode,
 										main: user.main,
 										secondary: user.secondary,
+										tournamentsPlayed: user.tournamentsPlayed,
+										tournamentWins: user.tournamentWins,
+										matchWins: user.matchWins,
+										date: user.date
 									}
 								})
 							}
@@ -95,11 +100,16 @@ router.post('/login', (req, res) => {
 						res.json({
 							token,
 							user: {
-								id: user.id,
+								_id: user.id,
 								username: user.username,
+								role: user.role,
 								friendCode: user.friendCode,
 								main: user.main,
-								secondary: user.secondary
+								secondary: user.secondary,
+								tournamentsPlayed: user.tournamentsPlayed,
+								tournamentWins: user.tournamentWins,
+								matchWins: user.matchWins,
+								date: user.date
 							}
 						})
 					}
@@ -131,7 +141,7 @@ router.get('/user/:id', (req, res) => {
 
 
 // @route   POST /users/user/:id
-// @descrip EDIT/UPDATE a user's details
+// @descrip EDIT/UPDATE a user's details, including matchWins
 // @access  Private
 router.post('/user/:id', (req, res) => {
 	User.findById(req.params.id, (err, user) => {
@@ -142,6 +152,9 @@ router.post('/user/:id', (req, res) => {
 			if(req.body.main) user.main = req.body.main;
 			if(req.body.secondary) user.secondary = req.body.secondary;
 			if(req.body.friendCode) user.friendCode = req.body.friendCode;
+			if(req.body.tournamentsPlayed) user.tournamentsPlayed = user.tournamentsPlayed + 1;
+			if(req.body.matchWins) user.matchWins = user.matchWins + 1;
+			if(req.body.tournamentWins) user.tournamentWins = user.tournamentWins + 1;
 		}
 		user.save()
 			.then(() => res.json(user))

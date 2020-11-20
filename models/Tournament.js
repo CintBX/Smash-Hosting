@@ -6,6 +6,18 @@ const TournamentSchema = new Schema({
 		type: String,
 		required: true
 	},
+	description: {
+		type: String,
+		required: false,
+	},
+	type: {
+		type: String,
+		required: true
+	},
+	schedule: {
+		type: Date,
+		required: true
+	},
 	hostedBy: {
 		type: String,
 		required: false
@@ -15,13 +27,19 @@ const TournamentSchema = new Schema({
 		required: false,
 		default: 'Open'
 	},
-	date: {
+	createdAt: {
 		type: Date,
 		default: Date.now
 	},
 	participants: {
 		type: Array,
 		required: false
+	},
+	bracket: {
+		players: {type: Array},
+		rounds: {type: Array},
+		champion: {type: Array},
+		scores: {type: Array}
 	}
 });
 

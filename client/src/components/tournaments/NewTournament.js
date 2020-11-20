@@ -23,14 +23,17 @@ class NewTournament extends Component {
 		this.onSubmit = this.onSubmit.bind(this);
 		this.state = {
 			modal: false,
-			title: ''
+			title: '',
+			description: '',
+			type: '',
+			schedule: ''
 		};
 	};
 
 	static propTypes = {
 		isAuthenticated: PropTypes.bool,
 		user: PropTypes.object,
-		addTournament: PropTypes.func.isRequired
+		addTournament: PropTypes.func.isRequired,
 	};
 
 	toggle() {
@@ -41,7 +44,7 @@ class NewTournament extends Component {
 
 	onChange(e) {
 		this.setState({
-			title: e.target.value
+			[e.target.name]: e.target.value
 		});
 	};
 
@@ -50,6 +53,9 @@ class NewTournament extends Component {
 
 		const newTournament = {
 			title: this.state.title,
+			description: this.state.description,
+			type: this.state.type,
+			schedule: this.state.schedule,
 			hostedBy: this.props.user.username
 		};
 
@@ -58,7 +64,10 @@ class NewTournament extends Component {
 		this.toggle();
 
 		this.setState({
-			title: ""
+			title: '',
+			description: '',
+			type: '',
+			schedule: ''
 		});
 	};
 
@@ -79,16 +88,28 @@ class NewTournament extends Component {
 					<Alert color="dark" className="text-center">Log in to host a Tournament</Alert>
 				}
 
-				<Modal isOpen={this.state.modal} toggle={this.toggle}>
+				<Modal isOpen={this.state.modal} toggle={this.toggle} autoFocus={false}>
 					<ModalHeader toggle={this.toggle}>Create a New Tournament</ModalHeader>
 					<ModalBody>
-						<Form onSubmit={ this.state.title !== "Choose from below" ? this.onSubmit : null}>
+						<Form onSubmit={this.onSubmit}>
 							<FormGroup>
-								<Label for="title">Select a ruleset</Label>
+								<Label for="title">Name your Tournament</Label>
 								<Input
-									type="select"
+									type="text"
 									name="title"
 									id="title"
+									className="mb-4"
+									onChange={this.onChange}
+									autoFocus
+								/>
+							</FormGroup>
+
+							<FormGroup>
+								<Label for="type">Select a ruleset</Label>
+								<Input
+									type="select"
+									name="type"
+									id="type"
 									className="mb-4"
 									onChange={this.onChange}
 								>
@@ -100,16 +121,36 @@ class NewTournament extends Component {
 								</Input>
 							</FormGroup>
 
-							{/* <InputGroup>
-								<InputGroupAddon addonType="prepend">$</InputGroupAddon>
-								<Input type="text" name="text" id="fee" placeholder="Entrance fee" />
-							</InputGroup> */}
+							<FormGroup>
+								<Label for="description">Write a description (optional)</Label>
+								<Input
+									type="textarea"
+									name="description"
+									id="description"
+									className="mb-4"
+									onChange={this.onChange}
+								/>
+							</FormGroup>
 
-							{/* <br/> */}
+							<FormGroup>
+								<Label for="schedule">Choose a date and time</Label>
+								<Input
+									type="datetime-local"
+									name="schedule"
+									id="schedule"
+									className="mb-4"
+									onChange={this.onChange}
+								/>
+							</FormGroup>
 							
-							{ 
-								this.state.title === "" ? 
-								<Button block color="dark" disabled>Create Tournament</Button> :
+							<br/>
+							{
+								this.state.title === "" ||
+								this.state.type === "" ||
+								this.state.schedule === ""
+									?
+								<Button className="text-center" block color="danger" disabled>All fields are required</Button>
+									:
 								<Button block color="primary">Create Tournament</Button>
 							}
 						</Form>
@@ -123,7 +164,7 @@ class NewTournament extends Component {
 const mapStateToProps = state => ({
 	tournament: state.tournament,
 	isAuthenticated: state.auth.isAuthenticated,
-	user: state.auth.user
+	user: state.auth.user,
 });
 
 export default connect(mapStateToProps, { addTournament })(NewTournament);

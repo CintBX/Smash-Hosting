@@ -5,12 +5,12 @@ import {
 	CardBody,
 	CardTitle
 } from 'reactstrap';
-import NewTournament from '../tournaments/New';
+import NewTournament from '../tournaments/NewTournament';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import SidebarImage from './SidebarImage';
 import smashDefaultImage from '../../img/smashultimate1.jpg';
-import RuleSets from './RuleSets';
+import RuleSets from './RuleSetCollapse';
 import UpdateDetailsModal from '../auth/UpdateDetailsModal';
 
 

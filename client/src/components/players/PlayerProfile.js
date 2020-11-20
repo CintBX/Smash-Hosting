@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { showPlayer } from '../../actions/playerActions';
 import { deleteAccount } from '../../actions/authActions';
 import moment from 'moment';
-import DeleteModal from '../delete/DeleteModal';
+import ConfirmModal from '../ConfirmModal';
 import { Spinner } from 'reactstrap';
 
 class PlayerProfile extends Component {
@@ -64,10 +64,11 @@ class PlayerProfile extends Component {
 
 						{
 							isAuthenticated && user.username === username ?
-							<DeleteModal 
-								page={"Player Profile"} 
-								title={"Delete your account"} 
-								onClick={() => this.onDelete(user._id)} 
+							<ConfirmModal 
+								page={"Player Profile"}
+								title={"Delete your account"}
+								body={"Are you sure?"}
+								onClick={() => this.onDelete(user._id)}
 							/> :
 							null
 						}

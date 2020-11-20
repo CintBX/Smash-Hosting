@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import { Jumbotron, Button } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { InProgress, ResultsPopover } from './buttons';
+import { InProgress, ResultsPopover } from './resources/buttons';
 import { getTournaments, deleteTournament } from '../../actions/tournamentActions';
-import TournamentDescription from './descriptions';
-import DeleteModal from '../delete/DeleteModal';
+import ConfirmModal from '../ConfirmModal';
+import moment from 'moment';
 
 class TournamentIndex extends Component {
 	constructor(props) {
@@ -32,35 +32,52 @@ class TournamentIndex extends Component {
 		const { tournaments } = this.props.tournament;
 		const { isAuthenticated, user } = this.props.auth;
 
-		return tournaments.map(({ _id, title, hostedBy, status }) => {
+		return tournaments.map(({ _id, title, description, type, hostedBy, schedule, status, bracket }) => {
 			return (
-				<Jumbotron key={_id} className={title.toLowerCase().replace(/\s+/g, '')}>
-					<h1 className="mb-5 text-center">
+				<Jumbotron key={_id} className={type.toLowerCase().replace(/\s+/g, '')}>
+					<h1 className="mb-4 text-center">
 						{ title }
-						<p style={{fontSize: '0.6em'}} className="text-muted">Hosted by: { hostedBy }</p>
 					</h1>
 
-					<h4>
-						<TournamentDescription key={_id} title={title} />
-					</h4>
+					<h3>
+						{ description }
+					</h3>
 
 					<hr className="my-4"/>
+
+					<h5>
+						Ruleset: { type }
+					</h5>
+
+					<h5>
+						On { moment(schedule).format("dddd, MMMM Do YYYY") }
+					</h5>
+
+					<h5 className="mb-4">
+						{ moment(schedule).format("h:mm a") }
+					</h5>
 
 					{
 						isAuthenticated && user.username === hostedBy ?
 							<Fragment>
-								<DeleteModal 
-									page={"Tournament Index"} 
-									title={"Delete Tournament"} 
-									onClick={() => this.onDelete(_id)} 
+								<ConfirmModal 
+									page={"Tournament Index"}
+									title={"Delete Tournament"}
+									body={"Are you sure?"}
+									onClick={() => this.onDelete(_id)}
 								/>
-							</Fragment> 
-						:
-						null
+
+								<Link to={`/tournaments/edit/${_id}`} className="remove-underline">
+									<Button color="info" outline className="mb-3 mr-2 edit-delete float-right">
+										Edit Details
+									</Button>
+								</Link>
+							</Fragment>
+						: null
 					}
 					
 					<Link 
-						to={ status === "Open" ? `/tournaments/${_id}` : `/tournaments/${_id}/start` } 
+						to={ `/tournaments/${_id}` } 
 						className="remove-underline"
 					>
 						<Button color="secondary" outline block className="mt-2">
@@ -69,7 +86,7 @@ class TournamentIndex extends Component {
 					</Link>
 					
 					{ status === "Closed" ? <InProgress /> : null }
-					{ status === "Complete" ? <ResultsPopover /> : null }
+					{ status === "Complete" ? <ResultsPopover bracket={bracket} /> : null }
 				</Jumbotron>
 			);
 		});
