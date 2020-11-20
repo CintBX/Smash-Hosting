@@ -121,7 +121,7 @@ export const HostUI = ({
 	const { isAuthenticated, user } = auth;
 
 	return (
-		<div style={{color:"lightgrey"}}>
+		<div className="my-5" style={{color:"lightgrey"}}>
 			{
 				isAuthenticated && user.username === hostedBy ?
 				<MatchGenerator
@@ -145,23 +145,20 @@ export const HostUI = ({
 export const StartBracket = ({ tournament }) => {
 	const { title, hostedBy, participants, bracket } = tournament;
   return (
-		<div 
-			className="text-center"
-			style={{color:"lightgrey"}}
-		>
+		<div className="bracket-position">
+			<div className="text-center" style={{color:"lightgrey"}}>
       <h1>{ title }</h1>
       <h4>By { hostedBy }</h4>
       <h4>{participants && participants.length}-player bracket</h4>
 			
-			<div>
-				<BracketGenerator
-					bracketSize={participants && participants.length}
-					players={bracket.players}
-					rounds={bracket.rounds}
-					scores={bracket.scores}
-				/>
+			<BracketGenerator
+				bracketSize={participants && participants.length}
+				players={bracket.players}
+				rounds={bracket.rounds}
+				scores={bracket.scores}
+			/>
+			<br /><Link to="/">Back to Tournaments main page</Link>
 			</div>
-      <br /><Link to="/">Back to Tournaments main page</Link>
     </div>
   );
 };
