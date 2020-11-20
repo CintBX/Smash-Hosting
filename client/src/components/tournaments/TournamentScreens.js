@@ -213,13 +213,13 @@ export const Results = ({ tournament }) => {
 			<div>
 				<Card
 					className="text-center"
-					style={{ fontSize:"3em", color:"#DA291CFF", backgroundColor:"#56A8CBFF" }}
+					style={{ fontSize:"2.8em", color:"#DA291CFF", backgroundColor:"#56A8CBFF" }}
 				>
 					<CardBody>
 						<CardTitle className="results-font">
-							<img src={logo} width="60" height="60" alt="Smash Brothers Logo" />
+							<img src={logo} width="50" height="50" alt="Smash Brothers Logo" />
 								<span className="mx-5">1st Place</span>
-							<img src={logo} width="60" height="60" alt="Smash Brothers Logo" />
+							<img src={logo} width="50" height="50" alt="Smash Brothers Logo" />
 						</CardTitle>
 					</CardBody>
 					<WinnerImage main={ winner.main } />
