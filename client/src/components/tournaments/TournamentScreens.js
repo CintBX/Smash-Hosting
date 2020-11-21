@@ -16,6 +16,7 @@ import {
 import DirectoryImage from '../players/DirectoryImage';
 import { fullRoster } from '../Characters';
 import logo from '../../logo.svg.png';
+import noCharSelected from '../../img/noCharWinnerImg.png';
 
 // Status === "Open"
 export const SignUpPage = ({ tournament, auth, onSignUp, onStartTournament }) => {
@@ -243,13 +244,20 @@ export const StartBracket = ({ tournament, auth }) => {
 
 // Status === "Complete"
 const WinnerImage = props => {
-	return fullRoster.map(({ src, name }) => {
-		if(name === props.main) {			
-			return <img width="100%" src={src} name={name} alt="main character" />
-		} else {
-			return null;
-		};
-	});
+	if(props.main){
+		return fullRoster.map(({ src, name }) => {
+			if(name === props.main) {			
+				return <img width="100%" src={src} name={name} alt="main character" />
+			}
+		});
+	} else {
+		return (
+			<div>
+				<img width="100%" src={noCharSelected} alt="no character selected" />
+				<h3>No Character selected!</h3>
+			</div>
+		)
+	}
 };
 
 export const Results = ({ tournament }) => {
