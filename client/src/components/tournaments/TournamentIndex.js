@@ -77,7 +77,7 @@ class TournamentIndex extends Component {
 					}
 					
 					<Link 
-						to={ `/tournaments/${_id}` } 
+						to={ `/tournaments/show/${_id}` } 
 						className="remove-underline"
 					>
 						<Button color="secondary" outline block className="mt-2">
