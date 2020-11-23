@@ -4,8 +4,7 @@ import {
   CardText,
   CardBody,
   Row,
-  Col,
-  Button
+  Col
 } from 'reactstrap';
 import ScoreKeeper from './scorekeeper';
 import ConfirmModal from '../../ConfirmModal';

@@ -151,7 +151,6 @@ export default function(state = initialState, action) {
 		case TOURNAMENT_SIGN_UP_FAIL:
 		case TOURNAMENT_STATUS_FAILED:
 		case SHUFFLE_FAILED:
-		case ADD_ROUND_FAILED:
 			return {
 				...state,
 			};

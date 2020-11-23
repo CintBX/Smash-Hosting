@@ -1,13 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { 
-  Button,
-  Card,
-  CardText,
-  CardBody,
-  Row,
-  Col
+  Button
 } from 'reactstrap';
-import ConfirmModal from '../ConfirmModal';
 import MatchCards from './resources/matchcards';
 
 class MatchGenerator extends Component {

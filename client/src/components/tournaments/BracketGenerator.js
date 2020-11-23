@@ -15,7 +15,7 @@ class BracketGenerator extends Component {
     let round3;
     let round4;
     let round5;
-    let round6;
+    // let round6;
 
     rounds && rounds.forEach(round => {
       if(round.round === 1) {
@@ -28,8 +28,6 @@ class BracketGenerator extends Component {
         round4 = round.matches;
       } else if(round.round === 5) {
         round5 = round.matches;
-      } else if(round.round === 6) {
-        round6 = round.matches;
       };
     });
 
@@ -38,7 +36,7 @@ class BracketGenerator extends Component {
     let round3Scores;
     let round4Scores;
     let round5Scores;
-    let round6Scores;
+    // let round6Scores;
 
     scores && scores.forEach(score => {
       if(score.round === 1) {
@@ -51,8 +49,6 @@ class BracketGenerator extends Component {
         round4Scores = score.scores;
       } else if(score.round === 5) {
         round5Scores = score.scores;
-      } else if(score.round === 6) {
-        round6Scores = score.scores;
       }
     });
 
