@@ -1,9 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
-const config = require('config');
+// const config = require('config');
+const dotenv = require('dotenv');
 const jwt = require('jsonwebtoken');
 const authorize = require('../../middleware/authorize');
+
+dotenv.config();
+const jwtSecret = process.env.JWT_SECRET;
 
 
 // User Model
@@ -41,7 +45,7 @@ router.post('/register', (req, res) => {
 					.then(user => {
 						jwt.sign(
 							{ id: user.id },
-							config.get('jwtSecret'),
+							jwtSecret,
 							{ expiresIn: 3600 },
 							(err, token) => {
 								if(err) throw err;
@@ -93,7 +97,7 @@ router.post('/login', (req, res) => {
 
 				jwt.sign(
 					{ id: user.id },
-					config.get('jwtSecret'),
+					jwtSecret,
 					{ expiresIn: 3600 },
 					(err, token) => {
 						if(err) throw err;

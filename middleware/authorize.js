@@ -1,7 +1,10 @@
 // Use this middleware when you need a private route
 
-const config = require('config');
+// const config = require('config');
+const dotenv = require('dotenv');
 const jwt = require('jsonwebtoken');
+dotenv.config();
+const jwtSecret = process.env.JWT_SECRET;
 
 function authorize(req, res, next) {
 	const token = req.header('x-auth-token');
@@ -11,7 +14,7 @@ function authorize(req, res, next) {
 
 	try {
 		// Verify Token
-		const decoded = jwt.verify(token, config.get('jwtSecret'));
+		const decoded = jwt.verify(token, jwtSecret);
 
 		// Add user from payload
 		req.user = decoded;
