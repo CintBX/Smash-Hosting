@@ -17,7 +17,7 @@ const db = config.get('mongoURI');
 
 // Connect to MongoDB
 mongoose
-	.connect(process.env.mongoURI || db, { 
+	.connect(process.env.URI || db, { 
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
 		useCreateIndex: true
