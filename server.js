@@ -20,7 +20,7 @@ const url = process.env.MONGO_URI;
 
 // Connect to MongoDB
 mongoose
-	.connect(process.env.URI || url, { 
+	.connect(url, { 
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
 		useCreateIndex: true
