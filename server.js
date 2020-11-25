@@ -15,12 +15,11 @@ app.use(express.json());
 // You can get all your config/ values with config.get('')
 // const db = config.get('mongoURI');
 dotenv.config();
-const url = process.env.MONGO_URI;
 
 
 // Connect to MongoDB
 mongoose
-	.connect(url, { 
+	.connect(process.env.MONGO_URI, { 
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
 		useCreateIndex: true
