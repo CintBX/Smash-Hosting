@@ -1,25 +1,19 @@
 const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
-// const config = require('config');
 const cors = require('cors');
 const path = require('path');
 const dotenv = require('dotenv');
+dotenv.config();
 
 
 // Middleware
 app.use(express.json());
 
 
-// DB Config
-// You can get all your config/ values with config.get('')
-// const db = config.get('mongoURI');
-dotenv.config();
-
-
 // Connect to MongoDB
 mongoose
-	.connect(process.env.MONGO_URI, { 
+	.connect(process.env.URI || process.env.MONGO_URI, { 
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
 		useCreateIndex: true
