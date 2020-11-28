@@ -269,7 +269,9 @@ export const Results = ({ tournament }) => {
 	const thirdPlaceWinners = [];
 
 	// 1st place winner
-	winner = bracket.champion[0];
+	bracket.champion && bracket.champion.forEach(champ => {
+		winner = champ;
+	});
 
 	// 2nd place winner
 	bracket.rounds[n-1].matches.forEach(player => {
@@ -427,8 +429,8 @@ export const Results = ({ tournament }) => {
 							players={bracket.players}
 							scores={bracket.scores}
 						/>
+						<br /><Link to="/">Back to Tournaments main page</Link>
 					</BracketWrapper>
-					<br /><Link to="/">Back to Tournaments main page</Link>
 				</div>
 			</div>
 		);
