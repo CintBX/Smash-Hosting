@@ -51,7 +51,7 @@ export const SignUpPage = ({ tournament, auth, onSignUp, onStartTournament }) =>
 			<br />
 
 			<p className="text-center" style={{color: "#56A8CBFF", fontSize: "2em"}}>
-				~ { status } for registration ~
+				{ status } for registration
 			</p>
 
 			<h4 className="text-left mt-5">
@@ -165,7 +165,7 @@ export const HostUI = ({
 					<br />
 
 					<p className="text-center" style={{color: "#56A8CBFF", fontSize: "2em"}}>
-						~ Registration { status } ~
+						Registration { status }
 					</p>
 
 					<h4 className="text-left mt-5">
@@ -216,11 +216,12 @@ export const BracketWrapper = props => {
 export const StartBracket = ({ tournament, auth }) => {
 	const { hostedBy, participants, bracket } = tournament;
 	const { isAuthenticated, user } = auth;
-	const firstRoundLength = bracket.rounds[0].matches.length;
+	const n = bracket.rounds.length;
+	const roundLength = bracket.rounds[n-1].matches.length;
 	const bracketLength = participants && participants.length;
   return (
 		<div className={
-			firstRoundLength === 2 && (isAuthenticated && user.username === hostedBy) ? 
+			roundLength === 2 && (isAuthenticated && user.username === hostedBy) ? 
 			"bracket-margin"
 			: null
 		}>
@@ -284,7 +285,7 @@ export const Results = ({ tournament }) => {
 		};
 	});
 
-	if(winner) {
+	// if(winner) {
 		return (
 			<div style={{color:"lightgrey"}}>
 				<h1 className="text-center">
@@ -336,7 +337,7 @@ export const Results = ({ tournament }) => {
 				<br/>
 	
 				<p className="text-center results-font" style={{color: "#56A8CBFF", fontSize: "1.9em"}}>
-					~ 2nd Place Winner ~
+					2nd Place Winner
 				</p>
 				<p>
 					<Link to={`/player/${secondPlaceWinner._id}`} className="remove-underline">
@@ -363,7 +364,7 @@ export const Results = ({ tournament }) => {
 	
 	
 				<p className="text-center results-font" style={{color: "#56A8CBFF", fontSize: "1.9em"}}>
-					~ 3rd Place Semi-Finalists ~
+					3rd Place Semi-Finalists
 				</p>
 				<p>
 					<Link to={`/player/${thirdPlaceWinners[0]._id}`} className="remove-underline">
@@ -431,5 +432,5 @@ export const Results = ({ tournament }) => {
 				</div>
 			</div>
 		);
-	}
+	// }
 };
