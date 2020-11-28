@@ -16,6 +16,7 @@ import {
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Spinner } from 'reactstrap';
+import { Redirect } from 'react-router-dom';
 
 
 class TournamentShow extends Component {
@@ -32,7 +33,8 @@ class TournamentShow extends Component {
 			winners: [],
 			scores: [],
 			scoreOne: 0,
-			scoreTwo: 0
+			scoreTwo: 0,
+			redirectBack: false
 		};
 
 		// Start Tournament functions for various bracket sizes
@@ -59,6 +61,12 @@ class TournamentShow extends Component {
 	componentDidMount() {
 		const id = this.props.match.params.id;
 		this.props.showTournament(id);
+	};
+
+	componentDidUpdate() {
+		if(this.state.redirectBack) {
+      this.setState({ redirectBack: false });
+    };
 	};
 
 	static propTypes = {
@@ -418,7 +426,8 @@ class TournamentShow extends Component {
 			winners: [],
 			scores: [],
 			scoreOne: 0,
-			scoreTwo: 0
+			scoreTwo: 0,
+			redirectBack: true
 		});
 	};
 
@@ -477,7 +486,8 @@ class TournamentShow extends Component {
 			winners: [],
 			scores: [],
 			scoreOne: 0,
-			scoreTwo: 0
+			scoreTwo: 0,
+			redirectBack: true
 		});
 	};
 
@@ -548,7 +558,8 @@ class TournamentShow extends Component {
 			winners: [],
 			scores: [],
 			scoreOne: 0,
-			scoreTwo: 0
+			scoreTwo: 0,
+			redirectBack: true
 		});
 	};
 
@@ -624,7 +635,8 @@ class TournamentShow extends Component {
 			winners: [],
 			scores: [],
 			scoreOne: 0,
-			scoreTwo: 0
+			scoreTwo: 0,
+			redirectBack: true
 		});
 	};
 
@@ -706,7 +718,8 @@ class TournamentShow extends Component {
 			winners: [],
 			scores: [],
 			scoreOne: 0,
-			scoreTwo: 0
+			scoreTwo: 0,
+			redirectBack: true
 		});
 	};
 
@@ -777,7 +790,8 @@ class TournamentShow extends Component {
 			winners: [],
 			scores: [],
 			scoreOne: 0,
-			scoreTwo: 0
+			scoreTwo: 0,
+			redirectBack: true
 		});
 	};
 
@@ -851,7 +865,8 @@ class TournamentShow extends Component {
 			winners: [],
 			scores: [],
 			scoreOne: 0,
-			scoreTwo: 0
+			scoreTwo: 0,
+			redirectBack: true
 		});
 	};
 
@@ -928,13 +943,17 @@ class TournamentShow extends Component {
 			winners: [],
 			scores: [],
 			scoreOne: 0,
-			scoreTwo: 0
+			scoreTwo: 0,
+			redirectBack: true
 		});
 	};
 
 	render() {
-		const { participants } = this.props.tournament.showTournament;
+		const redirectBack = this.state.redirectBack;
+		const { _id, participants } = this.props.tournament.showTournament;
 		const loading = this.props.tournament.loading || !this.props.tournament.showTournament;
+
+		if(redirectBack) return <Redirect to={ `/tournaments/show/${_id}` } />;
 
 		if(loading) {
 			return <Spinner color="light" /> 
