@@ -308,9 +308,9 @@ export const setChampion = (id, user) => dispatch => {
 	const body = JSON.stringify({ user });
 
 	axios.post(`/tournaments/${id}/set-champ`, body, config)
-		.then(res => dispatch({
+		.then(() => dispatch({
 			type: SET_CHAMPION,
-			payload: res.data
+			payload: user
 		}))
 		.catch(err => {
 			dispatch(returnErrors(err.response.data, err.response.status));
