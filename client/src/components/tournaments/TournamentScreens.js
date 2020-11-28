@@ -315,9 +315,9 @@ export const Results = ({ tournament }) => {
 					>
 						<CardBody>
 							<CardTitle className="results-font">
-								<img src={logo} width="35" height="35" alt="Smash Brothers Logo" />
+								<img src={logo} width="25" height="25" alt="Smash Brothers Logo" />
 									<span className="mx-5">1st Place</span>
-								<img src={logo} width="35" height="35" alt="Smash Brothers Logo" />
+								<img src={logo} width="25" height="25" alt="Smash Brothers Logo" />
 							</CardTitle>
 						</CardBody>
 						<WinnerImage main={ winner.main } />
