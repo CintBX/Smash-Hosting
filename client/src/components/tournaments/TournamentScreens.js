@@ -16,7 +16,9 @@ import {
 import DirectoryImage from '../players/DirectoryImage';
 import { fullRoster } from '../Characters';
 import logo from '../../logo.svg.png';
+import whitelogo from '../../white-logo.png';
 import noCharSelected from '../../img/noCharWinnerImg.png';
+import ChampionLogo from '../../img/champion-logo.jpg';
 
 // Status === "Open"
 export const SignUpPage = ({ tournament, auth, onSignUp, onStartTournament }) => {
@@ -311,25 +313,21 @@ export const Results = ({ tournament }) => {
 				<br/>
 	
 				<div>
-					<Card
-						className="text-center"
-						style={{ fontSize:"2.8em", color:"#DA291CFF", backgroundColor:"#56A8CBFF" }}
-					>
-						<CardBody>
-							<CardTitle className="results-font">
-								<img src={logo} width="25" height="25" alt="Smash Brothers Logo" />
-									<span className="mx-5">1st Place</span>
-								<img src={logo} width="25" height="25" alt="Smash Brothers Logo" />
-							</CardTitle>
-						</CardBody>
-						<WinnerImage main={ winner.main } />
+					<Card className="text-center champion-card">
+						<img src={ChampionLogo} width="100%" alt="champion logo" />
 						<CardBody>
 							<CardText>
-								{ winner.username }
+								<span className="mx-5">
+									<img src={logo}	width="25" height="25" alt="Smash Brothers Logo" />
+									<span className="mx-5">{ winner.username }</span>
+									<img src={logo} width="25" height="25" alt="Smash Brothers Logo" />
+								</span>
+								<p style={{fontSize:"0.5em"}}>
+								</p>
 							</CardText>
 							<Link to={`/player/${winner._id}`} className="remove-underline">
-								<Button style={{fontSize:"0.5em"}} block outline color="danger">
-									View Profile
+								<Button className="view-champ-profile-btn" style={{fontSize:"0.5em"}} block outline>
+									<span className="mx-5">View Profile</span>
 								</Button>
 							</Link>
 						</CardBody>

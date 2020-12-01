@@ -152,7 +152,21 @@ body {
 .results-font {
 	font-family: 'Merriweather Sans', sans-serif;
 }
-
+.champion-card {
+	font-size: 2.8em;
+	color: #DA291CFF;
+	background-color: #56A8CBFF;
+	border: 0px;
+}
+.view-champ-profile-btn {
+	color: #DA291CFF;
+	border-color: #DA291CFF;
+}
+.view-champ-profile-btn:hover {
+	color: white;
+	background-color: #DA291CFF;
+	border-color: transparent;
+}
 
 /*
  * Bracket && UI Position
