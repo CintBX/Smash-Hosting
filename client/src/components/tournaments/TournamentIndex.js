@@ -81,7 +81,7 @@ class TournamentIndex extends Component {
 						className="remove-underline"
 					>
 						<Button color="secondary" outline block className="mt-2">
-							<b className="enter-btn">Enter</b>
+							<b className="enter-btn">View Tournament</b>
 						</Button>
 					</Link>
 					
